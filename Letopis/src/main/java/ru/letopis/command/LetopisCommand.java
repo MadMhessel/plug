@@ -207,7 +207,7 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         if (sub.equalsIgnoreCase("reload")) {
-            manager.reloadAll();
+            manager.reloadPlugin();
             sender.sendMessage(prefix() + "§aПерезагружено.");
             return true;
         }

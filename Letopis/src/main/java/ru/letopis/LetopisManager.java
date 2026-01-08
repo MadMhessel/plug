@@ -510,14 +510,19 @@ public final class LetopisManager implements Listener {
         return messages;
     }
 
-    public void reloadAll() {
-        if (plugin instanceof LetopisPlugin letopis) {\n            letopis.reloadLetopis();\n        }\n    }
+    public void reloadPlugin() {
+        if (plugin instanceof LetopisPlugin letopis) {
+            letopis.reloadLetopis();
+        }
+    }
 
     public StorageService storage() {
         return storage;
     }
 
-    public File dataFolder() {\n        return plugin.getDataFolder();\n    }
+    public File dataFolder() {
+        return plugin.getDataFolder();
+    }
 
     public NamespacedKey eventKey() {
         return eventKey;
