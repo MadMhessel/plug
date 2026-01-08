@@ -1,0 +1,32 @@
+prefix: "§8[§aДанж§8]§r "
+
+help:
+  - "§a/letodungeon help§7 — помощь"
+  - "§a/letodungeon join§7 — войти в лобби данжа"
+  - "§a/letodungeon leave§7 — выйти из данжа"
+  - "§a/letodungeon status§7 — статус"
+  - "§a/letodungeon guide§7 — книга-инструкция"
+  - "§cАдмин: /letodungeon admin start|stop|reload|set"
+
+guideBook:
+  title: "Путеводитель данжа"
+  author: "Летопись"
+  pages:
+    - |
+      §lДанж с режиссёром§r
+
+      Забег на 20–35 минут.
+      Если стоять и тянуть — давление растёт.
+
+      /letodungeon join
+      /letodungeon leave
+      /letodungeon status
+    - |
+      §lНапряжение§r
+
+      Шкала 0..1000.
+      250+ — давит
+      500+ — опасно
+      750+ — критично
+
+      Лучший ответ: движение и координация.

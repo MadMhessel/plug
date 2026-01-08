@@ -1,0 +1,5 @@
+rooms:
+  - key: "letopis_dungeon:rooms/entry"
+    type: "ENTRY"
+  - key: "letopis_dungeon:rooms/combat_1"
+    type: "COMBAT_WAVE"
