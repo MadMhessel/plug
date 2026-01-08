@@ -34,3 +34,9 @@ CREATE TABLE IF NOT EXISTS player_meta (
   title TEXT NULL,
   cosmetics_enabled INTEGER NOT NULL DEFAULT 1
 );
+
+CREATE TABLE IF NOT EXISTS player_titles (
+  uuid TEXT NOT NULL,
+  title TEXT NOT NULL,
+  PRIMARY KEY (uuid, title)
+);
