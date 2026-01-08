@@ -25,7 +25,7 @@ public final class RateLimiter {
             bucket.minuteKey = minuteKey;
             bucket.points = 0;
         }
-        double allowed = Math.max(0, maxPerMinute - bucket.points);
+        double allowed = Math.max(0.0, maxPerMinute - bucket.points);
         double applied = Math.min(delta, allowed);
         bucket.points += applied;
         return applied;
