@@ -15,7 +15,7 @@ public final class WorldState {
     public WorldState(String world) {
         this.world = world;
         for (Scale scale : Scale.values()) {
-            values.put(scale, 0);
+            values.put(scale, 0.0);
         }
     }
 
@@ -28,11 +28,11 @@ public final class WorldState {
     }
 
     public void set(Scale scale, double value) {
-        values.put(scale, Math.max(0, value));
+        values.put(scale, Math.max(0.0, value));
     }
 
     public void add(Scale scale, double delta, double max) {
-        double value = Math.min(max, Math.max(0, get(scale) + delta));
+        double value = Math.min(max, Math.max(0.0, get(scale) + delta));
         values.put(scale, value);
     }
 

@@ -557,7 +557,7 @@ public final class LetopisManager implements Listener {
     public void setScaleValue(World world, Scale scale, double value) {
         WorldState state = worldStates.get(world.getName());
         if (state == null) return;
-        state.set(scale, Math.min(config.thresholdMax, Math.max(0, value)));
+        state.set(scale, Math.min(config.thresholdMax, Math.max(0.0, value)));
         storage.saveWorldState(state);
     }
 
