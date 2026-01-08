@@ -21,6 +21,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.Locale;
 
 public final class LetopisCommand implements CommandExecutor, TabCompleter {
     private final LetopisManager manager;
@@ -65,7 +66,7 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
         if (state == null) return true;
         sender.sendMessage(prefix() + "§eСостояние мира:");
         for (Scale scale : Scale.values()) {
-            sender.sendMessage("§7" + scale.displayName() + ": §f" + state.get(scale) + "/" + manager.config().thresholdMax);
+            sender.sendMessage("§7" + scale.displayName() + ": §f" + String.format(Locale.US, "%.2f", state.get(scale)) + "/" + manager.config().thresholdMax);
         }
         return true;
     }
@@ -166,15 +167,16 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
             for (World world : Bukkit.getWorlds()) {
                 WorldState state = manager.getWorldState(world.getName());
                 if (state == null) continue;
-                sender.sendMessage("§e" + world.getName() + " §7» Шум " + state.get(Scale.NOISE) + " Пепел " + state.get(Scale.ASH)
-                    + " Чаща " + state.get(Scale.GROVE) + " Разлом " + state.get(Scale.RIFT));
+                sender.sendMessage("§e" + world.getName() + " §7» Шум " + String.format(Locale.US, "%.2f", state.get(Scale.NOISE)) + " Пепел "
+                    + String.format(Locale.US, "%.2f", state.get(Scale.ASH)) + " Чаща " + String.format(Locale.US, "%.2f", state.get(Scale.GROVE))
+                    + " Разлом " + String.format(Locale.US, "%.2f", state.get(Scale.RIFT)));
             }
             return true;
         }
         if (sub.equalsIgnoreCase("set") && args.length >= 5) {
             World world = Bukkit.getWorld(args[2]);
             Scale scale = Scale.fromKey(args[3]);
-            int value = Integer.parseInt(args[4]);
+            double value = Double.parseDouble(args[4]);
             if (world != null && scale != null) {
                 manager.setScaleValue(world, scale, value);
                 sender.sendMessage(prefix() + "§aГотово.");
@@ -184,7 +186,7 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
         if (sub.equalsIgnoreCase("add") && args.length >= 5) {
             World world = Bukkit.getWorld(args[2]);
             Scale scale = Scale.fromKey(args[3]);
-            int delta = Integer.parseInt(args[4]);
+            double delta = Double.parseDouble(args[4]);
             if (world != null && scale != null) {
                 manager.addScaleValue(world, scale, delta);
                 sender.sendMessage(prefix() + "§aГотово.");
@@ -210,7 +212,12 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         if (sub.equalsIgnoreCase("export")) {
-            File out = new File(manager.dataFolder(), "letopis_export.json");
+            String stamp = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm").withZone(ZoneId.systemDefault())
+                .format(Instant.now());
+            File out = new File(manager.dataFolder(), "export/letopis_export_" + stamp + ".json");
+            if (out.getParentFile() != null) {
+                out.getParentFile().mkdirs();
+            }
             try (FileWriter writer = new FileWriter(out)) {
                 writer.write(manager.storage().exportJson());
             } catch (IOException e) {

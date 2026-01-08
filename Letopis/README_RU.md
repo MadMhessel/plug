@@ -8,7 +8,7 @@
 1. Откройте папку проекта как Gradle-проект.
 2. Дождитесь загрузки зависимостей.
 3. Выполните задачу Gradle: `build`.
-4. Готовый файл: `build/libs/Letopis-1.0.0.jar`.
+4. Готовый файл: `build/libs/Letopis-1.0.1.jar`.
 
 ### Вариант 2 — через Gradle
 Если Gradle установлен:
@@ -17,7 +17,7 @@ gradle build
 ```
 
 ## Установка на сервер
-1. Положите `Letopis-1.0.0.jar` в папку `plugins/`.
+1. Положите `Letopis-1.0.1.jar` в папку `plugins/`.
 2. Запустите сервер.
 3. Проверьте, что появились:
    - `plugins/Letopis/config.yml`
@@ -38,7 +38,7 @@ gradle build
 - `/letopis admin start <world> <scale>` — принудительно стартовать событие.
 - `/letopis admin stop <world>` — остановить событие.
 - `/letopis admin reload` — перечитать конфиг и сообщения.
-- `/letopis admin export` — экспортировать журнал и состояние в JSON.
+- `/letopis admin export` — экспортировать журнал и состояние в JSON (папка `export/`).
 - `/letopis admin givecodex <player>` — выдать «Кодекс Летописи».
 
 ## Алтарь Летописи (ритуал)
