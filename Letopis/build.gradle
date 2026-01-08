@@ -1,9 +1,12 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'ru.letopis'
 version = '1.0.1'
+
+description = 'Letopis ("Летопись мира") — динамические события и шкалы напряжения мира.'
 
 java {
     toolchain {
@@ -17,8 +20,11 @@ repositories {
 }
 
 dependencies {
-    // Paper API (без NMS)
-    compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    // API сервера (НЕ вшивать в jar)
+    compileOnly 'io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT'
+
+    // Вшиваемый драйвер SQLite (иначе "No suitable driver" на сервере)
+    implementation 'org.xerial:sqlite-jdbc:3.45.2.0'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -27,9 +33,25 @@ tasks.withType(JavaCompile).configureEach {
 
 processResources {
     filteringCharset = 'UTF-8'
+    // Подставляем версию в plugin.yml (иначе в игре будет "${version}")
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
 }
 
+// Делаем "fat-jar" (шадоу) одним артефактом без classifier.
+shadowJar {
+    archiveBaseName.set('Letopis')
+    archiveClassifier.set('')
+    // sqlite-jdbc использует ServiceLoader; на всякий случай склеиваем сервисы.
+    mergeServiceFiles()
+}
+
+// Обычный jar без зависимостей выключаем, чтобы не перепутать при загрузке на сервер.
 jar {
-    archiveBaseName.set("Letopis")
-    archiveVersion.set(project.version.toString())
+    enabled = false
+}
+
+build {
+    dependsOn shadowJar
 }

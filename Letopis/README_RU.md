@@ -1,19 +1,35 @@
 # Letopis — «Летопись мира»
 
 Плагин добавляет «живой мир» с 4 шкалами напряжения, предвестниками и событиями.
-Работает на Paper/Spigot 1.20.1+ (JDK 17, без NMS), хранение — SQLite.
+Работает на Paper/Spigot 1.20.1+ (без NMS), хранение — SQLite.
+
+Целевая версия Java для сборки плагина: 17.
+Требования к Java на сервере зависят от версии Minecraft:
+- 1.20.x → Java 17
+- 1.21+ → Java 21
 
 ## Сборка
 ### Вариант 1 — IntelliJ IDEA
 1. Откройте папку проекта как Gradle-проект.
 2. Дождитесь загрузки зависимостей.
-3. Выполните задачу Gradle: `build`.
+3. Выполните задачу Gradle: `build` (она собирает fat-jar с SQLite-драйвером).
 4. Готовый файл: `build/libs/Letopis-1.0.1.jar`.
 
-### Вариант 2 — через Gradle
-Если Gradle установлен:
+### Вариант 2 — через консоль
+Если у вас есть Gradle (или вы создали wrapper командой `gradle wrapper`):
+
+Windows:
+```powershell
+.\gradlew.bat clean build
+# или (если wrapper не создан)
+gradle clean build
+```
+
+Linux/macOS:
 ```bash
-gradle build
+./gradlew clean build
+# или
+gradle clean build
 ```
 
 ## Установка на сервер
@@ -68,5 +84,7 @@ gradle build
 - `messages.yml` — тексты сообщений.
 
 ## Частые проблемы
-- Проверьте, что используется Paper 1.20.1+ и JDK 17.
+- Проверьте версию Java на сервере:
+  - Paper/Minecraft 1.20.x → Java 17
+  - Paper/Minecraft 1.21+ → Java 21
 - Если события не запускаются, убедитесь что шкалы не на нуле и мир включён в `general.worlds`.

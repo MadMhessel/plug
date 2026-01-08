@@ -1,58 +1,62 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal EnableExtensions
 
-if "%SERVER_DIR%"=="" set "SERVER_DIR=..\server"
-if "%SERVER_JAR%"=="" set "SERVER_JAR=%SERVER_DIR%\server.jar"
-if "%XMS%"=="" set "XMS=1G"
-if "%XMX%"=="" set "XMX=6G"
+REM Запуск локального Paper-сервера из папки server/ рядом с репозиторием.
+REM Скрипт сначала пытается собрать плагин через Gradle Wrapper (gradlew),
+REM если его нет — через установленный gradle.
 
-echo [Letopis] Проверка Java...
-java -version
-if errorlevel 1 (
-  echo [Letopis] Ошибка: Java не найдена в PATH.
-  exit /b 1
-)
+set "ROOT=%~dp0..\"
+set "SERVER_DIR=%ROOT%server"
+set "SERVER_JAR=%SERVER_DIR%\server.jar"
 
-if not exist "gradlew.bat" (
-  echo [Letopis] Ошибка: gradlew.bat не найден в корне репозитория.
-  exit /b 1
-)
+pushd "%ROOT%" || exit /b 1
 
 echo [Letopis] Сборка плагина...
-call gradlew.bat clean build
-if errorlevel 1 (
-  echo [Letopis] Ошибка: сборка завершилась неуспешно.
-  exit /b 1
-)
-
-set "PLUGIN_JAR="
-for /f "delims=" %%F in ('dir /b /a:-d /o-d "build\libs\Letopis-*.jar" 2^>nul') do (
-  set "PLUGIN_JAR=build\libs\%%F"
-  goto :jar_found
-)
-
-echo [Letopis] Ошибка: не найден JAR в build\libs\Letopis-*.jar
-exit /b 1
-
-:jar_found
-if not exist "%SERVER_DIR%\plugins" (
-  mkdir "%SERVER_DIR%\plugins"
-)
-
-echo [Letopis] Копирование !PLUGIN_JAR! в %SERVER_DIR%\plugins\
-copy /Y "!PLUGIN_JAR!" "%SERVER_DIR%\plugins\" >nul
-if errorlevel 1 (
-  echo [Letopis] Ошибка: не удалось скопировать JAR.
-  exit /b 1
+if exist "%ROOT%gradlew.bat" (
+  call "%ROOT%gradlew.bat" clean build || exit /b 1
+) else (
+  where gradle >nul 2>nul
+  if errorlevel 1 (
+    echo [Letopis] НЕ НАЙДЕН gradlew.bat и НЕ НАЙДЕН gradle в PATH.
+    echo [Letopis] Решение: выполните `gradle wrapper` в корне проекта и повторите,
+    echo          либо установите Gradle и добавьте его в PATH.
+    popd
+    exit /b 1
+  )
+  gradle clean build || exit /b 1
 )
 
 if not exist "%SERVER_JAR%" (
-  echo [Letopis] Ошибка: не найден сервер Paper: %SERVER_JAR%
+  echo [Letopis] Не найден %SERVER_JAR%
+  echo [Letopis] Положите Paper jar в server\server.jar
+  popd
   exit /b 1
 )
 
-echo [Letopis] Запуск сервера...
-echo java -Xms%XMS% -Xmx%XMX% -jar "%SERVER_JAR%" nogui
-pushd "%SERVER_DIR%"
-java -Xms%XMS% -Xmx%XMX% -jar "%SERVER_JAR%" nogui
+if not exist "%SERVER_DIR%\eula.txt" (
+  echo [Letopis] Не найден server\eula.txt
+  echo [Letopis] Один раз запустите сервер вручную и примите EULA.
+  popd
+  exit /b 1
+)
+
+echo [Letopis] Установка плагина в server\plugins...
+if not exist "%SERVER_DIR%\plugins" mkdir "%SERVER_DIR%\plugins"
+
+set "COPIED=0"
+for %%F in ("%ROOT%build\libs\Letopis-*.jar") do (
+  copy /Y "%%~fF" "%SERVER_DIR%\plugins\" >nul
+  set "COPIED=1"
+)
+
+if "%COPIED%"=="0" (
+  echo [Letopis] Не найден собранный jar в build\libs\Letopis-*.jar
+  popd
+  exit /b 1
+)
+
+echo [Letopis] Старт сервера...
+pushd "%SERVER_DIR%" || exit /b 1
+java -Xms512M -Xmx2G -jar server.jar nogui
+popd
 popd
