@@ -1,0 +1,24 @@
+name: Letopis
+version: ${version}
+main: ru.letopis.LetopisPlugin
+api-version: "1.20"
+author: Denis
+description: "Летопись мира — живой мир с напряжением, предвестниками и событиями."
+commands:
+  letopis:
+    description: "Главная команда Летописи"
+    usage: "/letopis"
+    permission: letopis.use
+permissions:
+  letopis.use:
+    default: true
+  letopis.journal:
+    default: true
+  letopis.cosmetics:
+    default: true
+  letopis.admin:
+    default: op
+  letopis.admin.reload:
+    default: op
+  letopis.admin.export:
+    default: op
