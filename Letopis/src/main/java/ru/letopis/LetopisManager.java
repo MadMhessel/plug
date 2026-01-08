@@ -18,7 +18,8 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.FurnaceExtractEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
-import org.bukkit.event.player.PlayerDeathEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.event.world.PortalCreateEvent;
@@ -28,6 +29,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 import ru.letopis.config.LetopisConfig;
@@ -998,7 +1000,7 @@ public final class LetopisManager implements Listener {
                     if (groveProgress >= 10) {
                         groveProgress = 0;
                         groveSeals = Math.max(0, groveSeals - 1);
-                        world.spawnParticle(Particle.HAPPY_VILLAGER, groveHeart.getLocation(), 20, 0.5, 0.5, 0.5, 0.05);
+                        world.spawnParticle(Particle.VILLAGER_HAPPY, groveHeart.getLocation(), 20, 0.5, 0.5, 0.5, 0.05);
                         if (bossMode && boss == null && groveSeals <= 1) {
                             boss = spawnBoss(EntityType.IRON_GOLEM, "Страж чащи");
                         }
@@ -1027,7 +1029,7 @@ public final class LetopisManager implements Listener {
             int count = baseCount + config.scalingWaveAdd * Math.max(0, participants.size() - 1);
             for (int i = 0; i < count; i++) {
                 Location loc = center.clone().add(randomOffset(10), 0, randomOffset(10));
-                world.spawnEntity(loc, type, SpawnReason.CUSTOM, entity -> {
+                world.spawnEntity(loc, type, CreatureSpawnEvent.SpawnReason.CUSTOM, entity -> {
                     if (entity instanceof LivingEntity living) {
                         applyScaling(living);
                         tagEntity(living, "wave");
@@ -1103,7 +1105,7 @@ public final class LetopisManager implements Listener {
 
         private LivingEntity spawnBoss(EntityType type, String name) {
             Location loc = center.clone();
-            return (LivingEntity) world.spawnEntity(loc, type, SpawnReason.CUSTOM, entity -> {
+            return (LivingEntity) world.spawnEntity(loc, type, CreatureSpawnEvent.SpawnReason.CUSTOM, entity -> {
                 if (entity instanceof LivingEntity living) {
                     living.setCustomName(ChatColor.GOLD + name);
                     living.setCustomNameVisible(true);
