@@ -319,14 +319,25 @@ public final class LetopisManager implements Listener {
         if (state == null) return;
         Location center = pickEventLocation(world, scale);
         if (center == null) return;
-        ActiveEvent event = new ActiveEvent(scale, world, center, state.get(scale) >= config.thresholdBoss);
+        boolean bossMode = state.get(scale) >= config.thresholdBoss;
+        ActiveEvent event = new ActiveEvent(scale, world, center, bossMode);
         activeEvents.put(world.getName(), event);
         state.setActiveEventId(event.id.toString());
-        long endTs = Instant.now().getEpochSecond() + config.eventDuration.getOrDefault(scale, 480);
+        long durationSeconds = config.eventDuration.getOrDefault(scale, 480);
+        long endTs = Instant.now().getEpochSecond() + durationSeconds;
         state.setEventEndTs(endTs);
         storage.saveWorldState(state);
         storage.insertJournal(new JournalEntry(Instant.now().getEpochSecond(), world.getName(), "EVENT_START", scale,
             "{\"x\":" + center.getBlockX() + ",\"y\":" + center.getBlockY() + ",\"z\":" + center.getBlockZ() + "}"));
+        plugin.getLogger().info(String.format(
+            "Letopis event started: world=%s scale=%s bossMode=%s center=%d,%d,%d duration=%ds",
+            world.getName(),
+            scale.key(),
+            bossMode,
+            center.getBlockX(),
+            center.getBlockY(),
+            center.getBlockZ(),
+            durationSeconds));
 
         for (Player player : world.getPlayers()) {
             player.sendMessage(prefix() + messages.getString("event.start", "")
@@ -907,11 +918,8 @@ public final class LetopisManager implements Listener {
 
         private void tick(long now) {
             if (now >= endTs) {
-                if (isSuccess()) {
-                    endEvent(this, true);
-                } else {
-                    endEvent(this, false);
-                }
+                boolean success = (scale == Scale.NOISE && !bossMode) || isSuccess();
+                endEvent(this, success);
                 return;
             }
             updateParticipants();
@@ -1156,11 +1164,31 @@ public final class LetopisManager implements Listener {
 
         private boolean isSuccess() {
             return switch (scale) {
-                case NOISE -> !bossMode || (boss != null && boss.isDead());
+                case NOISE -> bossMode && boss != null && boss.isDead();
                 case ASH -> ashClosed >= 3 && (!bossMode || (boss != null && boss.isDead()));
                 case GROVE -> groveSeals <= 0 && (!bossMode || (boss != null && boss.isDead()));
                 case RIFT -> riftClosed >= 4 && (!bossMode || (boss != null && boss.isDead()));
             };
+        }
+
+        public Scale scale() {
+            return scale;
+        }
+
+        public Location center() {
+            return center.clone();
+        }
+
+        public boolean bossMode() {
+            return bossMode;
+        }
+
+        public long endTs() {
+            return endTs;
+        }
+
+        public LivingEntity boss() {
+            return boss;
         }
 
         private void handleObjectiveInteract(Player player, ArmorStand stand, String objective, ItemStack hand) {

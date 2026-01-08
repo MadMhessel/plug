@@ -176,7 +176,7 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         if (args.length < 2) {
-            sender.sendMessage(prefix() + "§e/admin status|set|add|start|stop|reload|export|givecodex");
+            sender.sendMessage(prefix() + "§e/admin status|set|add|start|stop|reload|export|givecodex|where");
             return true;
         }
         String sub = args[1];
@@ -188,6 +188,33 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
                     + String.format(Locale.US, "%.2f", state.get(Scale.ASH)) + " Чаща " + String.format(Locale.US, "%.2f", state.get(Scale.GROVE))
                     + " Разлом " + String.format(Locale.US, "%.2f", state.get(Scale.RIFT)));
             }
+            return true;
+        }
+        if (sub.equalsIgnoreCase("where") && args.length >= 3) {
+            World world = Bukkit.getWorld(args[2]);
+            if (world == null) {
+                sender.sendMessage(prefix() + "§cМир не найден.");
+                return true;
+            }
+            LetopisManager.ActiveEvent event = manager.getActiveEvent(world);
+            if (event == null) {
+                sender.sendMessage(prefix() + "§eАктивных событий в мире " + world.getName() + " нет.");
+                return true;
+            }
+            long secondsLeft = Math.max(0, event.endTs() - Instant.now().getEpochSecond());
+            String time = String.format("%02d:%02d", secondsLeft / 60, secondsLeft % 60);
+            org.bukkit.Location center = event.center();
+            String bossStatus = "нет";
+            if (event.bossMode()) {
+                if (event.boss() == null) {
+                    bossStatus = "ожидается";
+                } else {
+                    bossStatus = event.boss().isDead() ? "мертв" : "жив";
+                }
+            }
+            sender.sendMessage(prefix() + "§eСобытие в мире " + world.getName() + ":");
+            sender.sendMessage("§7Шкала: §f" + event.scale().displayName() + " §7Босс: §f" + (event.bossMode() ? "да (" + bossStatus + ")" : "нет"));
+            sender.sendMessage("§7Центр: §f" + center.getBlockX() + " " + center.getBlockY() + " " + center.getBlockZ() + " §7До конца: §f" + time);
             return true;
         }
         if (sub.equalsIgnoreCase("set") && args.length >= 5) {
@@ -268,6 +295,16 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
             return List.of("journal", "guide", "help", "contribute", "effects", "title", "admin");
+        }
+        if (args.length == 2 && args[0].equalsIgnoreCase("admin")) {
+            return List.of("status", "set", "add", "start", "stop", "reload", "export", "givecodex", "where");
+        }
+        if (args.length == 3 && args[0].equalsIgnoreCase("admin") && args[1].equalsIgnoreCase("where")) {
+            List<String> worlds = new ArrayList<>();
+            for (World world : Bukkit.getWorlds()) {
+                worlds.add(world.getName());
+            }
+            return worlds;
         }
         return Collections.emptyList();
     }
