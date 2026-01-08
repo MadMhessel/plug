@@ -33,15 +33,15 @@ public final class StorageService {
 
     public List<WorldState> loadWorldStates() {
         List<WorldState> states = new ArrayList<>();
-        String sql = "SELECT world, noise, ash, grove, rift, last_decay_ts, active_event, event_end_ts, cooldown_until_ts FROM world_state";
+        String sql = "SELECT world, noise, ash, grove, rift, last_decay_ts, active_event, event_end_ts, cooldown_until_ts, last_dangerous_event_ts FROM world_state";
         try (PreparedStatement ps = storage.connection().prepareStatement(sql)) {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     WorldState state = new WorldState(rs.getString("world"));
-                    state.set(Scale.NOISE, rs.getInt("noise"));
-                    state.set(Scale.ASH, rs.getInt("ash"));
-                    state.set(Scale.GROVE, rs.getInt("grove"));
-                    state.set(Scale.RIFT, rs.getInt("rift"));
+                    state.set(Scale.NOISE, rs.getDouble("noise"));
+                    state.set(Scale.ASH, rs.getDouble("ash"));
+                    state.set(Scale.GROVE, rs.getDouble("grove"));
+                    state.set(Scale.RIFT, rs.getDouble("rift"));
                     state.setLastDecayTs(rs.getLong("last_decay_ts"));
                     state.setActiveEventId(rs.getString("active_event"));
                     long eventEnd = rs.getLong("event_end_ts");
@@ -52,6 +52,7 @@ public final class StorageService {
                     if (!rs.wasNull()) {
                         state.setCooldownUntilTs(cooldown);
                     }
+                    state.setLastDangerousEventTs(rs.getLong("last_dangerous_event_ts"));
                     states.add(state);
                 }
             }
@@ -62,18 +63,18 @@ public final class StorageService {
     }
 
     public void saveWorldState(WorldState state) {
-        String sql = "INSERT INTO world_state (world, noise, ash, grove, rift, last_decay_ts, active_event, event_end_ts, cooldown_until_ts) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+        String sql = "INSERT INTO world_state (world, noise, ash, grove, rift, last_decay_ts, active_event, event_end_ts, cooldown_until_ts, last_dangerous_event_ts) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
             "ON CONFLICT(world) DO UPDATE SET noise=excluded.noise, ash=excluded.ash, grove=excluded.grove, rift=excluded.rift, " +
             "last_decay_ts=excluded.last_decay_ts, active_event=excluded.active_event, event_end_ts=excluded.event_end_ts, " +
-            "cooldown_until_ts=excluded.cooldown_until_ts";
+            "cooldown_until_ts=excluded.cooldown_until_ts, last_dangerous_event_ts=excluded.last_dangerous_event_ts";
         executor.execute(() -> {
             try (PreparedStatement ps = storage.connection().prepareStatement(sql)) {
                 ps.setString(1, state.world());
-                ps.setInt(2, state.get(Scale.NOISE));
-                ps.setInt(3, state.get(Scale.ASH));
-                ps.setInt(4, state.get(Scale.GROVE));
-                ps.setInt(5, state.get(Scale.RIFT));
+                ps.setDouble(2, state.get(Scale.NOISE));
+                ps.setDouble(3, state.get(Scale.ASH));
+                ps.setDouble(4, state.get(Scale.GROVE));
+                ps.setDouble(5, state.get(Scale.RIFT));
                 ps.setLong(6, state.lastDecayTs());
                 ps.setString(7, state.activeEventId());
                 if (state.eventEndTs() == null) {
@@ -86,6 +87,7 @@ public final class StorageService {
                 } else {
                     ps.setLong(9, state.cooldownUntilTs());
                 }
+                ps.setLong(10, state.lastDangerousEventTs());
                 ps.executeUpdate();
             } catch (SQLException ignored) {
             }
@@ -244,10 +246,10 @@ public final class StorageService {
                     if (!first) sb.append(",\n");
                     first = false;
                     sb.append("    {\"world\":\"").append(rs.getString("world")).append("\",")
-                        .append("\"noise\":").append(rs.getInt("noise")).append(',')
-                        .append("\"ash\":").append(rs.getInt("ash")).append(',')
-                        .append("\"grove\":").append(rs.getInt("grove")).append(',')
-                        .append("\"rift\":").append(rs.getInt("rift")).append(',')
+                        .append("\"noise\":").append(rs.getDouble("noise")).append(',')
+                        .append("\"ash\":").append(rs.getDouble("ash")).append(',')
+                        .append("\"grove\":").append(rs.getDouble("grove")).append(',')
+                        .append("\"rift\":").append(rs.getDouble("rift")).append(',')
                         .append("\"last_decay_ts\":").append(rs.getLong("last_decay_ts")).append(',')
                         .append("\"active_event\":")
                         .append(rs.getString("active_event") == null ? "null" : "\"" + rs.getString("active_event") + "\"")
@@ -257,6 +259,8 @@ public final class StorageService {
                         .append(',')
                         .append("\"cooldown_until_ts\":")
                         .append(rs.getObject("cooldown_until_ts") == null ? "null" : rs.getLong("cooldown_until_ts"))
+                        .append(',')
+                        .append("\"last_dangerous_event_ts\":").append(rs.getLong("last_dangerous_event_ts"))
                         .append('}');
                 }
             }
@@ -277,6 +281,24 @@ public final class StorageService {
                         .append(',')
                         .append("\"details\":")
                         .append(rs.getString("details") == null ? "null" : "\"" + escapeJson(rs.getString("details")) + "\"")
+                        .append('}');
+                }
+            }
+        } catch (SQLException ignored) {
+        }
+        sb.append("\n  ],\n  \"player_contrib\": [\n");
+        try (PreparedStatement ps = storage.connection().prepareStatement("SELECT uuid, world, scale, points_24h, points_1h, last_update_ts FROM player_contrib")) {
+            try (ResultSet rs = ps.executeQuery()) {
+                boolean first = true;
+                while (rs.next()) {
+                    if (!first) sb.append(",\n");
+                    first = false;
+                    sb.append("    {\"uuid\":\"").append(rs.getString("uuid")).append("\",")
+                        .append("\"world\":\"").append(rs.getString("world")).append("\",")
+                        .append("\"scale\":\"").append(rs.getString("scale")).append("\",")
+                        .append("\"points_24h\":").append(rs.getDouble("points_24h")).append(',')
+                        .append("\"points_1h\":").append(rs.getDouble("points_1h")).append(',')
+                        .append("\"last_update_ts\":").append(rs.getLong("last_update_ts"))
                         .append('}');
                 }
             }

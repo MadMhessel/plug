@@ -181,7 +181,7 @@ public final class LetopisManager implements Listener {
                 continue;
             }
             int hours = (int) (deltaSeconds / 3600);
-            int decay = config.decayPerHour * hours;
+            double decay = config.decayPerHour * hours;
             if (now - state.lastDangerousEventTs() > 1800) {
                 decay += config.decayExtraPerHour * hours;
             }
@@ -202,7 +202,7 @@ public final class LetopisManager implements Listener {
                 continue;
             }
             Scale hottest = hottestScale(state);
-            int value = state.get(hottest);
+            double value = state.get(hottest);
             if (value >= config.thresholdEvent) {
                 startEvent(world, hottest);
                 continue;
@@ -215,9 +215,9 @@ public final class LetopisManager implements Listener {
 
     private Scale hottestScale(WorldState state) {
         Scale hottest = Scale.NOISE;
-        int max = -1;
+        double max = -1;
         for (Scale scale : Scale.values()) {
-            int value = state.get(scale);
+            double value = state.get(scale);
             if (value > max) {
                 max = value;
                 hottest = scale;
@@ -467,12 +467,12 @@ public final class LetopisManager implements Listener {
                 scale = omen.scale;
             }
             if (bar != null && scale != null) {
-                int value = state.get(scale);
-                bar.setProgress(Math.min(1.0, value / (double) config.thresholdMax));
+                double value = state.get(scale);
+                bar.setProgress(Math.min(1.0, value / config.thresholdMax));
                 String level = value >= config.thresholdBoss ? "критично" : value >= config.thresholdEvent ? "опасно" : "тревожно";
                 bar.setTitle(messages.getString("ui.bossbar", "")
                     .replace("%scale_name%", scale.displayName())
-                    .replace("%value%", String.valueOf(value))
+                    .replace("%value%", String.format(Locale.US, "%.2f", value))
                     .replace("%max%", String.valueOf(config.thresholdMax))
                     .replace("%level%", level));
             }
@@ -549,14 +549,14 @@ public final class LetopisManager implements Listener {
         return world == null ? null : activeEvents.get(world.getName());
     }
 
-    public void setScaleValue(World world, Scale scale, int value) {
+    public void setScaleValue(World world, Scale scale, double value) {
         WorldState state = worldStates.get(world.getName());
         if (state == null) return;
         state.set(scale, Math.min(config.thresholdMax, Math.max(0, value)));
         storage.saveWorldState(state);
     }
 
-    public void addScaleValue(World world, Scale scale, int delta) {
+    public void addScaleValue(World world, Scale scale, double delta) {
         WorldState state = worldStates.get(world.getName());
         if (state == null) return;
         state.add(scale, delta, config.thresholdMax);
@@ -570,11 +570,10 @@ public final class LetopisManager implements Listener {
         double allowed = points;
         if (points > 0) {
             allowed = rateLimiter.applyLimit(player == null ? null : player.getUniqueId(), scale, points,
-                config.maxPerMinute.getOrDefault(scale, 0));
+                config.maxPerMinute.getOrDefault(scale, 0.0));
         }
         if (allowed == 0) return;
-        int intDelta = (int) Math.round(allowed);
-        state.add(scale, intDelta, config.thresholdMax);
+        state.add(scale, allowed, config.thresholdMax);
         storage.saveWorldState(state);
         if (player != null) {
             storage.addContribution(player.getUniqueId(), world.getName(), scale, allowed);

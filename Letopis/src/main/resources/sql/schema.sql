@@ -1,13 +1,14 @@
 CREATE TABLE IF NOT EXISTS world_state (
   world TEXT PRIMARY KEY,
-  noise INTEGER NOT NULL DEFAULT 0,
-  ash INTEGER NOT NULL DEFAULT 0,
-  grove INTEGER NOT NULL DEFAULT 0,
-  rift INTEGER NOT NULL DEFAULT 0,
+  noise REAL NOT NULL DEFAULT 0,
+  ash REAL NOT NULL DEFAULT 0,
+  grove REAL NOT NULL DEFAULT 0,
+  rift REAL NOT NULL DEFAULT 0,
   last_decay_ts INTEGER NOT NULL DEFAULT 0,
   active_event TEXT NULL,
   event_end_ts INTEGER NULL,
-  cooldown_until_ts INTEGER NULL
+  cooldown_until_ts INTEGER NULL,
+  last_dangerous_event_ts INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS player_contrib (

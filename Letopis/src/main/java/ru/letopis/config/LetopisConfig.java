@@ -25,7 +25,7 @@ public final class LetopisConfig {
     public int thresholdBoss = 750;
     public int thresholdMax = 1000;
 
-    public final Map<Scale, Integer> maxPerMinute = new EnumMap<>(Scale.class);
+    public final Map<Scale, Double> maxPerMinute = new EnumMap<>(Scale.class);
     public int noiseSameChunkCooldown = 20;
     public double noiseSameChunkMultiplier = 0.35;
     public int groveSameChunkWindow = 120;
@@ -107,10 +107,10 @@ public final class LetopisConfig {
         thresholdBoss = config.getInt("thresholds.boss", 750);
         thresholdMax = config.getInt("thresholds.max", 1000);
 
-        maxPerMinute.put(Scale.NOISE, config.getInt("limits.noise.maxPerMinutePerPlayer", 60));
-        maxPerMinute.put(Scale.ASH, config.getInt("limits.ash.maxPerMinutePerPlayer", 40));
-        maxPerMinute.put(Scale.GROVE, config.getInt("limits.grove.maxPerMinutePerPlayer", 50));
-        maxPerMinute.put(Scale.RIFT, config.getInt("limits.rift.maxPerMinutePerPlayer", 25));
+        maxPerMinute.put(Scale.NOISE, config.getDouble("limits.noise.maxPerMinutePerPlayer", 60));
+        maxPerMinute.put(Scale.ASH, config.getDouble("limits.ash.maxPerMinutePerPlayer", 40));
+        maxPerMinute.put(Scale.GROVE, config.getDouble("limits.grove.maxPerMinutePerPlayer", 50));
+        maxPerMinute.put(Scale.RIFT, config.getDouble("limits.rift.maxPerMinutePerPlayer", 25));
         noiseSameChunkCooldown = config.getInt("limits.noise.cooldownSameChunkSeconds", 20);
         noiseSameChunkMultiplier = config.getDouble("limits.noise.sameChunkMultiplier", 0.35);
         groveSameChunkWindow = config.getInt("limits.grove.sameChunkWindowSeconds", 120);

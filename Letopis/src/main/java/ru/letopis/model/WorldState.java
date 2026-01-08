@@ -5,7 +5,7 @@ import java.util.Map;
 
 public final class WorldState {
     private final String world;
-    private final Map<Scale, Integer> values = new EnumMap<>(Scale.class);
+    private final Map<Scale, Double> values = new EnumMap<>(Scale.class);
     private long lastDecayTs;
     private String activeEventId;
     private Long eventEndTs;
@@ -23,20 +23,20 @@ public final class WorldState {
         return world;
     }
 
-    public int get(Scale scale) {
-        return values.getOrDefault(scale, 0);
+    public double get(Scale scale) {
+        return values.getOrDefault(scale, 0.0);
     }
 
-    public void set(Scale scale, int value) {
+    public void set(Scale scale, double value) {
         values.put(scale, Math.max(0, value));
     }
 
-    public void add(Scale scale, int delta, int max) {
-        int value = Math.min(max, Math.max(0, get(scale) + delta));
+    public void add(Scale scale, double delta, double max) {
+        double value = Math.min(max, Math.max(0, get(scale) + delta));
         values.put(scale, value);
     }
 
-    public Map<Scale, Integer> values() {
+    public Map<Scale, Double> values() {
         return values;
     }
 
