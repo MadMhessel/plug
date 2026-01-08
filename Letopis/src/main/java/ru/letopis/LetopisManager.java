@@ -33,6 +33,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 import ru.letopis.config.LetopisConfig;
+import ru.letopis.guide.GuideService;
 import ru.letopis.model.JournalEntry;
 import ru.letopis.model.PlayerMeta;
 import ru.letopis.model.Scale;
@@ -70,12 +71,13 @@ public final class LetopisManager implements Listener {
     private final NamespacedKey typeKey;
     private final NamespacedKey objectiveKey;
     private final ItemFactory itemFactory;
+    private final GuideService guideService;
 
     private BukkitTask tickTask;
     private BukkitTask decayTask;
     private LocalDate lastDailyReset = LocalDate.now();
 
-    public LetopisManager(JavaPlugin plugin, StorageService storage, LetopisConfig config, FileConfiguration messages) {
+    public LetopisManager(JavaPlugin plugin, StorageService storage, LetopisConfig config, FileConfiguration messages, GuideService guideService) {
         this.plugin = plugin;
         this.storage = storage;
         this.config = config;
@@ -85,6 +87,7 @@ public final class LetopisManager implements Listener {
         this.typeKey = new NamespacedKey(plugin, "type");
         this.objectiveKey = new NamespacedKey(plugin, "objective");
         this.itemFactory = new ItemFactory(new NamespacedKey(plugin, "seal"), new NamespacedKey(plugin, "trophy"));
+        this.guideService = guideService;
     }
 
     public void start() {
@@ -109,6 +112,10 @@ public final class LetopisManager implements Listener {
 
     public void reloadMessages(FileConfiguration messages) {
         this.messages = messages;
+    }
+
+    public void reloadGuide() {
+        guideService.load(dataFolder());
     }
 
     private void loadWorldStates() {
@@ -510,6 +517,10 @@ public final class LetopisManager implements Listener {
 
     public FileConfiguration messages() {
         return messages;
+    }
+
+    public void openGuide(Player player) {
+        guideService.openGuide(player);
     }
 
     public void reloadPlugin() {

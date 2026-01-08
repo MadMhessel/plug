@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import ru.letopis.command.LetopisCommand;
 import ru.letopis.config.LetopisConfig;
+import ru.letopis.guide.GuideService;
 import ru.letopis.model.PlayerMeta;
 import ru.letopis.ritual.RitualManager;
 import ru.letopis.storage.SqliteStorage;
@@ -21,11 +22,13 @@ public final class LetopisPlugin extends JavaPlugin {
     private LetopisManager manager;
     private RitualManager ritualManager;
     private LetopisConfig configValues;
+    private GuideService guideService;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         saveResource("messages.yml", false);
+        saveResource("guide.yml", false);
 
         reloadConfig();
         this.configValues = new LetopisConfig();
@@ -35,7 +38,9 @@ public final class LetopisPlugin extends JavaPlugin {
         storage.init();
         this.storageService = new StorageService(storage);
 
-        this.manager = new LetopisManager(this, storageService, configValues, getConfigMessages());
+        this.guideService = new GuideService();
+        guideService.load(getDataFolder());
+        this.manager = new LetopisManager(this, storageService, configValues, getConfigMessages(), guideService);
         manager.start();
         this.ritualManager = new RitualManager(manager, configValues, getConfigMessages());
 
@@ -73,6 +78,7 @@ public final class LetopisPlugin extends JavaPlugin {
         configValues.load(getConfig());
         manager.reloadMessages(getConfigMessages());
         ritualManager.reloadMessages(getConfigMessages());
+        manager.reloadGuide();
     }
 
     private org.bukkit.configuration.file.FileConfiguration getConfigMessages() {

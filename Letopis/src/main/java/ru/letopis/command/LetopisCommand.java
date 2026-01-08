@@ -8,6 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import ru.letopis.LetopisManager;
 import ru.letopis.model.JournalEntry;
 import ru.letopis.model.PlayerMeta;
@@ -42,6 +44,9 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
         if (args[0].equalsIgnoreCase("journal")) {
             return handleJournal(sender, args);
         }
+        if (args[0].equalsIgnoreCase("guide") || args[0].equalsIgnoreCase("help")) {
+            return handleGuide(sender);
+        }
         if (args[0].equalsIgnoreCase("contribute")) {
             return handleContribute(sender);
         }
@@ -68,6 +73,18 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
         for (Scale scale : Scale.values()) {
             sender.sendMessage("§7" + scale.displayName() + ": §f" + String.format(Locale.US, "%.2f", state.get(scale)) + "/" + manager.config().thresholdMax);
         }
+        TextComponent guide = new TextComponent("§e📖 Справка");
+        guide.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/letopis guide"));
+        player.spigot().sendMessage(guide);
+        return true;
+    }
+
+    private boolean handleGuide(CommandSender sender) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(msg("commands.player_only"));
+            return true;
+        }
+        manager.openGuide(player);
         return true;
     }
 
@@ -250,7 +267,7 @@ public final class LetopisCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return List.of("journal", "contribute", "effects", "title", "admin");
+            return List.of("journal", "guide", "help", "contribute", "effects", "title", "admin");
         }
         return Collections.emptyList();
     }

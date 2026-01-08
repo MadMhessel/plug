@@ -23,9 +23,17 @@ gradle build
    - `plugins/Letopis/config.yml`
    - `plugins/Letopis/messages.yml`
    - `plugins/Letopis/letopis.db`
+   - `plugins/Letopis/guide.yml`
+
+## Локальный запуск
+1. Создайте папку `server` рядом с репозиторием.
+2. Скачайте Paper `server.jar` (1.20.1+), положите в `server/`.
+3. Один раз запустите сервер вручную и примите EULA в `server/eula.txt`.
+4. Запустите `tools\\run-local.bat` из корня репозитория.
 
 ## Команды игрока
 - `/letopis` — меню состояния мира (4 шкалы).
+- `/letopis guide` — внутриигровая справка.
 - `/letopis journal [стр]` — журнал событий.
 - `/letopis contribute` — вклад за сутки.
 - `/letopis effects` — вкл/выкл косметики.
