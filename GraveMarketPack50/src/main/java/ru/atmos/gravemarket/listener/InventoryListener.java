@@ -70,7 +70,7 @@ public final class InventoryListener implements Listener {
                 if (current != null) {
                     tagBorrowed(current, g);
                     if (plugin.audit() != null) {
-                        plugin.audit().log("take_item", p.getUniqueId(), g.owner, g.id, g.graveLoc(),
+                        plugin.audit().log("TAKE_ITEM", p.getUniqueId(), g.owner, g.id, g.graveLoc(),
                                 "item=" + current.getType() + " amount=" + current.getAmount());
                     }
                 }
@@ -149,6 +149,13 @@ public final class InventoryListener implements Listener {
         var pdc = meta.getPersistentDataContainer();
         pdc.set(plugin.borrowOwnerKey(), org.bukkit.persistence.PersistentDataType.STRING, g.owner.toString());
         pdc.set(plugin.borrowGraveKey(), org.bukkit.persistence.PersistentDataType.STRING, g.id);
+        var lore = meta.getLore();
+        if (lore == null) lore = new java.util.ArrayList<>();
+        String line = "§7Чужой предмет: " + g.ownerName;
+        if (lore.stream().noneMatch(l -> l.contains("Чужой предмет"))) {
+            lore.add(line);
+        }
+        meta.setLore(lore);
         item.setItemMeta(meta);
     }
 }

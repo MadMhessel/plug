@@ -128,6 +128,14 @@ public final class GraveManager {
                     }
                 }
             }
+            List<?> overflowRaw = g.getList("overflowItems");
+            if (overflowRaw != null) {
+                for (Object o : overflowRaw) {
+                    if (o instanceof ItemStack it && it.getType() != Material.AIR) {
+                        r.overflowItems.add(it);
+                    }
+                }
+            }
 
             byId.put(id, r);
             if (!r.virtual) {
@@ -164,6 +172,7 @@ public final class GraveManager {
             g.set("hologramEntity", r.hologramEntity);
             g.set("storedExp", r.storedExp);
             g.set("items", r.storedItems);
+            g.set("overflowItems", r.overflowItems);
         }
 
         try {
@@ -191,8 +200,9 @@ public final class GraveManager {
         for (GraveRecord r : byId.values()) {
             // expire -> virtualize
             if (!r.virtual && now > r.expiresAtEpochMs) {
+                if (audit != null) audit.log("EXPIRE", null, r.owner, r.id, r.graveLoc(), "");
                 virtualize(r, "expire");
-                r.retentionUntilEpochMs = now + plugin.getConfig().getLong("graves.expiredRetentionSeconds", 86400) * 1000L;
+                r.retentionUntilEpochMs = now + retentionSeconds() * 1000L;
             }
 
             // delete after retention
@@ -210,7 +220,7 @@ public final class GraveManager {
 
         for (String id : toRemove) {
             GraveRecord r = byId.remove(id);
-            if (r != null && audit != null) audit.log("delete", null, r.owner, r.id, r.deathLoc(), "reason=retention_end");
+            if (r != null && audit != null) audit.log("DELETE", null, r.owner, r.id, r.deathLoc(), "reason=retention_end");
         }
 
         save();
@@ -253,17 +263,13 @@ public final class GraveManager {
             if (!inv.isEmpty() && inv.getSize() > 0) {
                 // do nothing: players may have already interacted
             } else if (!r.storedItems.isEmpty()) {
-                inv.clear();
-                for (ItemStack it : r.storedItems) {
-                    HashMap<Integer, ItemStack> leftover = inv.addItem(it);
-                    if (!leftover.isEmpty()) {
-                        // drop leftovers at grave
-                        for (ItemStack lf : leftover.values()) {
-                            bl.getWorld().dropItemNaturally(bl.clone().add(0.5, 1.0, 0.5), lf);
-                        }
-                    }
+                FillResult fill = fillContainer(inv, r.storedItems);
+                r.storedItems = fill.containerItems;
+                if (!fill.overflowItems.isEmpty()) {
+                    r.overflowItems.addAll(fill.overflowItems);
                 }
                 c.update(true, false);
+                save();
             }
         }
 
@@ -333,7 +339,8 @@ public final class GraveManager {
         long now = System.currentTimeMillis();
 
         // enforce max active
-        int max = plugin.getConfig().getInt("graves.maxActivePerPlayer", 1);
+        int max = plugin.getConfig().getInt("graves.maxActiveGravesPerPlayer",
+                plugin.getConfig().getInt("graves.maxActivePerPlayer", 1));
         if (max <= 0) max = 1;
         List<GraveRecord> existing = new ArrayList<>();
         for (GraveRecord g : byId.values()) {
@@ -345,7 +352,7 @@ public final class GraveManager {
             if (!oldest.virtual) virtualize(oldest, "max_active");
             else {
                 byId.remove(oldest.id);
-                if (audit != null) audit.log("delete", null, oldest.owner, oldest.id, oldest.deathLoc(), "reason=max_active");
+                if (audit != null) audit.log("DELETE", null, oldest.owner, oldest.id, oldest.deathLoc(), "reason=max_active");
             }
         }
 
@@ -359,51 +366,82 @@ public final class GraveManager {
         r.createdAtEpochMs = now;
         long lifetime = plugin.getConfig().getLong("graves.lifetimeSeconds", 1800);
         r.expiresAtEpochMs = now + Math.max(60, lifetime) * 1000L;
-        long retention = plugin.getConfig().getLong("graves.expiredRetentionSeconds", 86400);
+        long retention = retentionSeconds();
         r.retentionUntilEpochMs = r.expiresAtEpochMs + Math.max(600, retention) * 1000L;
         r.extractCost = baseExtractCost(r);
         r.deathLocation = LocationCodec.encode(deathLoc);
         r.graveLocation = (graveBlockLoc == null) ? "" : LocationCodec.encode(graveBlockLoc);
         r.storedExp = exp;
         r.storedItems = new ArrayList<>();
+        r.overflowItems = new ArrayList<>();
+        List<ItemStack> filtered = new ArrayList<>();
         for (ItemStack it : items) {
-            if (it != null && it.getType() != Material.AIR) r.storedItems.add(it);
+            if (it != null && it.getType() != Material.AIR) filtered.add(it);
         }
 
         byId.put(r.id, r);
         if (!r.virtual) {
             byBlockKey.put(LocationCodec.blockKey(graveBlockLoc), r.id);
-            placeContainerAndFill(r);
-            ensureHologram(r);
+            FillResult fill = placeContainerAndFill(r, filtered);
+            if (!fill.containerPlaced) {
+                r.virtual = true;
+                r.graveLocation = "";
+                r.storedItems = new ArrayList<>(filtered);
+                byBlockKey.remove(LocationCodec.blockKey(graveBlockLoc));
+            } else {
+                r.storedItems = fill.containerItems;
+                r.overflowItems = fill.overflowItems;
+                ensureHologram(r);
+            }
+        } else {
+            r.storedItems = new ArrayList<>(filtered);
         }
 
-        if (audit != null) audit.log("create", null, owner, r.id, graveBlockLoc != null ? graveBlockLoc : deathLoc,
+        if (audit != null) audit.log("CREATE", null, owner, r.id, graveBlockLoc != null ? graveBlockLoc : deathLoc,
                 "virtual=" + r.virtual + " items=" + r.storedItems.size() + " exp=" + r.storedExp + " pvp=" + pvpDeath);
 
         save();
         return r;
     }
 
-    private void placeContainerAndFill(GraveRecord r) {
+    private FillResult placeContainerAndFill(GraveRecord r, List<ItemStack> items) {
         Location bl = r.graveLoc();
-        if (bl == null || bl.getWorld() == null) return;
+        if (bl == null || bl.getWorld() == null) return new FillResult(false, List.of(), List.of());
         Block b = bl.getBlock();
         Material container = graveContainerMaterial();
         b.setType(container, false);
         if (b.getState() instanceof Container c) {
             Inventory inv = c.getInventory();
             inv.clear();
-            for (ItemStack it : r.storedItems) {
-                if (it == null || it.getType() == Material.AIR) continue;
-                HashMap<Integer, ItemStack> leftover = inv.addItem(it);
-                if (!leftover.isEmpty()) {
-                    for (ItemStack lf : leftover.values()) {
-                        bl.getWorld().dropItemNaturally(bl.clone().add(0.5, 1.0, 0.5), lf);
-                    }
-                }
-            }
+            FillResult fill = fillContainer(inv, items);
             c.update(true, false);
+            return new FillResult(true, fill.containerItems, fill.overflowItems);
         }
+        return new FillResult(false, List.of(), new ArrayList<>(items));
+    }
+
+    private FillResult fillContainer(Inventory inv, List<ItemStack> items) {
+        List<ItemStack> containerItems = new ArrayList<>();
+        List<ItemStack> overflowItems = new ArrayList<>();
+        for (ItemStack it : items) {
+            if (it == null || it.getType() == Material.AIR) continue;
+            HashMap<Integer, ItemStack> leftover = inv.addItem(it);
+            if (!leftover.isEmpty()) {
+                overflowItems.addAll(leftover.values());
+            }
+        }
+        for (ItemStack it : inv.getContents()) {
+            if (it != null && it.getType() != Material.AIR) {
+                containerItems.add(it.clone());
+            }
+        }
+        return new FillResult(true, containerItems, overflowItems);
+    }
+
+    private long retentionSeconds() {
+        long hours = plugin.getConfig().getLong("graves.expiredRetentionHours", -1);
+        if (hours > 0) return hours * 3600L;
+        return plugin.getConfig().getLong("graves.expiredRetentionSeconds", 86400);
     }
 
     public void syncFromContainer(GraveRecord r) {
@@ -426,6 +464,7 @@ public final class GraveManager {
         if (r == null || r.virtual) return true;
         Location bl = r.graveLoc();
         if (bl == null || bl.getWorld() == null) return true;
+        if (r.overflowItems != null && !r.overflowItems.isEmpty()) return false;
         Block b = bl.getBlock();
         if (!(b.getState() instanceof Container c)) return true;
         Inventory inv = c.getInventory();
@@ -447,7 +486,7 @@ public final class GraveManager {
             removeHologram(r);
         }
         byId.remove(r.id);
-        if (audit != null) audit.log("remove", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
+        if (audit != null) audit.log("DELETE", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
         save();
     }
 
@@ -469,6 +508,10 @@ public final class GraveManager {
         try {
             syncFromContainer(r);
         } catch (Exception ignored) {}
+        if (r.overflowItems != null && !r.overflowItems.isEmpty()) {
+            r.storedItems.addAll(r.overflowItems);
+            r.overflowItems.clear();
+        }
 
         // remove physical block and holo
         Location bl = r.graveLoc();
@@ -481,7 +524,9 @@ public final class GraveManager {
         r.virtual = true;
         r.graveLocation = "";
 
-        if (audit != null) audit.log("virtualize", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
+        if (audit != null) audit.log("VIRTUALIZE", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
         save();
     }
+
+    private record FillResult(boolean containerPlaced, List<ItemStack> containerItems, List<ItemStack> overflowItems) {}
 }

@@ -38,7 +38,9 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
             case "list" -> list(sender, args);
             case "purge" -> purge(sender);
             case "remove" -> remove(sender, args);
+            case "give" -> give(sender, args);
             case "altar" -> altar(sender, args);
+            case "reload" -> reload(sender);
             default -> sender.sendMessage("Неизвестно. /graveadmin help");
         }
         return true;
@@ -48,16 +50,24 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
         s.sendMessage("GraveMarket admin:");
         s.sendMessage(" /graveadmin list [ник]");
         s.sendMessage(" /graveadmin purge");
-        s.sendMessage(" /graveadmin remove <ник>");
+        s.sendMessage(" /graveadmin remove <graveId>");
+        s.sendMessage(" /graveadmin give <graveId> <ник>");
         s.sendMessage(" /graveadmin altar set");
+        s.sendMessage(" /graveadmin altar info");
+        s.sendMessage(" /graveadmin reload");
     }
 
     private void list(CommandSender s, String[] args) {
         if (args.length >= 2) {
             var op = Bukkit.getOfflinePlayer(args[1]);
-            GraveRecord g = plugin.graves().activeGrave(op.getUniqueId());
-            if (g == null) { s.sendMessage("Могил нет."); return; }
-            s.sendMessage(format(g));
+            List<GraveRecord> all = plugin.graves().all().stream()
+                    .filter(g -> g.owner != null && g.owner.equals(op.getUniqueId()))
+                    .sorted(Comparator.comparingLong(a -> -a.createdAtEpochMs))
+                    .collect(Collectors.toList());
+            if (all.isEmpty()) { s.sendMessage("Могил нет."); return; }
+            for (GraveRecord g : all) {
+                s.sendMessage(format(g));
+            }
             return;
         }
 
@@ -86,19 +96,44 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
 
     private void remove(CommandSender s, String[] args) {
         if (args.length < 2) {
-            s.sendMessage("Использование: /graveadmin remove <ник>");
+            s.sendMessage("Использование: /graveadmin remove <graveId>");
             return;
         }
-        var op = Bukkit.getOfflinePlayer(args[1]);
-        GraveRecord g = plugin.graves().activeGrave(op.getUniqueId());
+        GraveRecord g = findById(args[1]);
         if (g == null) { s.sendMessage("Могила не найдена."); return; }
         plugin.graves().removeGrave(g, "admin_remove");
         s.sendMessage("Удалено: " + g.ownerName + " " + g.shortId());
     }
 
+    private void give(CommandSender s, String[] args) {
+        if (args.length < 3) {
+            s.sendMessage("Использование: /graveadmin give <graveId> <ник>");
+            return;
+        }
+        GraveRecord g = findById(args[1]);
+        if (g == null) {
+            s.sendMessage("Могила не найдена.");
+            return;
+        }
+        var op = Bukkit.getOfflinePlayer(args[2]);
+        g.owner = op.getUniqueId();
+        g.ownerName = op.getName() == null ? op.getUniqueId().toString() : op.getName();
+        plugin.graves().save();
+        s.sendMessage("Владелец обновлён: " + g.shortId() + " -> " + g.ownerName);
+    }
+
     private void altar(CommandSender s, String[] args) {
         if (args.length < 2) {
-            s.sendMessage("Использование: /graveadmin altar set");
+            s.sendMessage("Использование: /graveadmin altar set|info");
+            return;
+        }
+        if (args[1].equalsIgnoreCase("info")) {
+            String raw = plugin.getConfig().getString("altar.location", "");
+            if (raw == null || raw.isBlank()) {
+                s.sendMessage("Алтарь не установлен.");
+                return;
+            }
+            s.sendMessage("Алтарь: " + LocationCodec.pretty(LocationCodec.decode(raw)));
             return;
         }
         if (!(s instanceof Player p)) {
@@ -106,7 +141,7 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
             return;
         }
         if (!args[1].equalsIgnoreCase("set")) {
-            s.sendMessage("Использование: /graveadmin altar set");
+            s.sendMessage("Использование: /graveadmin altar set|info");
             return;
         }
         plugin.getConfig().set("altar.location", LocationCodec.encode(p.getLocation()));
@@ -114,15 +149,37 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
         s.sendMessage("Алтарь установлен: " + LocationCodec.pretty(p.getLocation()));
     }
 
+    private void reload(CommandSender s) {
+        plugin.reloadConfig();
+        s.sendMessage("Конфиг перезагружен.");
+    }
+
+    private GraveRecord findById(String raw) {
+        GraveRecord direct = plugin.graves().get(raw);
+        if (direct != null) return direct;
+        for (GraveRecord g : plugin.graves().all()) {
+            if (g.id != null && g.id.startsWith(raw)) return g;
+        }
+        return null;
+    }
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String alias, String[] args) {
         if (args.length == 1) {
-            return List.of("help","list","purge","remove","altar").stream()
+            return List.of("help","list","purge","remove","give","altar","reload").stream()
                     .filter(s -> s.startsWith(args[0].toLowerCase(Locale.ROOT)))
                     .collect(Collectors.toList());
         }
-        if (args.length == 2 && args[0].equalsIgnoreCase("remove")) {
+        if (args.length == 2 && (args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("give"))) {
             String pref = args[1].toLowerCase(Locale.ROOT);
+            return plugin.graves().all().stream()
+                    .map(GraveRecord::shortId)
+                    .filter(n -> n.toLowerCase(Locale.ROOT).startsWith(pref))
+                    .sorted()
+                    .collect(Collectors.toList());
+        }
+        if (args.length == 3 && args[0].equalsIgnoreCase("give")) {
+            String pref = args[2].toLowerCase(Locale.ROOT);
             return Bukkit.getOnlinePlayers().stream()
                     .map(Player::getName)
                     .filter(n -> n.toLowerCase(Locale.ROOT).startsWith(pref))
@@ -130,7 +187,7 @@ public final class GraveAdminCommand implements CommandExecutor, TabCompleter {
                     .collect(Collectors.toList());
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("altar")) {
-            return List.of("set").stream().filter(s -> s.startsWith(args[1].toLowerCase(Locale.ROOT))).collect(Collectors.toList());
+            return List.of("set","info").stream().filter(s -> s.startsWith(args[1].toLowerCase(Locale.ROOT))).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }

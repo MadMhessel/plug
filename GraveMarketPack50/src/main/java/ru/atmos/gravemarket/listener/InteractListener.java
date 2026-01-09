@@ -46,6 +46,11 @@ public final class InteractListener implements Listener {
                     Component.text("§a[Оплатить]").clickEvent(ClickEvent.runCommand("/grave pay"))).append(
                     Component.text(" §7Баланс: §f" + plugin.economy().balance(actor.getUniqueId()))));
             actor.sendMessage(Component.text("§6[Могила] §7Координаты: §f" + LocationCodec.pretty(g.graveLoc())));
+            return;
+        }
+
+        if (plugin.audit() != null) {
+            plugin.audit().log("OPEN", actor.getUniqueId(), g.owner, g.id, g.graveLoc(), "");
         }
     }
 }

@@ -1,49 +1,35 @@
-# GraveMarket (v0.5.0) — «могилы» для мини‑сервера
+# GraveMarket — могилы, экономика TeleportMarket (Paper 1.21.x)
 
-Это **рабочий каркас + ядро механики** по вашему ТЗ (примерно 50% функционала).  
-Собирается Maven Wrapper'ом и рассчитан на Paper/Spigot API **1.21.x**.
+GraveMarket сохраняет лут игрока в могиле (физической или виртуальной), ведёт аудит, поддерживает доверенных и возвращение предметов.  
+Плагин рассчитан на Java 21, Paper/Spigot API 1.21.x, без NMS.
 
-## Что уже сделано (реально работает)
+## Возможности
 
-- Смерть игрока → лут **не разбрасывается**, а сохраняется в могиле:
-  - **физическая могила** (бочка/сундук) в безопасной точке рядом со смертью;
-  - если место опасное (лава/вода/пустота/не нашлось безопасно) → **виртуальная могила** (лут в учёте плагина).
-- Поиск безопасной позиции в радиусе (`graves.safeSearchRadius`).
-- Ограничение: **макс. 1 активная могила на игрока** (старую схлопывает в виртуальную, чтобы не абьюзили).
-- Таймер жизни могилы (`graves.lifetimeSeconds`), после истечения — схлопывание в виртуальную и удаление после ретенции.
-- Доступ:
-  - владелец + доверенные (`/grave trust`, `/grave untrust`, `/grave trustlist`)
-  - защита от ломания/взрывов (ломать может только `gravemarket.admin`)
-- Анти‑абьюз «могила ≠ склад»:
-  - запрещено **класть предметы** в могильный контейнер (вставка/shift‑вставка/drag блокируются)
-- ПВП‑правило:
-  - если смерть от игрока — **часть предметов** падает обычным образом (`pvp.partialDropChance`)
-  - стоимость извлечения выше (`pvp.extractCostMultiplier`)
-- Экономика:
-  - попытка использовать общую экономику **TeleportMarket** (через рефлексию)
-  - если не найден/несовместим — внутренний запас кредитов (`gravemarket-economy.yml`)
-- Платные услуги:
-  - `extract` — открыть доступ к вещам (**/grave pay**)
-  - `compass` — компас на могилу (**/grave compass**)
-  - `beacon` — временный луч частиц (**/grave beacon**)
-  - `recall` — вернуть вещи к себе (**/grave recall**) + кулдаун
-  - `tp` — телепорт к могиле (**/grave tp**)
+- **Смерть → могила**: лут не разлетается, сохраняется в могиле; опыт хранится отдельно.
+- **Физическая могила**: контейнер из конфига (BARREL/CHEST/…); голограмма над могилой; лёгкие частицы.
+- **Виртуальная могила**: если место опасно/не найдено — хранится в data-файле и переживает рестарт.
+- **PvP‑политика**: часть предметов падает в мир (partialDropChance), остальное в могилу; извлечение дороже.
+- **Доверенные**: /grave trust|untrust|trustlist, предметы помечаются как “чужие”, есть /grave return.
+- **Анти‑абьюз**: нельзя класть предметы в могильный контейнер.
+- **Экономика**: общий баланс TeleportMarket через ServicesManager, fallback на рефлексию; при отсутствии — внутренняя экономика.
+- **Страховка**: /grave insure (скидка на извлечение, +10 минут жизни могилы).
+- **Админ‑инструменты**: список/удаление могил, алтарь, reload.
+- **Логи**: grave-audit.log со всеми ключевыми событиями.
 
-## Что ещё не сделано (запланировано на следующую итерацию)
+## Установка
 
-- «Режим выдачи владельцу» для доверенных (пока доверенный просто может забрать).
-- Более умная логика «алтаря» (сейчас только скидка на recall рядом с точкой).
-- Более точные логи «кто что взял» (сейчас есть общий аудит + можно расширить до по‑предметного).
-- Страховка (подписка на сутки/неделю).
-- Интерактивные кнопки/подсказки в стиле «маршрут/путь» (есть кликабельные команды после смерти, но без «построения пути»).
+1. Скопируйте JAR в `plugins/`.
+2. (Опционально) Установите TeleportMarket для общей экономики.
+3. Перезапустите сервер.
+4. Настройте `config.yml`.
 
 ## Сборка
 
-Wrapper включён в репозиторий (jar будет скачан автоматически при первом запуске), установка Maven не требуется.
+Wrapper включён в репозиторий (Maven не требуется).
 
-Windows (PowerShell):
+Windows (PowerShell, путь может содержать пробелы и скобки):
 ```powershell
-cd GraveMarketPack50
+cd "C:\Path With (Brackets)\GraveMarketPack50"
 .\mvnw.cmd -DskipTests package
 ```
 
@@ -54,24 +40,70 @@ chmod +x mvnw
 ./mvnw -DskipTests package
 ```
 
-Готовый JAR появится в `target/`.
-
-## Установка
-
-1. Скопируйте JAR в `plugins/`.
-2. (Опционально) Поставьте TeleportMarket, чтобы экономика была общей.
-3. Перезапустите сервер.
-4. Настройте `config.yml`.
-
 ## Команды
 
-- `/grave info`
-- `/grave pay`
-- `/grave compass`
-- `/grave beacon`
-- `/grave recall`
-- `/grave tp`
-- `/grave trust <ник>`
-- `/grave untrust <ник>`
-- `/grave trustlist`
-- Админ: `/graveadmin help`
+**Игрок**
+- `/grave info` — информация о могиле
+- `/grave mark` — повтор координат и таймера
+- `/grave pay` — оплатить извлечение
+- `/grave compass` — компас на могилу (платно)
+- `/grave beacon` — луч/частицы (платно)
+- `/grave recall` — возврат вещей (платно, с кулдауном)
+- `/grave tp` — телепорт к могиле (платно)
+- `/grave trust <ник>` — доверить доступ
+- `/grave untrust <ник>` — убрать доверие
+- `/grave trustlist` — список доверенных
+- `/grave return <ник>` — вернуть чужие предметы владельцу
+- `/grave claim` — получить возвращённые предметы
+- `/grave insure` — купить страховку
+
+**Админ**
+- `/graveadmin list [player]`
+- `/graveadmin remove <graveId>`
+- `/graveadmin give <graveId> <player>`
+- `/graveadmin purge`
+- `/graveadmin altar set`
+- `/graveadmin altar info`
+- `/graveadmin reload`
+
+## Конфиг (основное)
+
+```yml
+graves:
+  containerMaterial: BARREL
+  safeSearchRadius: 8
+  lifetimeSeconds: 1800
+  expiredRetentionHours: 24
+  maxActiveGravesPerPlayer: 1
+  spawnParticlesOnCreate: true
+  debug: false
+
+pvp:
+  enabled: true
+  partialDropChance: 0.30
+  extractCostMultiplier: 2.0
+
+economy:
+  prices:
+    extract: 480
+    compass: 960
+    beacon: 2500
+    recall: 7500
+    tp: 9000
+  recallCooldownSeconds: 1800
+  recallVirtualMultiplier: 1.5
+  tpCombatLockSeconds: 10
+  tpSurgeWindowSeconds: 600
+  tpSurgeStep: 0.25
+
+insurance:
+  price: 1500
+  durationSeconds: 86400
+  extractDiscountMultiplier: 0.7
+  lifetimeBonusSeconds: 600
+```
+
+## Логи
+
+Файл `plugins/GraveMarket/grave-audit.log` пишет:
+`CREATE`, `OPEN`, `PAY_EXTRACT`, `TAKE_ITEM`, `RETURN`, `EXPIRE`, `VIRTUALIZE`, `DELETE`.
