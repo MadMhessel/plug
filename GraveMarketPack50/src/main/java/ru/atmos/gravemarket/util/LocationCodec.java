@@ -37,7 +37,7 @@ public final class LocationCodec {
 
     public static String blockKey(Location loc) {
         if (loc == null || loc.getWorld() == null) return "";
-        return loc.getWorld().getName() + ":" + loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ();
+        return loc.getWorld().getUID() + ":" + loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ();
     }
 
     public static String pretty(Location loc) {

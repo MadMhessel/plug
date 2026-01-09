@@ -1,13 +1,13 @@
 package ru.atmos.gravemarket.listener;
 
 import net.kyori.adventure.text.Component;
-import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import ru.atmos.gravemarket.GraveMarketPlugin;
+import ru.atmos.gravemarket.grave.GraveInventoryHolder;
 import ru.atmos.gravemarket.grave.GraveRecord;
 
 public final class InventoryListener implements Listener {
@@ -20,9 +20,8 @@ public final class InventoryListener implements Listener {
 
     private GraveRecord graveByTop(Inventory top) {
         if (top == null) return null;
-        Location loc = top.getLocation();
-        if (loc == null) return null;
-        return plugin.graves().findByBlock(loc);
+        if (!(top.getHolder() instanceof GraveInventoryHolder holder)) return null;
+        return plugin.graves().get(holder.graveId());
     }
 
     @EventHandler
@@ -33,6 +32,7 @@ public final class InventoryListener implements Listener {
         GraveRecord g = graveByTop(top);
         if (g == null) return;
 
+        int page = (top.getHolder() instanceof GraveInventoryHolder holder) ? holder.page() : 0;
         boolean auth = plugin.graves().isAuthorized(g, p.getUniqueId());
         if (!auth) {
             e.setCancelled(true);
@@ -57,6 +57,16 @@ public final class InventoryListener implements Listener {
 
         boolean clickedTop = clicked != null && clicked.equals(top);
         boolean clickedBottom = clicked != null && clicked.equals(e.getView().getBottomInventory());
+
+        if (clickedTop && (e.getSlot() == 45 || e.getSlot() == 53)) {
+            e.setCancelled(true);
+            if (e.getSlot() == 45) {
+                plugin.graves().openGraveInventory(p, g, page - 1);
+            } else if (e.getSlot() == 53) {
+                plugin.graves().openGraveInventory(p, g, page + 1);
+            }
+            return;
+        }
 
         // Any shift-click from bottom -> top is blocked
         if (clickedBottom && action == InventoryAction.MOVE_TO_OTHER_INVENTORY) {
@@ -98,6 +108,22 @@ public final class InventoryListener implements Listener {
                 default -> { /* ok */ }
             }
         }
+
+        if (clickedTop && (action == InventoryAction.MOVE_TO_OTHER_INVENTORY
+                || action == InventoryAction.PICKUP_ALL
+                || action == InventoryAction.PICKUP_HALF
+                || action == InventoryAction.PICKUP_ONE
+                || action == InventoryAction.PICKUP_SOME
+                || action == InventoryAction.DROP_ALL_SLOT
+                || action == InventoryAction.DROP_ONE_SLOT)) {
+            plugin.getServer().getScheduler().runTask(plugin, () -> {
+                plugin.graves().updateFromView(g, page, top);
+                if (g.paid && plugin.graves().isEmpty(g)) {
+                    grantExpAndRemove(p, g);
+                }
+                logGuiDebug("click-update", p, g, top);
+            });
+        }
     }
 
     @EventHandler
@@ -122,15 +148,37 @@ public final class InventoryListener implements Listener {
         GraveRecord g = graveByTop(top);
         if (g == null) return;
 
-        // sync and cleanup
-        plugin.graves().syncFromContainer(g);
-
-        if (g.paid && plugin.graves().isContainerEmpty(g)) {
-            plugin.graves().removeGrave(g, "emptied");
-            if (e.getPlayer() instanceof org.bukkit.entity.Player p) {
-                p.sendMessage(Component.text("§6[Могила] §aМогила очищена. Спасибо, что не сделали из неё склад :)"));
-            }
+        int page = (top.getHolder() instanceof GraveInventoryHolder holder) ? holder.page() : 0;
+        plugin.graves().updateFromView(g, page, top);
+        if (g.paid && plugin.graves().isEmpty(g) && e.getPlayer() instanceof org.bukkit.entity.Player p) {
+            grantExpAndRemove(p, g);
         }
+        plugin.graves().clearViewState(e.getPlayer().getUniqueId(), g.id);
+        if (e.getPlayer() instanceof org.bukkit.entity.Player p) {
+            logGuiDebug("close", p, g, top);
+        }
+    }
+
+    private void grantExpAndRemove(org.bukkit.entity.Player p, GraveRecord g) {
+        if (g.storedExp > 0) {
+            p.giveExp(g.storedExp);
+            g.storedExp = 0;
+        }
+        plugin.graves().removeGrave(g, "emptied");
+        p.sendMessage(Component.text("§6[Могила] §aМогила очищена. Спасибо, что не сделали из неё склад :)"));
+    }
+
+    private void logGuiDebug(String stage, org.bukkit.entity.Player p, GraveRecord g, Inventory top) {
+        if (!plugin.getConfig().getBoolean("graves.debug", false)) return;
+        int shown = 0;
+        ItemStack[] contents = top.getContents();
+        for (int i = 0; i < contents.length; i++) {
+            if (i == 45 || i == 53) continue;
+            ItemStack it = contents[i];
+            if (it != null && it.getType() != org.bukkit.Material.AIR) shown++;
+        }
+        plugin.getLogger().info("[GraveMarket] gui " + stage + " player=" + p.getName()
+                + " grave=" + g.id + " stored=" + g.storedItems.size() + " shown=" + shown);
     }
 
     private boolean shouldTagBorrowed(InventoryAction action) {

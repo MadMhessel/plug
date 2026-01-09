@@ -424,7 +424,6 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         if (target != null) {
             p.teleport(target);
         }
-        plugin.graves().syncFromContainer(g);
         if (g.storedExp > 0) {
             p.giveExp(g.storedExp);
             g.storedExp = 0;
@@ -432,13 +431,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
 
         // give items
         int count = 0;
-        List<ItemStack> allItems = new ArrayList<>();
-        allItems.addAll(g.storedItems);
-        if (g.overflowItems != null && !g.overflowItems.isEmpty()) {
-            allItems.addAll(g.overflowItems);
-            g.overflowItems.clear();
-        }
-        for (ItemStack it : new ArrayList<>(allItems)) {
+        for (ItemStack it : new ArrayList<>(g.storedItems)) {
             if (it == null || it.getType() == Material.AIR) continue;
             giveOrDrop(p, it);
             count += it.getAmount();

@@ -23,6 +23,7 @@ public final class InteractListener implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
         if (e.getHand() != EquipmentSlot.HAND) return;
+        if (e.getAction() != org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK) return;
         if (e.getClickedBlock() == null) return;
         Block b = e.getClickedBlock();
 
@@ -49,6 +50,13 @@ public final class InteractListener implements Listener {
             return;
         }
 
+        e.setCancelled(true);
+        int page = 0;
+        var state = plugin.graves().viewState(actor.getUniqueId());
+        if (state != null && state.graveId().equals(g.id)) {
+            page = state.page();
+        }
+        plugin.graves().openGraveInventory(actor, g, page);
         if (plugin.audit() != null) {
             plugin.audit().log("OPEN", actor.getUniqueId(), g.owner, g.id, g.graveLoc(), "");
         }
