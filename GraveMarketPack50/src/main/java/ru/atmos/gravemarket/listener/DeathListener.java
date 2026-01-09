@@ -19,7 +19,6 @@ import ru.atmos.gravemarket.util.SafeSpotFinder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public final class DeathListener implements Listener {
 
@@ -36,30 +35,19 @@ public final class DeathListener implements Listener {
 
         boolean pvp = p.getKiller() != null && plugin.getConfig().getBoolean("pvp.enabled", true);
         boolean keepInventory = e.getKeepInventory();
-        List<ItemStack> dropsCopy = new ArrayList<>(e.getDrops());
-        List<ItemStack> keepDrops = new ArrayList<>();
-        List<ItemStack> toGrave = new ArrayList<>();
-        if (keepInventory || dropsCopy.isEmpty()) {
-            toGrave.addAll(collectInventoryItems(p));
-            clearInventory(p.getInventory());
-        } else {
-            double dropChance = Math.max(0.0, Math.min(1.0, plugin.getConfig().getDouble("pvp.partialDropChance", 0.30)));
-            for (ItemStack it : dropsCopy) {
-                if (it == null || it.getType() == Material.AIR) continue;
-                if (pvp && ThreadLocalRandom.current().nextDouble() < dropChance) {
-                    keepDrops.add(it);
-                } else {
-                    toGrave.add(it);
-                }
-            }
-        }
-
+        List<ItemStack> items = new ArrayList<>(e.getDrops());
         e.getDrops().clear();
-        e.getDrops().addAll(keepDrops);
 
         int exp = e.getDroppedExp();
-        int expToGrave = e.getKeepLevel() ? 0 : exp;
         e.setDroppedExp(0);
+
+        if (keepInventory || items.isEmpty()) {
+            items.clear();
+            items.addAll(collectInventoryItems(p));
+            clearInventory(p.getInventory());
+        }
+
+        int expToGrave = e.getKeepLevel() ? 0 : exp;
 
         // Determine if we should force virtual
         boolean forceVirtual = false;
@@ -80,7 +68,7 @@ public final class DeathListener implements Listener {
                 p.getName(),
                 death,
                 safeBlock,
-                toGrave,
+                items,
                 expToGrave,
                 pvp
         );
@@ -94,17 +82,15 @@ public final class DeathListener implements Listener {
             plugin.graves().save();
         }
 
-        logDebug(() -> "death dropsCopy=" + dropsCopy.size()
+        logDebug(() -> "death dropsCopy=" + items.size()
                 + " keepInventory=" + keepInventory
                 + " keepLevel=" + e.getKeepLevel()
-                + " keepDrops=" + keepDrops.size()
-                + " toGrave=" + toGrave.size()
-                + " containerItems=" + r.storedItems.size()
-                + " overflowItems=" + (r.overflowItems == null ? 0 : r.overflowItems.size())
+                + " toGrave=" + items.size()
+                + " storedItems=" + r.storedItems.size()
                 + " graveLoc=" + (r.virtual ? LocationCodec.pretty(r.deathLoc()) : LocationCodec.pretty(r.graveLoc()))
                 + " virtual=" + r.virtual
                 + " insured=" + insured);
-        if (dropsCopy.isEmpty()) {
+        if (items.isEmpty()) {
             logDebug(() -> "death dropsCopy empty. reason keepInventory=" + keepInventory
                     + " keepRule=" + (p.getWorld() == null ? "unknown" : p.getWorld().getGameRuleValue(org.bukkit.GameRule.KEEP_INVENTORY)));
         }
@@ -126,10 +112,10 @@ public final class DeathListener implements Listener {
 
         // Quick actions (без внешних зависимостей)
         Component actions = Component.text("§6[Могила] §fДействия: ")
-                .append(Component.text("§b[Метка]").clickEvent(ClickEvent.runCommand("/grave mark")))
-                .append(Component.text(" §a[Инфо]").clickEvent(ClickEvent.runCommand("/grave info")))
+                .append(Component.text("§a[Инфо]").clickEvent(ClickEvent.runCommand("/grave info")))
                 .append(Component.text(" §e[Компас]").clickEvent(ClickEvent.runCommand("/grave compass")))
-                .append(Component.text(" §c[Телепорт]").clickEvent(ClickEvent.runCommand("/grave tp")));
+                .append(Component.text(" §c[Телепорт]").clickEvent(ClickEvent.runCommand("/grave tp")))
+                .append(Component.text(" §d[Recall]").clickEvent(ClickEvent.runCommand("/grave recall")));
         p.sendMessage(actions);
 
         // Small particles beacon at the place (optional)
@@ -148,9 +134,6 @@ public final class DeathListener implements Listener {
             if (it != null && it.getType() != Material.AIR) items.add(it);
         }
         for (ItemStack it : inv.getArmorContents()) {
-            if (it != null && it.getType() != Material.AIR) items.add(it);
-        }
-        for (ItemStack it : inv.getExtraContents()) {
             if (it != null && it.getType() != Material.AIR) items.add(it);
         }
         ItemStack offhand = inv.getItemInOffHand();

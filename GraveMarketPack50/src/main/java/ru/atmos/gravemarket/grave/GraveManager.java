@@ -1,13 +1,16 @@
 package ru.atmos.gravemarket.grave;
 
 import net.kyori.adventure.text.Component;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
-import org.bukkit.block.Container;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
@@ -33,11 +36,17 @@ public final class GraveManager {
     private final NamespacedKey keyGraveId;
 
     private final Map<String, GraveRecord> byId = new HashMap<>();
-    private final Map<String, String> byBlockKey = new HashMap<>(); // world:x:y:z -> graveId
+    private final Map<String, String> byBlockKey = new HashMap<>(); // worldUUID:x:y:z -> graveId
 
     private final TrustManager trust;
+    private final Map<UUID, ViewState> viewState = new HashMap<>();
 
     private final DateTimeFormatter timeFmt = DateTimeFormatter.ofPattern("HH:mm").withZone(ZoneId.systemDefault());
+
+    private static final int GUI_SIZE = 54;
+    private static final int ITEMS_PER_PAGE = 52;
+    private static final int NAV_PREV_SLOT = 45;
+    private static final int NAV_NEXT_SLOT = 53;
 
     public GraveManager(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -136,6 +145,10 @@ public final class GraveManager {
                     }
                 }
             }
+            if (!r.overflowItems.isEmpty()) {
+                r.storedItems.addAll(r.overflowItems);
+                r.overflowItems.clear();
+            }
 
             byId.put(id, r);
             if (!r.virtual) {
@@ -226,15 +239,15 @@ public final class GraveManager {
         save();
     }
 
-    private Material graveContainerMaterial() {
-        String s = plugin.getConfig().getString("graves.containerMaterial", "BARREL");
+    private Material graveMarkerMaterial() {
+        String s = plugin.getConfig().getString("graves.markerMaterial", "SMOOTH_STONE_SLAB");
         try {
             Material m = Material.valueOf(s.toUpperCase(Locale.ROOT));
-            if (m.isBlock() && (m == Material.BARREL || m.name().endsWith("CHEST") || m.name().endsWith("SHULKER_BOX"))) {
+            if (m.isBlock()) {
                 return m;
             }
         } catch (IllegalArgumentException ignored) {}
-        return Material.BARREL;
+        return Material.SMOOTH_STONE_SLAB;
     }
 
     public void ensurePhysicalState(GraveRecord r) {
@@ -245,32 +258,16 @@ public final class GraveManager {
         }
 
         Block b = bl.getBlock();
-        Material container = graveContainerMaterial();
+        Material marker = graveMarkerMaterial();
 
         if (b.getType() == Material.AIR) {
-            b.setType(container, false);
+            b.setType(marker, false);
         }
 
-        if (b.getType() != container) {
+        if (b.getType() != marker) {
             // someone broke/changed it -> virtualize
             virtualize(r, "block_changed");
             return;
-        }
-
-        if (b.getState() instanceof Container c) {
-            Inventory inv = c.getInventory();
-            // keep inventory in sync with storedItems (authoritative) on server start only
-            if (!inv.isEmpty() && inv.getSize() > 0) {
-                // do nothing: players may have already interacted
-            } else if (!r.storedItems.isEmpty()) {
-                FillResult fill = fillContainer(inv, r.storedItems);
-                r.storedItems = fill.containerItems;
-                if (!fill.overflowItems.isEmpty()) {
-                    r.overflowItems.addAll(fill.overflowItems);
-                }
-                c.update(true, false);
-                save();
-            }
         }
 
         // hologram
@@ -372,29 +369,23 @@ public final class GraveManager {
         r.deathLocation = LocationCodec.encode(deathLoc);
         r.graveLocation = (graveBlockLoc == null) ? "" : LocationCodec.encode(graveBlockLoc);
         r.storedExp = exp;
-        r.storedItems = new ArrayList<>();
-        r.overflowItems = new ArrayList<>();
         List<ItemStack> filtered = new ArrayList<>();
         for (ItemStack it : items) {
             if (it != null && it.getType() != Material.AIR) filtered.add(it);
         }
+        r.storedItems = new ArrayList<>(filtered);
+        r.overflowItems = new ArrayList<>();
 
         byId.put(r.id, r);
         if (!r.virtual) {
             byBlockKey.put(LocationCodec.blockKey(graveBlockLoc), r.id);
-            FillResult fill = placeContainerAndFill(r, filtered);
-            if (!fill.containerPlaced) {
+            if (!placeMarker(r)) {
                 r.virtual = true;
                 r.graveLocation = "";
-                r.storedItems = new ArrayList<>(filtered);
                 byBlockKey.remove(LocationCodec.blockKey(graveBlockLoc));
             } else {
-                r.storedItems = fill.containerItems;
-                r.overflowItems = fill.overflowItems;
                 ensureHologram(r);
             }
-        } else {
-            r.storedItems = new ArrayList<>(filtered);
         }
 
         if (audit != null) audit.log("CREATE", null, owner, r.id, graveBlockLoc != null ? graveBlockLoc : deathLoc,
@@ -404,38 +395,15 @@ public final class GraveManager {
         return r;
     }
 
-    private FillResult placeContainerAndFill(GraveRecord r, List<ItemStack> items) {
+    private boolean placeMarker(GraveRecord r) {
         Location bl = r.graveLoc();
-        if (bl == null || bl.getWorld() == null) return new FillResult(false, List.of(), List.of());
+        if (bl == null || bl.getWorld() == null) return false;
         Block b = bl.getBlock();
-        Material container = graveContainerMaterial();
-        b.setType(container, false);
-        if (b.getState() instanceof Container c) {
-            Inventory inv = c.getInventory();
-            inv.clear();
-            FillResult fill = fillContainer(inv, items);
-            c.update(true, false);
-            return new FillResult(true, fill.containerItems, fill.overflowItems);
+        Material marker = graveMarkerMaterial();
+        if (b.getType() != marker) {
+            b.setType(marker, false);
         }
-        return new FillResult(false, List.of(), new ArrayList<>(items));
-    }
-
-    private FillResult fillContainer(Inventory inv, List<ItemStack> items) {
-        List<ItemStack> containerItems = new ArrayList<>();
-        List<ItemStack> overflowItems = new ArrayList<>();
-        for (ItemStack it : items) {
-            if (it == null || it.getType() == Material.AIR) continue;
-            HashMap<Integer, ItemStack> leftover = inv.addItem(it);
-            if (!leftover.isEmpty()) {
-                overflowItems.addAll(leftover.values());
-            }
-        }
-        for (ItemStack it : inv.getContents()) {
-            if (it != null && it.getType() != Material.AIR) {
-                containerItems.add(it.clone());
-            }
-        }
-        return new FillResult(true, containerItems, overflowItems);
+        return b.getType() == marker;
     }
 
     private long retentionSeconds() {
@@ -444,34 +412,9 @@ public final class GraveManager {
         return plugin.getConfig().getLong("graves.expiredRetentionSeconds", 86400);
     }
 
-    public void syncFromContainer(GraveRecord r) {
-        if (r == null || r.virtual) return;
-        Location bl = r.graveLoc();
-        if (bl == null || bl.getWorld() == null) return;
-        Block b = bl.getBlock();
-        if (!(b.getState() instanceof Container c)) return;
-
-        Inventory inv = c.getInventory();
-        List<ItemStack> items = new ArrayList<>();
-        for (ItemStack it : inv.getContents()) {
-            if (it != null && it.getType() != Material.AIR) items.add(it.clone());
-        }
-        r.storedItems = items;
-        save();
-    }
-
-    public boolean isContainerEmpty(GraveRecord r) {
-        if (r == null || r.virtual) return true;
-        Location bl = r.graveLoc();
-        if (bl == null || bl.getWorld() == null) return true;
-        if (r.overflowItems != null && !r.overflowItems.isEmpty()) return false;
-        Block b = bl.getBlock();
-        if (!(b.getState() instanceof Container c)) return true;
-        Inventory inv = c.getInventory();
-        for (ItemStack it : inv.getContents()) {
-            if (it != null && it.getType() != Material.AIR) return false;
-        }
-        return true;
+    public boolean isEmpty(GraveRecord r) {
+        if (r == null) return true;
+        return r.storedItems == null || r.storedItems.stream().noneMatch(it -> it != null && it.getType() != Material.AIR);
     }
 
     public void removeGrave(GraveRecord r, String reason) {
@@ -486,6 +429,9 @@ public final class GraveManager {
             removeHologram(r);
         }
         byId.remove(r.id);
+        if (r.graveLoc() != null) {
+            byBlockKey.remove(LocationCodec.blockKey(r.graveLoc()));
+        }
         if (audit != null) audit.log("DELETE", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
         save();
     }
@@ -504,15 +450,6 @@ public final class GraveManager {
     public void virtualize(GraveRecord r, String reason) {
         if (r == null || r.virtual) return;
 
-        // pull items from container
-        try {
-            syncFromContainer(r);
-        } catch (Exception ignored) {}
-        if (r.overflowItems != null && !r.overflowItems.isEmpty()) {
-            r.storedItems.addAll(r.overflowItems);
-            r.overflowItems.clear();
-        }
-
         // remove physical block and holo
         Location bl = r.graveLoc();
         if (bl != null && bl.getWorld() != null) {
@@ -523,10 +460,133 @@ public final class GraveManager {
 
         r.virtual = true;
         r.graveLocation = "";
+        if (bl != null) {
+            byBlockKey.remove(LocationCodec.blockKey(bl));
+        }
 
         if (audit != null) audit.log("VIRTUALIZE", null, r.owner, r.id, r.deathLoc(), "reason=" + reason);
         save();
     }
 
-    private record FillResult(boolean containerPlaced, List<ItemStack> containerItems, List<ItemStack> overflowItems) {}
+    public Inventory openGraveInventory(Player player, GraveRecord r, int page) {
+        if (r == null || player == null) return null;
+        int totalPages = totalPages(r);
+        int safePage = Math.max(0, Math.min(page, totalPages - 1));
+        viewState.put(player.getUniqueId(), new ViewState(r.id, safePage));
+        Inventory inv = Bukkit.createInventory(new GraveInventoryHolder(r.id, safePage), GUI_SIZE, graveTitle(r));
+        fillInventoryPage(inv, r, safePage, totalPages);
+        logGuiDebug("open", player, r, inv);
+        player.openInventory(inv);
+        return inv;
+    }
+
+    public void updateFromView(GraveRecord r, int page, Inventory inv) {
+        if (r == null || inv == null) return;
+        int start = page * ITEMS_PER_PAGE;
+        int end = Math.min(start + ITEMS_PER_PAGE, r.storedItems.size());
+
+        List<ItemStack> updated = new ArrayList<>();
+        if (start > 0 && r.storedItems.size() >= start) {
+            updated.addAll(r.storedItems.subList(0, start));
+        }
+
+        for (int slot : itemSlots()) {
+            ItemStack it = inv.getItem(slot);
+            if (it != null && it.getType() != Material.AIR) {
+                updated.add(it.clone());
+            }
+        }
+
+        if (end < r.storedItems.size()) {
+            updated.addAll(r.storedItems.subList(end, r.storedItems.size()));
+        }
+
+        r.storedItems = updated;
+        save();
+    }
+
+    public void clearViewState(UUID playerId, String graveId) {
+        ViewState state = viewState.get(playerId);
+        if (state != null && Objects.equals(state.graveId, graveId)) {
+            viewState.remove(playerId);
+        }
+    }
+
+    public ViewState viewState(UUID playerId) {
+        return viewState.get(playerId);
+    }
+
+    private void fillInventoryPage(Inventory inv, GraveRecord r, int page, int totalPages) {
+        inv.clear();
+        int start = page * ITEMS_PER_PAGE;
+        int end = Math.min(start + ITEMS_PER_PAGE, r.storedItems.size());
+        List<ItemStack> pageItems = r.storedItems.subList(start, end);
+
+        int i = 0;
+        for (int slot : itemSlots()) {
+            if (i >= pageItems.size()) break;
+            ItemStack it = pageItems.get(i++);
+            if (it != null && it.getType() != Material.AIR) {
+                inv.setItem(slot, it.clone());
+            }
+        }
+
+        if (totalPages > 1) {
+            if (page > 0) {
+                inv.setItem(NAV_PREV_SLOT, navItem("◀"));
+            }
+            if (page < totalPages - 1) {
+                inv.setItem(NAV_NEXT_SLOT, navItem("▶"));
+            }
+        }
+    }
+
+    private ItemStack navItem(String text) {
+        ItemStack item = new ItemStack(Material.PAPER);
+        var meta = item.getItemMeta();
+        if (meta != null) {
+            meta.displayName(Component.text(text));
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private List<Integer> itemSlots() {
+        List<Integer> slots = new ArrayList<>(ITEMS_PER_PAGE);
+        for (int i = 0; i < NAV_PREV_SLOT; i++) {
+            slots.add(i);
+        }
+        for (int i = NAV_PREV_SLOT + 1; i < NAV_NEXT_SLOT; i++) {
+            slots.add(i);
+        }
+        return slots;
+    }
+
+    public int totalPages(GraveRecord r) {
+        if (r == null || r.storedItems == null || r.storedItems.isEmpty()) return 1;
+        return Math.max(1, (int) Math.ceil(r.storedItems.size() / (double) ITEMS_PER_PAGE));
+    }
+
+    private String graveTitle(GraveRecord r) {
+        long now = System.currentTimeMillis();
+        long leftSec = Math.max(0, (r.expiresAtEpochMs - now) / 1000L);
+        long mm = leftSec / 60;
+        long ss = leftSec % 60;
+        return "Могила " + r.ownerName + " \u2022 осталось " + mm + ":" + String.format(Locale.ROOT, "%02d", ss);
+    }
+
+    private void logGuiDebug(String stage, Player p, GraveRecord g, Inventory top) {
+        if (!plugin.getConfig().getBoolean("graves.debug", false)) return;
+        int shown = 0;
+        ItemStack[] contents = top.getContents();
+        for (int i = 0; i < contents.length; i++) {
+            if (i == NAV_PREV_SLOT || i == NAV_NEXT_SLOT) continue;
+            ItemStack it = contents[i];
+            if (it != null && it.getType() != Material.AIR) shown++;
+        }
+        plugin.getLogger().info("[GraveMarket] gui " + stage + " player=" + p.getName()
+                + " grave=" + g.id + " stored=" + g.storedItems.size() + " shown=" + shown);
+    }
+
+    public record ViewState(String graveId, int page) {}
 }

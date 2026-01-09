@@ -7,7 +7,7 @@ integration:
   requireTeleportMarket: false
 
 graves:
-  containerMaterial: BARREL          # BARREL / CHEST / TRAPPED_CHEST / SHULKER_BOX
+  markerMaterial: SMOOTH_STONE_SLAB  # блок-маркер могилы (плита/полублок)
   safeSearchRadius: 8                # поиск безопасной точки вокруг смерти
   lifetimeSeconds: 1800              # 30 минут
   expiredRetentionHours: 24          # после истечения — хранить как виртуальную до удаления (часы)
