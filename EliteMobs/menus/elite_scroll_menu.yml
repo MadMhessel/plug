@@ -1,52 +1,52 @@
 isEnabled: true
 # Sets the display name of the menu
-menuName: '&6Elite Scroll Menu'
+menuName: '&6Меню элитных свитков'
 # Sets the item slot number of the information button in the chest menu.
 infoSlot: 4
 infoButton:
   material: PLAYER_HEAD
-  name: '§2Elite Scroll info:'
+  name: '§2Информация о свитках:'
   lore:
-  - §2This menu converts non-elite items into elite items!
-  - §2Elite items have elite dps or elite defense which applies
-  - §2to elite mobs.
-  - §2To convert a non-elite item into an elite item, place
-  - §2your non-elite item below, as well as a Elite Scroll!
+  - §2Это меню превращает неэлитные предметы в элитные!
+  - §2Элитные предметы дают элитный урон или защиту,
+  - §2которые действуют на элитных мобов.
+  - §2Чтобы превратить предмет в элитный, поместите
+  - §2неэлитный предмет ниже, а также элитный свиток!
 # Sets the item slot number of the cancel button in the chest menu.
 cancelSlot: 27
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel!
+  - §cОтменить!
   customModelID: 31173
 # Sets the item slot number of the confirm button in the chest menu.
 confirmSlot: 35
 confirmButton:
   material: EMERALD
-  name: §2Apply!
+  name: §2Применить!
 # Sets the item slot number of the non-elite item in the chest menu.
 itemSlot: 29
 # Sets the item slot number of the non-elite item info button in the chest menu.
 itemInfoSlot: 20
 itemInfoButton:
   material: GREEN_BANNER
-  name: §2Non-Elite Item Input slot
+  name: §2Слот для неэлитного предмета
   lore:
-  - §aPut your non-elite item here!
+  - §aПоложите сюда неэлитный предмет!
   customModelID: 31173
 # Sets the item slot number of the elite scroll item info button in the chest menu.
 eliteScrollItemInfoSlot: 22
 eliteScrollItemInfoButton:
   material: GREEN_BANNER
-  name: §2Elite Scroll Input slot
+  name: §2Слот для элитного свитка
   lore:
-  - §aPut your elite scroll here!
+  - §aПоложите сюда элитный свиток!
   customModelID: 31173
 # Sets the item slot number of elite scroll in the chest menu.
 eliteScrollItemSlot: 31
 outputInfoButton:
   material: RED_BANNER
-  name: §2Result
+  name: §2Результат
 outputInfoSlot: 24
 outputSlot: 33

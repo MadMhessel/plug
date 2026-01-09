@@ -2,9 +2,9 @@ isEnabled: true
 menuName: ''
 playerItem:
   material: DIAMOND_SWORD
-  name: §4Challenge the arena!
+  name: §4Бросить вызов арене!
 playerItemSlot: 6
 spectatorItem:
   material: SPYGLASS
-  name: §aSpectate!
+  name: §aНаблюдать!
 spectatorItemSlot: 2

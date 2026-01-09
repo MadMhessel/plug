@@ -1,24 +1,24 @@
 isEnabled: true
-Shop name: '[EM] Buy or Sell'
+Shop name: '[EM] Купить или продать'
 Information button:
   material: PLAYER_HEAD
   name: §4§lEliteMobs §cby §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
-  - §aClick on the emerald to buy items!
-  - §cClick on the redstone to sell items!
+  - §8Поддержите плагины, которые вам нравятся!
+  - §aНажмите на изумруд, чтобы купить предметы!
+  - §cНажмите на редстоун, чтобы продать предметы!
 Information button slot: 4
 Buy procedurally generated items:
   material: EMERALD
-  name: Buy items
+  name: Купить предметы
   customModelID: 31173
 Buy custom items:
   material: EMERALD
-  name: Buy custom items
+  name: Купить особые предметы
   customModelID: 31173
 Sell items:
   material: REDSTONE
-  name: Sell items
+  name: Продать предметы
   customModelID: 31173
 Buy slot: 11
 Sell slot: 15

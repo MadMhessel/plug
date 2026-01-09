@@ -1,47 +1,47 @@
 isEnabled: true
-shopName: '[EM] Unbind menu!'
+shopName: '[EM] Меню отвязки!'
 infoButton:
   material: PLAYER_HEAD
   name: §4§lEliteMobs §cby §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
-  - §aUse an §5Unbind Scroll §ato remove Soulbind from an item!
+  - §8Поддержите плагины, которые вам нравятся!
+  - §aИспользуйте §5Свиток отвязки§a, чтобы снять привязку!
 infoButtonSlot: 4
 eliteItemInputInformationSlot: 20
 eliteItemInputSlot: 29
 eliteItemInputInformationButton:
   material: GREEN_BANNER
-  name: §2Elite Item Input slots
+  name: §2Слот элитного предмета
   lore:
-  - §aThis slot is for your elite item!
+  - §aПоложите сюда элитный предмет!
   customModelID: 31173
 unbindScrollInputInformationSlot: 22
 unbindScrollInputSlot: 31
 unbindScrollInputInformationButton:
   material: GREEN_BANNER
-  name: §5Unbind Scroll §aInput slots
+  name: §5Свиток отвязки §a— слот
   lore:
-  - §aThis slot is for your §9Unbind Scroll§a!
+  - §aПоложите сюда §9Свиток отвязки§a!
   customModelID: 31173
 informationOutputButtonSlot: 24
 outputSlot: 33
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel unbind!
+  - §cОтменить отвязку!
   customModelID: 31173
 outputInformationButton:
   material: RED_BANNER
-  name: §2Unbound Item Output slot
+  name: §2Слот результата отвязки
   lore:
-  - §aThis slot previews the result of your unbind!
+  - §aЗдесь показан результат отвязки!
   customModelID: 31173
 cancelButtonSlot: 27
 confirmButton:
   material: EMERALD
-  name: §2Confirm!
+  name: §2Подтвердить!
   lore:
-  - §aUnbind item!
+  - §aСнять привязку!
   customModelID: 31175
 confirmUnbindSlot: 35

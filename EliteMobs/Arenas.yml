@@ -1,50 +1,49 @@
 # Message that appears when not enough players are present to start an arena.
-notEnoughPlayersMessage: '&8[EliteMobs] &cYou need at least $amount to start the match!'
+notEnoughPlayersMessage: '&8[EliteMobs] &cНужно минимум $amount игроков, чтобы начать матч!'
 # Title that appears when an arena is starting.
-startingMessage: '&2Starting!'
+startingMessage: '&2Начинаем!'
 # Subtitle that appears when an arena is starting.
-startingSubtitle: '&2in $count...'
+startingSubtitle: '&2через $count...'
 # Message that appears when an arena is full.
-arenaFullMessage: '&4[EliteMobs] &cArena is full! You can spectate instead while you
-  wait for it to finish!'
+arenaFullMessage: '&4[EliteMobs] &cАрена заполнена! Пока ждёте завершения, можно
+  наблюдать!'
 # Message that appears when a player attempts to join an active arena.
-arenasOngoingMessage: '&4[EliteMobs] &cCan''t join the arena now - a match is currently
-  happening! You can spectate instead while you wait for it to finish!'
+arenasOngoingMessage: '&4[EliteMobs] &cСейчас нельзя зайти на арену — матч уже идёт!
+  Можно наблюдать, пока ждёте завершения!'
 # Message that appears to remind players how to start an arena after joining as a player.
-instanceStartHintMessage: '&2[EliteMobs] &aYou can start the instance by doing &2/em
+instanceStartHintMessage: '&2[EliteMobs] &aЗапустить инстанс можно командой &2/em
   start'
 # Message that appears to remind players how to leave an arena.
-instanceQuitHintMessage: '&4[EliteMobs] &cYou can leave the instance by doing &4/em
+instanceQuitHintMessage: '&4[EliteMobs] &cВыйти из инстанса можно командой &4/em
   quit'
 # Message that appears when players join an arena.
-arenaJoinPlayerMessage: "&2[EliteMobs] &aYou can start the arena by doing &2/em start\
-  \ &aif there are at least &2$count &aplayers in it! \nYou can leave the arena by\
-  \ doing &c/em quit"
+arenaJoinPlayerMessage: "&2[EliteMobs] &aЗапустить арену можно командой &2/em start\
+  \ &aесли в ней как минимум &2$count &aигроков! \nВыйти из арены можно командой\
+  \ &c/em quit"
 # Message that appears to remind players how to leave an arena after joining as a spectator.
-arenaJoinSpectatorMessage: '&2[EliteMobs] &aYou can leave the arena at any time using
+arenaJoinSpectatorMessage: '&2[EliteMobs] &aВыйти с арены можно в любой момент через
   &2/em quit'
 # Title message that appears when a wave is starting.
-waveTitle: '&aWave &2$wave'
+waveTitle: '&aВолна &2$wave'
 # Subtitle message that appears when a wave is starting.
 waveSubtitle: ''
 # Title that appears when an arena is completed.
-victoryTitle: '&2Victory!'
+victoryTitle: '&2Победа!'
 # Subtitle that appears when an arena is completed.
-victorySubtitle: '&aCompleted &2$wave &awaves!'
+victorySubtitle: '&aПройдено волн: &2$wave&a!'
 # Title that appears when players fail an arena.
-defeatTitle: '&4Defeat!'
+defeatTitle: '&4Поражение!'
 # Subitle that appears when players fail an arena.
-defeatSubtitle: '&cReached wave &4$wave&c!'
+defeatSubtitle: '&cДостигнута волна &4$wave&c!'
 # Message broadcasted when players beat an arena.
-victoryBroadcast: Arena $arenaName was conquered by $players!
+victoryBroadcast: Арена $arenaName покорена игроками $players!
 # Title that appears when a player joins an arena.
-joinPlayerTitle: '&aStart with &2/em start &a!'
+joinPlayerTitle: '&aЗапуск — &2/em start &a!'
 # Subtitle that appears when a player joins an arena.
-joinPlayerSubtitle: '&cLeave with &4/em quit &c!'
+joinPlayerSubtitle: '&cВыход — &4/em quit &c!'
 # Title that appears when a spectator joins an arena.
-joinSpectatorTitle: '&aNow spectating!'
+joinSpectatorTitle: '&aРежим наблюдения!'
 # Subtitle that appears when a spectator joins an arena.
-joinSpectatorSubtitle: '&cLeave with &4/em quit &c!'
+joinSpectatorSubtitle: '&cВыход — &4/em quit &c!'
 # Sets the message sent to players if they do not have permission to enter an arena.
-noArenaPermissionMessage: '[EliteMobs] You don''t have the permission to enter this
-  arena!'
+noArenaPermissionMessage: '[EliteMobs] У вас нет прав для входа на эту арену!'
