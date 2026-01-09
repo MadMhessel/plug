@@ -42,10 +42,7 @@ public final class PuzzleRoom implements Room {
 
     @Override
     public void build(RoomContext context) {
-        builder.buildRoomBase(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.SMOOTH_STONE, Material.STONE_BRICKS, Material.SMOOTH_STONE, Material.COPPER_BULB);
-        builder.buildPillars(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.MOSSY_STONE_BRICKS);
+        builder.buildRoom(context);
         builder.carveDoor(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(), true);
         placeLevers(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ());
     }

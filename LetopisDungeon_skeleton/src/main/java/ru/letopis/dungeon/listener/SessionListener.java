@@ -7,6 +7,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import ru.letopis.dungeon.LetopisDungeonPlugin;
 
 public final class SessionListener implements Listener {
@@ -36,5 +37,10 @@ public final class SessionListener implements Listener {
     @EventHandler
     public void onWorldChange(PlayerChangedWorldEvent event) {
         plugin.dungeon().onPlayerChangedWorld(event.getPlayer());
+    }
+
+    @EventHandler
+    public void onRespawn(PlayerRespawnEvent event) {
+        plugin.dungeon().onPlayerRespawn(event.getPlayer());
     }
 }

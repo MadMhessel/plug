@@ -33,6 +33,8 @@ session:
   leaderLeft: "Лидер покинул группу. Забег остановлен."
   completed: "Босс повержен. Забег завершён!"
   playerDown: "Вы выбыли из боя."
+  respawned: "Вы выбилились и возвращены в безопасную зону."
+  teleportBlocked: "Стены данжа не отпускают."
   waveStarted: "Волна {wave}/{total}. Врагов: {mobs}."
   puzzleHint: "Порядок рычагов: {order}."
   puzzleProgress: "Верный порядок: {step}/{total}."

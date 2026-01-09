@@ -27,10 +27,7 @@ public final class EntranceRoom implements Room {
 
     @Override
     public void build(RoomContext context) {
-        builder.buildRoomBase(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.DEEPSLATE_TILES, Material.DEEPSLATE_BRICKS, Material.DEEPSLATE_TILES, Material.SOUL_LANTERN);
-        builder.buildPillars(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.CHISELED_DEEPSLATE);
+        builder.buildRoom(context);
         builder.carveDoor(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(), true);
 
         Location signLoc = context.origin().clone().add(2, 2, 2);

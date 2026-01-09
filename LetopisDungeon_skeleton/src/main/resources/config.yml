@@ -5,17 +5,40 @@ dungeon:
     denyBlockPlace: true
     denyExplosions: true
     randomTickSpeed: 0
+  build:
+    batchSize: 300
   session:
     maxMinutes: 25
     areaSize: 200
     areaHeight: 40
     gridStep: 320
     baseY: 80
+    respawn:
+      returnToLobby: false
   rooms:
     sizeX: 30
     sizeY: 10
     sizeZ: 30
     corridorLength: 8
+  lights:
+    maxPerRoom: 4
+    spacing: 24
+    darknessStyle: NORMAL
+  decor:
+    density: 0.35
+  themes:
+    enabled:
+      - CATACOMBS
+      - BASTION
+      - FROST_TOMB
+      - OVERGROWN_TEMPLE
+      - ARCANE_LIBRARY
+    weights:
+      catacombs: 1.0
+      bastion: 1.0
+      frost_tomb: 1.0
+      overgrown_temple: 1.0
+      arcane_library: 1.0
   waves:
     base: 3
     perPlayer: 2
