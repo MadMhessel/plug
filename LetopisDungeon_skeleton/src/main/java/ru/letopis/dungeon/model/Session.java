@@ -16,6 +16,9 @@ public final class Session {
     private SessionRegion region;
     private Location roomStartLocation;
     private Location entryLocation;
+    private EntranceStructure entranceStructure;
+    private ru.letopis.dungeon.theme.Theme theme;
+    private long seed;
 
     private long startedAtEpoch = 0L;
     private int elapsedSeconds = 0;
@@ -35,6 +38,10 @@ public final class Session {
         this.roomStartLocation = roomStart;
         this.director.setTension(0);
         this.participants.clear();
+        this.entryLocation = null;
+        this.entranceStructure = null;
+        this.theme = null;
+        this.seed = 0L;
         this.startedAtEpoch = Instant.now().getEpochSecond();
         this.elapsedSeconds = 0;
         this.currentRoomIndex = 0;
@@ -64,8 +71,14 @@ public final class Session {
     public SessionRegion region() { return region; }
     public Location roomStartLocation() { return roomStartLocation; }
     public Location entryLocation() { return entryLocation; }
+    public EntranceStructure entranceStructure() { return entranceStructure; }
+    public ru.letopis.dungeon.theme.Theme theme() { return theme; }
+    public long seed() { return seed; }
 
     public void setEntryLocation(Location entryLocation) { this.entryLocation = entryLocation; }
+    public void setEntranceStructure(EntranceStructure entranceStructure) { this.entranceStructure = entranceStructure; }
+    public void setTheme(ru.letopis.dungeon.theme.Theme theme) { this.theme = theme; }
+    public void setSeed(long seed) { this.seed = seed; }
 
     public void markParticipant(UUID uuid) {
         participants.computeIfAbsent(uuid, key -> new SessionParticipant());
@@ -75,25 +88,29 @@ public final class Session {
         participants.computeIfAbsent(uuid, key -> new SessionParticipant()).setAlive(alive);
     }
 
-    public void markActive(UUID uuid, boolean active) {
-        participants.computeIfAbsent(uuid, key -> new SessionParticipant()).setActive(active);
+    public void markInSession(UUID uuid, boolean inSession) {
+        participants.computeIfAbsent(uuid, key -> new SessionParticipant()).setInSession(inSession);
     }
 
     public void updateLocation(UUID uuid, Location loc) {
         participants.computeIfAbsent(uuid, key -> new SessionParticipant()).setLastKnownLocation(loc);
     }
 
+    public void updateLastSeen(UUID uuid, long ts) {
+        participants.computeIfAbsent(uuid, key -> new SessionParticipant()).setLastSeenTs(ts);
+    }
+
     public Map<UUID, SessionParticipant> participants() { return Collections.unmodifiableMap(participants); }
 
     public int participantCount() {
         int count = 0;
-        for (SessionParticipant p : participants.values()) if (p.isActive()) count++;
+        for (SessionParticipant p : participants.values()) if (p.isInSession()) count++;
         return count;
     }
 
     public int aliveCount() {
         int count = 0;
-        for (SessionParticipant p : participants.values()) if (p.isAlive()) count++;
+        for (SessionParticipant p : participants.values()) if (p.isAlive() && p.isInSession()) count++;
         return count;
     }
 

@@ -1,7 +1,6 @@
 package ru.letopis.dungeon.room;
 
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
@@ -48,10 +47,7 @@ public final class BossRoom implements Room {
 
     @Override
     public void build(RoomContext context) {
-        builder.buildRoomBase(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.BLACKSTONE, Material.POLISHED_BLACKSTONE_BRICKS, Material.BLACKSTONE, Material.SOUL_LANTERN);
-        builder.buildPillars(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.GILDED_BLACKSTONE);
+        builder.buildRoom(context);
     }
 
     @Override

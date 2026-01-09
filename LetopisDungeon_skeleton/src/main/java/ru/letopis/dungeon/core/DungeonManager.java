@@ -14,6 +14,8 @@ import org.bukkit.persistence.PersistentDataType;
 import ru.letopis.dungeon.LetopisDungeonPlugin;
 import ru.letopis.dungeon.model.*;
 import ru.letopis.dungeon.room.*;
+import ru.letopis.dungeon.theme.Theme;
+import ru.letopis.dungeon.theme.WeightedMaterial;
 import ru.letopis.dungeon.ui.UIService;
 import ru.letopis.dungeon.util.SafeTeleport;
 
@@ -31,6 +33,7 @@ public final class DungeonManager {
     private final Session session = new Session();
     private final List<Room> rooms = new ArrayList<>();
     private final List<RoomContext> roomContexts = new ArrayList<>();
+    private final List<Gate> gates = new ArrayList<>();
 
     private final NamespacedKey sessionKey;
     private final NamespacedKey tagKey;
@@ -41,7 +44,7 @@ public final class DungeonManager {
     public DungeonManager(LetopisDungeonPlugin plugin) {
         this.plugin = plugin;
         this.worldService = new DungeonWorldService(plugin);
-        this.builder = new DungeonBuilder();
+        this.builder = new DungeonBuilder(plugin);
         this.ui = new UIService(plugin);
         this.sessionKey = new NamespacedKey(plugin, "session_id");
         this.tagKey = new NamespacedKey(plugin, "dungeon_tag");
@@ -91,7 +94,7 @@ public final class DungeonManager {
     public void leave(Player p) {
         var rp = returnPoints.remove(p.getUniqueId());
         if (rp != null) SafeTeleport.teleport(p, rp.toLocation());
-        session.markActive(p.getUniqueId(), false);
+        session.markInSession(p.getUniqueId(), false);
         session.markAlive(p.getUniqueId(), false);
         ui.clear(p);
     }
@@ -107,9 +110,13 @@ public final class DungeonManager {
         if (leader == null && mode == StartMode.OVERWORLD_ENTRY) mode = StartMode.DIRECT_DIMENSION;
 
         session.director().newPlan();
+        long seed = random.nextLong();
+        Theme theme = pickTheme();
         SessionRegion region = allocateRegion();
-        Location roomStart = buildDungeon(region);
+        Location roomStart = buildDungeon(region, theme, seed);
         session.startNew(UUID.randomUUID(), leader != null ? leader.getUniqueId() : null, mode, region, roomStart);
+        session.setSeed(seed);
+        session.setTheme(theme);
 
         plugin.getLogger().info("Dungeon session started: " + session.sessionId() + " mode=" + mode + " region=" + region.minX() + "," + region.minZ());
 
@@ -154,6 +161,8 @@ public final class DungeonManager {
             }
         }
 
+        checkGateClosure();
+
         if (session.isTimeOver(plugin.getConfig().getInt("dungeon.session.maxMinutes", 25))) {
             endSession(false, plugin.msg().get("session.timeOver"));
         }
@@ -172,14 +181,16 @@ public final class DungeonManager {
         Set<UUID> active = new HashSet<>();
         for (Player p : world.getPlayers()) {
             if (!session.region().contains(p.getLocation())) continue;
+            boolean inSession = p.getGameMode() != GameMode.SPECTATOR && !p.isDead();
             session.markParticipant(p.getUniqueId());
-            session.markActive(p.getUniqueId(), true);
-            session.markAlive(p.getUniqueId(), !p.isDead());
+            session.markInSession(p.getUniqueId(), inSession);
+            session.markAlive(p.getUniqueId(), inSession);
             session.updateLocation(p.getUniqueId(), p.getLocation());
+            session.updateLastSeen(p.getUniqueId(), System.currentTimeMillis());
             active.add(p.getUniqueId());
         }
         for (UUID id : session.participants().keySet()) {
-            if (!active.contains(id)) session.markActive(id, false);
+            if (!active.contains(id)) session.markInSession(id, false);
         }
         if (plugin.getConfig().getBoolean("dungeon.debug.participants", false)) {
             plugin.getLogger().info("Participants active=" + session.participantCount() + " alive=" + session.aliveCount());
@@ -197,12 +208,14 @@ public final class DungeonManager {
         return new SessionRegion(world, offsetX, offsetX + areaSize - 1, baseY, baseY + areaHeight - 1, 0, areaSize - 1);
     }
 
-    private Location buildDungeon(SessionRegion region) {
+    private Location buildDungeon(SessionRegion region, Theme theme, long seed) {
         World world = region.world();
         builder.clearArea(world, region.minX(), region.minY(), region.minZ(), region.maxX(), region.maxY(), region.maxZ());
+        builder.buildRegionShell(region, Material.BARRIER, plugin.getConfig().getInt("dungeon.build.batchSize", 300));
 
         rooms.clear();
         roomContexts.clear();
+        gates.clear();
 
         int sizeX = plugin.getConfig().getInt("dungeon.rooms.sizeX", 30);
         int sizeY = plugin.getConfig().getInt("dungeon.rooms.sizeY", 10);
@@ -226,13 +239,16 @@ public final class DungeonManager {
         for (int i = 0; i < rooms.size(); i++) {
             Location origin = new Location(world, x, y, startZ);
             Room room = rooms.get(i);
-            RoomContext ctx = new RoomContext(plugin, this, worldService, session, world, origin, sizeX, sizeY, sizeZ);
+            RoomLayout layout = pickLayout(i, seed);
+            RoomContext ctx = new RoomContext(plugin, this, worldService, session, world, origin, sizeX, sizeY, sizeZ,
+                    theme, layout, new Random(seed + i * 31L));
             room.build(ctx);
             roomContexts.add(ctx);
             if (i < rooms.size() - 1) {
                 Location corridorOrigin = new Location(world, x + sizeX, y, startZ + sizeZ / 2);
-                builder.buildCorridor(world, corridorOrigin, corridorLength, sizeY, 5,
-                        Material.DEEPSLATE_BRICKS, Material.DEEPSLATE_BRICKS, Material.DEEPSLATE_BRICKS, Material.LANTERN, true);
+                builder.buildCorridor(world, corridorOrigin, corridorLength, sizeY, 5, theme, true);
+                Gate gate = buildGate(world, corridorOrigin, sizeY, 5, theme);
+                gates.add(gate);
             }
             x += sizeX + corridorLength;
         }
@@ -284,6 +300,7 @@ public final class DungeonManager {
             SafeTeleport.teleport(player, session.roomStartLocation());
             player.sendMessage(plugin.msg().prefix() + plugin.msg().get("session.teleported"));
             ui.show(player, session);
+            removeOverworldEntry(true);
             return;
         }
 
@@ -297,22 +314,40 @@ public final class DungeonManager {
         if (session.state() != SessionState.RUNNING) return;
         if (!isDungeonWorld(player.getWorld())) return;
         session.markAlive(player.getUniqueId(), false);
+        session.markInSession(player.getUniqueId(), false);
         player.sendMessage(plugin.msg().prefix() + plugin.msg().get("session.playerDown"));
+        scheduleWipeCheck();
     }
 
     public void onPlayerQuit(Player player) {
         if (session.state() != SessionState.RUNNING) return;
-        session.markActive(player.getUniqueId(), false);
-        if (session.participantCount() == 0 && session.leaderId() != null && session.leaderId().equals(player.getUniqueId())) {
-            endSession(false, plugin.msg().get("session.leaderLeft"));
-        }
+        session.markInSession(player.getUniqueId(), false);
+        session.markAlive(player.getUniqueId(), false);
+        scheduleWipeCheck();
     }
 
     public void onPlayerChangedWorld(Player player) {
         if (session.state() != SessionState.RUNNING) return;
         if (!isDungeonWorld(player.getWorld())) {
-            session.markActive(player.getUniqueId(), false);
+            session.markInSession(player.getUniqueId(), false);
+            session.markAlive(player.getUniqueId(), false);
         }
+    }
+
+    public void onPlayerRespawn(Player player) {
+        if (session.state() != SessionState.RUNNING) return;
+        if (!isDungeonWorld(player.getWorld())) return;
+        boolean returnToLobby = plugin.getConfig().getBoolean("dungeon.session.respawn.returnToLobby", false);
+        var rp = returnPoints.get(player.getUniqueId());
+        if (returnToLobby) {
+            if (rp != null) SafeTeleport.teleport(player, rp.toLocation());
+            player.sendMessage(plugin.msg().prefix() + plugin.msg().get("session.respawned"));
+        } else if (rp != null) {
+            SafeTeleport.teleport(player, rp.toLocation());
+        }
+        session.markInSession(player.getUniqueId(), false);
+        session.markAlive(player.getUniqueId(), false);
+        scheduleWipeCheck();
     }
 
     public void announceWave(Session session, int wave, int total, int mobs) {
@@ -398,6 +433,15 @@ public final class DungeonManager {
         }
         ui.clearAll();
         session.resetParticipants();
+        removeOverworldEntry(true);
+        gates.clear();
+        rooms.clear();
+        roomContexts.clear();
+        if (session.region() != null) {
+            builder.clearAreaBatch(session.region().world(), session.region().minX(), session.region().minY(), session.region().minZ(),
+                    session.region().maxX(), session.region().maxY(), session.region().maxZ(),
+                    plugin.getConfig().getInt("dungeon.build.batchSize", 300));
+        }
     }
 
     private void clearEntities() {
@@ -495,7 +539,7 @@ public final class DungeonManager {
             lines.add(plugin.msg().prefix() + plugin.msg().get("status.player", Map.of(
                     "name", name,
                     "alive", p.isAlive() ? plugin.msg().get("status.alive") : plugin.msg().get("status.dead"),
-                    "active", p.isActive() ? plugin.msg().get("status.in") : plugin.msg().get("status.out"),
+                    "active", p.isInSession() ? plugin.msg().get("status.in") : plugin.msg().get("status.out"),
                     "loc", loc
             )));
         }
@@ -518,15 +562,131 @@ public final class DungeonManager {
         int x = base.getBlockX();
         int y = base.getBlockY();
         int z = base.getBlockZ();
+        EntranceStructure structure = new EntranceStructure();
         for (int dx = -1; dx <= 1; dx++) {
             for (int dz = -1; dz <= 1; dz++) {
-                world.getBlockAt(x + dx, y, z + dz).setType(Material.SMOOTH_STONE, false);
-                world.getBlockAt(x + dx, y + 1, z + dz).setType(Material.AIR, false);
+                setAndTrack(world, x + dx, y, z + dz, Material.SMOOTH_STONE, structure);
+                setAndTrack(world, x + dx, y + 1, z + dz, Material.AIR, structure);
             }
         }
         Block entryBlock = world.getBlockAt(x, y + 1, z);
         entryBlock.setType(Material.EMERALD_BLOCK, false);
+        structure.add(new BlockPos(world, x, y + 1, z));
+        session.setEntranceStructure(structure);
         return entryBlock.getLocation();
+    }
+
+    private void removeOverworldEntry(boolean playEffects) {
+        EntranceStructure structure = session.entranceStructure();
+        if (structure == null || structure.isEmpty()) return;
+        builder.applyBatch(structure.placedBlocks(), Material.AIR, plugin.getConfig().getInt("dungeon.build.batchSize", 300));
+        session.setEntranceStructure(null);
+        if (playEffects && session.entryLocation() != null) {
+            World world = session.entryLocation().getWorld();
+            if (world != null) {
+                world.playSound(session.entryLocation(), Sound.BLOCK_RESPAWN_ANCHOR_DEPLETE, 0.8f, 1.2f);
+                world.spawnParticle(Particle.PORTAL, session.entryLocation().clone().add(0.5, 1, 0.5), 40, 0.4, 0.4, 0.4, 0.01);
+            }
+        }
+        session.setEntryLocation(null);
+    }
+
+    private void setAndTrack(World world, int x, int y, int z, Material material, EntranceStructure structure) {
+        world.getBlockAt(x, y, z).setType(material, false);
+        structure.add(new BlockPos(world, x, y, z));
+    }
+
+    private Theme pickTheme() {
+        List<String> enabled = plugin.getConfig().getStringList("dungeon.themes.enabled");
+        List<Theme> candidates = new ArrayList<>();
+        if (enabled.isEmpty()) {
+            Collections.addAll(candidates, Theme.values());
+        } else {
+            for (String name : enabled) {
+                try {
+                    candidates.add(Theme.valueOf(name.toUpperCase()));
+                } catch (IllegalArgumentException ignored) {
+                }
+            }
+        }
+        if (candidates.isEmpty()) Collections.addAll(candidates, Theme.values());
+        ConfigurationSection weightSection = plugin.getConfig().getConfigurationSection("dungeon.themes.weights");
+        Map<String, Object> weights = weightSection != null ? weightSection.getValues(false) : Collections.emptyMap();
+        double total = 0.0;
+        Map<Theme, Double> weightMap = new HashMap<>();
+        for (Theme theme : candidates) {
+            double weight = toDouble(weights.getOrDefault(theme.name().toLowerCase(), 1.0));
+            weightMap.put(theme, weight);
+            total += weight;
+        }
+        double roll = random.nextDouble() * Math.max(1.0, total);
+        double current = 0.0;
+        for (var entry : weightMap.entrySet()) {
+            current += entry.getValue();
+            if (roll <= current) return entry.getKey();
+        }
+        return candidates.get(0);
+    }
+
+    private RoomLayout pickLayout(int index, long seed) {
+        RoomLayout[] layouts = RoomLayout.values();
+        Random layoutRandom = new Random(seed + index * 97L);
+        return layouts[layoutRandom.nextInt(layouts.length)];
+    }
+
+    private Gate buildGate(World world, Location corridorOrigin, int height, int width, Theme theme) {
+        int ox = corridorOrigin.getBlockX();
+        int oy = corridorOrigin.getBlockY();
+        int oz = corridorOrigin.getBlockZ();
+        int half = width / 2;
+        int doorWidth = 3;
+        int doorHeight = 4;
+        int x = ox + 1;
+        int zStart = oz - doorWidth / 2;
+        List<BlockPos> blocks = new ArrayList<>();
+        for (int y = oy + 1; y <= oy + doorHeight; y++) {
+            for (int z = zStart; z < zStart + doorWidth; z++) {
+                blocks.add(new BlockPos(world, x, y, z));
+            }
+        }
+        WeightedMaterial gateMat = ru.letopis.dungeon.theme.WeightedPicker.pick(theme.palette().gate(), random);
+        Material material = gateMat == null ? Material.BARRIER : gateMat.material();
+        return new Gate(world, blocks, material);
+    }
+
+    private void checkGateClosure() {
+        if (session.currentRoomIndex() <= 0) return;
+        int gateIndex = session.currentRoomIndex() - 1;
+        if (gateIndex < 0 || gateIndex >= gates.size()) return;
+        Gate gate = gates.get(gateIndex);
+        if (gate.isClosed()) return;
+        RoomContext ctx = roomContexts.get(session.currentRoomIndex());
+        for (Player player : gate.world().getPlayers()) {
+            if (ctx.contains(player.getLocation())) {
+                for (BlockPos pos : gate.blocks()) {
+                    gate.world().getBlockAt(pos.x(), pos.y(), pos.z()).setType(gate.material(), false);
+                }
+                gate.setClosed(true);
+                break;
+            }
+        }
+    }
+
+    private void scheduleWipeCheck() {
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            if (session.state() == SessionState.RUNNING && session.aliveCount() == 0) {
+                endSession(false, plugin.msg().get("session.wipe"));
+            }
+        }, 2L);
+    }
+
+    private double toDouble(Object value) {
+        if (value instanceof Number num) return num.doubleValue();
+        try {
+            return Double.parseDouble(Objects.toString(value));
+        } catch (NumberFormatException e) {
+            return 1.0;
+        }
     }
 }
 

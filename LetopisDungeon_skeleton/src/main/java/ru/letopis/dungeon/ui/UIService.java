@@ -55,6 +55,9 @@ public final class UIService {
     public void clear(Player p) {
         BossBar b = bars.remove(p.getUniqueId());
         if (b != null) b.removeAll();
+        if (plugin.getConfig().getBoolean("ui.actionbar.enabled", true)) {
+            p.sendActionBar(Component.empty());
+        }
     }
 
     public void clearAll() {

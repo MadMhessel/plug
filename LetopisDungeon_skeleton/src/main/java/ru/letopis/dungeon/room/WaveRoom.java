@@ -1,7 +1,6 @@
 package ru.letopis.dungeon.room;
 
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Entity;
@@ -44,10 +43,7 @@ public final class WaveRoom implements Room {
 
     @Override
     public void build(RoomContext context) {
-        builder.buildRoomBase(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.POLISHED_ANDESITE, Material.DEEPSLATE_BRICKS, Material.POLISHED_ANDESITE, Material.LANTERN);
-        builder.buildPillars(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(),
-                Material.POLISHED_BASALT);
+        builder.buildRoom(context);
         builder.carveDoor(context.world(), context.origin(), context.sizeX(), context.sizeY(), context.sizeZ(), true);
     }
 
