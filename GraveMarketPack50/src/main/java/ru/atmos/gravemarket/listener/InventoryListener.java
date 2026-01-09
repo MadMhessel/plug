@@ -9,7 +9,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import ru.atmos.gravemarket.GraveMarketPlugin;
 import ru.atmos.gravemarket.grave.GraveRecord;
-import ru.atmos.gravemarket.util.LocationCodec;
 
 public final class InventoryListener implements Listener {
 
@@ -42,6 +41,9 @@ public final class InventoryListener implements Listener {
             return;
         }
 
+        boolean isOwner = p.getUniqueId().equals(g.owner);
+        boolean isTrusted = !isOwner;
+
         if (!g.paid) {
             e.setCancelled(true);
             p.closeInventory();
@@ -63,6 +65,16 @@ public final class InventoryListener implements Listener {
         }
 
         if (clickedTop) {
+            if (isTrusted && shouldTagBorrowed(action)) {
+                ItemStack current = e.getCurrentItem();
+                if (current != null) {
+                    tagBorrowed(current, g);
+                    if (plugin.audit() != null) {
+                        plugin.audit().log("take_item", p.getUniqueId(), g.owner, g.id, g.graveLoc(),
+                                "item=" + current.getType() + " amount=" + current.getAmount());
+                    }
+                }
+            }
             // allow taking out, block placing in / swapping in
             switch (action) {
                 case PLACE_ALL, PLACE_ONE, PLACE_SOME,
@@ -119,5 +131,24 @@ public final class InventoryListener implements Listener {
                 p.sendMessage(Component.text("§6[Могила] §aМогила очищена. Спасибо, что не сделали из неё склад :)"));
             }
         }
+    }
+
+    private boolean shouldTagBorrowed(InventoryAction action) {
+        return switch (action) {
+            case PICKUP_ALL, PICKUP_HALF, PICKUP_ONE, PICKUP_SOME,
+                    MOVE_TO_OTHER_INVENTORY, HOTBAR_SWAP, HOTBAR_MOVE_AND_READD,
+                    DROP_ALL_SLOT, DROP_ONE_SLOT -> true;
+            default -> false;
+        };
+    }
+
+    private void tagBorrowed(ItemStack item, GraveRecord g) {
+        if (g == null || g.owner == null || item == null || item.getType().isAir()) return;
+        var meta = item.getItemMeta();
+        if (meta == null) return;
+        var pdc = meta.getPersistentDataContainer();
+        pdc.set(plugin.borrowOwnerKey(), org.bukkit.persistence.PersistentDataType.STRING, g.owner.toString());
+        pdc.set(plugin.borrowGraveKey(), org.bukkit.persistence.PersistentDataType.STRING, g.id);
+        item.setItemMeta(meta);
     }
 }
