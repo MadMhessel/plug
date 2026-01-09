@@ -2,6 +2,7 @@ package ru.atmos.gravemarket;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.atmos.gravemarket.cmd.GraveAdminCommand;
@@ -10,10 +11,12 @@ import ru.atmos.gravemarket.econ.Economy;
 import ru.atmos.gravemarket.econ.InternalEconomy;
 import ru.atmos.gravemarket.econ.TeleportMarketEconomy;
 import ru.atmos.gravemarket.grave.GraveManager;
+import ru.atmos.gravemarket.grave.ReturnStore;
 import ru.atmos.gravemarket.listener.BlockListener;
 import ru.atmos.gravemarket.listener.DeathListener;
 import ru.atmos.gravemarket.listener.InventoryListener;
 import ru.atmos.gravemarket.listener.InteractListener;
+import ru.atmos.gravemarket.listener.ReturnListener;
 import ru.atmos.gravemarket.util.AuditLog;
 import ru.atmos.gravemarket.util.LocationCodec;
 
@@ -25,10 +28,16 @@ public final class GraveMarketPlugin extends JavaPlugin {
     private Economy economy;
     private GraveManager graveManager;
     private AuditLog audit;
+    private ReturnStore returnStore;
+    private NamespacedKey borrowOwnerKey;
+    private NamespacedKey borrowGraveKey;
 
     public Economy economy() { return economy; }
     public GraveManager graves() { return graveManager; }
     public AuditLog audit() { return audit; }
+    public ReturnStore returns() { return returnStore; }
+    public NamespacedKey borrowOwnerKey() { return borrowOwnerKey; }
+    public NamespacedKey borrowGraveKey() { return borrowGraveKey; }
 
     @Override
     public void onEnable() {
@@ -58,6 +67,16 @@ public final class GraveMarketPlugin extends JavaPlugin {
             getLogger().log(Level.SEVERE, "Failed to load graves.yml", e);
         }
 
+        this.returnStore = new ReturnStore(this);
+        try {
+            returnStore.load();
+        } catch (Exception e) {
+            getLogger().log(Level.SEVERE, "Failed to load returns.yml", e);
+        }
+
+        this.borrowOwnerKey = new NamespacedKey(this, "borrow_owner");
+        this.borrowGraveKey = new NamespacedKey(this, "borrow_grave");
+
         // Commands
         GraveCommand graveCmd = new GraveCommand(this);
         getCommand("grave").setExecutor(graveCmd);
@@ -72,6 +91,7 @@ public final class GraveMarketPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InteractListener(this), this);
         Bukkit.getPluginManager().registerEvents(new InventoryListener(this), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new ReturnListener(this), this);
 
         // Periodic expiry / holo refresh
         long periodTicks = 20L * 30; // every 30s
@@ -95,6 +115,9 @@ public final class GraveMarketPlugin extends JavaPlugin {
     public void onDisable() {
         if (graveManager != null) {
             try { graveManager.save(); } catch (Exception e) { getLogger().log(Level.SEVERE, "Failed to save graves.yml", e); }
+        }
+        if (returnStore != null) {
+            try { returnStore.save(); } catch (Exception e) { getLogger().log(Level.SEVERE, "Failed to save returns.yml", e); }
         }
         if (audit != null) audit.close();
     }

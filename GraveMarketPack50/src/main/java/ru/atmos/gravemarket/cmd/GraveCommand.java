@@ -47,6 +47,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
             case "trust" -> { trust(p, args); yield true; }
             case "untrust" -> { untrust(p, args); yield true; }
             case "trustlist" -> { trustList(p); yield true; }
+            case "return" -> { returnItems(p, args); yield true; }
             case "compass" -> { compass(p); yield true; }
             case "beacon" -> { beacon(p); yield true; }
             case "recall" -> { recall(p); yield true; }
@@ -66,6 +67,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         p.sendMessage(Component.text(" §e/grave trust <ник> §7— доверить доступ"));
         p.sendMessage(Component.text(" §e/grave untrust <ник> §7— убрать доверие"));
         p.sendMessage(Component.text(" §e/grave trustlist §7— список доверенных"));
+        p.sendMessage(Component.text(" §e/grave return <ник> §7— вернуть предметы владельцу"));
     }
 
     private GraveRecord active(Player p) {
@@ -169,6 +171,79 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
                 .sorted()
                 .collect(Collectors.toList());
         p.sendMessage(Component.text("§6[Могила] §fДоверенные: §e" + String.join(", ", names)));
+    }
+
+    private void returnItems(Player p, String[] args) {
+        if (args.length < 2) {
+            p.sendMessage(Component.text("§6[Могила] §7Использование: /grave return <ник|uuid>"));
+            return;
+        }
+        UUID ownerId = parseOwnerId(args[1]);
+        if (ownerId == null) {
+            p.sendMessage(Component.text("§6[Могила] §cВладелец не найден: " + args[1]));
+            return;
+        }
+
+        List<ItemStack> items = new ArrayList<>();
+        var inv = p.getInventory();
+        for (int slot = 0; slot < inv.getSize(); slot++) {
+            ItemStack it = inv.getItem(slot);
+            if (it == null || it.getType() == Material.AIR) continue;
+            if (matchesBorrowOwner(it, ownerId)) {
+                inv.setItem(slot, null);
+                clearBorrowTags(it);
+                items.add(it);
+            }
+        }
+
+        if (items.isEmpty()) {
+            p.sendMessage(Component.text("§6[Могила] §7Нет предметов для возврата этому владельцу."));
+            return;
+        }
+
+        int count = items.stream().mapToInt(ItemStack::getAmount).sum();
+        var ownerOnline = Bukkit.getPlayer(ownerId);
+        if (ownerOnline != null) {
+            for (ItemStack it : items) {
+                giveOrDrop(ownerOnline, it);
+            }
+            ownerOnline.sendMessage(Component.text("§6[Могила] §aВозвращены предметы: §e" + count + " §7(от " + p.getName() + ")"));
+        } else {
+            plugin.returns().add(ownerId, items);
+        }
+
+        if (plugin.audit() != null) {
+            plugin.audit().log("return", p.getUniqueId(), ownerId, "-", p.getLocation(), "items=" + count);
+        }
+        p.sendMessage(Component.text("§6[Могила] §aВозврат выполнен. Предметов: §e" + count));
+    }
+
+    private UUID parseOwnerId(String raw) {
+        try {
+            return UUID.fromString(raw);
+        } catch (IllegalArgumentException ignored) {
+        }
+        Player online = Bukkit.getPlayerExact(raw);
+        if (online != null) return online.getUniqueId();
+        var offline = Bukkit.getOfflinePlayer(raw);
+        return offline.getUniqueId();
+    }
+
+    private boolean matchesBorrowOwner(ItemStack item, UUID owner) {
+        var meta = item.getItemMeta();
+        if (meta == null) return false;
+        var pdc = meta.getPersistentDataContainer();
+        String stored = pdc.get(plugin.borrowOwnerKey(), PersistentDataType.STRING);
+        return stored != null && stored.equals(owner.toString());
+    }
+
+    private void clearBorrowTags(ItemStack item) {
+        var meta = item.getItemMeta();
+        if (meta == null) return;
+        var pdc = meta.getPersistentDataContainer();
+        pdc.remove(plugin.borrowOwnerKey());
+        pdc.remove(plugin.borrowGraveKey());
+        item.setItemMeta(meta);
     }
 
     private void compass(Player p) {
@@ -361,7 +436,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String alias, String[] args) {
         if (args.length == 1) {
-            return List.of("help","info","pay","compass","beacon","recall","tp","trust","untrust","trustlist").stream()
+            return List.of("help","info","pay","compass","beacon","recall","tp","trust","untrust","trustlist","return").stream()
                     .filter(s -> s.startsWith(args[0].toLowerCase(Locale.ROOT)))
                     .collect(Collectors.toList());
         }
