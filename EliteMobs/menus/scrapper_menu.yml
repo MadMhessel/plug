@@ -1,16 +1,16 @@
 isEnabled: true
-shopName: '[EM] Scrapper'
+shopName: '[EM] Разборщик'
 infoButton:
   material: PLAYER_HEAD
   name: §4§lEliteMobs §cby §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
-  - §4Warning!
-  - §cItems scrapped here are lost!
-  - §cThere is a $chance% chance to get
-  - §cscrap when scrapping items!
-  - §aUse scrap at the smelter,
-  - §arepairman and refiner!
+  - §8Поддержите плагины, которые вам нравятся!
+  - §4Внимание!
+  - §cПредметы, разобранные здесь, пропадают!
+  - §cШанс получить обломки
+  - §cпри разборе предметов — $chance%!
+  - §aИспользуйте обломки у плавильщика,
+  - §aремонтника и переработчика!
 infoButtonSlot: 4
 scrapSlots:
 - 19
@@ -36,16 +36,16 @@ scrapSlots:
 - 43
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel scrap!
+  - §cОтменить разбор!
   customModelID: 31173
 cancelButtonSlot: 27
 confirmButton:
   material: EMERALD
-  name: §2Confirm Scrap
+  name: §2Подтвердить разбор
   lore:
-  - §aScrap items!
-  - §a$chance% chance of success!
+  - §aРазобрать предметы!
+  - §aШанс успеха: $chance%!
 confirmScrapSlot: 35
 scrapChance: 0.75

@@ -1,10 +1,10 @@
 isEnabled: true
-Shop name: '[EM] Procedural Item Shop'
+Shop name: '[EM] Магазин случайных предметов'
 Reroll button:
   material: PLAYER_HEAD
   name: §4§lEliteMobs §cby §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
+  - §8Поддержите плагины, которые вам нравятся!
 Reroll button slot: 4
 Store item slots:
 - 9
@@ -54,5 +54,5 @@ Store item slots:
 - 53
 Minimum store item tier: 0
 Maximum store item tier: 5
-Full inventory message: '&7[EliteMobs] &4Your inventory is full! You can''t buy items
-  until you get some free space.'
+Full inventory message: '&7[EliteMobs] &4Ваш инвентарь полон! Освободите место, чтобы
+  покупать предметы.'

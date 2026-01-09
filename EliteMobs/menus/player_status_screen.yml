@@ -9,12 +9,12 @@ doBossTrackingPage: true
 indexTexts0: '&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 indexHovers0: ''
 indexCommands0: ''
-indexTexts1: '&5&l/ag &7- &6EliteMobs Hub'
+indexTexts1: '&5&l/ag &7- &6Центр EliteMobs'
 indexHovers1: |-
-  CLICK TO USE
-  The place where you can find
-  NPCs that give quests, buy and
-  sell items, give advice and more!
+  НАЖМИТЕ, ЧТОБЫ ИСПОЛЬЗОВАТЬ
+  Место, где можно найти
+  NPC, которые дают задания, купить
+  и продать предметы, получить советы и многое другое!
 indexCommands1: /ag
 indexTexts2: '&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 indexHovers2: ''
@@ -22,29 +22,29 @@ indexCommands2: ''
 indexTexts3: ''
 indexHovers3: ''
 indexCommands3: ''
-indexTexts4: '&6&lIndex'
+indexTexts4: '&6&lСодержание'
 indexHovers4: ''
 indexCommands4: ''
 indexTexts5: ''
 indexHovers5: ''
 indexCommands5: ''
-indexTexts6: '&bp. $statsPage &8- &6Stats'
-indexHovers6: Click to go!
+indexTexts6: '&bp. $statsPage &8- &6Статистика'
+indexHovers6: Нажмите, чтобы перейти!
 indexCommands6: $statsPage
-indexTexts7: '&bp. $gearPage &8- &6Gear'
-indexHovers7: Click to go!
+indexTexts7: '&bp. $gearPage &8- &6Снаряжение'
+indexHovers7: Нажмите, чтобы перейти!
 indexCommands7: $gearPage
-indexTexts8: '&bp. $teleportsPage &8- &6Teleports'
-indexHovers8: Click to go!
+indexTexts8: '&bp. $teleportsPage &8- &6Телепорты'
+indexHovers8: Нажмите, чтобы перейти!
 indexCommands8: $teleportsPage
-indexTexts9: '&bp. $commandsPage &8- &6Commands'
-indexHovers9: Click to go!
+indexTexts9: '&bp. $commandsPage &8- &6Команды'
+indexHovers9: Нажмите, чтобы перейти!
 indexCommands9: $commandsPage
-indexTexts10: '&bp. $questsPage &8- &6Quest Tracking'
-indexHovers10: Click to go!
+indexTexts10: '&bp. $questsPage &8- &6Отслеживание заданий'
+indexHovers10: Нажмите, чтобы перейти!
 indexCommands10: $questsPage
-indexTexts11: '&bp. $bossTrackingPage &8- &6Boss Tracking'
-indexHovers11: Click to go!
+indexTexts11: '&bp. $bossTrackingPage &8- &6Отслеживание боссов'
+indexHovers11: Нажмите, чтобы перейти!
 indexCommands11: $bossTrackingPage
 indexTexts12: ''
 indexHovers12: ''
@@ -52,7 +52,7 @@ indexCommands12: ''
 statsText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 statsHover0: ''
 statsCommand0: ''
-statsText1: '&5&lPlayer Stats:'
+statsText1: '&5&lСтатистика игрока:'
 statsHover1: ''
 statsCommand1: ''
 statsText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
@@ -61,61 +61,61 @@ statsCommand2: ''
 statsText3: ''
 statsHover3: ''
 statsCommand3: ''
-statsText4: '&2Money: &a$money'
+statsText4: '&2Монеты: &a$money'
 statsHover4: |-
-  Kill Elite Mobs to loot currency or
-  sell their drops in /em shop or
-  complete quests!
+  Убивайте элитных мобов, чтобы получать валюту,
+  продавайте их дроп в /em shop или
+  выполняйте задания!
 statsCommand4: ''
 statsText5: ''
 statsHover5: ''
 statsCommand5: ''
-statsText6: '&6Guild Tier: &3$guildtier'
+statsText6: '&6Ранг гильдии: &3$guildtier'
 statsHover6: |-
-  Prestige Tier and Guild Rank:
-  Guild Rank determines how good your loot can be, sets your bonus from the Prestige Tier, among other things. The Prestige Tier unlocks extremely powerful rewards, like increased max health, chance to dodge/crit, increased currency rewards and more! You can unlock Guild Ranks and Prestige Tiers at /ag!
-  ⚜ = prestige rank, ✧ = guild rank!
+  Уровень престижа и ранг гильдии:
+  Ранг гильдии определяет качество лута и бонусы от престижа. Престиж открывает мощные награды: больше макс. здоровья, шанс уклонения/крита, больше валюты и другое! Открывайте ранги и престиж в /ag!
+  ⚜ = престиж, ✧ = ранг гильдии!
 statsCommand6: ''
-statsText7: '&4Elite Kills: &c$kills'
-statsHover7: Amount of Elite Mobs killed.
+statsText7: '&4Убийств элит: &c$kills'
+statsHover7: Количество убитых элитных мобов.
 statsCommand7: ''
-statsText8: '&4Max Lvl Killed: &c$highestkill'
+statsText8: '&4Макс. уровень убитого: &c$highestkill'
 statsHover8: |-
-  Level of the highest Elite Mob killed.
-  Elite Mob levels are based on the tier
-  of your gear! Higher tiers, higher
-  Elite Mob levels!
-  Note: only non-exploity kills get counted!
+  Уровень самого сильного элитного моба.
+  Уровни элит зависят от уровня вашего
+  снаряжения! Чем выше уровень, тем
+  выше уровни элит!
+  Примечание: считаются только честные убийства!
 statsCommand8: ''
-statsText9: '&4Elite Deaths: &c$deaths'
-statsHover9: Times killed by Elite Mobs.
+statsText9: '&4Смертей от элит: &c$deaths'
+statsHover9: Количество смертей от элитных мобов.
 statsCommand9: ''
-statsText10: '&5Quests Completed: &d$quests'
+statsText10: '&5Завершено заданий: &d$quests'
 statsHover10: |-
-  Amount of EliteMobs quests completed.
-  You can accept quests by talking to NPCs!
+  Количество выполненных заданий EliteMobs.
+  Задания берутся у NPC!
 statsCommand10: ''
 statsText11: ''
 statsHover11: ''
 statsCommand11: ''
-statsText12: '&bScore: &3$score'
+statsText12: '&bСчёт: &3$score'
 statsHover12: |-
-  Your EliteMobs score. It goes up
-  when you kill and elite mob,
-  and it goes down when you die
-  to an elite. Higher level
-  elites give more score.
+  Ваш счёт EliteMobs. Он растёт,
+  когда вы убиваете элит,
+  и уменьшается, когда погибаете
+  от элит. Чем выше уровень элит,
+  тем больше счёт.
 statsCommand12: ''
 gearText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 gearHover0: ''
 gearCommand0: ''
-gearText1: '&7&lArmor & Weapons:'
+gearText1: '&7&lБроня и оружие:'
 gearHover1: ''
 gearCommand1: ''
 gearText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 gearHover2: ''
 gearCommand2: ''
-gearText3: '&8&lGear Tiers:'
+gearText3: '&8&lУровни снаряжения:'
 gearHover3: ''
 gearCommand3: ''
 gearText4: '          ☠ - $helmettier'
@@ -136,15 +136,15 @@ gearCommand8: ''
 gearText9: ''
 gearHover9: ''
 gearCommand9: ''
-gearText10: '{dmg : $damage}    {armr: $armor}'
-gearHover10: '{Base damage dealt to Elite Mobs}{Damage reduction from Elite Mobs}'
+gearText10: '{урон: $damage}    {броня: $armor}'
+gearHover10: '{Базовый урон по элитным мобам}{Снижение урона от элитных мобов}'
 gearCommand10: ''
-gearText11: 'Threat level: $threat'
+gearText11: 'Уровень угрозы: $threat'
 gearHover11: |
-  This determines the level of the
-  Elite Mobs that spawns near you.
-  Takes armor, weapon in hand, guild
-  tier into account.
+  Определяет уровень элитных мобов,
+  которые появляются рядом.
+  Учитывается броня, оружие в руке
+  и ранг гильдии.
 gearCommand11: ''
 gearText12: ''
 gearHover12: ''
@@ -152,23 +152,23 @@ gearCommand12: ''
 teleportText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 teleportHover0: ''
 teleportCommand0: ''
-teleportText1: '&2&lTeleports'
+teleportText1: '&2&lТелепорты'
 teleportHover1: ''
 teleportCommand1: ''
 teleportText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 teleportHover2: ''
 teleportCommand2: ''
-teleportText3: Spawn
-teleportHover3: Teleport to spawn!
+teleportText3: Спавн
+teleportHover3: Телепорт на спавн!
 teleportCommand3: /em spawntp
-teleportText4: §6§lAdventurer's Hub
-teleportHover4: Teleport to the Adventurer's Guild Hub!
+teleportText4: §6§lХаб авантюристов
+teleportHover4: Телепорт в хаб гильдии авантюристов!
 teleportCommand4: /ag
-onTeleportsHover: Click to teleport!
+onTeleportsHover: Нажмите для телепортации!
 commandsText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 commandsHover0: ''
 commandsCommand0: ''
-commandsText1: '&3&lCommands:'
+commandsText1: '&3&lКоманды:'
 commandsHover1: ''
 commandsCommand1: ''
 commandsText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
@@ -179,19 +179,19 @@ commandsHover3: ''
 commandsCommand3: ''
 commandsText4: '&5/ag'
 commandsHover4: |-
-  CLICK TO USE
-  The place where you can find
-  NPCs that give quests, buy and
-  sell items, give advice and more!
+  НАЖМИТЕ, ЧТОБЫ ИСПОЛЬЗОВАТЬ
+  Место, где можно найти
+  NPC, которые дают задания, купить
+  и продать предметы, получить советы и многое другое!
 commandsCommand4: /ag
 commandsText5: ''
 commandsHover5: ''
 commandsCommand5: ''
 commandsText6: '&5/shareitem'
 commandsHover6: |-
-  CLICK TO USE
-  Shares the item you're holding
-  on chat!
+  НАЖМИТЕ, ЧТОБЫ ИСПОЛЬЗОВАТЬ
+  Делится предметом в руке
+  в чате!
 commandsCommand6: /shareitem
 commandsText7: ''
 commandsHover7: ''
@@ -214,29 +214,29 @@ commandsCommand12: ''
 questTrackerText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 questTrackerHover0: ''
 questTrackerCommand0: ''
-questTrackerText1: '&6&lQuests:'
-questTrackerHover1: Talk to NPCs to accept quests!
+questTrackerText1: '&6&lЗадания:'
+questTrackerHover1: Поговорите с NPC, чтобы взять задания!
 questTrackerCommand1: ''
 questTrackerText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 questTrackerHover2: ''
 questTrackerCommand2: ''
-onQuestTrackHover: Click to abandon!
+onQuestTrackHover: Нажмите, чтобы отказаться!
 bossTrackerText0: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 bossTrackerHover0: ''
 bossTrackerCommand0: ''
-bossTrackerText1: '&4&lBoss Tracker:'
-bossTrackerHover1: Big bosses get displayed here!
+bossTrackerText1: '&4&lОтслеживание боссов:'
+bossTrackerHover1: Здесь отображаются крупные боссы!
 bossTrackerCommand1: ''
 bossTrackerText2: '&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
 bossTrackerHover2: ''
 bossTrackerCommand2: ''
-onBossTrackHover: Click to track/untrack!
-teleportChestMenuName: '&2EliteMobs Teleports'
-bossTrackerChestMenuName: '&2EliteMobs Boss Tracking'
-indexChestMenuName: '&2EliteMobs Index'
+onBossTrackHover: Нажмите, чтобы отслеживать/снять отслеживание!
+teleportChestMenuName: '&2Телепорты EliteMobs'
+bossTrackerChestMenuName: '&2Отслеживание боссов EliteMobs'
+indexChestMenuName: '&2Содержание EliteMobs'
 indexHeaderItem:
   material: PAPER
-  name: §5§l/ag §7- §6EliteMobs Hub
+  name: §5§l/ag §7- §6Центр EliteMobs
 indexHeaderSlot: 4
 indexStatsItem:
   material: MAP

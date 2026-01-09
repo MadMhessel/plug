@@ -1,4 +1,4 @@
 isEnabled: true
-name: Instant Health
+name: Мгновенное исцеление
 onHitDuration: 1
 value: 100.0

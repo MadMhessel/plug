@@ -1,15 +1,15 @@
 isEnabled: true
-shopName: '[EM] Sell Shop'
+shopName: '[EM] Магазин продажи'
 infoButton:
   material: PLAYER_HEAD
   name: §4§lEliteMobs §cby §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
-  - §4Warning!
-  - §cYou can only sell special
-  - §cElite Mobs drops in this
-  - §cshop! These should have
-  - §ca value on their lore.
+  - §8Поддержите плагины, которые вам нравятся!
+  - §4Внимание!
+  - §cЗдесь можно продавать только
+  - §cособый дроп EliteMobs!
+  - §cНа нём должна быть указана
+  - §cстоимость в описании.
 infoButtonSlot: 4
 sellSlots:
 - 19
@@ -35,16 +35,16 @@ sellSlots:
 - 43
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel purchase!
+  - §cОтменить продажу!
   customModelID: 31173
 cancelButtonSlot: 27
 confirmButton:
   material: EMERALD
-  name: §2Confirm Sale
+  name: §2Подтвердить продажу
   lore:
-  - §aSell item for
+  - §aПродать предмет за
   - §a$currency_amount $currency_name
   customModelID: 31173
 confirmSaleSlot: 35

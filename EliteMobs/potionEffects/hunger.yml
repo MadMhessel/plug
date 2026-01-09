@@ -1,4 +1,4 @@
 isEnabled: true
-name: Hunger
+name: Голод
 onHitDuration: 30
 value: 10.0
