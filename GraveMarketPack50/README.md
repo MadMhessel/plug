@@ -39,6 +39,8 @@
 
 ## Сборка
 
+Wrapper включён в репозиторий (jar будет скачан автоматически при первом запуске), установка Maven не требуется.
+
 Windows (PowerShell):
 ```powershell
 cd GraveMarketPack50
@@ -73,4 +75,3 @@ chmod +x mvnw
 - `/grave untrust <ник>`
 - `/grave trustlist`
 - Админ: `/graveadmin help`
-
