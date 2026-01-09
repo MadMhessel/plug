@@ -1,0 +1,10 @@
+isEnabled: true
+material: NETHERITE_LEGGINGS
+name: '&aWorn Leggings'
+lore:
+- "&aThese leggings have seen a lot of use."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,3"
+- "DURABILITY,2"
+itemType: UNIQUE
+level: 95

@@ -1,0 +1,12 @@
+isEnabled: true
+material: IRON_HELMET
+name: '&bReinforced Netherite Plate [Mythic]'
+lore:
+- "&bThe plate is heavily damaged and severely bent."
+- "&bUseable as a helmet..."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,7"
+- "DURABILITY,4"
+potionEffects: []
+itemType: UNIQUE
+scalability: scalable

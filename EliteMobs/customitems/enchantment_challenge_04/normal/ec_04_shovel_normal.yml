@@ -1,0 +1,11 @@
+name: "Earth Eater"
+material: DIAMOND_SHOVEL
+lore:
+- "A shovel with a name. Amazing."
+enchantments:
+- LOOT_BONUS_BLOCKS,5
+- DIG_SPEED,3
+- MENDING,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

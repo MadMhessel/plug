@@ -1,0 +1,16 @@
+isEnabled: true
+material: TRIDENT
+name: '&dCharlemagne''s Spear'
+lore:
+- "&dYou can sense that the spear has"
+- "&dbeen corrupted by a dark power."
+- "&dYou wonder if it's the same"
+- "&dcorruption that took the knights."
+enchantments:
+- "LOYALTY,4"
+- "IMPALING,2"
+- "DAMAGE_ALL,5"
+potionEffects: 
+- "WITHER,0,target,onHit"
+itemType: UNIQUE
+level: 95

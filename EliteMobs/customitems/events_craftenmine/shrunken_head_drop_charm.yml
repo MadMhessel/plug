@@ -1,0 +1,10 @@
+isEnabled: true
+material: PUMPKIN
+name: '&aLucky Pumpkin'
+lore:
+- "&aSo lucky!"
+enchantments:
+- "LURE,2"
+potionEffects: 
+- "LUCK,1,self,continuous"
+

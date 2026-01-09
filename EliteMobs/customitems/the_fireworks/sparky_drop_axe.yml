@@ -1,0 +1,16 @@
+isEnabled: true
+material: DIAMOND_AXE
+name: '&4Sparking Axe'
+lore:
+- "&4With every swing a new"
+- "&4bright spark is made."
+enchantments:
+- DAMAGE_ALL,5
+- DURABILITY,3
+- KNOCKBACK,4
+- FIRE_ASPECT,4
+- CRITICAL_STRIKES,3
+potionEffects:
+- SLOW,0,target,onHit
+dropWeight: dynamic
+itemType: unique

@@ -1,0 +1,19 @@
+name: "&d[Mythic] Radiant Shadow Carver"
+material: NETHERITE_SWORD
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows wrap around your dominant arm forming"
+- "&5a long blade like extension that ends in a sharp tip."
+enchantments:
+- DAMAGE_ALL,11
+- DAMAGE_UNDEAD,7
+- DAMAGE_ARTHROPODS,6
+- SWEEPING_EDGE,5
+- KNOCKBACK,4
+- HUNTER,3
+potionEffects:
+- INCREASE_DAMAGE,3,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

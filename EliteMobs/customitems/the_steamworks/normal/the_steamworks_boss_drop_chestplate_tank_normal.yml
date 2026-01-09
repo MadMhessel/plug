@@ -1,0 +1,12 @@
+isEnabled: true
+material: IRON_CHESTPLATE
+name: '&bReinforced Netherite Plate [Normal]'
+lore:
+- "&bSome straps and some padding and you"
+- "&bgot yourself a fine chestplate."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,3"
+- "PROTECTION_PROJECTILE,2"
+- "PROTECTION_EXPLOSIONS,1"
+itemType: UNIQUE
+scalability: scalable

@@ -1,0 +1,20 @@
+name: "&5[Mythic] Radiant Shadow Headgear"
+material: NETHERITE_HELMET
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5Solid to anyone who would wish you harm."
+- "&5But nothing but shadowy mist to your touch..."
+enchantments:
+- PROTECTION_EXPLOSIONS,11
+- PROTECTION_ENVIRONMENTAL,7
+- PROTECTION_FIRE,6
+- PROTECTION_PROJECTILE,5
+- PROTECTION_FALL,4
+- LOUD_STRIKES,2
+potionEffects:
+- ABSORPTION,3,self,onHit
+- NIGHT_VISION,3,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

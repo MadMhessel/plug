@@ -1,0 +1,96 @@
+bossType: MINIBOSS
+damageMultiplier: 1.2
+disguise: SNOWMAN
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  SnowFreeze:
+    Actions:
+    - Target:
+        targetType: SELF
+      action: SET_MOB_AI
+      bValue: false
+      duration: 115
+      wait: 122
+    - Target:
+        coverage: 0.5
+        targetType: ZONE_FULL
+        track: true
+      action: SPAWN_PARTICLE
+      particles:
+      - particle: SNOWFLAKE
+      repeatEvery: 10
+      times: 20
+      wait: 122
+    - Target:
+        coverage: 0.5
+        targetType: ZONE_BORDER
+        track: true
+      action: SPAWN_PARTICLE
+      particles:
+      - particle: SNOWBALL
+      repeatEvery: 10
+      times: 14
+      wait: 182
+    - Target:
+        targetType: ZONE_BORDER
+        track: true
+      action: POTION_EFFECT
+      amplifier: 1
+      duration: 140
+      potionEffectType: SLOW
+      repeatEvery: 10
+      times: 14
+      wait: 182
+    - Target:
+        targetType: ZONE_BORDER
+        track: true
+      action: VISUAL_FREEZE
+      duration: 380
+      repeatEvery: 10
+      times: 14
+      wait: 182
+    Cooldowns:
+      global: 60
+      local: 333
+    Events:
+    - EliteMobDamagedByPlayerEvent
+    Zone:
+      Target:
+        targetType: SELF
+        track: true
+      borderRadius: 2
+      filter: PLAYER
+      height: 2
+      radius: 6
+      shape: CYLINDER
+entityType: IRON_GOLEM
+followDistance: 60
+frozen: false
+healthMultiplier: 4.0
+instanced: true
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 60
+movementSpeedAttribute: 0.32
+name: $minibossLevel &1Rock Solid Cold
+normalizedCombat: true
+powers:
+- frost_cone.yml
+- invulnerability_fire.yml
+spawnLocations:
+- em_id_enchantment_challenge_7,1.5,65,0.5,0,0
+uniqueLootList:
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_07_boots_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_07_helmet_normal.yml
+- chance: 0.05
+  difficultyID: 0
+  filename: ec_07_fishing_rod_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: enchanted_book_protection_environmental.yml

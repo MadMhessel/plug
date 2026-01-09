@@ -1,0 +1,11 @@
+isEnabled: true
+material: DIAMOND_AXE
+name: "&dNightwalkers Gift"
+lore:
+- "&dBlessed by the Nightwalkers power."
+enchantments:
+- "DAMAGE_ARTHROPODS,5"
+potionEffects: 
+- "GLOWING,2,target,onHit"
+- "LEVITATION,0,target,onHit"
+itemType: UNIQUE

@@ -1,0 +1,15 @@
+isEnabled: true
+material: NETHERITE_LEGGINGS
+name: '&dDamaged Leggings'
+lore:
+- "&dThese leggings must have been of the highest"
+- "&dquality. Even though they are damaged they"
+- "&dstill offer ample protection."
+enchantments:
+- "PROTECTION_FALL,2"
+- "PROTECTION_ENVIRONMENTAL,5"
+- "DURABILITY,5"
+potionEffects: 
+- "DAMAGE_RESISTANCE,0,self,onHit"
+itemType: UNIQUE
+level: 95

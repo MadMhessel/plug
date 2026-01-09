@@ -1,0 +1,17 @@
+bossType: REINFORCEMENT
+damageMultiplier: 0.6
+dropsEliteMobsLoot: false
+dropsVanillaLoot: false
+entityType: SKELETON
+healthMultiplier: 0.25
+isEnabled: true
+level: 60
+mainHand: COAL
+name: $reinforcementLevel &dSoul of the Naughty List
+powers:
+- attack_freeze.yml
+- invulnerability_arrow.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_fall_damage.yml
+timeout: 2

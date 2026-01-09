@@ -1,0 +1,183 @@
+powerType: UNIQUE
+eliteScript:
+  Trigger:
+    Events:
+    - ElitePhaseSwitchEvent
+    Actions:
+    - action: RUN_SCRIPT
+      scripts:
+      - "TowerVs1"
+      - "Tower1"
+    - action: RUN_SCRIPT
+      scripts:
+      - "TowerVs2"
+      - "Tower2"
+    - action: RUN_SCRIPT
+      scripts:
+      - "TowerVs3"
+      - "Tower3"
+    - action: RUN_SCRIPT
+      scripts:
+      - "TowerVs4"
+      - "Tower4"
+  TowerVs1:
+    Zone:
+      shape: CYLINDER
+      radius: 12
+      borderRadius: 11
+      height: 2
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.5,63,-12.5,0,0
+        offset: 0,-1,0
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.1
+      Target:
+        targetType: ZONE_BORDER
+      repeatEvery: 10
+      times: 400
+  Tower1:
+    Zone:
+      shape: CUBOID
+      x: 1
+      y: 7
+      z: 1
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.5,63,-12.5,0,0
+    Actions:
+    - action: PLACE_BLOCK
+      material: POINTED_DRIPSTONE
+      duration: 4000
+      Target:
+        targetType: ZONE_FULL
+    - action: SUMMON_REINFORCEMENT
+      sValue: "binder_of_worlds_phase_3_zapper_reinforcement_hard.yml"
+      duration: 4000
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.4,70,-12.5,0,0
+  TowerVs2:
+    Zone:
+      shape: CYLINDER
+      radius: 12
+      borderRadius: 11
+      height: 2
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.5,63,-12.5,0,0
+        offset: 0,-1,0
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.1
+      Target:
+        targetType: ZONE_BORDER
+      repeatEvery: 10
+      times: 400
+  Tower2:
+    Zone:
+      shape: CUBOID
+      x: 1
+      y: 7
+      z: 1
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.5,63,-12.5,0,0
+    Actions:
+    - action: PLACE_BLOCK
+      material: POINTED_DRIPSTONE
+      duration: 4000
+      Target:
+        targetType: ZONE_FULL
+    - action: SUMMON_REINFORCEMENT
+      sValue: "binder_of_worlds_phase_3_zapper_reinforcement_hard.yml"
+      duration: 4000
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.6,70,-12.5,0,0
+  TowerVs3:
+    Zone:
+      shape: CYLINDER
+      radius: 12
+      borderRadius: 11
+      height: 2
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.5,63,13.5,0,0
+        offset: 0,-1,0
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.1
+      Target:
+        targetType: ZONE_BORDER
+      repeatEvery: 10
+      times: 400
+  Tower3:
+    Zone:
+      shape: CUBOID
+      x: 1
+      y: 7
+      z: 1
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.5,63,13.5,0,0
+    Actions:
+    - action: PLACE_BLOCK
+      material: POINTED_DRIPSTONE
+      duration: 4000
+      Target:
+        targetType: ZONE_FULL
+    - action: SUMMON_REINFORCEMENT
+      sValue: "binder_of_worlds_phase_3_zapper_reinforcement_hard.yml"
+      duration: 4000
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,-12.6,70,13.5,0,0
+  TowerVs4:
+    Zone:
+      shape: CYLINDER
+      radius: 12
+      borderRadius: 11
+      height: 2
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.5,63,13.5,0,0
+        offset: 0,-1,0
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.1
+      Target:
+        targetType: ZONE_BORDER
+      repeatEvery: 10
+      times: 400
+  Tower4:
+    Zone:
+      shape: CUBOID
+      x: 1
+      y: 7
+      z: 1
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.5,63,13.5,0,0
+    Actions:
+    - action: PLACE_BLOCK
+      material: POINTED_DRIPSTONE
+      duration: 4000
+      Target:
+        targetType: ZONE_FULL
+    - action: SUMMON_REINFORCEMENT
+      sValue: "binder_of_worlds_phase_3_zapper_reinforcement_hard.yml"
+      duration: 4000
+      Target:
+        targetType: LOCATION
+        location: same_as_boss,13.4,70,13.5,0,0
+# Generated with https://magmaguy.com/webapp/webapp.html !

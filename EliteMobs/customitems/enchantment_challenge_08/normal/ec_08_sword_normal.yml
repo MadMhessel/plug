@@ -1,0 +1,11 @@
+name: "Shrap Bunger"
+material: DIAMOND_SWORD
+lore:
+- "Very shrap, very cut." #typo is intended
+enchantments:
+- DAMAGE_ALL,5
+- DAMAGE_UNDEAD,3
+- DAMAGE_ARTHROPODS,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

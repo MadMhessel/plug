@@ -1,0 +1,20 @@
+isEnabled: true
+name: "&4Drowned King's Crown"
+material: "GOLDEN_HELMET"
+lore:
+- "&cFormerly the crown of the"
+- "&cdevilish Drowned King!"
+enchantments:
+- "DURABILITY,10"
+- "WATER_WORKER,1"
+- "OXYGEN,1"
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,1"
+- "PROTECTION_PROJECTILE,1"
+- "PROTECTION_FIRE,1"
+- "MENDING,1"
+potionEffects:
+- "CONDUIT_POWER,2,self,continuous"
+- "NIGHT_VISION,2,self,continuous"
+itemType: unique
+scalability: scalable

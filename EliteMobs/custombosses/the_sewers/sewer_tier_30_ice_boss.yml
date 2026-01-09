@@ -1,0 +1,72 @@
+boots: IRON_BOOTS
+bossType: MINIBOSS
+chestplate: IRON_CHESTPLATE
+damageMultiplier: 1.4
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: STRAY
+followDistance: 38
+healthMultiplier: 4.0
+helmet: IRON_HELMET
+isBaby: false
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 34
+leggings: IRON_LEGGINGS
+level: dynamic
+instanced: true
+mainHand: BOW
+name: $minibossLevel &2Ice Wraith
+powers:
+- movement_speed.yml
+- attack_freeze.yml
+- moonwalk.yml
+spawnCooldown: 30
+spawnLocations:
+- em_sewer_maze,-191.9761542184153,99.2,-213.15663017042223,-358.72626,3.45013:1609850735377
+uniqueLootList:
+- filename: sewer_spelunkers_sword_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_boots_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_chestplate_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_helmet_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_leggings_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_sword_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_boots_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_chestplate_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_helmet_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_leggings_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_sword_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_boots_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_chestplate_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_helmet_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_leggings_mythic.yml
+  chance: 0.1
+  difficultyID: 2

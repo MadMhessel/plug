@@ -1,0 +1,12 @@
+isEnabled: true
+entityType: HUSK
+name: $eventBossLevel &fRotting Corpse
+mountedEntity: forgotten_experiment_2.yml
+level: dynamic
+healthMultiplier: 1.0
+damageMultiplier: 1.0
+powers:
+- arrow_rain.yml
+- invulnerability_fire.yml
+movementSpeedAttribute: 0.30
+followDistance: 80

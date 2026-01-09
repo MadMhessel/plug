@@ -1,0 +1,11 @@
+name: "Glassplate"
+material: DIAMOND_CHESTPLATE
+lore:
+- "Better not touch it, unless you want a cut."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,5
+- THORNS,3
+- PROTECTION_PROJECTILE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,19 @@
+name: "&5Shadow Greaves"
+material: NETHERITE_BOOTS
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows cover your legs and feet, yet you feel"
+- "&5nothing. There is only a dull sensation of treading on"
+- "&5soft soil."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,5
+- PROTECTION_FALL,4
+- PROTECTION_FIRE,3
+- PROTECTION_EXPLOSIONS,2
+- PROTECTION_PROJECTILE,1
+potionEffects:
+- JUMP,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

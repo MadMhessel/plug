@@ -1,0 +1,17 @@
+isEnabled: true
+material: DIAMOND_SWORD
+name: '&cFireworks Launcher'
+lore:
+- "&cHmm...this could be fun..."
+enchantments:
+- DAMAGE_ALL,2
+- DURABILITY,3
+- KNOCKBACK,6
+- FIRE_ASPECT,4
+- HUNTER,5
+potionEffects:
+- LEVITATION,0,target,onHit
+- HEAL,1,target,onHit
+- INVISIBILITY,0,target,onHit
+dropWeight: dynamic
+itemType: unique

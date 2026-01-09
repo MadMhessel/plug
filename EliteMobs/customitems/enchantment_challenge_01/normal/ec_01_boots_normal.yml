@@ -1,0 +1,11 @@
+name: "Dark Flame Boots"
+material: DIAMOND_BOOTS
+lore:
+- "Scorch the earth you walk upon."
+enchantments:
+- PROTECTION_FIRE,5
+- PROTECTION_ENVIRONMENTAL,3
+- PROTECTION_FALL,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

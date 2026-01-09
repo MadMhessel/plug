@@ -1,0 +1,60 @@
+bossType: BOSS
+damageMultiplier: 1.75
+dropsEliteMobsLoot: true
+entityType: RAVAGER
+healthMultiplier: 6.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 14
+level: 60
+name: $bossLevel &5Krampus
+powers:
+- bonus_loot.yml
+- movement_speed.yml
+- attack_fire.yml
+- attack_fireball.yml
+- invulnerability_arrow.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_fall_damage.yml
+- amount: 1
+  chance: 0.25
+  filename: northpole_skeleton_summon.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 30
+spawnLocations:
+- em_north_pole,-289.9023245391839,18.2,-458.01306175518937,10.050073,88.35156:1611245558941
+uniqueLootList:
+- northpole_treat.yml:0.1
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_coalbringer.yml:0.5
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1

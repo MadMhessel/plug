@@ -1,0 +1,18 @@
+name: "&5Shadow Breeches"
+material: NETHERITE_LEGGINGS
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows coil around your legs like snakes"
+- "&5eating away at any harm that you might sustain."
+enchantments:
+- PROTECTION_FALL,5
+- PROTECTION_ENVIRONMENTAL,4
+- PROTECTION_EXPLOSIONS,3
+- PROTECTION_PROJECTILE,2
+- PROTECTION_FIRE,1
+potionEffects:
+- SPEED,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

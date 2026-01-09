@@ -1,0 +1,9 @@
+isEnabled: true
+eventType: TIMED
+bossFilenames:
+- telepathic_nightwalker.yml
+localCooldown: 120.0
+globalCooldown: 25.0
+weight: 100.0
+eventDuration: 12.0
+spawnType: nighttime_surface_spawn.yml

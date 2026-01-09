@@ -1,0 +1,19 @@
+name: "&d[Hard] Enduring Shadow Carver"
+material: NETHERITE_SWORD
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows wrap around your dominant arm forming"
+- "&5a long blade like extension that ends in a sharp tip."
+enchantments:
+- DAMAGE_ALL,8
+- DAMAGE_UNDEAD,6
+- DAMAGE_ARTHROPODS,5
+- SWEEPING_EDGE,4
+- KNOCKBACK,3
+- HUNTER,2
+potionEffects:
+- INCREASE_DAMAGE,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

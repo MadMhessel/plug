@@ -1,0 +1,20 @@
+name: "&d[Normal] Shadow Mail"
+material: NETHERITE_CHESTPLATE
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5Something you can never feel, never hold."
+- "&5Yet but a single thought is enough to"
+- "&5make the shadows move onto your body."
+enchantments:
+- DAMAGE_ALL,5
+- DAMAGE_UNDEAD,6
+- DAMAGE_ARTHROPODS,4
+- PROTECTION_ENVIRONMENTAL,3
+- DURABILITY,2
+- HUNTER,1
+potionEffects:
+- WATER_BREATHING,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,11 @@
+name: "Greenbrier Chestplate"
+material: DIAMOND_CHESTPLATE
+lore:
+- "Time to go hug all your friends."
+enchantments:
+- THORNS,5
+- PROTECTION_EXPLOSIONS,3
+- PROTECTION_ENVIRONMENTAL,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

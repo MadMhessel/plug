@@ -1,0 +1,12 @@
+isEnabled: true
+material: DIAMOND_PICKAXE
+name: "&eEnhanced Pickaxe"
+lore:
+- "&ePerfect for mining!"
+enchantments:
+- "DIG_SPEED,4"
+- "LOOT_BONUS_BLOCKS,4"
+potionEffects: 
+- "SPEED,0,self,continuous"
+- "NIGHT_VISION,0,self,continuous"
+itemType: UNIQUE

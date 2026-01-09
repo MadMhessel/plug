@@ -1,0 +1,67 @@
+bossType: MINIBOSS
+damageMultiplier: 1.2
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: WITHER_SKELETON
+followDistance: 38
+healthMultiplier: 3.0
+isBaby: false
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 34
+level: dynamic
+instanced: true
+mainHand: BOW
+name: $minibossLevel &2Withered Corpse
+powers:
+- attack_blinding.yml
+- invulnerability_arrow.yml
+spawnCooldown: 30
+spawnLocations:
+- em_sewer_maze,-233.5,101.5,-88.5,0.0,0.0:0
+uniqueLootList:
+- filename: sewer_spelunkers_sword_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_boots_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_chestplate_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_helmet_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_leggings_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_sword_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_boots_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_chestplate_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_helmet_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_leggings_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_sword_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_boots_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_chestplate_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_helmet_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_leggings_mythic.yml
+  chance: 0.1
+  difficultyID: 2

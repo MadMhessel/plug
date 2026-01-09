@@ -1,0 +1,11 @@
+name: "Crossed Bonebow"
+material: CROSSBOW
+lore:
+- "Unleash the fury of the bone."
+enchantments:
+- PIERCING,5
+- MULTISHOT,3
+- QUICK_CHARGE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

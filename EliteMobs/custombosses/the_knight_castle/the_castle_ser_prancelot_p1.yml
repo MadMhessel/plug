@@ -1,0 +1,32 @@
+bossType: MINIBOSS
+customDisguiseData: player the_castle_ser_prancelot setskin {"id":"dfe0c3dc-c6b6-4fe6-a7da-2bcb0ddc1823","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTY2NjE4MzgyMDI1OCwKICAicHJvZmlsZUlkIiA6ICIwMzdlNzQwNGMyMjk0OTIxOTdkZjBlZWJmYWIyNTNjMiIsCiAgInByb2ZpbGVOYW1lIiA6ICJMX0FfWl9FX1JfIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzVlNjhlZmYwY2EzOTUyYzY5YjVhOWQ1ZThhZjc5Nzc4NTg4OThhMmY3YmNiYjFmZDA4NTY2ZDA4YjdhNzFmZjIiCiAgICB9CiAgfQp9","signature":"AX/U4vGcdXGu+CyL6afDEAF8302yoS7gZUy6fx2P7dBZowxrRlEVVsC5Tf3cGklhIQ2xq4v6muH9uoYkI7xtvY5pRx//zOOBECsWOalJ2+Cesvyugycp2ZeqykF5bhyXjAacLGQrAPSRwYdWx8OqLiv6Jdsb2EryMgdQDRs20LldPfK2Aio4csUQyyyMOdWq9k3S8Ilx9vJzecIcv3fcm9rMIUfZCOatsm1nBbddz+96Wo98LRhsUT+qkiKuMRk1l0PXHdmE2x6gDOLo3rPPXWYyY8VYb5mGwdwrTwghj09vvX++WKnsOR68YgkwMMm/c+zeBj5gBzKCdtT97jjVkfLdESLfLFqAvKFF57VFcOr9xz7dUZ7yG5pIglO94/oTwNAcu2pKj7fKtWAft/wQhz2bQ/nvVEXfvaDlIoDiUrTCcrhOSzecDigkRoCg6u27jRSqtjEL1MPSNVeMYzKJ68y/HSehxOIpmcZl6F6/4WtaWFIQIgHgs4602nbzbxa7Jda2IiE1LZXuwOK5AKL8Irqt3BdrMGDeaELGocYuhIIZZROfkxgTsMTc5fx4zigmLyTZ3Uk7QhfEQZsEkRzRuU3xwQ/NHpDe2U9BM0CMoY/NgfQi2jsJz/k/IGmeEklendS1rAA13HGTRuuOiXPgMkaOPRlajNsOuZ33Yw4olCo="}],"legacy":false}
+damageMultiplier: 1.2
+disguise: custom:the_castle_ser_prancelot
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+entityType: VINDICATOR
+followDistance: 15
+frozen: false
+healthMultiplier: 4.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 15
+level: 95
+mainHand: NETHERITE_SWORD
+movementSpeedAttribute: 0.36
+name: $minibossLevel &aSer Prancelot
+onDamagedMessages:
+- You will pay for that!
+- Urgh!
+- That was nothing!
+- Excellent blow!
+phases:
+- the_castle_ser_prancelot_p2.yml:0.50
+powers:
+- invulnerability_fire.yml
+- attack_wither.yml
+- attack_freeze.yml
+spawnCooldown: 60
+spawnLocations:
+- em_knight_castle,31.5,5.5,24.5,0.0,0.0:1672655284664

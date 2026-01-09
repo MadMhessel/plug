@@ -1,0 +1,14 @@
+isEnabled: true
+material: NETHERITE_LEGGINGS
+name: "&dProtective Leggings"
+lore:
+- "&dMade to absorb large amounts damage."
+- "&dEven though they are heavily"
+- "&ddamaged they are still usable."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,3"
+- "BINDING_CURSE,1"
+potionEffects: 
+- "REGENERATION,0,self,onHit"
+itemType: UNIQUE

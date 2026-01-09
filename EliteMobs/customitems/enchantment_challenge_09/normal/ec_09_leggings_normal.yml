@@ -1,0 +1,12 @@
+name: "Glass Leggings"
+material: DIAMOND_LEGGINGS
+lore:
+- "The glass keeps shifting between solid"
+- "and liquid form. Better not touch."
+enchantments:
+- THORNS,5
+- MENDING,3
+- DURABILITY,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

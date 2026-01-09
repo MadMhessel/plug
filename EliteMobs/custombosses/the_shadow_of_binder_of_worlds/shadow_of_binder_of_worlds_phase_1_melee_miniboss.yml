@@ -1,0 +1,18 @@
+bossType: REINFORCEMENT
+damageMultiplier: 1.0
+dropsEliteMobsLoot: false
+entityType: RAVAGER
+followDistance: 200
+healthMultiplier: 1.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 35
+level: 200
+name: $reinforcementLevel &9Reality Uprooter
+normalizedCombat: true
+powers:
+- attack_gravity.yml
+- attack_push.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+reinforcement: true

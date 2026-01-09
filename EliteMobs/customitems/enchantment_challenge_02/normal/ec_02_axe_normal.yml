@@ -1,0 +1,11 @@
+name: "The Shocker"
+material: DIAMOND_AXE
+lore:
+- "Woah! Nice axe!"
+enchantments:
+- LOOT_BONUS_BLOCKS,5
+- DAMAGE_UNDEAD,3
+- DIG_SPEED,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

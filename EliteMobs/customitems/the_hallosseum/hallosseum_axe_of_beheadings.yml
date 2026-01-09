@@ -1,0 +1,15 @@
+isEnabled: true
+name: "&cAxe of Beheadings"
+material: "NETHERITE_AXE"
+lore:
+- "&4Famously used to decapitate a"
+- "&4certain headless horseman!"
+enchantments:
+- "DAMAGE_ALL,5"
+- "KNOCKBACK,3"
+- "SWEEPING_EDGE,1"
+- "DAMAGE_UNDEAD,5"
+potionEffects:
+- "WITHER,0,target,onHit"
+- "WEAKNESS,0,target,onHit"
+itemType: unique

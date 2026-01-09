@@ -1,0 +1,11 @@
+name: "Squared Pickaxe"
+material: DIAMOND_PICKAXE
+lore:
+- "Lovely pickaxe!"
+enchantments:
+- DIG_SPEED,5
+- DURABILITY,3
+- LOOT_BONUS_BLOCKS,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

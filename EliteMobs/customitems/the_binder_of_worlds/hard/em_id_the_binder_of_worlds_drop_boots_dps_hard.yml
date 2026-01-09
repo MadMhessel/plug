@@ -1,0 +1,20 @@
+name: "&d[Hard] Enduring Shadow Greaves"
+material: NETHERITE_BOOTS
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows cover your legs and feet, yet you feel"
+- "&5nothing. There is only a dull sensation of treading on"
+- "&5soft soil."
+enchantments:
+- DAMAGE_ALL,8
+- DAMAGE_UNDEAD,6
+- DAMAGE_ARTHROPODS,5
+- PROTECTION_ENVIRONMENTAL,4
+- DURABILITY,3
+- HUNTER,2
+potionEffects:
+- JUMP,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

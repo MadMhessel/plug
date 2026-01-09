@@ -1,0 +1,61 @@
+powerType: UNIQUE
+eliteScript:
+  Trigger:
+    Events:
+    - ElitePhaseSwitchEvent
+    Actions:
+    - action: RUN_SCRIPT
+      repeatEvery: 499
+      scripts:
+      - "BarrierVs"
+      - "Barrier"
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  BarrierVs:
+    Zone:
+      shape: CYLINDER
+      radius: 8
+      borderRadius: 1
+      height: 7
+      Target:
+        targetType: SELF_SPAWN
+        offset: 0,-4,0
+      filter: PLAYER
+    Actions:
+    - action: MESSAGE
+      Target: 
+        targetType: NEARBY_PLAYERS
+        range: 50
+      sValue: "&7&oThe pillar Suppression Barrier will activate soon."
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: EXPLOSION_NORMAL
+        speed: 0.1
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.01
+      wait: 50
+      repeatEvery: 5
+      times: 38
+  Barrier:
+    Zone:
+      shape: CYLINDER
+      radius: 8
+      borderRadius: 1
+      height: 8
+      Target:
+        targetType: SELF_SPAWN
+        offset: 0,-4,0
+      filter: PLAYER
+    Actions:
+    - action: PUSH
+      vValue: 0,-1,0
+      Target:
+        targetType: ZONE_FULL
+      wait: 50
+      repeatEvery: 1
+      times: 200
+# Generated with https://magmaguy.com/webapp/webapp.html !

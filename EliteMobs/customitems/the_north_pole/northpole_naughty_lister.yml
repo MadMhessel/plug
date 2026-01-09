@@ -1,0 +1,16 @@
+isEnabled: true
+name: "&4The Naughty Lister"
+material: "NETHERITE_SWORD"
+lore:
+- "&cTakes names. Doesn't ask twice!"
+- "&cHave you been naughty this year?"
+enchantments:
+- "DAMAGE_ALL,3"
+- "KNOCKBACK,3"
+- "SWEEPING_EDGE,1"
+- "DURABILITY,3"
+- "MENDING,1"
+potionEffects:
+- "GLOWING,0,target,onHit"
+- "LUCK,1,self,continuous"
+itemType: unique

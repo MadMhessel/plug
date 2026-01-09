@@ -1,0 +1,11 @@
+name: "Block Leggings"
+material: DIAMOND_LEGGINGS
+lore:
+- "Extremely durable!"
+enchantments:
+- DURABILITY,5
+- MENDING,3
+- PROTECTION_ENVIRONMENTAL,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,11 @@
+isEnabled: true
+material: IRON_BOOTS
+name: '&bMelted Flamethrowers [Normal]'
+lore:
+- "&bYou can just barely fit your feet"
+- "&binside."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,5"
+potionEffects: []
+itemType: UNIQUE
+scalability: scalable

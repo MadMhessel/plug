@@ -1,0 +1,9 @@
+isEnabled: true
+material: DIAMOND_PICKAXE
+name: "&cCursed Pickaxe"
+lore:
+- "&cBest to throw this away."
+potionEffects: 
+- "SLOW,0,self,continuous"
+- "SLOW_DIGGING,0,self,continuous"
+itemType: UNIQUE

@@ -1,0 +1,60 @@
+isEnabled: true
+chestType: CHEST
+facing: SOUTH
+location: em_sewer_maze,-128,138,-264,0,0
+chestTier: 3
+dropStyle: single
+restockTimer: 60
+instanced: true
+lootList:
+- filename: sewer_spelunkers_sword_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_boots_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_chestplate_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_helmet_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_leggings_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_sword_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_boots_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_chestplate_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_helmet_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_leggings_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_sword_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_boots_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_chestplate_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_helmet_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_leggings_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+mimicChance: 0.5
+mimicCustomBossesList:
+- sewer_tier_50_spider_boss.yml:1
+restockTime: 1608605288
+effects:
+- PORTAL

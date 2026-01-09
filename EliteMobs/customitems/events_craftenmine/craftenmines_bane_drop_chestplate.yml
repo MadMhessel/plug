@@ -1,0 +1,15 @@
+isEnabled: true
+material: NETHERITE_CHESTPLATE
+name: "&dLimiter Coat"
+lore:
+- "&dPrevents unwanted mutations."
+- "&dThe coat has been severely damaged"
+- "&dbut it is still usable."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,3"
+- "PROTECTION_FIRE,1"
+- "BINDING_CURSE,1"
+potionEffects: 
+- "INCREASE_DAMAGE,0,self,onHit"
+itemType: UNIQUE

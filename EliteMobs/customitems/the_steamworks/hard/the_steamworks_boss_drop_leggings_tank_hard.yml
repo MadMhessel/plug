@@ -1,0 +1,15 @@
+isEnabled: true
+material: IRON_LEGGINGS
+name: '&bNetherite Plate Pipes [Hard]'
+lore:
+- "&bFully functional as leggings with"
+- "&bonly some minor modifications..."
+enchantments:
+- "EARTHQUAKE,1"
+- "PROTECTION_ENVIRONMENTAL,3"
+- "PROTECTION_PROJECTILE,2"
+- "PROTECTION_EXPLOSIONS,1"
+- "DURABILITY,4"
+potionEffects: []
+itemType: UNIQUE
+scalability: scalable

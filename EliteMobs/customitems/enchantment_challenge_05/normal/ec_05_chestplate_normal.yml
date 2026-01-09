@@ -1,0 +1,11 @@
+name: "Poke-me-not"
+material: DIAMOND_CHESTPLATE
+lore:
+- "Your new favorite chestplate."
+enchantments:
+- PROTECTION_PROJECTILE,5
+- PROTECTION_ENVIRONMENTAL,3
+- DURABILITY,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

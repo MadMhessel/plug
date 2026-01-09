@@ -1,0 +1,13 @@
+isEnabled: true
+name: "&2Sewer Spelunker's Boots"
+material: "IRON_BOOTS"
+lore:
+- "&aThe up and coming sewer"
+- "&aexplorer's essential leggings!"
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,2"
+- "PROTECTION_FALL,1"
+- "DURABILITY,1"
+- "MENDING,1"
+itemType: unique
+scalability: scalable

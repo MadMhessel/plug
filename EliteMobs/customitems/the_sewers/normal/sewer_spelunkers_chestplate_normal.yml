@@ -1,0 +1,13 @@
+isEnabled: true
+name: "&2Sewer Spelunker's Chestplate"
+material: "IRON_CHESTPLATE"
+lore:
+- "&aThe up and coming sewer"
+- "&aexplorer's essential chestplate!"
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,2"
+- "DURABILITY,1"
+- "THORNS,1"
+- "MENDING,1"
+itemType: unique
+scalability: scalable

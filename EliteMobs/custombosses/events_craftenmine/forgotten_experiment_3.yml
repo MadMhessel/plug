@@ -1,0 +1,12 @@
+isEnabled: true
+entityType: WITHER_SKELETON
+mainHand: BOW
+name: $eventBossLevel &fRotted Giant
+level: dynamic
+healthMultiplier: 1.0
+damageMultiplier: 1.0
+powers:
+- attack_poison.yml
+- invulnerability_fire.yml
+movementSpeedAttribute: 0.30
+followDistance: 80

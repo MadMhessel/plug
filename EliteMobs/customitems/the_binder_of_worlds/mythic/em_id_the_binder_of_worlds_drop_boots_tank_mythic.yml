@@ -1,0 +1,20 @@
+name: "&5[Mythic] Radiant Shadow Greaves"
+material: NETHERITE_BOOTS
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows cover your legs and feet, yet you feel"
+- "&5nothing. There is only a dull sensation of treading on"
+- "&5soft soil."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,11
+- PROTECTION_FALL,7
+- PROTECTION_FIRE,6
+- PROTECTION_EXPLOSIONS,5
+- PROTECTION_PROJECTILE,4
+- LOUD_STRIKES,2
+potionEffects:
+- JUMP,3,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

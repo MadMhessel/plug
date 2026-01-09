@@ -1,0 +1,11 @@
+name: "King Baiter"
+material: FISHING_ROD
+lore:
+- "Truly the best rod you ever touched."
+enchantments:
+- LURE,5
+- LUCK,3
+- VANISHING_CURSE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

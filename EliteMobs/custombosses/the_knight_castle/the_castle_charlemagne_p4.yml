@@ -1,0 +1,71 @@
+bossType: BOSS
+customDisguiseData: player the_castle_charlemagne setskin {"id":"ac7822c4-dfe7-48da-884d-0303842b797c","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTY2NTU4NTE1NDA2MiwKICAicHJvZmlsZUlkIiA6ICJjMTJkMmY5ZWJhZGI0ZTllYTIxZmM2M2M3YWY3M2E5NSIsCiAgInByb2ZpbGVOYW1lIiA6ICJEcmVhbXlOZW9uIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzk3OTY2MzRlNTM4ZDU5ZTlhOTllYWJhMzkwZjdjZjVlMzQ4YWQyODUzNGY0OTJmNzg2YzM4YzkzNzUyODI0NjQiCiAgICB9CiAgfQp9","signature":"lUho34Ji7mzd9960aqG4HLZCLzL7PUVtVEi7nQ0Y4kHoUe0ZsqRz5Q82JJeULd8aYZQjf0x7bjHL525AUnazgxGZHKKC72FOiskglrVnJNvmEoqdGJw4hQYe2bRe6lVp667jRk2F7XS8Mhbf5S+Fk4Xk2SE+cxiE9rHYZ4ViiPi8N9QBpngdsTz7tpQIS6TYod7B+qIbxY0czex9tjY0jSxv91mw3eAAtD+FO3/aV/SAaNcMVfyqPTvDbgUOVUT+3nlY6zQWmNu0LAfADQdC+k8WWLMQla1tx/Ov9U0WfOkoxJWochg/ZMs7jjpKT+J2Nk6iHbyaHcJs01V/VL+O7CZ1FWbWZhvb8HP7BxyHhiuKuGbGTIpxwTQpn3bKv8rmRAafJ71Y4ClhOlIDOO3lvdPbO5R3AjR1JnZbwhUtd+FypIrxKE2aaMkSZEAgfcuEDYPwSFQ/0v8pJGhTu0TSHOo8JZS5hyIe3F/A44DYpCa3p4egERKZoNQBv6R+f88Gmx4xHBegNODjXG4IEERLCIfobTnJWFOJwePWFP7p+/uZeNUqalZB9sVSFKrWyR/XSBLiACSbijQIuNdc/hm3T9dQFwCN2fzkKXioh/wS6y45bMSzF1XlF0MH0Kq1KHNqgZQ/eGiB5hBKDR1mc+r2fiQvc0HfUI7gDnAdvLQgmfg="}],"legacy":false}
+damageMultiplier: 1.6
+disguise: custom:the_castle_charlemagne
+dropsEliteMobsLoot: true
+dropsRandomLoot: true
+dropsVanillaLoot: false
+eliteScript:
+  Hellstar:
+    Actions:
+    - Target:
+        range: 30.0
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '&c[Charlemagne] &fHear me Hellstar. Will you fight by my side once
+        more.'
+      times: 1
+    - Target:
+        targetType: SELF
+      action: SET_MOB_AI
+      bValue: false
+      duration: 60
+    - action: RUN_SCRIPT
+      scripts:
+      - SummonHellstar
+    Events:
+    - ElitePhaseSwitchEvent
+  SummonHellstar:
+    Actions:
+    - Conditions:
+        isAlive: true
+      Target:
+        offset: 0,3,0
+        targetType: SELF
+      action: SUMMON_REINFORCEMENT
+      sValue: the_castle_charlemagne_hellstar.yml
+      times: 1
+      wait: 60
+entityType: VINDICATOR
+followDistance: 50
+healthMultiplier: 40.0
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 50
+level: 95
+mainHand: NETHERITE_SWORD
+movementSpeedAttribute: 0.38
+name: $bossLevel &cCharlemagne
+onDamagedMessages:
+- Is this where it all ends.
+- I cannot hold out much more.
+- Is this my punishment.
+- I have failed you, my knights.
+powers:
+- invulnerability_fire.yml
+- attack_push.yml
+- attack_fire.yml
+- arrow_rain.yml
+uniqueLootList:
+- chance: 0.02
+  filename: charlemagne_boss_drop_axe.yml
+- chance: 0.05
+  filename: charlemagne_boss_drop_boots.yml
+- chance: 0.05
+  filename: charlemagne_boss_drop_chestplate.yml
+- chance: 0.05
+  filename: charlemagne_boss_drop_helmet.yml
+- chance: 0.05
+  filename: charlemagne_boss_drop_leggings.yml
+- chance: 0.02
+  filename: charlemagne_boss_drop_trident.yml

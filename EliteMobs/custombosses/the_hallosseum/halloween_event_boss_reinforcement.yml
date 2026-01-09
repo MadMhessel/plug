@@ -1,0 +1,10 @@
+bossType: REINFORCEMENT
+damageMultiplier: 0.6
+dropsEliteMobsLoot: false
+dropsVanillaLoot: false
+entityType: SKELETON
+healthMultiplier: 0.25
+isEnabled: true
+level: 30
+mainHand: BOW
+name: $reinforcementLevel Spooky Skeleton

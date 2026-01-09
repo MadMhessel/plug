@@ -1,0 +1,143 @@
+bossType: BOSS
+damageMultiplier: 1.6
+disguise: IRON_GOLEM
+customModel: em_steamworks_clk_wrx
+dropsEliteMobsLoot: true
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  ActivateSlowFall:
+    Actions:
+    - Target:
+        range: 30.0
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '&b[CLK-WRx702] &fActivating platform slow-fall barriers. Duration,
+        2 MINUTES.'
+    - Target:
+        targetType: ZONE_BORDER
+      action: POTION_EFFECT
+      amplifier: 3
+      duration: 250
+      potionEffectType: SLOW_FALLING
+      repeatEvery: 1
+      times: 2400
+    - Target:
+        targetType: ZONE_BORDER
+      action: SPAWN_PARTICLE
+      particles:
+      - particle: SMOKE_NORMAL
+        speed: 0.1
+      repeatEvery: 20
+      times: 120
+      wait: 60
+    Events:
+    - EliteMobDeathEvent
+    Zone:
+      Target:
+        offset: 0,-1,0
+        targetType: SELF_SPAWN
+        track: false
+      borderRadius: 22
+      height: 3
+      radius: 31
+      shape: CYLINDER
+  Say:
+    Actions:
+    - Target:
+        range: 30.0
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '&b[CLK-WRx702] &fCritical damage detected. Switching to overdrive mode.
+        Activating photon ray.'
+    Events:
+    - ElitePhaseSwitchEvent
+entityType: RAVAGER
+followDistance: 30
+healthMultiplier: 10
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 30
+level: dynamic
+instanced: true
+movementSpeedAttribute: 0.38
+name: $bossLevel &bCLK-WRx702
+powers:
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_arrow.yml
+- shield_wall.yml
+- photon_ray.yml
+- movement_speed.yml
+- attack_push.yml
+- filename: lightning_bolts.yml
+  difficultyID:
+  - 1
+  - 2
+- filename: taze.yml
+  difficultyID:
+  - 2
+uniqueLootList:
+- chance: 0.05
+  filename: the_steamworks_boss_charm_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_axe_dps_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_boots_dps_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_chestplate_tank_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_crossbow_tank_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_helmet_dps_normal.yml
+  difficultyID: 0
+- chance: 0.05
+  filename: the_steamworks_boss_drop_leggings_tank_normal.yml
+  difficultyID: 0
+- chance: 0.10
+  filename: the_steamworks_boss_charm_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_axe_dps_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_boots_dps_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_chestplate_tank_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_crossbow_tank_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_helmet_dps_hard.yml
+  difficultyID: 1
+- chance: 0.10
+  filename: the_steamworks_boss_drop_leggings_tank_hard.yml
+  difficultyID: 1
+- chance: 0.15
+  filename: the_steamworks_boss_charm_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_axe_dps_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_boots_dps_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_chestplate_tank_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_crossbow_tank_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_helmet_dps_mythic.yml
+  difficultyID: 2
+- chance: 0.15
+  filename: the_steamworks_boss_drop_leggings_tank_mythic.yml
+  difficultyID: 2

@@ -1,0 +1,11 @@
+name: "Beastly Leggings"
+material: DIAMOND_LEGGINGS
+lore:
+- "Heavy, real heavy."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,5
+- PROTECTION_PROJECTILE,3
+- PROTECTION_FALL,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

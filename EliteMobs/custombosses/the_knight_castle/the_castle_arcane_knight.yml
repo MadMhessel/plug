@@ -1,0 +1,39 @@
+isEnabled: true
+isRegionalBoss: true
+entityType: EVOKER
+name: $normalLevel &aArcane Knight
+level: 95
+frozen: false
+healthMultiplier: 2.0
+damageMultiplier: 1.0
+spawnCooldown: 60
+leashRadius: 18
+followDistance: 18
+movementSpeedAttribute: 0.33
+dropsEliteMobsLoot: true
+dropsVanillaLoot: false
+dropsRandomLoot: false
+powers:
+- invulnerability_fire.yml
+- attack_push.yml
+- shield_wall.yml
+- plasma_blaster.yml
+- attack_arrow.yml
+- attack_blinding.yml
+onDamagedMessages:
+- Be gone!
+- You dare strike me!
+- Get them my minions.
+- You will regret this.
+uniqueLootList:
+- filename: trash_drop_chestplate.yml
+  chance: 0.05
+- filename: trash_drop_boots.yml
+  chance: 0.05
+disguise: custom:the_castle_arcane_knight
+customDisguiseData: player the_castle_arcane_knight_knight setskin {"id":"2ac6338d-8404-48b9-873b-f9642e64a7be","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTY2MzY5MzYzNzkyNSwKICAicHJvZmlsZUlkIiA6ICJjY2QwMTU0Yzg2OWQ0ODhmOTY1ZDJlYjMwYjU1ZTUwNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJ0dG9taXlvdWtub3ciLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI2MWIyYTJhOWQyY2NkY2RkNDc0NjQzMTAyNzZlZjIxYjNiZWJhOTIxYzU3NDIxY2EyODg2MmM0YjMxNTUwZSIKICAgIH0KICB9Cn0=","signature":"ybt4oomKCXfaKcreJcuulpjy97b7WuCaBjy0mTiZIdgCtz9QA+xJcE4U7j4+njEIE4VgK0UHe+e4d0bdkka3iQLIsELjc8d1+Tsus6ks+vkucJxxCqqk0SXrWuNFuVIc5228o1Lp3/I2HM8rlOuSuISjzqfduEvCEe1DqcRuBj7KBFQUx0OxSAq8iTqEHzHaaD6pwl2sXPty2VVOO1npONyakbnIdJHfvUs+ADYkcxcuQRPT6Ns3mSy/9j8F6EgrEEh20ISs2Vj5YxOySxkahwMmgoKSMQ2fU+wY6QSXn7H7HcjwVHw5am3odm4Svmyo6pPVy+a1KtKynTqpz9HVZ3njotqiU7D+FsdHAUVsR1naz7JuGXNeTufCegAcAbYXPNv2Bav518tWS6VHTIk3c0biNQNekC0JJwtrI2EMmn6hqnyJSGYprtkO+mxeQNP7RzppfrwCvjq1SBsmlzQ4z3mwhqmCQt29g0XY1Lc83fXWD9AlLTJnW2HObZHMUke5ji0/8OAVIjXr9rp2QvRoUgB3BCUZnqV4KC28uOEnUkb37TfQP97DAibP/DZon2Vqeg2OKdjaEkss/U8NpB7BYzPGfjwy5m/Dyeio5iKvrQ9awX/Dk8Nuqolp1igzGiC3DIqcgl5Txl+8RxshgBL5NrszM8JT2FcjkM4iipudaUc="}],"legacy":false}
+spawnLocations:
+- em_knight_castle,34.5,37.5,28.5,0.0,0.0:1667480322865
+- em_knight_castle,34.5,37.5,34.5,0.0,0.0:1667480322866
+- em_knight_castle,14.5,19.5,16.5,0.0,0.0:1672655419163
+

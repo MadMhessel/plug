@@ -1,0 +1,20 @@
+bossType: REINFORCEMENT
+damageMultiplier: 0.6
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+entityType: ZOMBIE
+followDistance: 30
+frozen: false
+healthMultiplier: 0.25
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 30
+mainHand: ARROW
+movementSpeedAttribute: 0.26
+name: $reinforcementLevel &aArrow Dispenser
+normalizedCombat: true
+powers:
+- invulnerability_fire.yml
+uniqueLootList:
+- material=ARROW:amount=1:chance=0.25

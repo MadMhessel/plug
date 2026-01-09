@@ -1,0 +1,11 @@
+name: "Tikk Bunger"
+material: DIAMOND_CHESTPLATE
+lore:
+- "Nice tikk, very safe." #intended (Thick = Tikk)
+enchantments:
+- PROTECTION_ENVIRONMENTAL,8
+- VANISHING_CURSE,3
+- BINDING_CURSE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

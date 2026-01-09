@@ -1,0 +1,62 @@
+bossType: BOSS
+customDisguiseData: player elitemobs_mrs_claus_skin setskin {"id":"2c4b220f-3169-4887-8b83-e5fc73fad32c","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTYwODMxMDY0NjUwMCwKICAicHJvZmlsZUlkIiA6ICI3NDM3MGQ1Mjk5Mjk0ZThjODRlYjRlODlhYjc2MGY5MiIsCiAgInByb2ZpbGVOYW1lIiA6ICJQdXRZb3VySmFzT2ZmIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2MzOTMzZDNmN2JlZTYyZWZhMmViYjhmM2E0MTQ1ODkxNjUzNmVhNzE1ZGZkYTkyMWJhMTEzNjExMTZmODQ5MWIiCiAgICB9CiAgfQp9","signature":"ygQx+FuR70G20yeesonFiIauGl2FdCPvd4WhZjfveoI6s2jAvv+fz/4xHjrusAoOwx1Gctz2d4rCjTms0DCIof+BVCbyCqnvqlqctetuV5eOAAVUnUWKSPCNaIy5CCOq1HtW9fPO8mKJTXO0eiBUu7glTX8CLErnRVV1eFT5lbe3vrZV8/XHYl4Ab1R1+L351XHp1Lu5dQImfVHk0TtEX0M1/nyNTOKmitZhqwUX6DsCT5NdDllAgzCP8rmtB3OVVF9xjV6jOTAxUnMWcJNmI4209NLauvuT/GJEVJA/zvkd/RSoX9F+SOFjZYNFuNToIBDhPjdP1KUe0V5InnlcO+xmGk1nAngYz0bCZNmFA7+6mJ3mpYFhOidngGLZqg3o0NPadDC8CCuB14oJk1KQyo9Yuy8emyYD9T5XPNKX/+fYmxhOjgZru/9yCdA1iuHKyIXQBNCTb6dOXqztwMvRghhu2v/HmdYORmRIrts6y1KGRBeVCuLbABpRvTqVgSH6Z/js/hBs0zb+pieGOn+BgYChzdmPhFlQ/nkhbFO11XmflGMLLqRXxYOFd1zyY6VYTj5nYwaN22VR3OIWMZyjNdsAXyBooai0kfnoXTUI8y3Qx45ycIga806WtUtVqECsIVKeNJEAWy4gO5jz7makCtP6aORwAx5X181T07+qz0Y="}],"legacy":false}
+damageMultiplier: 1.75
+disguise: custom:elitemobs_mrs_claus_skin
+dropsEliteMobsLoot: true
+entityType: ZOMBIE
+healthMultiplier: 6.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 14
+level: 60
+name: $bossLevel &cMrs. Claus
+offHand: BELL
+powers:
+- bonus_loot.yml
+- gold_explosion.yml
+- attack_freeze.yml
+- invulnerability_arrow.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_fall_damage.yml
+- amount: 1
+  chance: 0.25
+  filename: northpole_elf_summon.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 30
+spawnLocations:
+- em_north_pole,-328.52799964435366,65.2,-435.55763649834154,269.4403,2.9998617:1611380171414
+uniqueLootList:
+- northpole_treat.yml:0.1
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_naughty_lister.yml:0.5
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1

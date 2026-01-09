@@ -1,0 +1,11 @@
+name: "Anti Impaler"
+material: SHIELD
+lore:
+- "Sometimes all you need is a good shield."
+enchantments:
+- DURABILITY,5
+- PROTECTION_PROJECTILE,3
+- MENDING,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

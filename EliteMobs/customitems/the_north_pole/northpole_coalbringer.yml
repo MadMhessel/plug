@@ -1,0 +1,13 @@
+isEnabled: true
+name: "&8Coalbringer"
+material: "COAL"
+lore:
+- "&cWhatever I touch"
+- "&cStarts to melt in my clutch."
+- "&cI'm too much!"
+enchantments:
+- "FIRE_ASPECT,4"
+potionEffects:
+- "SPEED,1,self,continuous"
+scalability: fixed
+itemType: unique

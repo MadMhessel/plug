@@ -1,0 +1,87 @@
+1isEnabled: true
+bossType: MINIBOSS
+damageMultiplier: 1.4
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  Summon:
+    Actions:
+    - Target:
+        targetType: SELF
+      action: POTION_EFFECT
+      amplifier: 50
+      duration: 20
+      potionEffectType: SLOW
+      wait: 60
+    - Target:
+        targetType: SELF
+      action: PLAY_SOUND
+      sValue: entity.evoker.prepare_summon
+      wait: 60
+    - Target:
+        offset: 2,2,0
+        targetType: SELF
+      action: SPAWN_PARTICLE
+      particles:
+      - particle: SPELL
+      repeatEvery: 5
+      times: 6
+      wait: 60
+    - Target:
+        offset: -2,2,0
+        targetType: SELF
+      action: SPAWN_PARTICLE
+      particles:
+      - particle: SPELL
+      repeatEvery: 5
+      times: 6
+      wait: 60
+    - Target:
+        offset: 1,2,0
+        targetType: SELF
+      action: SUMMON_REINFORCEMENT
+      duration: 444
+      sValue: enchantment_boss_leet_summoner_eidolon_one.yml
+      wait: 80
+    - Target:
+        offset: -1,2,0
+        targetType: SELF
+      action: SUMMON_REINFORCEMENT
+      duration: 444
+      sValue: enchantment_boss_leet_summoner_eidolon_two.yml
+      wait: 80
+    Cooldowns:
+      global: 10
+      local: 200
+    Events:
+    - EliteMobEnterCombatEvent
+    - EliteMobDamagedByPlayerEvent
+entityType: EVOKER
+followDistance: 60
+frozen: false
+healthMultiplier: 4.0
+instanced: true
+isRegionalBoss: true
+leashRadius: 60
+movementSpeedAttribute: 0.5
+name: $minibossLevel &d1337 Summ0n3r
+normalizedCombat: true
+powers:
+- taze.yml
+- invulnerability_fire.yml
+spawnLocations:
+- em_id_enchantment_challenge_4,1.5,65,0.5,0,0
+uniqueLootList:
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_04_chestplate_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_04_helmet_normal.yml
+- chance: 0.15
+  difficultyID: 0
+  filename: ec_04_shovel_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: elite_lucky_ticket.yml

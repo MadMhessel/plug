@@ -1,0 +1,11 @@
+name: "Cold Scam Helmet"
+material: DIAMOND_HELMET
+lore:
+- "Should you put this on?"
+enchantments:
+- PROTECTION_ENVIRONMENTAL,7
+- MENDING,3
+- BINDING_CURSE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

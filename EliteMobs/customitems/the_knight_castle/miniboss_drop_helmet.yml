@@ -1,0 +1,10 @@
+isEnabled: true
+material: NETHERITE_HELMET
+name: '&aWorn Helmet'
+lore:
+- "&aThis helmet is well worn."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,3"
+- "DURABILITY,2"
+itemType: UNIQUE
+level: 95

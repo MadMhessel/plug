@@ -1,0 +1,20 @@
+name: "&5[Mythic] Radiant Shadow Bracelet"
+material: SHIELD
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows wrap themselves around your arm"
+- "&5forming a thick ring. Whenever you raise your arm"
+- "&5to protect yourself from harm the shadows extend"
+- "&5from the bracelet forming a shadow guard."
+enchantments:
+- DURABILITY,11
+- THORNS,7
+- LUCK,6
+- MENDING,1
+- LOUD_STRIKES,2
+potionEffects:
+- HEALTH_BOOST,3,self,onHit
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

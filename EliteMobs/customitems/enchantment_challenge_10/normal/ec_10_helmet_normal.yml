@@ -1,0 +1,11 @@
+name: "Skell Helm"
+material: DIAMOND_HELMET
+lore:
+- "Double up your skull with this fine helmet."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,5
+- PROTECTION_EXPLOSIONS,3
+- PROTECTION_FIRE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

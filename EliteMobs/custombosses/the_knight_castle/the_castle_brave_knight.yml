@@ -1,0 +1,40 @@
+isEnabled: true
+isRegionalBoss: true
+entityType: VINDICATOR
+mainHand: NETHERITE_SWORD
+offHand: SHIELD
+name: $normalLevel &aBrave Knight
+level: 95
+frozen: false
+healthMultiplier: 1.5
+damageMultiplier: 1.0
+spawnCooldown: 60
+leashRadius: 18
+followDistance: 18
+movementSpeedAttribute: 0.36
+dropsEliteMobsLoot: true
+dropsVanillaLoot: false
+dropsRandomLoot: false
+powers:
+- invulnerability_fire.yml
+- attack_vacuum.yml
+- attack_web.yml
+onDamagedMessages:
+- Have at you!
+- Is that all you got.
+- You fight like a cow!
+- I fought raccoons tougher than you!
+uniqueLootList:
+- filename: trash_drop_chestplate.yml
+  chance: 0.05
+- filename: trash_drop_boots.yml
+  chance: 0.05
+disguise: custom:the_castle_brave_knight
+customDisguiseData: player the_castle_brave_knight setskin {"id":"c89fcdfc-bdbc-4fa8-b4e8-21de9514c0f6","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTY2NTg1Nzc4MzY0MywKICAicHJvZmlsZUlkIiA6ICI1NjY3NWIyMjMyZjA0ZWUwODkxNzllOWM5MjA2Y2ZlOCIsCiAgInByb2ZpbGVOYW1lIiA6ICJUaGVJbmRyYSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80ZDkyMWZiZGI5MGFhMDU2ZTg0ZTNiM2E1YjAwMjhiMjQ0NmUzZWQ5Mzc2MzZjOGFhNDRjMTQwYzY1YjBlYjVjIgogICAgfQogIH0KfQ==","signature":"KyYucH5CKXMfV5h1I50ZLGC0u/aX55T+kd2xyVU7DgfBI2E3dUpfjqx6z2RU9Iw5Vae6R+vGmIdbZCb6tiow8C6gFSOWGpKP9zjD4MyFTYs306qOMH4YqwLPhoggkQKSnR4JYzOFELsGryHAp0W25ndatSE8hrVmvt8c5GrCWLtMKFR0Taqjq7NvzLgs6aE7FVNGxHKsqcGz7EU/QSf4iZ0A3oUNI+qkfykdC8QWdAcZR1r/v8Kes3SIM2y4wFzTCbSRnwXFH8Wq1R596T+pXM8YpvPEkxEhMl244Vvmp6euqkvg3dC898HLCUZ4uaN0uStH++7TvVFX1rv2pwx66t4KzrTY4iyWnzP7hmZtD0n5u7HL7ZmO5rp5YjhR/vCwa0ICWJzFc0xnG+ZFahTTfeHTBL2Ey8R22FDUAtOufFIeOBe4ofKa3xRp/q14e3cwZHQeyae5vHk8kYAgkT2NkRAxebjXxMzcSSaQxkJyLOhMk6d7Ui4bdQQhV1PKHCnroXuO6UNoyZchXoGkIy0mAEO4BgwtzRssDKFhZOOFIWvAEBhjImt+xRiID0BAOM6hFe3C1SbXmiRp77Llu7ycCpxI9oFvHH0t+O2wiBhS/77ZyF897EoNX7d9sPpe1yk86x+BtIjRtWLPWwI5KQGn7SA6JSj4wa6hqQusLmFS5ag="}],"legacy":false}
+spawnLocations:
+- em_knight_castle,8.5,5.5,42.5,0.0,0.0:1672655326159
+- em_knight_castle,6.5,23.5,45.5,0.0,0.0:1672655344711
+- em_knight_castle,30.5,32.5,26.5,0.0,0.0:1672655378861
+- em_knight_castle,11.5,19.5,11.5,0.0,0.0:1672655406709
+- em_knight_castle,27.5,15.5,11.5,0.0,0.0:1672655540815
+

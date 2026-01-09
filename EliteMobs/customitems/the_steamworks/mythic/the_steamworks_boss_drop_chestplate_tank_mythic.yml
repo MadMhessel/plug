@@ -1,0 +1,15 @@
+isEnabled: true
+material: IRON_CHESTPLATE
+name: '&bReinforced Netherite Plate [Mythic]'
+lore:
+- "&bSome straps and some padding and you"
+- "&bgot yourself a fine chestplate."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,4"
+- "PROTECTION_PROJECTILE,3"
+- "PROTECTION_EXPLOSIONS,2"
+- "DURABILITY,4"
+potionEffects: 
+- "WEAKNESS,1,target,onHit"
+itemType: UNIQUE
+scalability: scalable

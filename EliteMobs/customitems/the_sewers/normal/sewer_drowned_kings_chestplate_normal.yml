@@ -1,0 +1,16 @@
+isEnabled: true
+name: "&4Drowned King's Chestplate"
+material: "DIAMOND_CHESTPLATE"
+lore:
+- "&cFormerly the chestplate of the"
+- "&cdevilish Drowned King!"
+enchantments:
+- "DURABILITY,1"
+- "THORNS,1"
+- "MENDING,1"
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,1"
+- "PROTECTION_PROJECTILE,1"
+- "PROTECTION_FIRE,1"
+itemType: unique
+scalability: scalable

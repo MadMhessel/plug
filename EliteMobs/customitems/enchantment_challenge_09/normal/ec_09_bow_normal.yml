@@ -1,0 +1,12 @@
+name: "Glass Launcher"
+material: BOW
+lore:
+- "Nothing better than unleashing shards"
+- "of solid glass upon your enemies."
+enchantments:
+- ARROW_INFINITE,5
+- ARROW_DAMAGE,3
+- ARROW_KNOCKBACK,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

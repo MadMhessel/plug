@@ -1,0 +1,20 @@
+name: "&d[Mythic] Radiant Shadow Mail"
+material: NETHERITE_CHESTPLATE
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5Something you can never feel, never hold."
+- "&5Yet but a single thought is enough to"
+- "&5make the shadows move onto your body."
+enchantments:
+- DAMAGE_ALL,7
+- DAMAGE_UNDEAD,11
+- DAMAGE_ARTHROPODS,6
+- PROTECTION_ENVIRONMENTAL,5
+- DURABILITY,4
+- HUNTER,3
+potionEffects:
+- WATER_BREATHING,3,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

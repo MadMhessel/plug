@@ -1,0 +1,35 @@
+isEnabled: true
+isRegionalBoss: true
+entityType: PILLAGER
+mainHand: CROSSBOW
+offHand: CROSSBOW
+name: $normalLevel &aCowardly Knight
+level: 95
+frozen: false
+spawnCooldown: 60
+healthMultiplier: 1.0
+damageMultiplier: 1.0
+leashRadius: 18
+followDistance: 18
+movementSpeedAttribute: 0.33
+dropsEliteMobsLoot: true
+dropsVanillaLoot: false
+dropsRandomLoot: false
+powers:
+- invulnerability_fire.yml
+- attack_push.yml
+- attack_poison.yml
+- skeleton_tracking_arrow.yml
+onDamagedMessages:
+- I did not even feel that!
+- Gotta get through the armor first!
+- I can handle more than that!
+disguise: custom:the_castle_cowardly_knight
+customDisguiseData: player the_castle_cowardly_knight_knight setskin {"id":"f4e0441d-f17d-4548-9b29-89952e3fa011","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTY1MjY2MTI2MDYxMSwKICAicHJvZmlsZUlkIiA6ICI5NmI1MTQxZTg0NzU0MjhjOTIzMmUxYjUyMmMzZmI1NyIsCiAgInByb2ZpbGVOYW1lIiA6ICJGaXJlQjB5MiIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OGRlMWRkNWVhM2Y2MGVmZDRlMWI0ZWE1M2FmZjczYzNkNzQ3ZDU2YTNjN2EwNDE4NzMyMDRjZWYyMGQ5OWJhIgogICAgfQogIH0KfQ==","signature":"xD0GPAZZ8wNuueeqQ3t4NvTzipaj/S56/QDT++iiJh+p5jTpDGXAO0z5HeklJFXnBJYa2GgBsGIedJI/ZOmfy3t+Nl/KoEOOHJGlrwMIG+mAvTSSMr+3+Tpxnyqlg9yFnVeMxW4gl5jFrb1fbBdtPtADEW55YPCJQl44o6WCXhevxk2drCrpPA13CgFi/lQIjCatH/Q0hNMKoieX5hfSuhY69fDoj2OpZcOqIbr1tuNJt4Ljx4F7OfBZl8mkUblnayn5tFEXjEwVYUnNGruK+Xc36J0WbqlgpF8s7lUlrywrdhc+UZPggp8ApX53a4muuARnmcVO2kTP4D4H7gW7bo9PKRi1S5qmubUEOyMZ497otv5s5iuwcZx7zqyi0eiBOfzVVsrbwS4+d6Qa+Pnnx4gIFeHkHBvRrWDbcMllLVdVZTFi4gZcg15OHpe7fV4oVqIlTfX7HGwYui5/npIM2GsfSzctN6HSbyuJsLQ+NOlO3+zqktbtz3mWaCZ838Fv24GbPkoVy/WOIV49LKttHBWbC2aGhlsy9rzn8Hif2uv8TqBmZcb+oB0YIv1jRR0BmTlV07lnWAKi+A0/GV2qUHG47zrS98BcUPyRb0ecJmgyAAmNzR/9fmOSTyOPk91t4OEW26XYkCOJ//cqmSMjDDFbU24TCIExCx6PaFlxnB4="}],"legacy":false}
+spawnLocations:
+- em_knight_castle,14.5,24.5,34.5,0.0,0.0:1672655356656
+- em_knight_castle,20.5,26.5,33.5,0.0,0.0:1672655360161
+- em_knight_castle,23.5,27.5,32.5,0.0,0.0:1672655363507
+- em_knight_castle,24.5,32.5,19.5,0.0,0.0:1672655388605
+- em_knight_castle,38.5,15.5,8.5,0.0,0.0:1672655549805
+

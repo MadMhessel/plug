@@ -1,0 +1,20 @@
+bossType: MINIBOSS
+damageMultiplier: 0.8
+disguise: HORSE
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+entityType: RAVAGER
+followDistance: 50
+healthMultiplier: 3.0
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 50
+level: 95
+movementSpeedAttribute: 0.55
+name: $minibossLevel &cLoyal Steed
+normalizedCombat: true
+powers:
+- invulnerability_fire.yml
+- invulnerability_knockback.yml
+- attack_push.yml

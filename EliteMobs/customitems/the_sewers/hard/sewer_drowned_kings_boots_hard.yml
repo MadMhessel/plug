@@ -1,0 +1,20 @@
+isEnabled: true
+name: "&4Drowned King's Boots"
+material: "DIAMOND_BOOTS"
+lore:
+- "&cFormerly the boots of the"
+- "&cdevilish Drowned King!"
+enchantments:
+- "DURABILITY,1"
+- "THORNS,1"
+- "MENDING,1"
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,1"
+- "PROTECTION_PROJECTILE,1"
+- "PROTECTION_FIRE,1"
+- "PROTECTION_FALL,1"
+potionEffects:
+- "INCREASE_DAMAGE,2,self,continuous"
+- "SATURATION,2,self,continuous"
+itemType: unique
+scalability: scalable

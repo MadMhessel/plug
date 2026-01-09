@@ -1,0 +1,9 @@
+isEnabled: true
+material: RABBIT
+name: '&6Flame Organ'
+lore:
+- "&6Retrieved from the Altered"
+- "&6Enderman's corpse."
+potionEffects: 
+- "FIRE_RESISTANCE,1,self,continuous"
+

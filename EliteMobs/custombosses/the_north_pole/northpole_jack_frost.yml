@@ -1,0 +1,62 @@
+bossType: BOSS
+damageMultiplier: 1.75
+disguise: SNOWMAN
+dropsEliteMobsLoot: true
+entityType: STRAY
+healthMultiplier: 6.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 50
+level: 60
+mainHand: BOW
+name: $bossLevel &bJack Frost
+powers:
+- bonus_loot.yml
+- bullet_hell.yml
+- attack_freeze.yml
+- invulnerability_arrow.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_fall_damage.yml
+- movement_speed.yml
+- amount: 1
+  chance: 0.35
+  filename: northpole_snowy_wraith.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 30
+spawnLocations:
+- em_north_pole,-304.45753776403706,113.2,-463.5300105741452,151.86108,47.549934:1611245651441
+uniqueLootList:
+- northpole_treat.yml:0.1
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_frostcaster.yml:0.5
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1

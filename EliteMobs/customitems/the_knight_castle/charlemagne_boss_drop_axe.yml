@@ -1,0 +1,13 @@
+isEnabled: true
+material: NETHERITE_AXE
+name: '&dDark Blood Splitter'
+lore:
+- "&dSomething is not right with this weapon."
+- "&dThere is an ominous aura coming from it."
+enchantments:
+- "DAMAGE_ALL,10"
+- "DURABILITY,5"
+potionEffects: 
+- "BLINDNESS,0,self,continuous"
+itemType: UNIQUE
+level: 95

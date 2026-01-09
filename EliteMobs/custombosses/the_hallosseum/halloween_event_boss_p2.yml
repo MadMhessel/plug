@@ -1,0 +1,69 @@
+announcementPriority: 3
+bossType: BOSS
+damageMultiplier: 1.75
+deathMessage: '&4The headless horseman was vanquished by $players!'
+deathMessages:
+- '&e&l---------------------------------------------'
+- '&4The Headless Horseman was vanquished!'
+- '&c&l    1st Damager: $damager1name &cwith $damager1damage damage!'
+- '&6&l    2nd Damager: $damager2name &6with $damager2damage damage!'
+- '&e&l    3rd Damager: $damager3name &ewith $damager3damage damage!'
+- '&4Slayers: $players'
+- '&e&l---------------------------------------------'
+disguise: custom:hallosseum_event_boss
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: SKELETON
+escapeMessage: '&4The headless horseman has left to haunt someone''s dreams!'
+followDistance: 60
+healthMultiplier: 40
+isEnabled: true
+leashradius: 40
+level: 30
+locationMessage: '&4Dullahan: $distance blocks away!'
+mainHand: NETHERITE_HOE
+name: $bossLevel Dullahan
+offHand: CARVED_PUMPKIN
+powers:
+- attack_wither.yml
+- invulnerability_knockback.yml
+- movement_speed.yml
+- skeleton_tracking_arrow.yml
+- bullet_hell.yml
+- death_slice.yml
+- hyper_loot.yml
+- amount: 1
+  chance: 0.2
+  filename: halloween_event_boss_reinforcement.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 180
+trails:
+- DRAGON_BREATH
+uniqueLootList:
+- hallosseum_treat.yml:0.1
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_treat_v2.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_amazing_treat.yml:0.5
+- hallosseum_incredible_treat.yml:0.5
+- hallosseum_incredible_treat.yml:0.5
+- hallosseum_incredible_treat.yml:0.5
+- hallosseum_axe_of_beheadings.yml:0.5

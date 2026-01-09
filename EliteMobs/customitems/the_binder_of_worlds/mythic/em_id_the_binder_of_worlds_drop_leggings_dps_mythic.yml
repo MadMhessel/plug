@@ -1,0 +1,19 @@
+name: "&d[Mythic] Radiant Shadow Breeches"
+material: NETHERITE_LEGGINGS
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows coil around your legs like snakes"
+- "&5eating away at any harm that you might sustain."
+enchantments:
+- DAMAGE_ALL,11
+- DAMAGE_UNDEAD,7
+- DAMAGE_ARTHROPODS,6
+- PROTECTION_ENVIRONMENTAL,4
+- DURABILITY,5
+- HUNTER,3
+potionEffects:
+- SPEED,3,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

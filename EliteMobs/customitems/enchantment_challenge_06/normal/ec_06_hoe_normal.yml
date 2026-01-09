@@ -1,0 +1,11 @@
+name: "Beastly Hoe"
+material: DIAMOND_HOE
+lore:
+- "What a beast of a hoe."
+enchantments:
+- DURABILITY,5
+- DIG_SPEED,3
+- MENDING,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,18 @@
+isEnabled: true
+name: "&4Drowned King's Trident"
+material: "TRIDENT"
+lore:
+- "&cFormerly the trident of the"
+- "&cdevilish Drowned King!"
+enchantments:
+- "PIERCING,2"
+- "DAMAGE_ALL,5"
+- "DAMAGE_UNDEAD,2"
+- "DAMAGE_ARTHROPODS,2"
+- "DURABILITY,2"
+- "LOYALTY,2"
+- "MENDING,1"
+potionEffects:
+- "SLOW,3,target,onHit"
+itemType: unique
+scalability: scalable

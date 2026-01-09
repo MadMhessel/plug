@@ -1,0 +1,12 @@
+bossType: REINFORCEMENT
+damageMultiplier: 0.6
+dropsEliteMobsLoot: false
+dropsVanillaLoot: false
+entityType: HUSK
+healthMultiplier: 0.25
+isBaby: true
+isEnabled: true
+level: dynamic
+instanced: true
+mainHand: WOODEN_HOE
+name: $reinforcementLevel &2Fallen Gardener

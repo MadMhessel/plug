@@ -1,0 +1,13 @@
+isEnabled: true
+material: CROSSBOW
+name: "&bBroken Launcher [Normal]"
+lore:
+- "&bThis must have been the device that was"
+- "&bresponsible for launching those fire-arrows."
+- "&bIt still works, kind of..."
+enchantments:
+- "PIERCING,3"
+- "QUICK_CHARGE,1"
+- "DURABILITY,4"
+itemType: UNIQUE
+scalability: scalable

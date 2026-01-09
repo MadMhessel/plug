@@ -1,0 +1,61 @@
+powerType: UNIQUE
+eliteScript:
+  Pull:
+    Events:
+    - ElitePhaseSwitchEvent
+    - EliteMobTargetPlayerEvent
+    - EliteMobEnterCombatEvent
+    - PlayerDamagedByEliteMobEvent
+    Zone:
+      shape: SPHERE
+      radius: 16
+      borderRadius: 15
+      Target:
+        targetType: SELF
+        track: true
+      filter: PLAYER
+    Actions:
+    - action: TITLE_MESSAGE
+      Target: 
+        targetType: NEARBY_PLAYERS
+        range: 30
+      # title: "Vacuum Warning!"
+      subtitle: "Move away!"
+      duration: 75
+      fadeIn: 1
+      fadeOut: 1
+    - action: SPAWN_PARTICLE
+      wait: 80
+      particles:
+      - particle: EXPLOSION_NORMAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        track: true
+        coverage: 0.1
+      repeatEvery: 5
+      times: 40
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+    - action: PUSH
+      wait: 80
+      RelativeVector:
+        SourceTarget:
+          targetType: NEARBY_PLAYERS
+          range: 15
+        DestinationTarget:
+          targetType: SELF
+          track: true
+        normalize: true
+        multiplier: 0.06
+      Target:
+        targetType: ZONE_FULL
+        track: true
+      repeatEvery: 1
+      times: 200
+    Cooldowns:
+      local: 800
+      global: 200

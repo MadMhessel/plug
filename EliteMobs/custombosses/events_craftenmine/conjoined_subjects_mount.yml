@@ -1,0 +1,11 @@
+isEnabled: true
+entityType: WITCH
+name: $eventBossLevel &fSubject d84b
+healthMultiplier: 2.0
+damageMultiplier: 1.0
+powers:
+- invulnerability_arrow.yml
+- movement_speed.yml
+- shield_wall.yml
+movementSpeedAttribute: 0.30
+followDistance: 80

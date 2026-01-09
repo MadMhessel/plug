@@ -1,0 +1,75 @@
+bossType: MINIBOSS
+damageMultiplier: 1.4
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: ZOMBIFIED_PIGLIN
+followDistance: 38
+healthMultiplier: 4.0
+helmet: LEATHER_HELMET
+isBaby: false
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 34
+level: dynamic
+instanced: true
+mainHand: GOLDEN_AXE
+name: $minibossLevel &2The Grill Master
+powers:
+- attack_fire.yml
+- flamethrower.yml
+- amount: 1
+  chance: 0.5
+  filename: sewer_tier_40_fire_boss_reinforcement.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 30
+spawnLocations:
+- em_sewer_maze,-216.4954161603577,121.2,-335.2978014685355,9.904057E-5,359.1189:1609850661876
+uniqueLootList:
+- filename: sewer_spelunkers_sword_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_boots_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_chestplate_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_helmet_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_leggings_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_sword_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_boots_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_chestplate_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_helmet_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_leggings_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_sword_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_boots_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_chestplate_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_helmet_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_leggings_mythic.yml
+  chance: 0.1
+  difficultyID: 2

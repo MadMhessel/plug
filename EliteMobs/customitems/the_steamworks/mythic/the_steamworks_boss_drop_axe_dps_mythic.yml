@@ -1,0 +1,15 @@
+isEnabled: true
+material: IRON_AXE
+name: '&bSharp Netherite Plate [Mythic]'
+lore:
+- "&bThis broken plate just happens to be"
+- "&bin the perfect shape of an axe."
+enchantments:
+- "DAMAGE_ALL,4"
+- "DAMAGE_ARTHROPODS,3"
+- "CRITICAL_STRIKES,3"
+- "DURABILITY,4"
+potionEffects: 
+- "INCREASE_DAMAGE,3,self,continuous"
+itemType: UNIQUE
+scalability: scalable

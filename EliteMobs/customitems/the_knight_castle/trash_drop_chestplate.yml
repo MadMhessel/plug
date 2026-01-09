@@ -1,0 +1,10 @@
+isEnabled: true
+material: NETHERITE_CHESTPLATE
+name: '&bDamaged Boots'
+lore:
+- "&bOffers almost no protection."
+enchantments:
+- "PROTECTION_PROJECTILE,2"
+- "PROTECTION_ENVIRONMENTAL,1"
+itemType: UNIQUE
+level: 95

@@ -1,0 +1,19 @@
+isEnabled: true
+name: "&4Drowned King's Leggings"
+material: "DIAMOND_LEGGINGS"
+lore:
+- "&cFormerly the leggings of the"
+- "&cdevilish Drowned King!"
+enchantments:
+- "DURABILITY,2"
+- "THORNS,2"
+- "MENDING,1"
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_EXPLOSIONS,2"
+- "PROTECTION_PROJECTILE,2"
+- "PROTECTION_FIRE,2"
+potionEffects:
+- "SPEED,3,self,continuous"
+- "DOLPHINS_GRACE,3,self,continuous"
+itemType: unique
+scalability: scalable

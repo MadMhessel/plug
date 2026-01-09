@@ -1,0 +1,74 @@
+announcementPriority: 3
+bossType: BOSS
+customDisguiseData: player elitemobs_santa_claus_skin setskin {"id":"fa38df58-cced-4ff1-be94-747e76eefec0","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTYwODMxMTk2MDMxMywKICAicHJvZmlsZUlkIiA6ICI2MTZiODhkNDMwNzM0ZTM3OWM3NDc1ODdlZTJkNzlmZCIsCiAgInByb2ZpbGVOYW1lIiA6ICJfX25vdGFodW1hbl9fIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzE1YWRlZThkZjFmNDMwMzJiZDNiMjFmYzBjN2ZmNzc2YTFmYzE0M2VhZjcwMzlmOTQ5M2I2MDE2YWExYjk4MjAiCiAgICB9CiAgfQp9","signature":"tDimmKpgFEpLmBzqKUXl7D+TFGgyTVOH2FJ9yX9FRdv+mnCaue/m3TIQhGw4Lnhr25hK1re2WZmjTRkZNSLkJvaN4dn1pONcuZJuhsUNmBjH+26BjF/5+Px9YOSh2LnQPhK8BgzSRdUXq4QvWGP3JXB/HNtjgaSSTjotLBJBzO7Slf1JvhO8Y/db5NDnK6kMRfeBcBclkH2REkxVtbEuRwYxRicR4eBf69bg9CbnnZQNb9jruMCDmHIIPqdJxyZ05PmyUig5b6FJOWjB+Czsvs7OB7h0+AhVFaPXaSPpIf4+ExjxhCRcLl3Ss09ivlKuKLYS2il7HhcFB99jglwM730Yc/VNcWDXzkYS9LeUc9xmH1JcsjVxzaM//LKIipbxoAeVLUz1YOWTJIF877Xn7uN5bdUYecnQLf/sfGZdn+ms8TLQ2m2ohR5YlDpYbTwaD4+XVPjRChLH8hq3Nle7xOmQtTBfvenAjo41UhjjFn1LDwC1FQttjfFSr//pIwerjM9pbEgbppwhH2qj1fu+hNa7BnfNLaYsHKwI29mhMSA7lb6cPIEMiLV1weg+RhJtoo9HTBnHXkUNfTeasW0bQsLUw5Mhi0OHVuwCut+Xv2TKGW9tVKAaOX8/ynJs1rvc+oNEX7MgbjzeR3+aiJPqNWHxVanifrdAMvheVBE9kh4="}],"legacy":false}
+damageMultiplier: 1.75
+deathMessages:
+- '&e&l---------------------------------------------'
+- '&4Someone stole all of Santa''s presents!'
+- '&c&l    1st Damager: $damager1name &cwith $damager1damage damage!'
+- '&6&l    2nd Damager: $damager2name &6with $damager2damage damage!'
+- '&e&l    3rd Damager: $damager3name &ewith $damager3damage damage!'
+- '&4Slayers: $players'
+- '&e&l---------------------------------------------'
+disguise: custom:elitemobs_santa_claus_skin
+dropsEliteMobsLoot: true
+entityType: ZOMBIE
+escapeMessage: '&cSanta set off on his sleigh!'
+healthMultiplier: 6.0
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 16
+level: 60
+locationMessage: '&4Santa Claus: $distance blocks away'
+name: $bossLevel &4Santa Claus
+offHand: BELL
+powers:
+- bonus_loot.yml
+- gold_shotgun.yml
+- attack_freeze.yml
+- invulnerability_arrow.yml
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- invulnerability_fall_damage.yml
+- amount: 1
+  chance: 0.25
+  filename: northpole_elf_summon.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 120
+spawnLocations:
+- em_north_pole,-323.5058103737918,59.2,-447.4123512529523,89.85,7.293091:1639538320127
+spawnMessage: '&4Santa Claus is getting ready for Christmas!!'
+uniqueLootList:
+- northpole_treat.yml:0.1
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_treat_v2.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_amazing_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_incredible_treat.yml:0.5
+- northpole_naughty_lister.yml:0.5
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1
+- xmas_lost_present.yml:0.1

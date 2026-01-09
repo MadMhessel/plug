@@ -1,0 +1,11 @@
+name: "Legshtick Bunger"
+material: DIAMOND_LEGGINGS
+lore:
+- "Feel nice, very legshtick." #intended
+enchantments:
+- PROTECTION_ENVIRONMENTAL,8
+- VANISHING_CURSE,2
+- BINDING_CURSE,3
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

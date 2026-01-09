@@ -1,0 +1,42 @@
+announcementPriority: 3
+bossType: BOSS
+customDisguiseData: player hallosseum_event_boss setskin {"id":"0fbffe2f-47a4-403c-90ea-bfac3cfb307f","name":"Unknown","properties":[{"name":"textures","value":"ewogICJ0aW1lc3RhbXAiIDogMTYwMzU2NTA0OTg3NywKICAicHJvZmlsZUlkIiA6ICI0ZWQ4MjMzNzFhMmU0YmI3YTVlYWJmY2ZmZGE4NDk1NyIsCiAgInByb2ZpbGVOYW1lIiA6ICJGaXJlYnlyZDg4IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2M4MDk3OTI3NjhlYmE3NTdlMjMyN2M0MGE0ZWZhZDkyNjVmN2RiNjgzYjk5NzRiZDMzM2FiMTBlM2FhYzk0NDMiCiAgICB9CiAgfQp9","signature":"M+aUwwRVOxi/6QINVsc3iuCyXFyo+a54dhflXft3w/YgXvdgLsnYKIYtkV3QPgfFjagvYq76WYjbYU3ntgC+azP7zUvE33v/p9LH7ZMBqTUhSFcpsSpms2fZRIzKupjeH23Nw5MMMGmQ0T6xpEwk2LIraRm/ZjJoZctj9w4g/LedGuNn2KN5/p9pup73T1q0Lvfu6E3ATw5D0XPipvlYpKltFZZjrMxkHhN0Og9NYBcQYrSwY2F+eLATD/D4F8YVqxjSu6knsqr6ikhbQTeBDuA/ayPB9/nHa1CiAuEUHOc/T6bmTZDLYLA887U0UDfpATQ5s5UDiec7EoXB7fyRDRX5dTFW2ckLWNqNbchI7y8TAcFxxsu7zchS6Ocju3aCaTvZI9vSCMIY1WnLuEPQlERHp6andtR/cwUe5gjgNLm/ZXwiVNlVh/VpjSRmaz296N7nCu2xhkxOcw8lS0veg/FsSLgbBsz1GME4luTMVL4WLhiKG/+GbPw2Cw4LSwS1IIdHaStEA5m3lr0yRYG2asj7tzdoRnSbMqAHZwvwEf8+E9ldm6aCnN5f5PX7A9LdhkWNEAZ+dGQkMzFhC8ejtqPLirhYNoonVXGNAHoHUT57qciOXGcRrMw5LNssvyhXFbWvduQYATOmmmhjKSF9f1OKw29a+rTiSPmM7Dvnihg="}],"legacy":false}
+damageMultiplier: 1.75
+deathMessage: '&4The headless horseman was vanquished by $players!'
+disguise: custom:hallosseum_event_boss
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: SKELETON
+escapeMessage: '&4The headless horseman has left to haunt someone''s dreams!'
+followDistance: 60
+healthMultiplier: 40
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 40
+level: 30
+locationMessage: '&4Dullahan: $distance blocks away!'
+mainHand: BOW
+mountedEntity: halloween_event_boss_mount.yml
+name: $bossLevel Dullahan
+offHand: CARVED_PUMPKIN
+phases:
+- halloween_event_boss_p2.yml:0.5
+powers:
+- attack_blinding.yml
+- attack_fire.yml
+- attack_lightning.yml
+- attack_push.yml
+- amount: 1
+  chance: 0.2
+  filename: halloween_event_boss_reinforcement.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 360
+spawnLocations:
+- em_hallosseum,56.48738337662517,21.2,103.56894480454031,269.84082,1.5176833E-5:1611248648748
+spawnMessage: '&4Don''t lose your head now, the headless horseman walks the earth
+  once again!'
+trails:
+- DRAGON_BREATH

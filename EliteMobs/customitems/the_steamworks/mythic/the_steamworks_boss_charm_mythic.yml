@@ -1,0 +1,11 @@
+isEnabled: true
+material: IRON_INGOT
+name: '&bDanger Detector [Mythic]'
+lore:
+- "&bStarts emitting a loud noise when"
+- "&bit detects danger."
+enchantments:
+- "PROTECTION_PROJECTILE,3"
+- "PROTECTION_ENVIRONMENTAL,4"
+- "DURABILITY,4"
+scalability: scalable

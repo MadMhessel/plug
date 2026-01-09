@@ -1,0 +1,20 @@
+name: "&5[Hard] Enduring Shadow Headgear"
+material: NETHERITE_HELMET
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5Solid to anyone who would wish you harm."
+- "&5But nothing but shadowy mist to your touch..."
+enchantments:
+- PROTECTION_EXPLOSIONS,8
+- PROTECTION_ENVIRONMENTAL,6
+- PROTECTION_FIRE,5
+- PROTECTION_PROJECTILE,4
+- PROTECTION_FALL,3
+- LOUD_STRIKES,1
+potionEffects:
+- ABSORPTION,2,self,onHit
+- NIGHT_VISION,2,self,continuous
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,130 @@
+bossType: MINIBOSS
+damageMultiplier: 1.4
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  Float:
+    Actions:
+    - Target:
+        targetType: SELF
+      action: POTION_EFFECT
+      amplifier: 1
+      duration: 95
+      potionEffectType: LEVITATION
+    - Target:
+        targetType: SELF
+      action: SET_MOB_AI
+      bValue: false
+      duration: 20
+      wait: 95
+    - Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+      Target:
+        targetType: ZONE_FULL
+      action: PLACE_BLOCK
+      duration: 4444
+      material: OBSIDIAN
+      wait: 100
+    - Target:
+        range: 60
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '[&fTricky Bones] Think I am gonna hang out up here and eat this apple
+        while I watch my minions tear you apart...'
+      wait: 40
+    - Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+      Target:
+        offset: 0,4,0
+        targetType: SELF_SPAWN
+        track: true
+      action: SUMMON_REINFORCEMENT
+      duration: 1100
+      repeatEvery: 2222
+      sValue: enchantment_boss_tricky_bones_summon_bow.yml
+      times: 1
+      wait: 105
+    Zone:
+      Target:
+        offset: 0,-1,0
+        targetType: SELF
+      height: 1
+      radius: 2
+      shape: CYLINDER
+  Summons:
+    Actions:
+    - Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+      Target:
+        coverage: 0.15
+        targetType: ZONE_BORDER
+        track: true
+      action: SUMMON_REINFORCEMENT
+      duration: 200
+      repeatEvery: 200
+      sValue: enchantment_boss_tricky_bones_summon_arrow.yml
+      times: 22
+    Zone:
+      Target:
+        range: 60
+        targetType: SELF
+        track: true
+      borderRadius: 5
+      height: 1
+      radius: 6
+      shape: CYLINDER
+  Trigger:
+    Actions:
+    - action: RUN_SCRIPT
+      scripts:
+      - Float
+      wait: 15
+    - action: RUN_SCRIPT
+      scripts:
+      - Summons
+      wait: 115
+    Events:
+    - EliteMobEnterCombatEvent
+entityType: WITHER_SKELETON
+followDistance: 60
+healthMultiplier: 4.0
+helmet: LEATHER_HELMET
+instanced: true
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 60
+mainHand: BOW
+movementSpeedAttribute: 1.1e-05
+name: $minibossLevel &fTricky Bones
+normalizedCombat: true
+offHand: APPLE
+powers:
+- invulnerability_knockback.yml
+spawnLocations:
+- em_id_enchantment_challenge_10,1.5,65,0.5,0,0
+uniqueLootList:
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_10_boots_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_10_helmet_normal.yml
+- chance: 0.05
+  difficultyID: 0
+  filename: ec_10_crossbow_normal.yml
+- chance: 0.2
+  difficultyID: 0
+  filename: enchanted_book_arrow_fire.yml
+- chance: 0.2
+  difficultyID: 0
+  filename: elite_lucky_ticket.yml

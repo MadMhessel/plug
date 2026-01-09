@@ -1,0 +1,11 @@
+name: "Cold Scam Boots"
+material: DIAMOND_BOOTS
+lore:
+- "You better be sure about this one."
+enchantments:
+- PROTECTION_ENVIRONMENTAL,7
+- MENDING,3
+- BINDING_CURSE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

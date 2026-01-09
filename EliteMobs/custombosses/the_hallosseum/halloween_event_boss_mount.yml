@@ -1,0 +1,17 @@
+announcementPriority: 3
+bossType: MINIBOSS
+damageMultiplier: 1.75
+disguise: SKELETON_HORSE
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: RAVAGER
+followDistance: 60
+healthMultiplier: 50
+isBaby: false
+isEnabled: true
+level: 30
+name: $minibossLevel Daredevil
+powers:
+- attack_push.yml
+- invulnerability_knockback.yml
+- ground_pound.yml

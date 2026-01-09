@@ -1,0 +1,14 @@
+isEnabled: true
+material: NETHERITE_CHESTPLATE
+name: '&dOrdained Armor'
+lore:
+- "&dThis armor is covered in golden engravings."
+- "&dA fire proof cape is attached to the back."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,5"
+- "PROTECTION_FIRE,5"
+- "DURABILITY,5"
+potionEffects: 
+- "DAMAGE_RESISTANCE,0,self,onHit"
+itemType: UNIQUE
+level: 95

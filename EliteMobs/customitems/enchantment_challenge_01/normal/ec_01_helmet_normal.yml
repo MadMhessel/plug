@@ -1,0 +1,11 @@
+name: "Dark Flame Helmet"
+material: DIAMOND_HELMET
+lore:
+- "Should keep your head nice and warm."
+enchantments:
+- PROTECTION_FIRE,5
+- PROTECTION_ENVIRONMENTAL,3
+- THORNS,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

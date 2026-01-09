@@ -1,0 +1,14 @@
+isEnabled: true
+material: SHIELD
+name: "&eFlesh Shield"
+lore:
+- "&eSkin and flesh cover this shield."
+- "&eEngraved onto the skin is text that reads:"
+- "&e'Ooooh! So fleshy! So Shield!'"
+enchantments:
+- "DURABILITY,5"
+- "VANISHING_CURSE,1"
+potionEffects: 
+- "INVISIBILITY,0,self,onHit"
+- "JUMP,0,self,continuous"
+itemType: UNIQUE

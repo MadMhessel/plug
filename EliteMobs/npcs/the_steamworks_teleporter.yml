@@ -1,0 +1,14 @@
+isEnabled: true
+name: Mad Gnasuran
+role: <The Steamworks Teleporter>
+spawnLocation: em_adventurers_guild,288.5,91.0,216.5,-180,0
+spawnLocations: []
+greetings:
+- ''
+dialog: []
+farewell: []
+canTalk: true
+activationRadius: 1.0
+interactionType: COMMAND
+disguise: HUSK:baby
+command: em dungeontp steamworks_lair.yml

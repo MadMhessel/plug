@@ -1,0 +1,79 @@
+boots: LEATHER_BOOTS
+bossType: MINIBOSS
+damageMultiplier: 1.3
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  SummonDay:
+    Actions:
+    - Target:
+        targetType: SELF
+      action: SET_TIME
+      time: 6000
+      wait: 25
+    Events:
+    - EliteMobDeathEvent
+  SummonNight:
+    Actions:
+    - Target:
+        targetType: SELF
+      action: SET_TIME
+      time: 18000
+      wait: 10
+    Events:
+    - EliteMobSpawnEvent
+  TridentRain:
+    Actions:
+    - Target:
+        coverage: 0.3
+        targetType: ZONE_FULL
+      action: SUMMON_REINFORCEMENT
+      duration: 50
+      repeatEvery: 55
+      sValue: enchantment_boss_loveable_impaler_trident_launcher.yml
+      times: 2
+    Cooldowns:
+      global: 60
+      local: 222
+    Events:
+    - PlayerDamagedByEliteMobEvent
+    Zone:
+      Target:
+        offset: 0,11,0
+        range: 50
+        targetType: NEARBY_PLAYERS
+        track: true
+      height: 1
+      radius: 3
+      shape: CYLINDER
+entityType: DROWNED
+followDistance: 60
+frozen: false
+healthMultiplier: 3.5
+instanced: true
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 60
+mainHand: TRIDENT
+movementSpeedAttribute: 0.28
+name: $minibossLevel &bLoveable Impaler
+normalizedCombat: true
+powers:
+- attack_lightning.yml
+- invulnerability_fire.yml
+spawnLocations:
+- em_id_enchantment_challenge_5,1.5,65,0.5,0,0
+uniqueLootList:
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_05_boots_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: ec_05_chestplate_normal.yml
+- chance: 0.15
+  difficultyID: 0
+  filename: ec_05_shield_normal.yml
+- chance: 0.25
+  difficultyID: 0
+  filename: enchanted_book_damage_all.yml

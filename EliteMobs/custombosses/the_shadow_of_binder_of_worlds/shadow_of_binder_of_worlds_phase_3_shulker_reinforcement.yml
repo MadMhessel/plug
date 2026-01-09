@@ -1,0 +1,9 @@
+bossType: REINFORCEMENT
+damageMultiplier: 1.0
+entityType: SHULKER
+followDistance: 200
+healthMultiplier: 0.8
+isEnabled: true
+level: 200
+name: $reinforcementLevel &5Reality Riftrender
+normalizedCombat: true

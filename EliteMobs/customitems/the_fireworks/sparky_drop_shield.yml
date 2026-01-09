@@ -1,0 +1,12 @@
+isEnabled: true
+material: SHIELD
+name: '&eFunstopper'
+lore:
+- "&eSometimes enough is enough!"
+enchantments:
+- DURABILITY,5
+potionEffects:
+- FIRE_RESISTANCE,2,self,continuous
+- DAMAGE_RESISTANCE,1,self,continuous
+dropWeight: dynamic
+itemType: unique

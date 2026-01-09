@@ -1,0 +1,15 @@
+isEnabled: true
+name: "&2Sewer Spelunker's Sword"
+material: "IRON_SWORD"
+lore:
+- "&aThe up and coming sewer"
+- "&aexplorer's essential sword!"
+enchantments:
+- "DAMAGE_ALL,4"
+- "DURABILITY,2"
+- "FIRE_ASPECT,2"
+- "MENDING,1"
+potionEffects:
+- "SLOW,1,target,onHit"
+itemType: unique
+scalability: scalable

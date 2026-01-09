@@ -1,0 +1,9 @@
+isEnabled: true
+eventType: TIMED
+bossFilenames:
+- craftenmines_bane.yml
+localCooldown: 120.0
+globalCooldown: 25.0
+weight: 75.0
+eventDuration: 30.0
+spawnType: nighttime_surface_spawn.yml

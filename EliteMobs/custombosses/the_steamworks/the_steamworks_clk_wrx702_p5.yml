@@ -1,0 +1,128 @@
+bossType: BOSS
+damageMultiplier: 1.6
+disguise: IRON_GOLEM
+customModel: em_steamworks_clk_wrx
+dropsEliteMobsLoot: true
+dropsRandomLoot: false
+dropsVanillaLoot: false
+eliteScript:
+  RodDamageZone:
+    Actions:
+    - Conditions:
+        isAlive: true
+      Target:
+        targetType: ZONE_FULL
+        track: false
+      action: SET_ON_FIRE
+      duration: 100
+      repeatEvery: 111
+      wait: 150
+    - Conditions:
+        isAlive: true
+      Target:
+        targetType: ZONE_FULL
+        track: false
+      action: SPAWN_PARTICLE
+      amount: 1
+      particles:
+      - particle: ELECTRIC_SPARK
+        speed: 0.5
+      - particle: FLAME
+        speed: 0.5
+      repeatEvery: 111
+      wait: 150
+    Zone:
+      Target:
+        targetType: SELF
+        track: true
+      height: 1
+      radius: 4.0
+      shape: DOME
+  RodVisual:
+    Actions:
+    - Conditions:
+        isAlive: true
+      Target:
+        targetType: ZONE_FULL
+        track: false
+      action: SPAWN_PARTICLE
+      amount: 3
+      particles:
+      - particle: ELECTRIC_SPARK
+        speed: 0.66
+      repeatEvery: 10
+      wait: 120
+    Zone:
+      Target:
+        targetType: SELF
+        track: true
+      height: 2
+      radius: 1.0
+      shape: CYLINDER
+  SayAndPlaceRod:
+    Actions:
+    - action: RUN_SCRIPT
+      scripts:
+      - RodDamageZone
+      - RodVisual
+    - Target:
+        range: 30.0
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '&b[CLK-WRx702] &fFire-arrow launcher critically damaged. Switching
+        to plasma cannon.'
+    - Target:
+        range: 30.0
+        targetType: NEARBY_PLAYERS
+      action: MESSAGE
+      sValue: '&b[CLK-WRx702] &fDeploying lightning rod.'
+      wait: 110
+    - Conditions:
+        isAlive: true
+        locationIsAir: true
+      Target:
+        targetType: ZONE_FULL
+        track: false
+      action: PLACE_BLOCK
+      duration: 5000
+      material: LIGHTNING_ROD
+      wait: 115
+    - Conditions:
+        isAlive: true
+      Target:
+        targetType: ZONE_FULL
+        track: false
+      action: STRIKE_LIGHTNING
+      repeatEvery: 111
+      wait: 150
+    Events:
+    - ElitePhaseSwitchEvent
+    Zone:
+      Target:
+        targetType: SELF
+        track: true
+      height: 1
+      radius: 1.0
+      shape: CYLINDER
+entityType: RAVAGER
+followDistance: 30
+healthMultiplier: 10
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 30
+level: dynamic
+instanced: true
+movementSpeedAttribute: 0.38
+name: $bossLevel &bCLK-WRx702
+powers:
+- invulnerability_knockback.yml
+- invulnerability_fire.yml
+- thunderstorm.yml
+- plasma_blaster.yml
+- filename: attack_lightning.yml
+  difficultyID:
+  - 1
+  - 2
+- filename: lightning_bolts.yml
+  difficultyID:
+  - 2

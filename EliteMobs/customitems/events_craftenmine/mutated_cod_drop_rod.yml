@@ -1,0 +1,8 @@
+isEnabled: true
+material: FISHING_ROD
+name: "&bCraftenmine's Rod"
+lore:
+- "&bTime to relax and go fishing."
+enchantments:
+- "LURE,4"
+

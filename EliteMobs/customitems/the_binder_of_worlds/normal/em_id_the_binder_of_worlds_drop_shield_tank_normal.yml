@@ -1,0 +1,20 @@
+name: "&5[Normal] Shadow Bracelet"
+material: SHIELD
+level: 200
+lore:
+- "&5This object is swirling shadows that have taken form."
+- "&5The shadows wrap themselves around your arm"
+- "&5forming a thick ring. Whenever you raise your arm"
+- "&5to protect yourself from harm the shadows extend"
+- "&5from the bracelet forming a shadow guard."
+enchantments:
+- DURABILITY,6
+- THORNS,5
+- LUCK,4
+- MENDING,1
+- LOUD_STRIKES,0
+potionEffects:
+- HEALTH_BOOST,2,self,onHit
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

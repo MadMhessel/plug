@@ -1,0 +1,7 @@
+isEnabled: true
+name: "&aIncredible Treat!"
+material: "ENCHANTED_GOLDEN_APPLE"
+lore:
+- "&eAn incredible snack!"
+scalability: fixed
+itemType: unique

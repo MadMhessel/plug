@@ -1,0 +1,11 @@
+name: "Energized Chestplate"
+material: DIAMOND_CHESTPLATE
+lore:
+- "So nice and tingly!"
+enchantments:
+- DURABILITY,5
+- PROTECTION_ENVIRONMENTAL,3
+- THORNS,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

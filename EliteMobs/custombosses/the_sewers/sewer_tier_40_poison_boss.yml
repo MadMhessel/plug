@@ -1,0 +1,79 @@
+bossType: MINIBOSS
+damageMultiplier: 1.4
+dropsEliteMobsLoot: true
+dropsVanillaLoot: true
+entityType: HUSK
+followDistance: 38
+healthMultiplier: 4.0
+helmet: LEATHER_HELMET
+isBaby: false
+isEnabled: true
+isRegionalBoss: true
+leashRadius: 34
+level: dynamic
+instanced: true
+mainHand: GOLDEN_HOE
+name: $minibossLevel &2Toxic Gardener
+onDamageMessages:
+- Feel nature's wrath!
+onDamagedMessages:
+- To me, minions!
+powers:
+- attack_poison.yml
+- skeleton_tracking_arrow.yml
+- amount: 1
+  chance: 0.25
+  filename: sewer_tier_40_poison_boss_reinforcement.yml
+  inheritAggro: true
+  inheritLevel: true
+  spawnNearby: false
+  summonType: ON_HIT
+spawnCooldown: 30
+spawnLocations:
+- em_sewer_maze,-215.4792497753362,121.2,-299.63296211497703,1.3498288,0.70843506:1608796448265
+uniqueLootList:
+- filename: sewer_spelunkers_sword_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_boots_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_chestplate_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_helmet_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_leggings_normal.yml
+  chance: 0.1
+  difficultyID: 0
+- filename: sewer_spelunkers_sword_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_boots_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_chestplate_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_helmet_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_leggings_hard.yml
+  chance: 0.1
+  difficultyID: 1
+- filename: sewer_spelunkers_sword_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_boots_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_chestplate_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_helmet_mythic.yml
+  chance: 0.1
+  difficultyID: 2
+- filename: sewer_spelunkers_leggings_mythic.yml
+  chance: 0.1
+  difficultyID: 2

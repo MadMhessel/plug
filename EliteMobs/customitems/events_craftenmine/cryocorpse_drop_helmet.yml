@@ -1,0 +1,9 @@
+isEnabled: true
+material: NETHERITE_HELMET
+name: "&bPumpkin Helm"
+lore:
+- "&bProtects your head. And smells good!"
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,4"
+- "PROTECTION_EXPLOSIONS,2"
+itemType: UNIQUE

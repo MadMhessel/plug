@@ -1,0 +1,9 @@
+isEnabled: true
+name: "&aTreat!"
+material: "COOKIE"
+lore:
+- "&eA delicious snack!"
+potionEffects:
+- "SATURATION,0,self,continuous"
+scalability: fixed
+itemType: unique

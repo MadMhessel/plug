@@ -1,0 +1,16 @@
+isEnabled: true
+material: CROSSBOW
+name: "&bBroken Launcher [Mythic]"
+lore:
+- "&bThis must have been the device that was"
+- "&bresponsible for launching those fire-arrows."
+- "&bIt still works, kind of..."
+enchantments:
+- "PIERCING,4"
+- "PROTECTION_ENVIRONMENTAL,3"
+- "QUICK_CHARGE,2"
+- "DURABILITY,4"
+potionEffects: 
+- "DAMAGE_RESISTANCE,2,self,onHit"
+itemType: UNIQUE
+scalability: scalable

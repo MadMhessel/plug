@@ -1,0 +1,11 @@
+name: "Foot Piercers"
+material: DIAMOND_BOOTS
+lore:
+- "Oh, that feels real good..."
+enchantments:
+- THORNS,5
+- PROTECTION_ENVIRONMENTAL,3
+- PROTECTION_PROJECTILE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

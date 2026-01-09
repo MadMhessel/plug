@@ -1,0 +1,12 @@
+isEnabled: true
+material: IRON_SWORD
+name: "&cIron Sword"
+lore:
+- "&cThe sword is covered in green blood..."
+enchantments:
+- "DAMAGE_ALL,10"
+- "BINDING_CURSE,1"
+- "VANISHING_CURSE,1"
+potionEffects: 
+- "POISON,2,target,onHit"
+itemType: UNIQUE

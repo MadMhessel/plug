@@ -1,0 +1,17 @@
+isEnabled: true
+name: "&bFrostcaster"
+material: "CROSSBOW"
+lore:
+- "&7Whatever I touch"
+- "&7Turns to snow in my clutch!"
+- "&7I'm too much"
+enchantments:
+- "PIERCING,1"
+- "ARROW_KNOCKBACK,3"
+- "QUICK_CHARGE,5"
+- "DURABILITY,3"
+- "MENDING,1"
+potionEffects:
+- "SLOW,1,target,onHit"
+- "FIRE_RESISTANCE,1,self,continuous"
+itemType: unique

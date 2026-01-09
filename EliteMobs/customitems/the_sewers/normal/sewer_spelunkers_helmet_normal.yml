@@ -1,0 +1,14 @@
+isEnabled: true
+name: "&2Sewer Spelunker's Helmet"
+material: "IRON_HELMET"
+lore:
+- "&aThe up and coming sewer"
+- "&aexplorer's essential helmet!"
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,2"
+- "DURABILITY,1"
+- "OXYGEN,1"
+- "WATER_WORKER,1"
+- "MENDING,1"
+itemType: unique
+scalability: scalable

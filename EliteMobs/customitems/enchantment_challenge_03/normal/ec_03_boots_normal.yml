@@ -1,0 +1,11 @@
+name: "Block Boots"
+material: DIAMOND_BOOTS
+lore:
+- "Quite square."
+enchantments:
+- PROTECTION_EXPLOSIONS,5
+- FROST_WALKER,3
+- PROTECTION_ENVIRONMENTAL,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

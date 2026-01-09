@@ -1,0 +1,17 @@
+bossType: REINFORCEMENT
+damageMultiplier: 0.6
+dropsEliteMobsLoot: false
+dropsRandomLoot: false
+dropsVanillaLoot: false
+entityType: ILLUSIONER
+followDistance: 100
+healthMultiplier: 0.25
+isEnabled: true
+isRegionalBoss: false
+leashRadius: 100
+level: 95
+movementSpeedAttribute: 0.1
+name: $reinforcementLevel &cAzaroon Healer
+powers:
+- invulnerability_fire.yml
+- channel_healing.yml

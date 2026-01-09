@@ -1,0 +1,12 @@
+isEnabled: true
+material: IRON_AXE
+name: '&bSharp Netherite Plate [Normal]'
+lore:
+- "&bThis broken plate just happens to be"
+- "&bin the perfect shape of an axe."
+enchantments:
+- "DAMAGE_ALL,3"
+- "DAMAGE_ARTHROPODS,2"
+- "CRITICAL_STRIKES,2"
+itemType: UNIQUE
+scalability: scalable

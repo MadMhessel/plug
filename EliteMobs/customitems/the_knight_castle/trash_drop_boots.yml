@@ -1,0 +1,9 @@
+isEnabled: true
+material: NETHERITE_BOOTS
+name: '&bDamaged Boots'
+lore:
+- "&bAlmost useless."
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,3"
+itemType: UNIQUE
+level: 95

@@ -1,0 +1,11 @@
+name: "Beastly Helmet"
+material: DIAMOND_HELMET
+lore:
+- "Feels like you're wearing a rock."
+enchantments:
+- PROTECTION_EXPLOSIONS,5
+- PROTECTION_FIRE,3
+- PROTECTION_PROJECTILE,2
+scalability: scalable
+itemType: unique
+# Generated with https://magmaguy.com/webapp/webapp.html !

@@ -1,0 +1,15 @@
+isEnabled: true
+name: "&2Sewer Spelunker's Leggings"
+material: "IRON_LEGGINGS"
+lore:
+- "&aThe up and coming sewer"
+- "&aexplorer's essential leggings!"
+enchantments:
+- "PROTECTION_ENVIRONMENTAL,4"
+- "DURABILITY,2"
+- "THORNS,2"
+- "MENDING,1"
+potionEffects:
+- "JUMP,1,self,continuous"
+itemType: unique
+scalability: scalable

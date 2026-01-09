@@ -1,0 +1,328 @@
+powerType: UNIQUE
+eliteScript:
+  Trigger:
+    Events:
+    - EliteMobDamagedByPlayerEvent
+    - PlayerDamagedByEliteMobEvent
+    Actions:
+    - action: SET_MOB_AI
+      bValue: false
+      duration: 130
+      Target:
+        targetType: SELF
+      wait: 394
+    - action: TELEPORT
+      FinalTarget:
+        targetType: SELF_SPAWN
+        offset: 0,10,0
+      Target:
+        targetType: SELF
+      wait: 395
+    - action: RUN_SCRIPT
+      wait: 400
+      scripts:
+      - "SphereVs1"
+      - "Sphere1"
+    - action: RUN_SCRIPT
+      wait: 420
+      scripts:
+      - "SphereVs2"
+      - "Sphere2"
+    - action: RUN_SCRIPT
+      wait: 440
+      scripts:
+      - "SphereVs3"
+      - "Sphere3"
+    - action: RUN_SCRIPT
+      wait: 460
+      scripts:
+      - "SphereVs4"
+      - "Sphere4"
+    - action: RUN_SCRIPT
+      wait: 480
+      scripts:
+      - "SphereVs5"
+      - "Sphere5"
+    - action: RUN_SCRIPT
+      wait: 500
+      scripts:
+      - "SphereVs6"
+      - "Sphere6"
+    Cooldowns:
+      local: 500
+      global: 200
+  SphereVs1:
+    Zone:
+      shape: SPHERE
+      radius: 5
+      borderRadius: 4
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+    - action: PLAY_SOUND
+      sValue: "entity.ender_dragon.growl"
+      Target:
+        targetType: NEARBY_PLAYERS
+        range: 50
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere1:
+    Zone:
+      shape: SPHERE
+      radius: 5
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  SphereVs2:
+    Zone:
+      shape: SPHERE
+      radius: 10
+      borderRadius: 9
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere2:
+    Zone:
+      shape: SPHERE
+      radius: 10
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  SphereVs3:
+    Zone:
+      shape: SPHERE
+      radius: 15
+      borderRadius: 14
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere3:
+    Zone:
+      shape: SPHERE
+      radius: 15
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  SphereVs4:
+    Zone:
+      shape: SPHERE
+      radius: 20
+      borderRadius: 19
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere4:
+    Zone:
+      shape: SPHERE
+      radius: 20
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  SphereVs5:
+    Zone:
+      shape: SPHERE
+      radius: 25
+      borderRadius: 24
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere5:
+    Zone:
+      shape: SPHERE
+      radius: 25
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  SphereVs6:
+    Zone:
+      shape: SPHERE
+      radius: 30
+      borderRadius: 29
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: SPAWN_PARTICLE
+      particles:
+      - particle: PORTAL
+        speed: 0.05
+      Target:
+        targetType: ZONE_BORDER
+        coverage: 0.5
+      repeatEvery: 5
+      times: 4
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+  Sphere6:
+    Zone:
+      shape: SPHERE
+      radius: 30
+      Target:
+        targetType: SELF
+        track: true
+    Actions:
+    - action: POTION_EFFECT
+      potionEffectType: HARM
+      amplifier: 0
+      duration: 20
+      Target:
+        targetType: ZONE_FULL
+      repeatEvery: 5
+      times: 8
+      Conditions:
+        Target:
+          targetType: SELF
+        conditionType: BLOCKING
+        isAlive: true
+# Generated with https://magmaguy.com/webapp/webapp.html !
