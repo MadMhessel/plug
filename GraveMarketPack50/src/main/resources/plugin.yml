@@ -1,0 +1,17 @@
+name: GraveMarket
+version: 0.5.0
+main: ru.atmos.gravemarket.GraveMarketPlugin
+api-version: '1.21'
+author: ATMOS
+softdepend: [TeleportMarket]
+commands:
+  grave:
+    description: Graves and recovery
+    usage: /grave
+  graveadmin:
+    description: Admin commands for graves
+    usage: /graveadmin
+permissions:
+  gravemarket.admin:
+    description: Admin permissions
+    default: op

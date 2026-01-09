@@ -1,0 +1,40 @@
+# GraveMarket — могилы + экономика
+# Цены подобраны так, чтобы быть «дорого, но логично» и попадать в стиль TeleportMarket.
+
+integration:
+  # Если true — плагин выключится, если не найдёт TeleportMarket.
+  # Если false — включится с внутренними кредитами (gravemarket-economy.yml).
+  requireTeleportMarket: false
+
+graves:
+  containerMaterial: BARREL          # BARREL / CHEST / TRAPPED_CHEST / SHULKER_BOX
+  safeSearchRadius: 8                # поиск безопасной точки вокруг смерти
+  lifetimeSeconds: 1800              # 30 минут
+  expiredRetentionSeconds: 86400     # после истечения — хранить как виртуальную до удаления (сек)
+  maxActivePerPlayer: 1
+  spawnParticlesOnCreate: true
+  hologram:
+    enabled: true
+
+pvp:
+  enabled: true
+  partialDropChance: 0.30            # 30% предметов падает как обычно
+  extractCostMultiplier: 2.0         # извлечение дороже при смерти от игрока
+
+economy:
+  prices:
+    extract: 480                     # открыть доступ к вещам
+    compass: 960                     # компас на могилу
+    beacon: 2500                     # временный «луч»
+    recall: 7500                     # вернуть вещи к себе (очень дорого)
+    tp: 9000                         # телепорт к могиле (очень дорого)
+  recallCooldownSeconds: 1800        # 30 минут
+
+altar:
+  enabled: false                     # если включить — рядом с алтарём recall дешевле
+  location: ""                       # ставится /graveadmin altar set
+  discountRadius: 6.0
+  recallPriceMultiplier: 0.7
+
+messages:
+  prefix: "§6[Могила]§r "

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Minimal Maven Wrapper script (Unix)
+BASEDIR=$(dirname "$0")
+WRAPPER_DIR="$BASEDIR/.mvn/wrapper"
+WRAPPER_JAR="$WRAPPER_DIR/maven-wrapper.jar"
+
+if [ ! -f "$WRAPPER_JAR" ]; then
+  mkdir -p "$WRAPPER_DIR"
+  echo "Downloading Maven Wrapper..."
+  curl -fsSL -o "$WRAPPER_JAR" "https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.3.2/maven-wrapper-3.3.2.jar"
+fi
+
+exec java -jar "$WRAPPER_JAR" -Dmaven.multiModuleProjectDirectory="$BASEDIR" "$@"
