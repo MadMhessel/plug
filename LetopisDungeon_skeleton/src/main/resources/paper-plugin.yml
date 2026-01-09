@@ -1,6 +1,0 @@
-name: LetopisDungeon
-version: 0.1.0
-main: ru.letopis.dungeon.LetopisDungeonPlugin
-api-version: "1.21"
-description: Session dungeon with director (50/50 combat/puzzles) in separate world.
-authors: [ATMOS]

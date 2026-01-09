@@ -6,6 +6,7 @@ import ru.letopis.dungeon.command.LetoDungeonCommand;
 import ru.letopis.dungeon.core.DungeonManager;
 import ru.letopis.dungeon.core.Messages;
 import ru.letopis.dungeon.listener.ProtectionListener;
+import ru.letopis.dungeon.listener.SessionListener;
 
 public final class LetopisDungeonPlugin extends JavaPlugin {
 
@@ -19,6 +20,7 @@ public final class LetopisDungeonPlugin extends JavaPlugin {
         this.dungeonManager = new DungeonManager(this);
 
         getServer().getPluginManager().registerEvents(new ProtectionListener(this), this);
+        getServer().getPluginManager().registerEvents(new SessionListener(this), this);
 
         PluginCommand cmd = getCommand("letodungeon");
         if (cmd != null) {

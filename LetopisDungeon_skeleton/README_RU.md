@@ -1,25 +1,59 @@
-# LetopisDungeon — сессионный данж с «режиссёром» (Paper 1.21.x)
+# LetopisDungeon — кооперативный данж (Paper 1.21.11)
 
-Каркас под Paper‑плагин: забеги по данжу в отдельном мире + «режиссёр» (напряжение, анти‑стойка, развилки, волны, мини‑боссы).
+LetopisDungeon — самодостаточный плагин для Paper 1.21.11 (Java 21), который запускает кооперативный данж в отдельном мире.
+Сессия проходит через пять комнат: подготовка, волны, головоломка, волны, финальный босс.
 
-## Почему плагин, а не чистый датапак
-Датапак хорош для контента (структуры комнат), но сессии/участники/таймеры/защита/интерфейс/диагностика стабильнее и удобнее в плагине.  
-Рекомендация: комнаты хранить как структуры датапака (.nbt), а плагин — «режиссировать» и вызывать их размещение.
+## Сборка
+1) Установите Java 21.
+2) Запустите `tools\windows\build_plugin.bat` — скрипт скачает Gradle 8.10.2 и соберёт плагин.
+3) Скопируйте `build/libs/LetopisDungeon-0.2.0.jar` в `plugins/`.
+4) Запустите Paper 1.21.11.
 
-## Быстрый старт
-1) Установи Java 21  
-2) Если нет gradlew.* — создай wrapper:
-   `gradle wrapper --gradle-version 8.10.2`
-3) Сборка: `scripts\build.bat` (или `./gradlew.bat clean build`)
-4) JAR: `build/libs/LetopisDungeon-0.1.0.jar` → `plugins/`
-5) (опционально) Датапак комнат: `datapack/LetopisDungeonRooms` → `world/datapacks/` → `/reload`
+## Проверка JAR
+Проверьте, что в архиве есть `plugin.yml`:
+`jar tf build/libs/*.jar`
+Убедитесь, что среди файлов присутствует `plugin.yml`.
 
-## Команды (MVP)
-- `/letodungeon help`
-- `/letodungeon join`
-- `/letodungeon leave`
-- `/letodungeon status`
-- `/letodungeon guide` (книга‑инструкция)
-- Админ: `/letodungeon admin start|stop|reload|set`
+## Команды
+- `/letodungeon help` — справка.
+- `/letodungeon guide` — выдать книгу-инструкцию.
+- `/letodungeon start` — запуск режима 50/50 (вход через обычный мир или прямой телепорт).
+- `/letodungeon start overworld` — принудительный вход через обычный мир.
+- `/letodungeon start dimension` — принудительный запуск в мир данжа.
+- `/letodungeon join` — присоединиться к текущей сессии.
+- `/letodungeon leave` — покинуть данж.
+- `/letodungeon status` — состояние сессии.
+- `/letodungeon stop` — остановить сессию (админ).
+- `/letodungeon debug room <prep|waves1|puzzle|waves2|boss>` — переключить комнату (отладка).
+- `/letodungeon debug wave` — перезапустить волны (отладка).
+- `/letodungeon debug boss` — перезапустить босса (отладка).
 
-Полное ТЗ на доведение — в `PROMPT_CODEX_RU.md`.
+## Права
+- `letodungeon.use` — запуск сессии.
+- `letodungeon.admin` — остановка сессии.
+- `letodungeon.debug` — отладочные команды и строительство в мире данжа.
+
+## Конфигурация
+Файл `config.yml`:
+- `dungeon.worldName` — имя мира данжа.
+- `dungeon.rules.*` — правила мира (ломание блоков, случайные тики).
+- `dungeon.session.*` — лимит времени, размеры области, шаг сетки.
+- `dungeon.rooms.*` — размеры комнат и коридоров.
+- `dungeon.waves.*` — параметры волн.
+- `dungeon.puzzle.*` — параметры головоломки.
+- `dungeon.boss.*` — параметры босса.
+- `rewards.*` — таблица наград (веса, шансы, имена и лор).
+- `ui.*` — интерфейс (BossBar, ActionBar).
+
+Файл `messages_ru.yml` содержит все тексты для игроков.
+
+## Быстрый тест (5 минут)
+1) Запустите сервер и убедитесь, что плагин загрузился.
+2) В игре выполните `/letodungeon start`.
+3) Войдите через появившийся вход или автоматически окажитесь в данже.
+4) Пройдите волны, решите головоломку, победите босса.
+5) Убедитесь, что участники вернулись обратно и получили награды.
+
+## Скрипты для Windows
+- `tools\windows\build_plugin.bat` — сборка и копирование в папку `MC_PLUGINS_DIR`.
+- `tools\windows\run_test_server.bat` — запуск тестового сервера в `test_server`.
