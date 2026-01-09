@@ -1,6 +1,7 @@
 package ru.letopis.dungeon.listener;
 
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -17,14 +18,20 @@ public final class ProtectionListener implements Listener {
     public void onBreak(BlockBreakEvent e) {
         if (!plugin.getConfig().getBoolean("dungeon.rules.denyBlockBreak", true)) return;
         World w = e.getBlock().getWorld();
-        if (plugin.dungeon().isDungeonWorld(w)) e.setCancelled(true);
+        if (!plugin.dungeon().isDungeonWorld(w)) return;
+        Player player = e.getPlayer();
+        if (player.hasPermission("letodungeon.debug")) return;
+        e.setCancelled(true);
     }
 
     @EventHandler(ignoreCancelled = true)
     public void onPlace(BlockPlaceEvent e) {
         if (!plugin.getConfig().getBoolean("dungeon.rules.denyBlockPlace", true)) return;
         World w = e.getBlock().getWorld();
-        if (plugin.dungeon().isDungeonWorld(w)) e.setCancelled(true);
+        if (!plugin.dungeon().isDungeonWorld(w)) return;
+        Player player = e.getPlayer();
+        if (player.hasPermission("letodungeon.debug")) return;
+        e.setCancelled(true);
     }
 
     @EventHandler(ignoreCancelled = true)

@@ -1,7 +1,10 @@
 package ru.letopis.dungeon.ui;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.boss.*;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import ru.letopis.dungeon.LetopisDungeonPlugin;
 import ru.letopis.dungeon.model.Session;
@@ -20,24 +23,33 @@ public final class UIService {
 
     public void show(Player p, Session s) {
         if (!plugin.getConfig().getBoolean("ui.bossbar.enabled", true)) return;
-        BossBar b = bars.computeIfAbsent(p.getUniqueId(), id -> Bukkit.createBossBar("", BarColor.GREEN, BarStyle.SOLID));
+        BossBar b = bars.computeIfAbsent(p.getUniqueId(), id -> Bukkit.createBossBar("", BarColor.GREEN, BarStyle.SEGMENTED_10));
         b.addPlayer(p);
         update(p, s);
     }
 
     public void update(Player p, Session s) {
         if (!plugin.getConfig().getBoolean("ui.bossbar.enabled", true)) return;
-        BossBar b = bars.computeIfAbsent(p.getUniqueId(), id -> Bukkit.createBossBar("", BarColor.GREEN, BarStyle.SOLID));
+        BossBar b = bars.computeIfAbsent(p.getUniqueId(), id -> Bukkit.createBossBar("", BarColor.GREEN, BarStyle.SEGMENTED_10));
         if (!b.getPlayers().contains(p)) b.addPlayer(p);
 
-        int t = s.director().tension();
-        b.setTitle("§aДанж§r | Напряжение: §e" + t + "§7/1000 §8|§r Участники: §d" + s.participantCount());
-        b.setProgress(Math.max(0.0, Math.min(1.0, t / 1000.0)));
+        String title = plugin.msg().get("ui.bossbar.title", Map.of(
+                "room", s.currentRoomName(),
+                "participants", Integer.toString(s.participantCount()),
+                "wave", Integer.toString(s.currentWave()),
+                "waveTotal", Integer.toString(s.currentWaveTotal())
+        ));
+        b.setTitle(title);
+        b.setProgress(Math.max(0.0, Math.min(1.0, s.currentProgress())));
 
-        if (t >= 750) b.setColor(BarColor.PURPLE);
-        else if (t >= 500) b.setColor(BarColor.RED);
-        else if (t >= 250) b.setColor(BarColor.YELLOW);
+        if (s.currentProgress() >= 0.75) b.setColor(BarColor.RED);
+        else if (s.currentProgress() >= 0.5) b.setColor(BarColor.YELLOW);
         else b.setColor(BarColor.GREEN);
+
+        if (plugin.getConfig().getBoolean("ui.actionbar.enabled", true)) {
+            String action = plugin.msg().get("ui.actionbar", Map.of("objective", s.currentObjective()));
+            p.sendActionBar(Component.text(action));
+        }
     }
 
     public void clear(Player p) {

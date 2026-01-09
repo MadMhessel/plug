@@ -1,32 +1,92 @@
-prefix: "§8[§aДанж§8]§r "
+prefix: "&8[&aЛетописный данж&8]&r "
 
 help:
-  - "§a/letodungeon help§7 — помощь"
-  - "§a/letodungeon join§7 — войти в лобби данжа"
-  - "§a/letodungeon leave§7 — выйти из данжа"
-  - "§a/letodungeon status§7 — статус"
-  - "§a/letodungeon guide§7 — книга-инструкция"
-  - "§cАдмин: /letodungeon admin start|stop|reload|set"
+  - "&a/letodungeon help&7 — помощь"
+  - "&a/letodungeon guide&7 — книга-инструкция"
+  - "&a/letodungeon start&7 — старт (50/50)"
+  - "&a/letodungeon start overworld&7 — вход через обычный мир"
+  - "&a/letodungeon start dimension&7 — запуск напрямую"
+  - "&a/letodungeon join&7 — присоединиться"
+  - "&a/letodungeon leave&7 — выйти из данжа"
+  - "&a/letodungeon status&7 — статус"
+  - "&cАдмин: /letodungeon stop"
+  - "&cОтладка: /letodungeon debug room|wave|boss"
+
+commands:
+  onlyPlayers: "Команда доступна только игрокам."
+  noPermission: "Недостаточно прав."
+  guideGiven: "Путеводитель выдан."
+  noActiveSession: "Сейчас нет активной сессии."
+  left: "Вы покинули данж."
+  unknown: "Неизвестная команда. Используйте /letodungeon help."
+
+session:
+  alreadyRunning: "Сессия уже запущена."
+  none: "Активной сессии нет."
+  entryCreated: "Создан вход. Нажмите на светящийся блок, чтобы войти."
+  entryHint: "Используйте вход, чтобы попасть в данж."
+  teleported: "Вы в данже. Соберите группу и двигайтесь вперёд."
+  joined: "Вы присоединились к забегу."
+  stopped: "Сессия остановлена администратором."
+  timeOver: "Время вышло. Сессия завершена."
+  wipe: "Вся группа выбита. Сессия завершена."
+  leaderLeft: "Лидер покинул группу. Забег остановлен."
+  completed: "Босс повержен. Забег завершён!"
+  playerDown: "Вы выбыли из боя."
+  waveStarted: "Волна {wave}/{total}. Врагов: {mobs}."
+  puzzleHint: "Порядок рычагов: {order}."
+  puzzleProgress: "Верный порядок: {step}/{total}."
+  puzzleFailed: "Ошибка. Рычаги сброшены."
+  puzzleSolved: "Головоломка решена. Двери открыты."
+  bossPhase: "Босс вошёл во вторую фазу!"
+
+ui:
+  bossbar:
+    title: "&6Летописный данж&r | &fКомната: &e{room}&r | &fУчастники: &d{participants}&r | &fВолна: &b{wave}/{waveTotal}"
+  actionbar: "&fЦель: &e{objective}"
+
+rooms:
+  prep: "Подготовка"
+  waves1: "Первый натиск"
+  waves2: "Второй натиск"
+  wavesObjective: "Уничтожьте волну"
+  puzzle: "Ритуальные рычаги"
+  boss: "Зал расплаты"
+
+boss:
+  name: "&4Хранитель хроник"
+
+debug:
+  usage: "Использование: /letodungeon debug room <prep|waves1|puzzle|waves2|boss> | wave | boss"
+  unknownRoom: "Неизвестный тип комнаты."
+  roomSkipped: "Комната переключена."
+  wave: "Волны перезапущены."
+  notWave: "Сейчас не комната волн."
+  boss: "Босс вызван заново."
+  notBoss: "Сейчас не босс-комната."
+
+status:
+  header: "Сессия: {id} | Режим: {mode} | Статус: {state} | Комната: {room}"
+  progress: "Живых: {alive} | Волна: {wave}/{waveTotal}"
+  player: "Игрок: {name} | {alive} | {active} | {loc}"
+  mobs: "Активных мобов волны: {mobs}"
+  alive: "жив"
+  dead: "мертв"
+  in: "внутри"
+  out: "снаружи"
+
+rewards:
+  received: "Вы получили награду за прохождение."
 
 guideBook:
   title: "Путеводитель данжа"
   author: "Летопись"
   pages:
-    - |
-      §lДанж с режиссёром§r
-
-      Забег на 20–35 минут.
-      Если стоять и тянуть — давление растёт.
-
-      /letodungeon join
-      /letodungeon leave
-      /letodungeon status
-    - |
-      §lНапряжение§r
-
-      Шкала 0..1000.
-      250+ — давит
-      500+ — опасно
-      750+ — критично
-
-      Лучший ответ: движение и координация.
+    - "&lЛетописный данж&r"
+    - "Сессия на 25 минут. Собирайтесь командой, чтобы проходить комнаты и боссов."
+    - "&lКомнаты&r"
+    - "Подготовка, волны, головоломка, снова волны и финальный босс."
+    - "&lГоловоломка&r"
+    - "Нажмите рычаги в правильной последовательности. Ошибка — краткий штраф."
+    - "&lКоманды&r"
+    - "/letodungeon start — запуск, /letodungeon join — присоединиться, /letodungeon leave — выйти."

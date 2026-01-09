@@ -1,24 +1,88 @@
 dungeon:
   worldName: "letopis_dungeon"
-  lobby:
-    x: 0
-    y: 80
-    z: 0
-    yaw: 0
-    pitch: 0
   rules:
     denyBlockBreak: true
     denyBlockPlace: true
     denyExplosions: true
-  run:
-    maxMinutes: 35
-  director:
-    baseTensionPerMinute: 20
-    successDrop: 60
-  structure:
-    placeCommandTemplate: "place structure %key% %x% %y% %z%"
-    baseY: 70
+    randomTickSpeed: 0
+  session:
+    maxMinutes: 25
+    areaSize: 200
+    areaHeight: 40
+    gridStep: 320
+    baseY: 80
+  rooms:
+    sizeX: 30
+    sizeY: 10
+    sizeZ: 30
+    corridorLength: 8
+  waves:
+    base: 3
+    perPlayer: 2
+    healthMultiplier: 1.2
+    mobTypes:
+      - ZOMBIE
+      - SKELETON
+      - HUSK
+    room1Waves: 3
+    room2Waves: 4
+  puzzle:
+    levers: 4
+    penaltySeconds: 3
+  boss:
+    type: PIGLIN_BRUTE
+    health: 220
+    damageMultiplier: 1.4
+    phaseTwoMinions: 4
+    minionType: ZOMBIE
+  debug:
+    participants: false
+
+rewards:
+  countMin: 1
+  countMax: 3
+  items:
+    - material: DIAMOND
+      min: 1
+      max: 2
+      weight: 2
+      chance: 0.7
+    - material: GOLD_INGOT
+      min: 6
+      max: 12
+      weight: 3
+      chance: 0.9
+    - material: ENCHANTED_BOOK
+      min: 1
+      max: 1
+      weight: 1
+      chance: 0.5
+      name: "&dТом летописей"
+      lore:
+        - "&7Свиток, пропитанный магией"
+        - "&7Награда за кооперацию"
+    - material: NETHERITE_SCRAP
+      min: 1
+      max: 1
+      weight: 1
+      chance: 0.3
+    - material: AMETHYST_SHARD
+      min: 4
+      max: 8
+      weight: 3
+      chance: 1.0
+    - material: PLAYER_HEAD
+      min: 1
+      max: 1
+      weight: 1
+      chance: 1.0
+      name: "&6Трофей данжа"
+      lore:
+        - "&7Знак победы над боссом"
+        - "&7Хранится как реликвия"
 
 ui:
   bossbar:
+    enabled: true
+  actionbar:
     enabled: true
