@@ -101,7 +101,7 @@ public final class ReturnStore {
             }
             count += it.getAmount();
         }
-        if (audit != null) audit.log("return_deliver", null, player.getUniqueId(), "-", player.getLocation(), "items=" + count);
+        if (audit != null) audit.log("RETURN", null, player.getUniqueId(), "-", player.getLocation(), "items=" + count);
         return count;
     }
 }

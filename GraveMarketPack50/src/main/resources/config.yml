@@ -10,9 +10,12 @@ graves:
   containerMaterial: BARREL          # BARREL / CHEST / TRAPPED_CHEST / SHULKER_BOX
   safeSearchRadius: 8                # поиск безопасной точки вокруг смерти
   lifetimeSeconds: 1800              # 30 минут
-  expiredRetentionSeconds: 86400     # после истечения — хранить как виртуальную до удаления (сек)
-  maxActivePerPlayer: 1
+  expiredRetentionHours: 24          # после истечения — хранить как виртуальную до удаления (часы)
+  expiredRetentionSeconds: 86400     # (fallback) если hours не указан
+  maxActiveGravesPerPlayer: 1
+  maxActivePerPlayer: 1              # (fallback)
   spawnParticlesOnCreate: true
+  debug: false
   hologram:
     enabled: true
 
@@ -20,6 +23,7 @@ pvp:
   enabled: true
   partialDropChance: 0.30            # 30% предметов падает как обычно
   extractCostMultiplier: 2.0         # извлечение дороже при смерти от игрока
+  killerAccessDelaySeconds: 0        # задержка доступа убийцы (0 = выкл)
 
 economy:
   prices:
@@ -29,6 +33,18 @@ economy:
     recall: 7500                     # вернуть вещи к себе (очень дорого)
     tp: 9000                         # телепорт к могиле (очень дорого)
   recallCooldownSeconds: 1800        # 30 минут
+  recallVirtualMultiplier: 1.5       # дороже для виртуальных могил
+  tpCombatLockSeconds: 10            # запрет телепорта после боя (сек)
+  tpSurgeWindowSeconds: 600          # окно роста цены (сек)
+  tpSurgeStep: 0.25                  # +25% за каждое использование в окне
+
+insurance:
+  price: 1500                        # стоимость страховки
+  durationSeconds: 86400             # 24 часа
+  extractDiscountMultiplier: 0.7     # скидка на извлечение
+  lifetimeBonusSeconds: 600          # +10 минут к жизни могилы
+  tpDiscountMultiplier: 1.0          # скидка на tp
+  recallDiscountMultiplier: 1.0      # скидка на recall
 
 altar:
   enabled: false                     # если включить — рядом с алтарём recall дешевле

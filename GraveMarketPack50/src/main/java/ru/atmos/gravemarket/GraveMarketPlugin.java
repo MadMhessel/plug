@@ -7,17 +7,20 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.atmos.gravemarket.cmd.GraveAdminCommand;
 import ru.atmos.gravemarket.cmd.GraveCommand;
-import ru.atmos.gravemarket.econ.Economy;
+import ru.atmos.gravemarket.econ.EconomyService;
 import ru.atmos.gravemarket.econ.InternalEconomy;
 import ru.atmos.gravemarket.econ.TeleportMarketEconomy;
 import ru.atmos.gravemarket.grave.GraveManager;
+import ru.atmos.gravemarket.grave.InsuranceStore;
 import ru.atmos.gravemarket.grave.ReturnStore;
 import ru.atmos.gravemarket.listener.BlockListener;
+import ru.atmos.gravemarket.listener.CombatListener;
 import ru.atmos.gravemarket.listener.DeathListener;
 import ru.atmos.gravemarket.listener.InventoryListener;
 import ru.atmos.gravemarket.listener.InteractListener;
 import ru.atmos.gravemarket.listener.ReturnListener;
 import ru.atmos.gravemarket.util.AuditLog;
+import ru.atmos.gravemarket.util.CombatTracker;
 import ru.atmos.gravemarket.util.LocationCodec;
 
 import java.util.Optional;
@@ -25,17 +28,21 @@ import java.util.logging.Level;
 
 public final class GraveMarketPlugin extends JavaPlugin {
 
-    private Economy economy;
+    private EconomyService economy;
     private GraveManager graveManager;
     private AuditLog audit;
     private ReturnStore returnStore;
+    private InsuranceStore insuranceStore;
+    private CombatTracker combatTracker;
     private NamespacedKey borrowOwnerKey;
     private NamespacedKey borrowGraveKey;
 
-    public Economy economy() { return economy; }
+    public EconomyService economy() { return economy; }
     public GraveManager graves() { return graveManager; }
     public AuditLog audit() { return audit; }
     public ReturnStore returns() { return returnStore; }
+    public InsuranceStore insurance() { return insuranceStore; }
+    public CombatTracker combat() { return combatTracker; }
     public NamespacedKey borrowOwnerKey() { return borrowOwnerKey; }
     public NamespacedKey borrowGraveKey() { return borrowGraveKey; }
 
@@ -46,18 +53,25 @@ public final class GraveMarketPlugin extends JavaPlugin {
 
         // Economy bridge
         boolean require = getConfig().getBoolean("integration.requireTeleportMarket", false);
-        Optional<Economy> bridge = TeleportMarketEconomy.tryCreate(this);
-        if (bridge.isPresent()) {
-            this.economy = bridge.get();
-            getLogger().info("Economy: using TeleportMarket bridge (shared credits).");
+        Optional<EconomyService> service = Optional.ofNullable(Bukkit.getServicesManager()
+                .getRegistration(EconomyService.class)).map(r -> r.getProvider());
+        if (service.isPresent()) {
+            this.economy = service.get();
+            getLogger().info("Economy: using EconomyService from Bukkit ServicesManager.");
         } else {
-            if (require) {
-                getLogger().severe("TeleportMarket not found or incompatible, and integration.requireTeleportMarket=true. Disabling.");
-                Bukkit.getPluginManager().disablePlugin(this);
-                return;
+            Optional<EconomyService> bridge = TeleportMarketEconomy.tryCreate(this).map(e -> (EconomyService) e);
+            if (bridge.isPresent()) {
+                this.economy = bridge.get();
+                getLogger().info("Economy: using TeleportMarket bridge (shared credits).");
+            } else {
+                if (require) {
+                    getLogger().severe("TeleportMarket not found or incompatible, and integration.requireTeleportMarket=true. Disabling.");
+                    Bukkit.getPluginManager().disablePlugin(this);
+                    return;
+                }
+                this.economy = new InternalEconomy(this);
+                getLogger().warning("Economy: TeleportMarket not found/incompatible. Using internal economy fallback (gravemarket-economy.yml).");
             }
-            this.economy = new InternalEconomy(this);
-            getLogger().warning("Economy: TeleportMarket not found/incompatible. Using internal economy fallback (gravemarket-economy.yml).");
         }
 
         this.graveManager = new GraveManager(this);
@@ -73,6 +87,13 @@ public final class GraveMarketPlugin extends JavaPlugin {
         } catch (Exception e) {
             getLogger().log(Level.SEVERE, "Failed to load returns.yml", e);
         }
+        this.insuranceStore = new InsuranceStore(this);
+        try {
+            insuranceStore.load();
+        } catch (Exception e) {
+            getLogger().log(Level.SEVERE, "Failed to load insurance.yml", e);
+        }
+        this.combatTracker = new CombatTracker();
 
         this.borrowOwnerKey = new NamespacedKey(this, "borrow_owner");
         this.borrowGraveKey = new NamespacedKey(this, "borrow_grave");
@@ -92,6 +113,7 @@ public final class GraveMarketPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryListener(this), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
         Bukkit.getPluginManager().registerEvents(new ReturnListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new CombatListener(this), this);
 
         // Periodic expiry / holo refresh
         long periodTicks = 20L * 30; // every 30s
@@ -118,6 +140,9 @@ public final class GraveMarketPlugin extends JavaPlugin {
         }
         if (returnStore != null) {
             try { returnStore.save(); } catch (Exception e) { getLogger().log(Level.SEVERE, "Failed to save returns.yml", e); }
+        }
+        if (insuranceStore != null) {
+            try { insuranceStore.save(); } catch (Exception e) { getLogger().log(Level.SEVERE, "Failed to save insurance.yml", e); }
         }
         if (audit != null) audit.close();
     }

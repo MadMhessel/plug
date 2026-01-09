@@ -29,6 +29,7 @@ public final class GraveRecord {
 
     public int storedExp;
     public List<ItemStack> storedItems = new ArrayList<>();
+    public List<ItemStack> overflowItems = new ArrayList<>();
 
     public Location deathLoc() { return LocationCodec.decode(deathLocation); }
     public Location graveLoc() { return LocationCodec.decode(graveLocation); }

@@ -24,6 +24,8 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
     private final GraveMarketPlugin plugin;
     private final Map<UUID, Long> recallCooldown = new ConcurrentHashMap<>();
     private final Map<UUID, Integer> beaconTasks = new ConcurrentHashMap<>();
+    private final Map<UUID, Long> tpWindowStart = new ConcurrentHashMap<>();
+    private final Map<UUID, Integer> tpWindowCount = new ConcurrentHashMap<>();
     private final NamespacedKey compassKey;
 
     public GraveCommand(GraveMarketPlugin plugin) {
@@ -44,10 +46,13 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
             case "help" -> { help(p); yield true; }
             case "info" -> { info(p); yield true; }
             case "pay" -> { pay(p); yield true; }
+            case "mark" -> { mark(p); yield true; }
             case "trust" -> { trust(p, args); yield true; }
             case "untrust" -> { untrust(p, args); yield true; }
             case "trustlist" -> { trustList(p); yield true; }
             case "return" -> { returnItems(p, args); yield true; }
+            case "claim" -> { claim(p); yield true; }
+            case "insure" -> { insure(p); yield true; }
             case "compass" -> { compass(p); yield true; }
             case "beacon" -> { beacon(p); yield true; }
             case "recall" -> { recall(p); yield true; }
@@ -60,14 +65,17 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         p.sendMessage(Component.text("§6[Могила] §fКоманды:"));
         p.sendMessage(Component.text(" §e/grave info §7— информация по могиле"));
         p.sendMessage(Component.text(" §e/grave pay §7— оплатить извлечение"));
+        p.sendMessage(Component.text(" §e/grave mark §7— повторить координаты и таймер"));
         p.sendMessage(Component.text(" §e/grave compass §7— компас к могиле (платно)"));
         p.sendMessage(Component.text(" §e/grave beacon §7— включить луч/частицы над могилой (платно)"));
         p.sendMessage(Component.text(" §e/grave recall §7— вернуть вещи к себе (очень дорого)"));
         p.sendMessage(Component.text(" §e/grave tp §7— телепорт к могиле (очень дорого)"));
+        p.sendMessage(Component.text(" §e/grave claim §7— получить возвращённые предметы"));
         p.sendMessage(Component.text(" §e/grave trust <ник> §7— доверить доступ"));
         p.sendMessage(Component.text(" §e/grave untrust <ник> §7— убрать доверие"));
         p.sendMessage(Component.text(" §e/grave trustlist §7— список доверенных"));
         p.sendMessage(Component.text(" §e/grave return <ник> §7— вернуть предметы владельцу"));
+        p.sendMessage(Component.text(" §e/grave insure §7— купить страховку"));
     }
 
     private GraveRecord active(Player p) {
@@ -99,6 +107,20 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         }
     }
 
+    private void mark(Player p) {
+        GraveRecord g = active(p);
+        if (g == null) return;
+        long now = System.currentTimeMillis();
+        long left = Math.max(0, (g.expiresAtEpochMs - now) / 1000L);
+        long mm = left / 60;
+        long ss = left % 60;
+        Location gl = g.virtual ? g.deathLoc() : g.graveLoc();
+        if (gl != null) {
+            p.sendMessage(Component.text("§6[Могила] §fКоординаты: §e" + LocationCodec.pretty(gl)));
+        }
+        p.sendMessage(Component.text("§6[Могила] §fОсталось: §e" + mm + ":" + String.format(Locale.ROOT, "%02d", ss)));
+    }
+
     private void pay(Player p) {
         GraveRecord g = active(p);
         if (g == null) return;
@@ -117,6 +139,10 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
             return;
         }
         g.paid = true;
+        plugin.graves().save();
+        if (plugin.audit() != null) {
+            plugin.audit().log("PAY_EXTRACT", p.getUniqueId(), g.owner, g.id, g.graveLoc(), "cost=" + cost);
+        }
 
         if (g.storedExp > 0) {
             p.giveExp(g.storedExp);
@@ -213,7 +239,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         }
 
         if (plugin.audit() != null) {
-            plugin.audit().log("return", p.getUniqueId(), ownerId, "-", p.getLocation(), "items=" + count);
+            plugin.audit().log("RETURN", p.getUniqueId(), ownerId, "-", p.getLocation(), "items=" + count);
         }
         p.sendMessage(Component.text("§6[Могила] §aВозврат выполнен. Предметов: §e" + count));
     }
@@ -243,7 +269,40 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         var pdc = meta.getPersistentDataContainer();
         pdc.remove(plugin.borrowOwnerKey());
         pdc.remove(plugin.borrowGraveKey());
+        var lore = meta.getLore();
+        if (lore != null && !lore.isEmpty()) {
+            lore.removeIf(line -> line.contains("Чужой предмет"));
+            meta.setLore(lore);
+        }
         item.setItemMeta(meta);
+    }
+
+    private void claim(Player p) {
+        int count = plugin.returns().deliver(p);
+        if (count <= 0) {
+            p.sendMessage(Component.text("§6[Могила] §7Возвращённых предметов нет."));
+            return;
+        }
+        p.sendMessage(Component.text("§6[Могила] §aВам возвращены предметы: §e" + count));
+    }
+
+    private void insure(Player p) {
+        long price = plugin.getConfig().getLong("insurance.price", 1500);
+        long duration = plugin.getConfig().getLong("insurance.durationSeconds", 86400);
+        if (plugin.insurance().isInsured(p.getUniqueId())) {
+            long until = plugin.insurance().insuredUntil(p.getUniqueId());
+            long left = Math.max(0, (until - System.currentTimeMillis()) / 1000L);
+            long hh = left / 3600;
+            long mm = (left % 3600) / 60;
+            p.sendMessage(Component.text("§6[Могила] §aСтраховка уже активна. Осталось: §e" + hh + "ч " + mm + "м"));
+            return;
+        }
+        if (!plugin.economy().withdraw(p.getUniqueId(), price)) {
+            p.sendMessage(Component.text("§6[Могила] §cНедостаточно средств. Нужно: " + price));
+            return;
+        }
+        plugin.insurance().insure(p.getUniqueId(), duration);
+        p.sendMessage(Component.text("§6[Могила] §aСтраховка активирована на " + (duration / 3600) + "ч. Цена: §6" + price + " " + plugin.economy().currencyName()));
     }
 
     private void compass(Player p) {
@@ -345,18 +404,27 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
         }
 
         long price = plugin.getConfig().getLong("economy.prices.recall", 7500);
+        if (g.virtual) {
+            double mult = plugin.getConfig().getDouble("economy.recallVirtualMultiplier", 1.5);
+            price = Math.max(0, Math.round(price * mult));
+        }
         double altarMult = altarMultiplier(p.getLocation());
         price = Math.max(0, Math.round(price * altarMult));
+        if (plugin.insurance().isInsured(p.getUniqueId())) {
+            double insuredMult = plugin.getConfig().getDouble("insurance.recallDiscountMultiplier", 1.0);
+            price = Math.max(0, Math.round(price * insuredMult));
+        }
 
         if (!plugin.economy().withdraw(p.getUniqueId(), price)) {
             p.sendMessage(Component.text("§6[Могила] §cНедостаточно средств. Нужно: " + price));
             return;
         }
 
-        // sync items
+        Location target = recallTarget(p);
+        if (target != null) {
+            p.teleport(target);
+        }
         plugin.graves().syncFromContainer(g);
-
-        // give exp
         if (g.storedExp > 0) {
             p.giveExp(g.storedExp);
             g.storedExp = 0;
@@ -364,7 +432,13 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
 
         // give items
         int count = 0;
-        for (ItemStack it : new ArrayList<>(g.storedItems)) {
+        List<ItemStack> allItems = new ArrayList<>();
+        allItems.addAll(g.storedItems);
+        if (g.overflowItems != null && !g.overflowItems.isEmpty()) {
+            allItems.addAll(g.overflowItems);
+            g.overflowItems.clear();
+        }
+        for (ItemStack it : new ArrayList<>(allItems)) {
             if (it == null || it.getType() == Material.AIR) continue;
             giveOrDrop(p, it);
             count += it.getAmount();
@@ -393,7 +467,12 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
             return;
         }
 
-        long price = plugin.getConfig().getLong("economy.prices.tp", 9000);
+        long price = tpSurgePrice(p);
+        long combatLockSeconds = plugin.getConfig().getLong("economy.tpCombatLockSeconds", 10);
+        if (plugin.combat().isLocked(p.getUniqueId(), combatLockSeconds)) {
+            p.sendMessage(Component.text("§6[Могила] §cНельзя телепортироваться во время боя. Подождите " + combatLockSeconds + "с."));
+            return;
+        }
         if (!plugin.economy().withdraw(p.getUniqueId(), price)) {
             p.sendMessage(Component.text("§6[Могила] §cНедостаточно средств. Нужно: " + price));
             return;
@@ -405,10 +484,60 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
             return;
         }
 
-        // teleport slightly above grave
-        Location dest = loc.clone().add(0.5, 1.0, 0.5);
+        Location dest = safeTeleportLocation(loc);
+        if (dest == null) {
+            p.sendMessage(Component.text("§6[Могила] §cМесто небезопасно для телепорта."));
+            return;
+        }
         p.teleport(dest);
         p.sendMessage(Component.text("§6[Могила] §aТелепорт выполнен. Цена: §6" + price + " " + plugin.economy().currencyName()));
+    }
+
+    private Location recallTarget(Player player) {
+        if (plugin.getConfig().getBoolean("altar.enabled", false)) {
+            String raw = plugin.getConfig().getString("altar.location", "");
+            Location altar = LocationCodec.decode(raw);
+            if (altar != null && altar.getWorld() != null) {
+                return altar.clone().add(0.5, 0.0, 0.5);
+            }
+        }
+        Location spawn = player.getWorld().getSpawnLocation();
+        return spawn == null ? player.getLocation() : spawn;
+    }
+
+    private long tpSurgePrice(Player player) {
+        long base = plugin.getConfig().getLong("economy.prices.tp", 9000);
+        long windowSeconds = plugin.getConfig().getLong("economy.tpSurgeWindowSeconds", 600);
+        double step = plugin.getConfig().getDouble("economy.tpSurgeStep", 0.25);
+        long now = System.currentTimeMillis();
+        long windowStart = tpWindowStart.getOrDefault(player.getUniqueId(), 0L);
+        int count = tpWindowCount.getOrDefault(player.getUniqueId(), 0);
+        if (now - windowStart > windowSeconds * 1000L) {
+            windowStart = now;
+            count = 0;
+        }
+        tpWindowStart.put(player.getUniqueId(), windowStart);
+        tpWindowCount.put(player.getUniqueId(), count + 1);
+        double mult = 1.0 + (count * step);
+        if (plugin.insurance().isInsured(player.getUniqueId())) {
+            double insuredMult = plugin.getConfig().getDouble("insurance.tpDiscountMultiplier", 1.0);
+            mult *= insuredMult;
+        }
+        return Math.max(0, Math.round(base * mult));
+    }
+
+    private Location safeTeleportLocation(Location graveLoc) {
+        Location dest = graveLoc.clone().add(0.5, 1.0, 0.5);
+        var world = graveLoc.getWorld();
+        if (world == null) return null;
+        var feet = world.getBlockAt(dest);
+        var head = world.getBlockAt(dest.clone().add(0, 1, 0));
+        var below = world.getBlockAt(graveLoc);
+        if (!feet.getType().isAir() || !head.getType().isAir()) return null;
+        if (below.getType().isAir()) return null;
+        if (ru.atmos.gravemarket.util.SafeSpotFinder.isDangerous(below)) return null;
+        if (ru.atmos.gravemarket.util.SafeSpotFinder.isFluid(below)) return null;
+        return dest;
     }
 
     private double altarMultiplier(Location playerLoc) {
@@ -436,7 +565,7 @@ public final class GraveCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String alias, String[] args) {
         if (args.length == 1) {
-            return List.of("help","info","pay","compass","beacon","recall","tp","trust","untrust","trustlist","return").stream()
+            return List.of("help","info","pay","mark","compass","beacon","recall","tp","trust","untrust","trustlist","return","claim","insure").stream()
                     .filter(s -> s.startsWith(args[0].toLowerCase(Locale.ROOT)))
                     .collect(Collectors.toList());
         }
