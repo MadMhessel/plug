@@ -1,33 +1,32 @@
 isEnabled: true
-menuName: '[EM] Quest Selection'
+menuName: '[EM] Выбор задания'
 validTierButton:
   material: GREEN_STAINED_GLASS_PANE
-  name: §2Take on a $rank §2quest!
+  name: §2Взять задание ранга $rank!
   lore:
-  - §aAccept a $rank §aquest and
-  - §aget special rewards!
+  - §aПримите задание ранга $rank
+  - §aи получите особые награды!
   customModelID: 31173
-cancelQuestMessage1: '&c&l&m&o---------------------------------------------&cYou can
-  only have one quest at a time! Cancelling your ongoing quest will reset quest progress!'
-cancelQuestMessage2: '&2[Click here to cancel current quest!]'
-cancelQuestMessage3: '&7You can see your quest status with the command &a/em quest
-  status&c&l&m&o---------------------------------------------'
+cancelQuestMessage1: '&c&l&m&o---------------------------------------------&cМожно иметь
+  только одно задание! Отмена текущего сбросит прогресс!'
+cancelQuestMessage2: '&2[Нажмите здесь, чтобы отменить текущее задание!]'
+cancelQuestMessage3: '&7Статус задания: команда &a/em quest status&c&l&m&o---------------------------------------------'
 killObjectiveButton:
   material: YELLOW_STAINED_GLASS_PANE
-  name: §2Kill $objectiveAmount $objectiveName
+  name: §2Убейте $objectiveAmount $objectiveName
   lore:
-  - §aKill $objectiveAmount $objectiveName §amobs.
-  - '§fProgress: §a$currentAmount §f/§c $objectiveAmount'
-  - '§aReward: §e $rewardAmount'
+  - §aУбейте $objectiveAmount мобов $objectiveName.
+  - '§fПрогресс: §a$currentAmount §f/§c $objectiveAmount'
+  - '§aНаграда: §e $rewardAmount'
   customModelID: 31173
-questCancelMessage: '&7[EliteMobs] &cYour ongoing quest has been cancelled!'
-questStartTitle: You have accepted a quest!
-questStartSubtitle: Slay $objectiveAmount $objectiveName
-questCompleteTitle: Quest complete!
-questCompleteSubtitle: You have slain $objectiveAmount $objectiveName
-bossBarObjective: Slay $objectiveAmount $objectiveName
-questRewardMessage: '&7[EM] &aQuest completed! &6Your reward is &2$reward $currencyName'
-questCompleteBroadcastMessage: '&7[EM] $player &2has completed a $rank &2quest!'
-questStartBroadcastMessage: '&7[EM] $player &2has accepted a $rank &2quest!'
-questStatusMessage: '&7[EM] &aYou''ve slain &a$currentAmount &f/ &c$objectiveAmount
+questCancelMessage: '&7[EliteMobs] &cТекущее задание отменено!'
+questStartTitle: Задание принято!
+questStartSubtitle: Убейте $objectiveAmount $objectiveName
+questCompleteTitle: Задание выполнено!
+questCompleteSubtitle: Вы убили $objectiveAmount $objectiveName
+bossBarObjective: Убейте $objectiveAmount $objectiveName
+questRewardMessage: '&7[EM] &aЗадание выполнено! &6Ваша награда: &2$reward $currencyName'
+questCompleteBroadcastMessage: '&7[EM] $player &2выполнил задание ранга $rank&2!'
+questStartBroadcastMessage: '&7[EM] $player &2принял задание ранга $rank&2!'
+questStatusMessage: '&7[EM] &aВы убили &a$currentAmount &f/ &c$objectiveAmount
   &a$objectiveName'

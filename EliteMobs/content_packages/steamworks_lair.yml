@@ -1,22 +1,22 @@
 isEnabled: true
-name: '&2[Dynamic] &6The Steamworks'
+name: '&2[Динамический] &6Паровые мастерские'
 customInfo:
-- '&fA steampunk inspired lair!'
+- '&fЛогово в стиле стимпанк!'
 dungeonSizeCategory: LAIR
 worldName: em_steamworks_lair
 environment: NORMAL
 protect: true
 playerInfo: |-
-  Difficulty: &chard
-  $bossCount level $lowestTier Big Boss!
-  &6Get ready for a robot rumble!
-regionEnterMessage: '&6Reach the top and mind your step!'
-regionLeaveMessage: '&6Now leaving the clockwork dominion!'
+  Сложность: &cСложно
+  $bossCount большой босс уровня $lowestTier!
+  &6Готовьтесь к битве с роботами!
+regionEnterMessage: '&6Поднимайтесь наверх и смотрите под ноги!'
+regionLeaveMessage: '&6Вы покидаете царство механизмов!'
 teleportLocation: em_steamworks_lair,-46.5,-47.8,-104.5,37,0
 startLocation: em_steamworks_lair,-51.5,-47.8,-97.5,39,0
 dungeonConfigFolderName: the_steamworks
 setupMenuDescription:
-- '&2A Lair for players of all levels!'
+- '&2Логово для игроков всех уровней!'
 dungeonObjectives:
 - filename=the_steamworks_clk_wrx702_p1.yml
 dungeonLockoutMinutes: 1440

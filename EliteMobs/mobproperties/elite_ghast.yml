@@ -1,8 +1,8 @@
 isEnabled: true
 entityType: GHAST
-name: '&fLvl &2$level &fElite &fGhast'
+name: '&fУр. &2$level &fЭлитный &fГаст'
 deathMessages:
-- $player &cdidn't dodge $entity&c &cfireballs!
-- $player &cwas blown to bits $entity&c!
-- $entity &cgot $player's &cbacon!
+- $player &cне увернулся от огненных шаров $entity&c!
+- $player &cбыл разорван на куски $entity&c!
+- $entity &cполучил бекон из $player&c!
 baseDamageV2: 22.5

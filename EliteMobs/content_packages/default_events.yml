@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Default EliteMobs Events'
+name: '&2Стандартные события EliteMobs'
 customInfo:
-- All default custom events from EliteMobs!
+- '&fВсе стандартные пользовательские события EliteMobs!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true

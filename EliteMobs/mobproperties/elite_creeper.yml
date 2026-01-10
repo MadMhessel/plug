@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: CREEPER
-name: '&fLvl &2$level &fElite &2Creeper'
+name: '&fУр. &2$level &fЭлитный &2Крипер'
 deathMessages:
-- $player &cwas blasted away by $entity!
-- $entity &cjust oh man'd $player&c!
+- $player &cбыл разорван взрывом $entity!
+- $entity &cвзорвал $player&c!
 baseDamageV2: 64.5

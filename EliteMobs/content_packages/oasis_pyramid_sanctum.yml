@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 055] &6The Oasis Pyramid'
+name: '&2[lvl 055] &6Пирамида Оазиса'
 customInfo:
-- '&fThe final dungeon of the Oasis adventure!'
-- '&6Credits: 69OzCanOfBepis, Frostcone, MagmaGuy'
+- '&fФинальное подземелье приключения Оазиса!'
+- '&6Кредиты: 69OzCanOfBepis, Frostcone, MagmaGuy'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_oasis_pyramid
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &4solo hard content!'
-regionEnterMessage: '&bWelcome to the Pyramid!'
-regionLeaveMessage: '&bYou have left the Pyramid!'
+playerInfo: 'Сложность: &4одиночный сложный контент!'
+regionEnterMessage: '&bДобро пожаловать в Пирамиду!'
+regionLeaveMessage: '&bВы покинули Пирамиду!'
 startLocation: em_id_oasis_pyramid,0.5,75.0,-169.5,-180,3
 teleportLocation: em_id_oasis_pyramid,-9.5,77.0,-153.5,-115,17
 dungeonObjectives:

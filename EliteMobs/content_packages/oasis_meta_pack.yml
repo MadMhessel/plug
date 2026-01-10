@@ -1,8 +1,8 @@
 isEnabled: true
-name: '&2[025-055] The Oasis Adventure!'
+name: '&2[025-055] Приключение в Оазисе!'
 customInfo:
-- The tutorial adventure for players
-- new to EliteMobs!
+- '&fОбучающее приключение для новых игроков'
+- '&fEliteMobs!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -11,6 +11,6 @@ containedPackages:
 - oasis_adventure.yml
 - oasis_pyramid_sanctum.yml
 setupMenuDescription:
-- '&2An adventure for players from level 20-55!'
-- '&2Adventures are massive maps with quests,'
-- '&2many bosses and npcs, among other things!'
+- '&2Приключение для игроков 20-55 уровня!'
+- '&2Приключения — это масштабные карты с квестами,'
+- '&2а также множество боссов и неигровых персонажей!'

@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: BOGGED
-name: '&2Lvl &2$level &2Elite &eBogged'
+name: '&2Ур. &2$level &2Элитный &eБолотник'
 deathMessages:
-- $player &cwas poisoned by $entity!
+- $player &cбыл отравлен $entity!
 baseDamageV2: 5.0

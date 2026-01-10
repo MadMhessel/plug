@@ -1,56 +1,56 @@
 isEnabled: true
 # Sets the display name of the menu
-menuName: '&6Enchantment Menu'
+menuName: '&6Меню зачарования'
 # Sets the item slot number of the information button in the chest menu.
 infoSlot: 4
 infoButton:
   material: PLAYER_HEAD
-  name: '§2Enchantment info:'
+  name: '§2Информация о зачаровании:'
   lore:
-  - §2This menu can add enchants to your elite items!
-  - §aIn order to enchant your elite item, add your
-  - §aelite item and your elite enchanted books!
-  - §6Items that already have a lot of enchantments
-  - §6(high quality items) have a high chance of failing!
-  - §8Normal failure makes you fail to enchant the item.
-  - §8Challenge makes you fight a boss for the enchant.
-  - §8Critical failures make you lose the item!
+  - §2Это меню добавляет чары к элитным предметам!
+  - §aЧтобы зачаровать элитный предмет, положите
+  - §aэлитный предмет и элитные зачарованные книги!
+  - §6Предметы с большим количеством чар
+  - §6(высокого качества) имеют высокий шанс неудачи!
+  - §8Обычная неудача — чары не накладываются.
+  - §8Испытание — вы сражаетесь с боссом за чары.
+  - §8Критическая неудача — предмет теряется!
 # Sets the item slot number of the cancel button in the chest menu.
 cancelSlot: 27
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel repair!
+  - §cОтменить зачарование!
   customModelID: 31173
 # Sets the item slot number of the confirm button in the chest menu.
 confirmSlot: 35
 confirmButton:
   material: EMERALD
-  name: §2Enchant!
+  name: §2Зачаровать!
   lore:
-  - '§aPrice: $price $currencyName'
-  - '§2Chance of success: $successChance%'
-  - '§cChance of failure: $failureChance%'
-  - '§6Challenge chance: $challengeChance%'
-  - '§4Chance of critical failure: $criticalFailureChance%'
+  - '§aЦена: $price $currencyName'
+  - '§2Шанс успеха: $successChance%'
+  - '§cШанс неудачи: $failureChance%'
+  - '§6Шанс испытания: $challengeChance%'
+  - '§4Шанс критической неудачи: $criticalFailureChance%'
 # Sets the item slot number of the elite item in the chest menu.
 itemSlot: 29
 # Sets the item slot number of the elite item info button in the chest menu.
 itemInfoSlot: 20
 itemInfoButton:
   material: GREEN_BANNER
-  name: §2Elite Item Input slot
+  name: §2Слот элитного предмета
   lore:
-  - §aPut your elite item here!
+  - §aПоложите сюда элитный предмет!
   customModelID: 31173
 # Sets the item slot number of the enchanted book info button in the chest menu.
 enchantedBookInfoSlot: 22
 enchantedBookInfoButton:
   material: GREEN_BANNER
-  name: §2Enchanted Book Input slot
+  name: §2Слот зачарованной книги
   lore:
-  - §aPut your elite enchanted books here!
+  - §aПоложите сюда элитные зачарованные книги!
   customModelID: 31173
 # Sets the item slot number of the enchanted book in the chest menu.
 enchantedBookSlot: 31
@@ -59,11 +59,11 @@ luckyTicketSlot: 33
 luckyTicketInfoSlot: 24
 luckyTicketInfoButton:
   material: GREEN_BANNER
-  name: §2Elite Lucky Ticket Input slot
+  name: §2Слот элитного счастливого билета
   lore:
-  - §a(Optional) Put your elite lucky tickets here!
-  - §2Increase the odds of the enchantment succeeding
-  - §2by adding an elite lucky ticket!
+  - §a(Опционально) Положите сюда элитные счастливые билеты!
+  - §2Увеличьте шанс успеха зачарования,
+  - §2добавив элитный счастливый билет!
   customModelID: 31173
 # Sets the message that appears when a player attempts to enchant an item beyond the configured maximum enchantment level of any enchantment.
-enchantmentLimitMessage: '&c[EliteMobs] Can''t enchant item beyond enchantment limit!'
+enchantmentLimitMessage: '&c[EliteMobs] Нельзя зачаровать предмет выше лимита чар!'

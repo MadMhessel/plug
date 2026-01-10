@@ -1,20 +1,20 @@
 isEnabled: true
-name: '&2[Dynamic] &8The Dark Cathedral'
+name: '&2[Динамический] &8Тёмный собор'
 customInfo:
-- '&fThe first ever EliteMobs Lair!'
-- '&fA classic that all servers need!'
-- '&6Credits: MagmaGuy, 69OzCanOfBepis, Frost, Dali'
+- '&fПервое логово EliteMobs!'
+- '&fКлассика, необходимая каждому серверу!'
+- '&6Кредиты: MagmaGuy, 69OzCanOfBepis, Frost, Dali'
 dungeonSizeCategory: LAIR
 worldName: em_the_dark_cathedral
 environment: NETHER
 protect: true
 playerInfo: |-
-  Difficulty: &cHard
-  $bossCount level $highestTier Big Boss!
-  &cThe original minidungeon, a challenge for
-  &ca group of players or for veterans!
-regionEnterMessage: '&8[EM] &1An invasion is in progress. &9Stop the insurrection!'
-regionLeaveMessage: '&8[EM] &1You managed to hold them back. &9For now...'
+  Сложность: &cСложно
+  $bossCount большой босс уровня $highestTier!
+  &cОригинальное мини-подземелье, испытание
+  &cдля группы игроков или ветеранов!
+regionEnterMessage: '&8[EM] &1Идет вторжение. &9Остановите мятеж!'
+regionLeaveMessage: '&8[EM] &1Вам удалось сдержать их. &9Пока что...'
 startLocation: em_the_dark_cathedral,43.5,84.2,191.5,168,0
 teleportLocation: em_the_dark_cathedral,47.5,85.2,199.5,163,0
 dungeonObjectives:
@@ -34,8 +34,8 @@ difficulties:
   levelSync: '-5'
 song: name=elitemobs:dark_cathedral.ambient length=93830
 setupMenuDescription:
-- '&2A Lair for players around level 15!'
-- '&2The perfect quick showcase for EliteMobs,'
-- '&2with custom models, a custom soundtrack'
-- '&2and custom powers, all for free!'
+- '&2Логово для игроков примерно 15 уровня!'
+- '&2Идеальная быстрая демонстрация EliteMobs,'
+- '&2с пользовательскими моделями, саундтреком'
+- '&2и уникальными способностями — всё бесплатно!'
 dungeonLockoutMinutes: 1440

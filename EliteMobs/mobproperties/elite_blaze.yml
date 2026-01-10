@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: BLAZE
-name: '&fLvl &2$level &fElite &eBlaze'
+name: '&fУр. &2$level &fЭлитный &eИфрит'
 deathMessages:
-- $player &cwas lit ablaze by $entity!
+- $player &cбыл подожжён $entity!
 baseDamageV2: 9.0

@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: SILVERFISH
-name: '&fLvl &2$level &fElite &7Silverfish'
+name: '&fУр. &2$level &fЭлитный &7Чешуйница'
 deathMessages:
-- $player &cmistook $entity &cfor a stone block!
+- $player &cпринял $entity &cза каменный блок!
 baseDamageV2: 1.0

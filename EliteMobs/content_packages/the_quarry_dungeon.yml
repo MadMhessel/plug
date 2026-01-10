@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 040] &3The Quarry Dungeon'
+name: '&2[lvl 040] &3Карьер'
 customInfo:
-- '&fAn ancient dwarven quarry deep underground.'
-- '&6Credits: Dali_, MagmaGuy, Frostcone'
+- '&fДревний дворфийский карьер глубоко под землей.'
+- '&6Кредиты: Dali_, MagmaGuy, Frostcone'
 dungeonSizeCategory: DUNGEON
 worldName: em_id_the_quarry
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man hard content!'
-regionEnterMessage: '&bGo down into the quarry and get that lift working.'
-regionLeaveMessage: '&bYou have left The Quarry!'
+playerInfo: 'Сложность: &45-человек, сложный контент!'
+regionEnterMessage: '&bСпускайтесь в карьер и запустите подъемник.'
+regionLeaveMessage: '&bВы покинули Карьер!'
 startLocation: em_id_the_quarry,245.5,138,109.5,-90,30
 teleportLocation: em_id_the_quarry,230.5,144,102.5,-67,0
 dungeonObjectives:

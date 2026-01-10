@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: SLIME
-name: '&2Lvl &2$level &fElite &2Slime'
+name: '&2Ур. &2$level &fЭлитный &2Слизень'
 deathMessages:
-- $player was squished by $entity&f!
+- $player был раздавлен $entity&f!
 baseDamageV2: 6.0

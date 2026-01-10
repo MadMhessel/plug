@@ -1,4 +1,4 @@
 isEnabled: true
-name: Mining Fatigue
+name: Усталость от добычи
 onHitDuration: 10
 value: 10.0

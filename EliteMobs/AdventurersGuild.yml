@@ -364,8 +364,8 @@ Prestige 10 rank 20 short placeholder: '&5⚜Ⅹ&6&l✧&eⅩⅩ'
 #  This is an incredibly important part of EliteMobs and extremely highly recommended.
 limitLootBasedOnGuildTier: true
 # Sets the message sent to players if their loot gets nerfed due to their low guild level.
-lootLimiterMessage: '&7[EM] &cYou must unlock the next guild rank through /ag to loot
-  better items!'
+lootLimiterMessage: '&7[EM] &cОткройте следующий ранг гильдии через /ag, чтобы получать
+  более качественный лут!'
 # Sets the commands that run on guild rank up. Placeholders are:
 # $prestigerank - outputs the prestige rank
 # $activerank - outputs the currently active rank
@@ -406,7 +406,7 @@ additionalKillsForRankUpPerTierV2: 50
 prestigeUnlockMessageTitle: $player
 # Sets subtitle sent to players when someone unlocks a prestige rank.
 # $tier is a placeholder that gets replaced with the player's prestige level.
-prestigeUnlockMessageSubtitle: '&2has unlocked $tier&2!'
+prestigeUnlockMessageSubtitle: '&2открыл $tier&2!'
 # Sets the multiplier that will be applied to the spawn chance when players are using the peaceful (commoner) rank.
 peacefulModeEliteChanceDecrease: 0.2
 # Sets the list of worlds to which guild rank bonuses will not be applied

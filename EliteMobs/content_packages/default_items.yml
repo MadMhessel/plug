@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Default EliteMobs Custom Items'
+name: '&2Стандартные пользовательские предметы EliteMobs'
 customInfo:
-- All default custom items from EliteMobs!
+- Все стандартные пользовательские предметы из EliteMobs!
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true

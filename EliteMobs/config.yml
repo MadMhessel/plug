@@ -47,46 +47,46 @@ characterLimitForBookMenuPagesV2: 170
 # Not recommended if you are using the EliteMobs resource pack.
 useGlassToFillMenuEmptySpace: false
 # Sets the message sent to players if they run '/em confirm' with no pending commands.
-noPendingCommands: '&cYou don''t currently have any pending commands!'
+noPendingCommands: '&cСейчас нет ожидающих команд!'
 # Sets the tracking message for bosses that send tracking messages.
-trackMessage: Track the $name
+trackMessage: Отслеживание: $name
 # Sets the message sent to players that open treasure chests with level requirements above their guild rank.
-chestLowRankMessage: '&7[EM] &cYour guild rank needs to be at least $rank &cin order
-  to open this chest!'
+chestLowRankMessage: '&7[EM] &cВаш ранг гильдии должен быть не ниже $rank, чтобы открыть
+  этот сундук!'
 # Sets the message sent to players that try to reopen a treasure chest they have already opened.
-chestCooldownMessage: '&7[EM] &cYou''ve already opened this chest recently! Wait $time!'
+chestCooldownMessage: '&7[EM] &cВы уже недавно открывали этот сундук! Подождите $time!'
 # Sets the message that appears recommending the /em alt command for players having issues with the /em command
-dismissEMMessage: '&8[EliteMobs] &2/elitemobs &fmenu not working for you? Try &2/elitemobs
-  alt &fto see an alternative version of the menu! &cDon''t want to see this message
-  again? &4/em dismiss'
+dismissEMMessage: '&8[EliteMobs] &2/elitemobs &fменю не работает? Попробуйте &2/elitemobs
+  alt &fдля альтернативной версии меню! &cНе хотите видеть это сообщение снова?
+  &4/em dismiss'
 # Sets the message that appears when players run the /em alt command.
-switchEMStyleMessage: '&8[EliteMobs] &2/elitemobs &fmenu style changed! Check it out!'
+switchEMStyleMessage: '&8[EliteMobs] &2/elitemobs &fстиль меню изменён! Посмотрите!'
 # Sets the message that appears when a player opens a treasure chest but gets nothing
-treasureChestNoDropMessage: '&8[EliteMobs] &cYou didn''t get anything! Better luck
-  next time!'
+treasureChestNoDropMessage: '&8[EliteMobs] &cВы ничего не получили! Повезёт в следующий
+  раз!'
 # Sets the message that appears when a player tries to track a boss that is no longer valid
-bossAlreadyGoneMessage: '&c[EliteMobs] Sorry, this boss is already gone!'
+bossAlreadyGoneMessage: '&c[EliteMobs] Извините, этого босса уже нет!'
 # Sets whether to reset player scale (literally, the player size on login).
 # This is important because some elite powers can modify it and if the server crashes players will be stuck to whatever scale was set when the server crashed, unless this option is set to true.
 resetPlayerScale: true
 # Sets the message sent to players when they fail an enchantment challenge
-enchantmentChallengeFailureMessage: '&8[EliteMobs] &cFailed enchantment! The enchantment
-  did not bind to the item.'
+enchantmentChallengeFailureMessage: '&8[EliteMobs] &cЗачарование не удалось! Чары
+  не привязались к предмету.'
 # Sets the message sent to players when they succeed an enchantment challenge
-enchantmentChallengeSuccessMessage: '&8[EliteMobs] &2Successful enchantment!'
+enchantmentChallengeSuccessMessage: '&8[EliteMobs] &2Успешное зачарование!'
 # Sets the message sent to players when their inventory is full during an enchantment challenge
-enchantmentChallengeInventoryFullMessage: '&8[EliteMobs] &cYour inventory was full
-  so the item you were trying to upgrade has been deleted! It will be restored if
-  your item is not full by the time you leave the instanced dungeon.'
+enchantmentChallengeInventoryFullMessage: '&8[EliteMobs] &cВаш инвентарь был заполнен,
+  поэтому предмет для улучшения удалён! Он восстановится, если к моменту выхода из
+  инстанс‑подземелья инвентарь будет не заполнен.'
 # Sets the message sent to players about the consequences of an enchantment challenge
-enchantmentChallengeConsequencesMessage: '&cThere''s a 10% chance of losing your item
-  if you lose the fight! Leaving the arena counts as losing.'
+enchantmentChallengeConsequencesMessage: '&cЕсть 10% шанс потерять предмет при поражении!
+  Выход из арены считается поражением.'
 # Sets the message sent to players when they critically fail an enchantment challenge
-enchantmentChallengeCriticalFailureMessage: '&8[EliteMobs] &4Critical failure! You
-  lost the item!'
+enchantmentChallengeCriticalFailureMessage: '&8[EliteMobs] &4Критическая неудача!
+  Вы потеряли предмет!'
 # Sets the message sent to players at the start of an enchantment challenge
-enchantmentChallengeStartMessage: '&8[EliteMobs] &6Challenge! Defeat the boss to get
-  your upgraded item!'
+enchantmentChallengeStartMessage: '&8[EliteMobs] &6Испытание! Победите босса, чтобы
+  получить улучшенный предмет!'
 # Enables the use of resource packs even if the resource pack manager is not installed
 useResourcePackEvenIfResourcePackManagerIsNotInstalled: false
 # Sets whether the scale (size) of the elites will be slightly randomized, for variety.

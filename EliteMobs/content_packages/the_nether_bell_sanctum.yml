@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 055] &3The Nether Bell Sanctum'
+name: '&2[lvl 055] &3Святилище Колокола Незера'
 customInfo:
-- '&fVenture into the deepest part of the Nether!'
-- '&6Credits: Dali_, MagmaGuy, Frostcone'
+- '&fОтправьтесь в самую глубину Незера!'
+- '&6Кредиты: Dali_, MagmaGuy, Frostcone'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_the_nether_bell
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man hard content!'
-regionEnterMessage: '&bNo being should be this deep in the Nether...'
-regionLeaveMessage: '&bYou have left The Nether Bell!'
+playerInfo: 'Сложность: &45-человек, сложный контент!'
+regionEnterMessage: '&bНи одно существо не должно быть так глубоко в Незере...'
+regionLeaveMessage: '&bВы покинули Колокол Незера!'
 startLocation: em_id_the_nether_bell,184.5,69,-192.5,43,0
 teleportLocation: em_id_the_nether_bell,231.5,87,-219.5,44,0
 dungeonObjectives:

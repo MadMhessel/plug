@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: MAGMA_CUBE
-name: '&2Lvl &2$level &fElite &6Magma Cube'
+name: '&2Ур. &2$level &fЭлитный &6Магмовая слизь'
 deathMessages:
-- $player was incinerated by $entity&f!
-- $player got too close to $entity&f!
+- $player был сожжён $entity&f!
+- $player подошёл слишком близко к $entity&f!
 baseDamageV2: 6.0

@@ -1,46 +1,46 @@
 isEnabled: true
-shopName: '[EM] Repair menu!'
+shopName: '[EM] Меню ремонта!'
 infoButton:
   material: PLAYER_HEAD
-  name: §4§lEliteMobs §cby §4§lMagmaGuy
+  name: §4§lEliteMobs §cот §4§lMagmaGuy
   lore:
-  - §8Support the plugins you enjoy!
-  - §aUse scrap to repair elite items!
+  - §8Поддержите плагины, которые вам нравятся!
+  - §aИспользуйте обломки для ремонта элитных предметов!
 infoButtonSlot: 4
 eliteItemInputInformationSlot: 20
 eliteItemInputSlot: 29
 eliteItemInputInformationButton:
   material: GREEN_BANNER
-  name: §2 Elite Item Input slots
+  name: §2 Слот элитного предмета
   lore:
-  - §aThis slot is for your elite item!
+  - §aПоложите сюда элитный предмет!
   customModelID: 31173
 eliteScrapInputInformationSlot: 22
 eliteScrapInputSlot: 31
 eliteScrapInputInformationButton:
   material: GREEN_BANNER
-  name: §2Elite Scrap Input slots
+  name: §2Слот элитных обломков
   lore:
-  - §aThis slot is for your elite scrap!
+  - §aПоложите сюда элитные обломки!
   customModelID: 31173
 informationOutputButtonSlot: 24
 outputSlot: 33
 cancelButton:
   material: BARRIER
-  name: §4Cancel
+  name: §4Отмена
   lore:
-  - §cCancel repair!
+  - §cОтменить ремонт!
   customModelID: 31173
 outputInformationButton:
   material: RED_BANNER
-  name: §2Output slots
+  name: §2Слот результата
   lore:
-  - §aThis slot previews the result of your repair!
+  - §aЗдесь показан результат ремонта!
   customModelID: 31173
 cancelButtonSlot: 27
 confirmButton:
   material: EMERALD
-  name: §2Confirm!
+  name: §2Подтвердить!
   lore:
-  - §aRepair item!
+  - §aОтремонтировать предмет!
 confirmRepairSlot: 35

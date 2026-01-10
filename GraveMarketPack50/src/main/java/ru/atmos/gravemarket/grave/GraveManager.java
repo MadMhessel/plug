@@ -473,7 +473,9 @@ public final class GraveManager {
         int totalPages = totalPages(r);
         int safePage = Math.max(0, Math.min(page, totalPages - 1));
         viewState.put(player.getUniqueId(), new ViewState(r.id, safePage));
-        Inventory inv = Bukkit.createInventory(new GraveInventoryHolder(r.id, safePage), GUI_SIZE, graveTitle(r));
+        GraveInventoryHolder holder = new GraveInventoryHolder(r.id, safePage);
+        Inventory inv = Bukkit.createInventory(holder, GUI_SIZE, graveTitle(r));
+        holder.setInventory(inv);
         fillInventoryPage(inv, r, safePage, totalPages);
         logGuiDebug("open", player, r, inv);
         player.openInventory(inv);

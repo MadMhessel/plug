@@ -1,4 +1,4 @@
 isEnabled: true
-name: Jump Boost
+name: Прыгучесть
 onHitDuration: 10
 value: 50.0

@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: VINDICATOR
-name: '&fLvl &2$level &fElite &8Vindicator'
+name: '&fУр. &2$level &fЭлитный &8Поборник'
 deathMessages:
-- $entity &cvindicated his fighting skills over $player&c!
+- $entity &cдоказал свои боевые навыки на $player&c!
 baseDamageV2: 19.5

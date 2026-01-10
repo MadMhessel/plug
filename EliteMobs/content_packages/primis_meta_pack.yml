@@ -1,8 +1,8 @@
 isEnabled: true
-name: '&2[000-020] The Primis Adventure!'
+name: '&2[000-020] Приключение Примис!'
 customInfo:
-- The tutorial adventure for players
-- new to EliteMobs!
+- '&fОбучающее приключение для игроков'
+- '&fновых в EliteMobs!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -12,7 +12,7 @@ containedPackages:
 - primis_blood_temple_sanctum.yml
 - primis_gladius_invasion_dungeon.yml
 setupMenuDescription:
-- '&2A soft tutorial adventure for players between levels 0-20!'
-- '&2Adventures are massive maps with quests,'
-- '&2many bosses and npcs, among other things!'
-- '&2Also has custom models!'
+- '&2Мягкое обучающее приключение для игроков 0-20 уровней!'
+- '&2Приключения — это масштабные карты с квестами,'
+- '&2множеством боссов и NPC, среди прочего!'
+- '&2Также есть пользовательские модели!'
