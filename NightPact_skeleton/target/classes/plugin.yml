@@ -1,0 +1,15 @@
+name: NightPact
+version: 0.1.0
+main: ru.atmstr.nightpact.NightPactPlugin
+api-version: "1.20"
+author: ATMSTR
+description: Сон как договор — пропуск ночи через "пакт сна" с последствиями.
+commands:
+  nightpact:
+    description: Управление NightPact
+    usage: /nightpact <status|reload|force|debug>
+    permission: nightpact.admin
+permissions:
+  nightpact.admin:
+    description: Доступ к админ-командам NightPact
+    default: op

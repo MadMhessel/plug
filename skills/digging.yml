@@ -1,0 +1,67 @@
+display_name: <lang.skill-digging-displayname>
+icon: IRON_SHOVEL
+icon_data: 3510002
+description: <lang.skill-digging-description>
+
+levelbar_title: <lang.skill-digging-level-bar>
+levelbar_color: GREEN # You can choose between BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
+levelbar_style: SEGMENTED_6 # You can choose between SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, and SOLID
+
+forgiving_multipliers: true # drop multipliers below 0 will, if false, sometimes cause blocks mined to not drop anything.
+# if true, the drop amount can not go below 1 so only blocks that drop multiple items (such as redstone ore, lapis lazuli ore,
+# gold/iron ore with fortune) will be affected, but everything else will drop at least 1.
+# This may be set to false if you desire a more grindy experience for your players, though it might be frustrating for them
+
+# Digging features some archaeology buffs, one of them being that with a % chance, when a block is mined or dug out, adjacent blocks
+# that aren't touching air may be converted to suspicious sand/gravel containing some loot.
+# Materials are formatted like MATERIAL:MULTIPLIER, where the multiplier indicates how much the conversion chance should be multiplied
+# per material. This allows more fine control over which blocks should more or less commonly be converted. (default multiplier 1)
+archaeology_convertable_gravel: # The following blocks may be converted to suspicious gravel
+  - GRAVEL:1
+
+archaeology_convertable_sand: # The following blocks may be converted to suspicious sand
+  - SAND:1
+  - SANDSTONE:1
+
+archaeology_rare_loot_tables: # Rare loot tables. If no loot table is specified by nearby structures, a random table will be picked from this list
+  - TRAIL_RUINS_ARCHAEOLOGY_RARE
+  - DESERT_PYRAMID_ARCHAEOLOGY
+
+archaeology_common_loot_tables: # Common loot tables. Same as above, will spawn random entry if rare loot generation chance has failed
+  - DESERT_WELL_ARCHAEOLOGY
+  - OCEAN_RUIN_COLD_ARCHAEOLOGY
+  - OCEAN_RUIN_WARM_ARCHAEOLOGY
+  - TRAIL_RUINS_ARCHAEOLOGY_COMMON
+
+archaeology_valid_vacinity_structures:
+- ANCIENT_CITY:4:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- BASTION_REMNANT:2:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- DESERT_PYRAMID:1:DESERT_PYRAMID_ARCHAEOLOGY
+- END_CITY:1:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- FORTRESS:8:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- JUNGLE_PYRAMID:1:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- MANSION:2:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- MINESHAFT:4:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- MINESHAFT_MESA:4:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- MONUMENT:2:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- NETHER_FOSSIL:0:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- OCEAN_RUIN_COLD:0:OCEAN_RUIN_COLD_ARCHAEOLOGY
+- OCEAN_RUIN_WARM:0:OCEAN_RUIN_WARM_ARCHAEOLOGY
+- PILLAGER_OUTPOST:0:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- RUINED_PORTAL:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_DESERT:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_JUNGLE:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_MOUNTAIN:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_NETHER:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_OCEAN:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- RUINED_PORTAL_SWAMP:0:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- SHIPWRECK:0:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- SHIPWRECK_BEACHED:0:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- STRONGHOLD:4:TRAIL_RUINS_ARCHAEOLOGY_RARE
+- SWAMP_HUT:0:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- TRAIL_RUINS:1:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- VILLAGE_DESERT:2:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- VILLAGE_PLAINS:2:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- VILLAGE_SAVANNA:2:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- VILLAGE_SNOWY:2:TRAIL_RUINS_ARCHAEOLOGY_COMMON
+- VILLAGE_TAIGA:2:TRAIL_RUINS_ARCHAEOLOGY_COMMON

@@ -1,0 +1,174 @@
+# NightPact — сон как договор
+#
+# Идея:
+# - "Голосование" происходит через кровать.
+# - Достигаем порога -> короткая подготовка -> пропуск ночи.
+# - После пропуска применяется "послевкусие сна" (эффект) с настраиваемыми шансами.
+
+settings:
+  # Миры, в которых работает механика (по умолчанию только обычный мир).
+  enabled_worlds:
+    - world
+
+  # Минимальный процент игроков (онлайн в мире), которые должны лежать в кровати, чтобы начать подготовку.
+  # Пример: 0.40 = 40%
+  required_ratio: 0.40
+
+  # Минимальное абсолютное число спящих (чтобы на 2 игроках не было "1 из 2" при required_ratio=0.40).
+  min_sleepers: 1
+
+  # Длительность подготовки (сек). На протяжении подготовки состав "спящие/дежурные" может меняться.
+  preparation_seconds: 15
+
+  # Пропуск ночи только в ночное время (по тикам мира). 0..24000, ночь примерно 12541..23458
+  night_only: true
+
+  # После пропуска ночи сбрасывать дождь/гроза
+  clear_weather_on_skip: true
+
+  # Показывать полосу прогресса (bossbar) всем игрокам в мире.
+  show_progress_bar: true
+  # Показывать actionbar с прогрессом (опционально).
+  show_actionbar: false
+
+  # Сброс таймера фантомов после пропуска ночи:
+  # SLEEPERS - только спящие, ALL - все игроки в мире, NONE - не сбрасывать.
+  reset_phantom_timer:
+    mode: SLEEPERS
+
+  # Включить внутренний дебаг (в памяти, без спама в консоль).
+  debug: false
+
+  # Поддержка роли "тревожный сон":
+  anxious_sleep:
+    enabled: true
+    # Считать тревожным, если рядом есть враждебные существа.
+    hostile_scan_radius: 12
+    # Считать тревожным, если игрок был в бою за последние N секунд.
+    combat_tag_seconds: 12
+    # Режим определения враждебных мобов:
+    # MONSTER_ONLY | LIST_ONLY | MONSTER_PLUS_LIST
+    mode: MONSTER_ONLY
+    # Дополнительный список сущностей (используется в LIST_ONLY и MONSTER_PLUS_LIST).
+    hostile_entity_types: [PHANTOM, SLIME]
+
+  # "Комбо-сон": если несколько спящих в радиусе, повышается шанс положительных эффектов.
+  combo_sleep:
+    enabled: true
+    radius: 32
+    # Сколько спящих рядом нужно, чтобы считалось комбо.
+    min_cluster_size: 2
+
+# Модификаторы вероятностей по категориям эффектов.
+# Итоговый вес = base_weight * category_multiplier * context_multiplier
+selection_modifiers:
+  positive_multiplier: 1.00
+  neutral_multiplier: 1.00
+  negative_multiplier: 1.00
+
+  # Если сработал "комбо-сон" — увеличиваем вероятность положительных эффектов.
+  combo_positive_multiplier: 1.25
+
+  # Если есть тревожные спящие — увеличиваем вероятность отрицательных эффектов.
+  anxious_negative_multiplier: 1.35
+
+  # Если много дежурных — слегка увеличиваем вероятность отрицательных эффектов.
+  sentinels_negative_multiplier: 1.10
+
+# Базовые веса эффектов. Можно выключить эффект, поставив 0.
+effect_weights:
+  well_rested: 20
+  clear_mind: 18
+  no_dreams: 15
+  night_cold: 14
+  messed_schedule: 12
+  bad_dream: 7
+  prophetic_dream: 6
+  night_deal: 8
+
+effects:
+  well_rested:
+    duration_seconds: 35
+    amplifier: 0  # 0 = I, 1 = II ...
+  clear_mind:
+    duration_seconds: 35
+    amplifier: 0
+  night_cold:
+    duration_seconds: 30
+    amplifier: 0
+  messed_schedule:
+    duration_seconds: 60
+    amplifier: 0
+
+  bad_dream:
+    # Какие мобы появляются как "эхо"
+    mob_types: [ZOMBIE, SKELETON]
+    count_min: 1
+    count_max: 2
+    spawn_radius: 10
+    # Баффы "эхо" мобов
+    buff_strength_seconds: 25
+    buff_speed_seconds: 25
+    # Ограничение, чтобы не спамить слишком много
+    max_total_spawn: 4
+    # Не спавнить в peaceful
+    disable_in_peaceful: true
+    # Не спавнить в радиусе от спауна мира (0 = выкл)
+    spawn_protection_radius: 0
+    # Спавнить только если дежурный на поверхности
+    require_surface: false
+
+  prophetic_dream:
+    enabled: true
+    # Что искать (Bukkit StructureType): VILLAGE, SHIPWRECK, STRONGHOLD и т.д.
+    structure_type: VILLAGE
+    search_radius_blocks: 2000
+    find_unexplored: false
+    # Кулдауны, чтобы не долбить поиск слишком часто
+    cooldown_minutes:
+      player: 20
+      world: 10
+    # Кеш найденной структуры (минуты)
+    cache_minutes: 20
+
+  night_deal:
+    enabled: true
+    # Кулдаун на игрока (минуты)
+    cooldown_minutes: 30
+    # Лут, который появляется рядом со спящими (на игрока).
+    # Формат: MATERIAL:amount
+    loot:
+      - ARROW:8
+      - COOKED_BEEF:2
+      - TORCH:12
+      - COAL:6
+    # Маленький шанс на "редкость" (не обязателен).
+    rare_chance: 0.08
+    rare_loot:
+      - GOLDEN_APPLE:1
+      - EXPERIENCE_BOTTLE:6
+
+messages:
+  prefix: "&6[&eNightPact&6]&r "
+  status_line: "&7Мир: &f%WORLD%&7 | Спят: &f%SLEEPERS%&7/&f%ONLINE%&7 (нужно: &f%REQUIRED%&7) | Подготовка: &f%PREPARING%&7 (%SECONDS%с) | Тревожный сон: &f%ANXIOUS%&7 | Комбо: &f%COMBO%"
+  prep_started: "&eПакт сна начат. Подготовка: &f%SECONDS%&e сек."
+  prep_cancelled: "&cПакт сна сорван: недостаточно спящих."
+  night_skipped: "&aНочь пропущена. Послевкусие: &f%EFFECT%&a."
+  night_skipped_short: "&aПакт сна заключён."
+  not_night: "&7Сейчас не ночь — пакт не активируется."
+  reloaded: "&aКонфигурация перезагружена."
+  forced: "&eПропуск ночи запущен принудительно."
+  actionbar: "&eПакт сна: &f%SLEEPERS%&7/&f%ONLINE%&e | &7%SECONDS%с"
+  prophetic_cooldown: "&bВещий сон: &7слишком туманно (ещё %MINUTES% мин.)"
+  night_deal_cooldown: "&6Ночная сделка: &7рынок молчит (ещё %MINUTES% мин.)"
+  yes: "да"
+  no: "нет"
+  effect:
+    well_rested: "&aБодрое утро"
+    clear_mind: "&aЯсная голова"
+    no_dreams: "&7Сон без сновидений"
+    night_cold: "&eНочной холод"
+    messed_schedule: "&eСбившийся режим"
+    bad_dream: "&cПлохой сон"
+    prophetic_dream: "&bВещий сон"
+    night_deal: "&6Ночная сделка"

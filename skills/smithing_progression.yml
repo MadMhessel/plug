@@ -1,0 +1,377 @@
+starting_perks:
+  smithing_stoneexpmultiplier_add: -0.5 # stone and chain grant 50% reduced exp at first
+  smithing_chainexpmultiplier_add: -0.5
+  smithing_copperexpmultiplier_add: -0.5
+  smithing_goldexpmultiplier_add: -0.75 # gold and iron 75% less
+  smithing_ironexpmultiplier_add: -0.75
+  smithing_diamondexpmultiplier_add: -0.9 # diamond 90% less
+  smithing_netheriteexpmultiplier_add: -1 # netherite grants nothing
+
+experience:
+  exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
+  max_level: 100
+  # Damaging an item (regardless of amount) will increase a tally counter for the item's material type.
+  # The next time Smithing exp is gained with said material type, it is multiplied by the number below TIMES the tally counter.
+  # The tally counter is then reduced by the max amount of times this effect may be stacked (100 stacks reduced to 0,
+  # By default, each stack grants +1% EXP per durability taken, up to 1000 stacks (+1000%) for normal items
+  # For armors, +0.5% EXP is granted per stack up to 200 stacks (+100%) because armor is easier to damage than tools
+  durability_tools_exp_multiplier_stack: 0.01
+  durability_tools_exp_multiplier_maximum: 1000
+  durability_armors_exp_multiplier_stack: 0.005
+  durability_armors_exp_multiplier_maximum: 200
+  durability_chunk_limit: 50 # Similar to the combat skills, damaging an item too much in the same chunk will reduce exp gotten from it.
+  # In this case, it prevents you from getting more stacks if the counter exceeds this limit.
+  # This basically just means you may not get more than 50 stacks per chunk per item type
+  daily_limit: -1
+  daily_limit_warning: <lang.skill-smithing-daily-limit-reached>
+
+starting_coordinates: 3,5
+
+special_perks:
+  '20':
+    perk_rewards:
+      smithing_woodexpmultiplier_add: -0.75 # wood and leather have their exp reduced by 75%
+      smithing_leatherexpmultiplier_add: -0.75
+      smithing_stoneexpmultiplier_add: 0.5 # stone and chain have their exp restored back to 100%
+      smithing_chainexpmultiplier_add: 0.5
+      smithing_copperexpmultiplier_add: 0.5
+      smithing_goldexpmultiplier_add: 0.25 # gold and iron have their exp buffed to 50%
+      smithing_ironexpmultiplier_add: 0.25
+      smithing_diamondexpmultiplier_add: 0.15 # diamond has its exp buffed to 25%
+      smithing_netheriteexpmultiplier_add: 0.1 # netherite starts giving 10% exp
+  '40':
+    perk_rewards:
+      smithing_woodexpmultiplier_add: -0.2 # wood and leather have their exp reduced to 5%
+      smithing_leatherexpmultiplier_add: -0.2
+      smithing_stoneexpmultiplier_add: -0.75 # stone and chain have their exp reduced to 25%
+      smithing_chainexpmultiplier_add: -0.75
+      smithing_copperexpmultiplier_add: -0.75
+      smithing_goldexpmultiplier_add: 0.5 # gold and iron have their exp restored back to 100%
+      smithing_ironexpmultiplier_add: 0.5
+      smithing_diamondexpmultiplier_add: 0.25 # diamond has its exp buffed to 50%
+      smithing_netheriteexpmultiplier_add: 0.15 # netherite has its exp buffed to 25%
+  '60':
+    perk_rewards:
+      smithing_woodexpmultiplier_add: -0.05 # wood and leather have their exp reduced to 0%
+      smithing_leatherexpmultiplier_add: -0.05
+      smithing_stoneexpmultiplier_add: -0.2 # stone and chain have their exp reduced to 5%
+      smithing_chainexpmultiplier_add: -0.2
+      smithing_copperexpmultiplier_add: -0.2
+      smithing_goldexpmultiplier_add: -0.75 # gold and iron have their exp reduced to 25%
+      smithing_ironexpmultiplier_add: -0.75
+      smithing_diamondexpmultiplier_add: 0.5 # diamond has its exp restored back to 100%
+      smithing_netheriteexpmultiplier_add: 0.25 # netherite has its exp buffed to 50%
+  '80':
+    perk_rewards:
+      smithing_stoneexpmultiplier_add: -0.05 # stone and chain have their exp reduced to 0%
+      smithing_chainexpmultiplier_add: -0.05
+      smithing_copperexpmultiplier_add: -0.05
+      smithing_goldexpmultiplier_add: -0.2 # gold and iron have their exp reduced to 20%
+      smithing_ironexpmultiplier_add: -0.2
+      smithing_netheriteexpmultiplier_add: 0.5 # netherite has its exp restored back to 100%, diamond stays at 100% as well
+
+
+commands: []
+
+messages:
+- <lang.skill-level-up-smithing>
+
+leveling_perks:
+  smithing_genericcraftingskill_add: 1.5
+
+perks:
+  smithing_perk_1:
+    icon: OAK_PLANKS
+    coords: 3,5
+    name: <lang.smithing_perk_1_name>
+    description: <lang.smithing_perk_1_description>
+    cost: 1
+    hidden: false
+    required_lv: 0
+    perk_rewards:
+      smithing_woodcraftingskill_add: 50
+      smithing_leathercraftingskill_add: 50
+    messages:
+    - <lang.smithing_perk_1_messages>
+    custom_model_data_unlockable: -1
+    custom_model_data_unlocked: -1
+    custom_model_data_visible: -1
+  smithing_perk_2:
+    icon: COBBLESTONE
+    coords: 2,7
+    name: <lang.smithing_perk_2_name>
+    description: <lang.smithing_perk_2_description>
+    cost: 1
+    hidden: false
+    required_lv: 20
+    perk_rewards:
+      smithing_stonecraftingskill_add: 50
+      smithing_chaincraftingskill_add: 50
+      smithing_coppercraftingskill_add: 50
+    messages:
+    - <lang.smithing_perk_2_messages>
+    requireperk_all:
+    - smithing_perk_1
+    connection_line:
+      '1':
+        position: 3,6
+        locked: GRAY_DYE:1172718
+        unlockable: ORANGE_DYE:1172818
+        unlocked: LIME_DYE:1172918
+      '2':
+        position: 2,6
+        locked: GRAY_DYE:1172717
+        unlockable: ORANGE_DYE:1172817
+        unlocked: LIME_DYE:1172917
+  smithing_perk_3:
+    icon: IRON_INGOT
+    coords: 6,7
+    name: <lang.smithing_perk_3_name>
+    description: <lang.smithing_perk_3_description>
+    cost: 1
+    hidden: false
+    required_lv: 40
+    perk_rewards:
+      smithing_ironcraftingskill_add: 50
+      smithing_goldcraftingskill_add: 50
+      recipes_unlock:
+      - craft_diamond_helmet
+      - craft_diamond_chestplate
+      - craft_diamond_leggings
+      - craft_diamond_boots
+      - craft_diamond_sword
+      - craft_diamond_axe
+      - craft_diamond_pickaxe
+      - craft_diamond_shovel
+      - craft_diamond_hoe
+      - craft_diamond_warhammer
+      - craft_diamond_greataxe
+      - craft_diamond_spear
+      - craft_diamond_dagger
+      - craft_diamond_rapier
+      - craft_diamond_mace
+      - craft_diamond_realspear
+    messages:
+    - <lang.smithing_perk_3_messages>
+    requireperk_all:
+    - smithing_perk_2
+    connection_line:
+      '1':
+        position: 3,7
+        locked: GRAY_DYE:1172709
+        unlockable: ORANGE_DYE:1172809
+        unlocked: LIME_DYE:1172909
+      '2':
+        position: 4,7
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '3':
+        position: 5,7
+        locked: GRAY_DYE:1172708
+        unlockable: ORANGE_DYE:1172808
+        unlocked: LIME_DYE:1172908
+  smithing_perk_4:
+    icon: DIAMOND
+    coords: 5,5
+    name: <lang.smithing_perk_4_name>
+    description: <lang.smithing_perk_4_description>
+    cost: 1
+    hidden: false
+    required_lv: 60
+    perk_rewards:
+      smithing_diamondcraftingskill_add: 50
+      power_inventoryrepairingkeepenchanting_toggle: []
+    messages:
+    - <lang.smithing_perk_4_messages>
+    requireperk_all:
+    - smithing_perk_3
+    connection_line:
+      '1':
+        position: 5,6
+        locked: GRAY_DYE:1172716
+        unlockable: ORANGE_DYE:1172816
+        unlocked: LIME_DYE:1172916
+      '2':
+        position: 6,6
+        locked: GRAY_DYE:1172719
+        unlockable: ORANGE_DYE:1172819
+        unlocked: LIME_DYE:1172919
+  smithing_perk_5:
+    icon: NETHERITE_INGOT
+    coords: 8,2
+    name: <lang.smithing_perk_5_name>
+    description: <lang.smithing_perk_5_description>
+    cost: 1
+    hidden: false
+    required_lv: 80
+    perk_rewards:
+      smithing_netheritecraftingskill_add: 50
+    messages:
+    - <lang.smithing_perk_5_messages>
+    requireperk_all:
+    - smithing_perk_4
+    connection_line:
+      '1':
+        position: 5,4
+        locked: GRAY_DYE:1172717
+        unlockable: ORANGE_DYE:1172817
+        unlocked: LIME_DYE:1172917
+      '2':
+        position: 6,4
+        locked: GRAY_DYE:1172722
+        unlockable: ORANGE_DYE:1172822
+        unlocked: LIME_DYE:1172922
+      '3':
+        position: 6,3
+        locked: GRAY_DYE:1172721
+        unlockable: ORANGE_DYE:1172821
+        unlocked: LIME_DYE:1172921
+      '4':
+        position: 7,3
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '5':
+        position: 8,3
+        locked: GRAY_DYE:1172718
+        unlockable: ORANGE_DYE:1172818
+        unlocked: LIME_DYE:1172918
+  smithing_perk_6:
+    icon: NETHER_STAR
+    coords: 0,2
+    name: <lang.smithing_perk_6_name>
+    description: <lang.smithing_perk_6_description>
+    cost: 1
+    hidden: false
+    required_lv: 100
+    perk_rewards:
+      smithing_genericcraftingskill_add: 50
+    messages:
+    - <lang.smithing_perk_6_messages>
+    requireperk_all:
+    - smithing_perk_5
+    connection_line:
+      '1':
+        position: 7,2
+        locked: GRAY_DYE:1172708
+        unlockable: ORANGE_DYE:1172808
+        unlocked: LIME_DYE:1172908
+      '2':
+        position: 6,2
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '3':
+        position: 5,2
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '4':
+        position: 4,2
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '5':
+        position: 3,2
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '6':
+        position: 2,2
+        locked: GRAY_DYE:1172707
+        unlockable: ORANGE_DYE:1172807
+        unlocked: LIME_DYE:1172907
+      '7':
+        position: 1,2
+        locked: GRAY_DYE:1172709
+        unlockable: ORANGE_DYE:1172809
+        unlocked: LIME_DYE:1172909
+  smithing_perk_prismarine:
+    icon: PRISMARINE_SHARD
+    coords: 3,3
+    name: <lang.smithing_perk_prismarine_name>
+    description: <lang.smithing_perk_prismarine_description>
+    cost: 1
+    hidden: false
+    required_lv: 70
+    perk_rewards:
+      smithing_prismarinecraftingskill_add: 50
+      recipes_unlock:
+      - craft_trident
+    messages:
+    - <lang.smithing_perk_prismarine_messages>
+    requireperk_all:
+    - smithing_perk_3
+  smithing_perk_enderic:
+    icon: PHANTOM_MEMBRANE
+    coords: 5,3
+    name: <lang.smithing_perk_enderic_name>
+    description: <lang.smithing_perk_enderic_description>
+    cost: 1
+    hidden: false
+    required_lv: 90
+    perk_rewards:
+      smithing_endericcraftingskill_add: 50
+      recipes_unlock:
+      - craft_elytra
+      - craft_choral_leather
+    messages:
+    - <lang.smithing_perk_enderic_messages>
+    requireperk_all:
+    - smithing_perk_4
+  smithing_perk_bows:
+    icon: BOW
+    coords: 4,4
+    name: <lang.smithing_perk_bows_name>
+    description: <lang.smithing_perk_bows_description>
+    cost: 1
+    other_levels_required:
+    - ARCHERY:50
+    hidden: false
+    required_lv: 50
+    perk_rewards:
+      smithing_bowcraftingskill_add: 50
+      smithing_crossbowcraftingskill_add: 50
+    messages:
+    - <lang.smithing_perk_bows_messages>
+  smithing_perk_ng1:
+    icon: TOTEM_OF_UNDYING
+    coords: 4,6
+    name: <lang.smithing_perk_ng1_name>
+    description: <lang.smithing_perk_ng1_description>
+    cost: 0
+    hidden: true
+    required_lv: 100
+    perk_rewards:
+      reset_skill_smithing: 0
+      p:smithing_genericcraftingskill_add: 50
+      p:smithing_newgameplus_add: 1
+      p:smithing_genericexpmultiplier_add: -0.5
+      p:perks_permanently_unlocked_add:
+      - smithing_perk_ng1
+      p:perks_unlocked_remove:
+      - smithing_perk_ng1
+    messages:
+    - <lang.smithing_perk_ng1_messages>
+  smithing_perk_ng2:
+    icon: TOTEM_OF_UNDYING
+    coords: 4,6
+    name: <lang.smithing_perk_ng2_name>
+    description: <lang.smithing_perk_ng2_description>
+    cost: 0
+    hidden: true
+    required_lv: 100
+    requireperk_all:
+    - smithing_perk_ng1
+    perk_rewards:
+      reset_skill_smithing: 0
+      p:smithing_genericcraftingskill_add: 50
+      p:smithing_newgameplus_add: 1
+      p:smithing_genericexpmultiplier_add: -0.17
+      p:perks_permanently_unlocked_add:
+      - smithing_perk_ng2
+      p:perks_unlocked_remove:
+      - smithing_perk_ng2
+    messages:
+    - <lang.smithing_perk_ng2_messages>
