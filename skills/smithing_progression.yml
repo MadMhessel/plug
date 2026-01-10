@@ -8,7 +8,7 @@ starting_perks:
   smithing_netheriteexpmultiplier_add: -1 # netherite grants nothing
 
 experience:
-  exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
+  exp_level_curve: ((%level% + 75 * 2^(%level%/7.6)) + 300) * 1.5
   max_level: 100
   # Damaging an item (regardless of amount) will increase a tally counter for the item's material type.
   # The next time Smithing exp is gained with said material type, it is multiplied by the number below TIMES the tally counter.
