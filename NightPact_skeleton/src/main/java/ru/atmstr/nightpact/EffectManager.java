@@ -2,6 +2,15 @@ package ru.atmstr.nightpact;
 
 import org.bukkit.configuration.ConfigurationSection;
 
+import ru.atmstr.nightpact.effects.BadDream;
+import ru.atmstr.nightpact.effects.ClearMind;
+import ru.atmstr.nightpact.effects.MessedSchedule;
+import ru.atmstr.nightpact.effects.NightCold;
+import ru.atmstr.nightpact.effects.NightDeal;
+import ru.atmstr.nightpact.effects.NoDreams;
+import ru.atmstr.nightpact.effects.PropheticDream;
+import ru.atmstr.nightpact.effects.WellRested;
+
 import java.util.*;
 
 public class EffectManager {
@@ -23,20 +32,25 @@ public class EffectManager {
         if (sec == null) return;
 
         for (String key : sec.getKeys(false)) {
-            baseWeights.put(key, Math.max(0, sec.getInt(key)));
+            int value = sec.getInt(key);
+            if (value < 0) {
+                plugin.getLogger().warning("Отрицательный вес эффекта " + key + ", исправлено на 0.");
+                value = 0;
+            }
+            baseWeights.put(key, value);
         }
     }
 
     private void registerDefaults() {
         effects.clear();
-        effects.add(new effects.WellRested());
-        effects.add(new effects.ClearMind());
-        effects.add(new effects.NoDreams());
-        effects.add(new effects.NightCold());
-        effects.add(new effects.MessedSchedule());
-        effects.add(new effects.BadDream());
-        effects.add(new effects.PropheticDream());
-        effects.add(new effects.NightDeal());
+        effects.add(new WellRested());
+        effects.add(new ClearMind());
+        effects.add(new NoDreams());
+        effects.add(new NightCold());
+        effects.add(new MessedSchedule());
+        effects.add(new BadDream());
+        effects.add(new PropheticDream());
+        effects.add(new NightDeal());
     }
 
     public String getEffectDisplayName(PactEffect effect) {

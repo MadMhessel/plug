@@ -23,9 +23,18 @@ mvn -DskipTests package
 3. Настройте `enabled_worlds`, `required_ratio`, эффекты и веса
 
 ## Команды
-- `/nightpact status` — статус (сколько спят/сколько нужно)
+- `/nightpact status [world]` — статус по миру (сколько спят/сколько нужно, идёт ли подготовка)
 - `/nightpact reload` — перезагрузка config.yml
-- `/nightpact force` — принудительно запустить пропуск (админам)
+- `/nightpact force [world]` — принудительно запустить пропуск (админам)
+- `/nightpact debug on|off` — включить/выключить внутренний дебаг
+
+## Новые настройки
+Ключевые блоки в `config.yml`:
+- `settings.reset_phantom_timer.mode` — сброс таймера фантомов (SLEEPERS/ALL/NONE).
+- `settings.anxious_sleep.mode` и `settings.anxious_sleep.hostile_entity_types` — контроль тревожного сна.
+- `effects.prophetic_dream.cooldown_minutes` и `effects.prophetic_dream.cache_minutes` — защита от частых поисков.
+- `effects.night_deal.cooldown_minutes` — кулдаун на раздачу лута.
+- `effects.bad_dream.disable_in_peaceful`, `spawn_protection_radius`, `require_surface` — защита от абьюза.
 
 ## Примечание
 Это каркас: логика уже работает, но эффекты и баланс рассчитаны как «безопасные по умолчанию».

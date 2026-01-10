@@ -6,6 +6,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import ru.atmstr.nightpact.NightPactPlugin;
+import ru.atmstr.nightpact.Participant;
 import ru.atmstr.nightpact.PactContext;
 import ru.atmstr.nightpact.PactEffect;
 
@@ -33,13 +34,27 @@ public class NightDeal implements PactEffect {
         if (sec == null) return;
         if (!sec.getBoolean("enabled", true)) return;
 
-        List<ItemStack> loot = parseLoot(sec.getStringList("loot"));
+        int cooldownMinutes = Math.max(0, sec.getInt("cooldown_minutes", 30));
+        long cooldownMs = cooldownMinutes * 60_000L;
+        long now = System.currentTimeMillis();
+
+        List<ItemStack> loot = parseLoot(plugin, sec.getStringList("loot"));
         if (loot.isEmpty()) return;
 
         double rareChance = Math.max(0.0, sec.getDouble("rare_chance", 0.08));
-        List<ItemStack> rareLoot = parseLoot(sec.getStringList("rare_loot"));
+        List<ItemStack> rareLoot = parseLoot(plugin, sec.getStringList("rare_loot"));
 
         for (Player p : ctx.sleepers) {
+            Participant participant = ctx.getParticipant(p.getUniqueId());
+            if (participant != null && participant.isOnCooldown(getId(), cooldownMs, now)) {
+                long minutesLeft = Math.max(1, (participant.getCooldownRemaining(getId(), cooldownMs, now) + 59_999) / 60_000L);
+                String raw = plugin.getConfig().getString("messages.night_deal_cooldown",
+                        "§6Ночная сделка: §7рынок молчит (ещё %MINUTES% мин.)");
+                String msg = raw.replace("%MINUTES%", String.valueOf(minutesLeft));
+                p.sendMessage(NightPactPlugin.colorize(plugin.getConfig().getString("messages.prefix", "")) + msg);
+                continue;
+            }
+
             Location base = ctx.bedLocations.getOrDefault(p.getUniqueId(), p.getLocation());
             Location drop = base.clone().add(0.5, 1.2, 0.5);
 
@@ -54,10 +69,14 @@ public class NightDeal implements PactEffect {
                     ctx.world.dropItemNaturally(drop, it.clone());
                 }
             }
+
+            if (participant != null) {
+                participant.setCooldown(getId(), now);
+            }
         }
     }
 
-    private List<ItemStack> parseLoot(List<String> lines) {
+    private List<ItemStack> parseLoot(NightPactPlugin plugin, List<String> lines) {
         List<ItemStack> out = new ArrayList<>();
         if (lines == null) return out;
 
@@ -73,6 +92,7 @@ public class NightDeal implements PactEffect {
             try {
                 m = Material.valueOf(matStr);
             } catch (Exception e) {
+                plugin.getLogger().warning("Некорректный материал в effects.night_deal: " + matStr);
                 continue;
             }
             amount = Math.max(1, Math.min(64, amount));
