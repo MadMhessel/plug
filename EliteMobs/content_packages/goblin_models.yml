@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Goblin Models'
+name: '&2Модели гоблинов'
 customInfo:
-- Custom models for the goblins events!
+- Пользовательские модели для событий с гоблинами!
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -12,4 +12,4 @@ modelNames:
 - em_goblin_charms
 - em_goblin_weapon
 setupMenuDescription:
-- '&2Makes goblins from EliteMobs events look real fancy!'
+- '&2Гоблины из событий EliteMobs выглядят по-настоящему эффектно!'

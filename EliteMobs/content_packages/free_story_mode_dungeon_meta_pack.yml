@@ -1,8 +1,8 @@
 isEnabled: true
-name: '&2[000-055] All 10 Free Story Mode Dungeons and Sanctums!'
+name: '&2[000-055] Все 10 бесплатных подземелий и святилищ сюжетного режима!'
 customInfo:
-- The perfect set of story dungeons
-- for players new to EliteMobs!
+- '&fИдеальный набор сюжетных подземелий'
+- '&fдля новых игроков EliteMobs!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -19,7 +19,7 @@ containedPackages:
 - the_nether_wastes_dungeon.yml
 - the_nether_bell_sanctum.yml
 setupMenuDescription:
-- '&2All free story mode dungeons for EliteMobs!'
-- '&2Featuring multiple custom soundtracks, models'
-- '&2unique powers and elaborate maps, it''s a really'
-- '&2fun way of experiencing EliteMobs content!'
+- '&2Все бесплатные подземелья сюжетного режима для EliteMobs!'
+- '&2С несколькими саундтреками, моделями,'
+- '&2уникальными способностями и продуманными картами —'
+- '&2это отличный способ познакомиться с контентом EliteMobs!'

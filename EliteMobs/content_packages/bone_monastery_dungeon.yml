@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 085] &cThe Bone Monastery'
+name: '&2[lvl 085] &cКостяной монастырь'
 customInfo:
-- '&fSpooky skeletons await.'
-- '&6Credits: MagmaGuy, Matevagyok, Frostcone, 69OzCanOfBepis'
+- '&fЗловещие скелеты ждут.'
+- '&6Кредиты: MagmaGuy, Matevagyok, Frostcone, 69OzCanOfBepis'
 dungeonSizeCategory: DUNGEON
 worldName: em_id_bone_monastery
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man content!'
-regionEnterMessage: '&bWelcome to the bone monastery! Mind the skeletons.'
-regionLeaveMessage: '&bYou have left the bone monastery!'
+playerInfo: 'Сложность: &45-человек контент!'
+regionEnterMessage: '&bДобро пожаловать в Костяной монастырь! Остерегайтесь скелетов.'
+regionLeaveMessage: '&bВы покинули Костяной монастырь!'
 startLocation: em_id_bone_monastery,-171.5,5.0,54.5,-174.499999,18.499996
 teleportLocation: em_id_bone_monastery,-249.5,18.0,109.5,-174.499999,18.499996
 dungeonObjectives:
@@ -28,4 +28,4 @@ difficulties:
   id: 2
   levelSync: 80
 setupMenuDescription:
-- '&2A Dungeon for players around level 85!'
+- '&2Подземелье для игроков примерно 85 уровня!'

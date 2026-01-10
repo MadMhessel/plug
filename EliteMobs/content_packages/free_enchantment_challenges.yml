@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Free Enchantment Challenges'
+name: '&2Бесплатные испытания чар'
 customInfo:
-- All free enchantment challenges!
+- Все бесплатные испытания чар!
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -18,5 +18,5 @@ containedPackages:
 - enchantment_challenge_9_sanctum.yml
 - enchantment_challenge_10_sanctum.yml
 setupMenuDescription:
-- '&2Free challenges that players can randomly'
-- '&2get teleported to when enchanting elite items!'
+- '&2Бесплатные испытания, куда игроков случайно'
+- '&2телепортирует при зачаровании элитных предметов!'

@@ -1,19 +1,19 @@
 isEnabled: true
-name: '&2[lvl 170] &6The Under Grove'
+name: '&2[lvl 170] &6Подземная роща'
 customInfo:
-- '&6Stop the dryad''s ritual!'
+- '&6Остановите ритуал дриады!'
 dungeonSizeCategory: LAIR
 worldName: em_under_grove
 environment: NORMAL
 protect: true
 playerInfo: |-
-  Difficulty: &cHard
-  $bossCount level $lowestTier Big Boss!
-  &6The dryads are up to no good, stop them!
-regionEnterMessage: '&8[EM] &aYou are now trespassing the sacred grove!'
-regionLeaveMessage: '&8[EM] &aYou have left the sacred grove!'
+  Сложность: &cСложно
+  $bossCount большой босс уровня $lowestTier!
+  &6Дриады затеяли недоброе, остановите их!
+regionEnterMessage: '&8[EM] &aВы вторглись в священную рощу!'
+regionLeaveMessage: '&8[EM] &aВы покинули священную рощу!'
 teleportLocation: em_under_grove,-2.5,-38.8,35.5,90,0
 contentType: OPEN_DUNGEON
 dungeonConfigFolderName: the_under_grove
 setupMenuDescription:
-- '&2A Lair for players around level 170!'
+- '&2Логово для игроков примерно 170 уровня!'

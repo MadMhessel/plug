@@ -1,16 +1,16 @@
 isEnabled: true
-name: '&2[lvl 050] &3The Frost Palace'
+name: '&2[lvl 050] &3Ледяной дворец'
 customInfo:
-- '&fA 7 phase fight against'
-- the queen of ice!
-- '&6Credits: MagmaGuy, Delio'
+- '&fБитва из 7 фаз против'
+- '&fкоролевы льда!'
+- '&6Кредиты: MagmaGuy, Delio'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_frost_palace
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man hard content!'
-regionEnterMessage: '&bYou are stepping into the Frost Palace! Stay frosty!'
-regionLeaveMessage: '&bYou have left the Frost Palace!'
+playerInfo: 'Сложность: &45-человек, сложный контент!'
+regionEnterMessage: '&bВы входите в Ледяной дворец! Держитесь холодно!'
+regionLeaveMessage: '&bВы покинули Ледяной дворец!'
 startLocation: em_id_frost_palace,183.5,-58,-51.5,90.0,0.0
 teleportLocation: em_id_frost_palace,195.5,-31,-51.5,90,30
 dungeonObjectives:
@@ -30,6 +30,6 @@ difficulties:
   levelSync: 45
 allowExplosionBlockDamage: true
 setupMenuDescription:
-- '&2A Sanctum for players around level 50!'
-- '&2The first Sanctum we made, with customs'
-- '&2models and a soundtrack!'
+- '&2Святилище для игроков примерно 50 уровня!'
+- '&2Первое созданное нами святилище,'
+- '&2с пользовательскими моделями и саундтреком!'

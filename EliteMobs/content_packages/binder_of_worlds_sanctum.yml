@@ -1,20 +1,18 @@
 isEnabled: true
-name: '&2[lvl 200] &5The Binder Of Worlds'
+name: '&2[lvl 200] &5Скрепитель Миров'
 customInfo:
-- '&5The ultimate challenge. Be prepared!'
-- '&6Credits: MagmaGuy, 69OzCanOfBepis & Frostcone'
+- '&5Последнее испытание. Будьте готовы!'
+- '&6Кредиты: MagmaGuy, 69OzCanOfBepis & Frostcone'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_binder_of_worlds
 environment: THE_END
 protect: true
 playerInfo: |-
-  Difficulty: &6Nightmare
-  $bossCount level $highestTier final boss!
-  &5This is the hardest fight in EliteMobs!
-regionEnterMessage: '&8[EM] &5Reality unravels around you. You face the final challenge.
-  &4You are not prepared!'
-regionLeaveMessage: '&8[EM] &5You have left the unravelling. Did you find what you
-  sought? Was it worth it?'
+  Сложность: &6Кошмар
+  $bossCount финальный босс уровня $highestTier!
+  &5Это самая тяжелая битва в EliteMobs!
+regionEnterMessage: '&8[EM] &5Реальность рушится вокруг вас. &4Вы не готовы!'
+regionLeaveMessage: '&8[EM] &5Вы покинули разлом. Нашли ли вы то, что искали? Стоило ли это того?'
 startLocation: em_id_binder_of_worlds,-40,62,24,-130,-11
 teleportLocation: em_id_binder_of_worlds,-40.5,74,87.5,-155.0,0.0
 dungeonObjectives:
@@ -34,5 +32,5 @@ difficulties:
   id: 2
 allowExplosionBlockDamage: true
 setupMenuDescription:
-- '&2Basically the final boss of EliteMobs!'
+- '&2Фактически финальный босс EliteMobs!'
 dungeonVersion: 10 # updated item names

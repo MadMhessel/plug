@@ -1,21 +1,21 @@
 isEnabled: true
-name: '&2[lvl 100-120] &8The Dark Spire'
+name: '&2[lvl 100-120] &8Темная шпиль'
 customInfo:
-- '&fThe first ever high level content!'
-- '&fMade for those who want a real challenge!'
-- '&6Credits: 69OzCanOfBepis'
+- '&fПервый контент высокого уровня!'
+- '&fДля тех, кто хочет настоящего испытания!'
+- '&6Кредиты: 69OzCanOfBepis'
 dungeonSizeCategory: MINIDUNGEON
 worldName: em_dark_spire
 environment: NETHER
 protect: true
 playerInfo: |-
-  Difficulty: &6Medium
-  $bossCount bosses, from level $lowestTier to $highestTier
-  &cA vast challenge for advanced players!
-regionEnterMessage: '&8[EM] &1An invasion is in progress. &9Stop the insurrection!'
-regionLeaveMessage: '&8[EM] &1You managed to hold them back. &9For now...'
+  Сложность: &6Средний
+  $bossCount боссов, с уровня $lowestTier до $highestTier
+  &cМасштабное испытание для опытных игроков!
+regionEnterMessage: '&8[EM] &1Идет вторжение. &9Остановите мятеж!'
+regionLeaveMessage: '&8[EM] &1Вам удалось сдержать их. &9Пока что...'
 teleportLocation: em_dark_spire,60,97.5,97,110,0
 contentType: OPEN_DUNGEON
 dungeonConfigFolderName: the_dark_spire
 setupMenuDescription:
-- '&2A Minidungeon for players around level 110!'
+- '&2Мини-подземелье для игроков примерно 110 уровня!'

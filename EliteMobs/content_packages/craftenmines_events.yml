@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Craftenmines Creations Events'
+name: '&2События созданий Craftenmines'
 customInfo:
-- Horrible creations will haunt your server!!
+- '&fУжасные творения будут преследовать ваш сервер!!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true

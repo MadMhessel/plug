@@ -1,22 +1,20 @@
 isEnabled: true
-name: '&2[Dynamic] &6The Pirate Ship'
+name: '&2[Динамический] &6Пиратский корабль'
 customInfo:
-- '&fA fun, challenging minidungeon full of'
-- '&fbosses made for players starting to get good,'
-- '&fat EliteMobs!'
-- '&6Credits: MagmaGuy, Realm of Lotheridon, Dali, FrostCone'
+- '&fВеселое и сложное мини-подземелье, полное'
+- '&fбоссов для начинающих игроков'
+- '&fв EliteMobs!'
+- '&6Кредиты: MagmaGuy, Царство Лотеридона, Dali, FrostCone'
 dungeonSizeCategory: MINIDUNGEON
 worldName: em_the_pirate_ship
 environment: NORMAL
 protect: true
 playerInfo: |-
-  Difficulty: &6Medium
-  $bossCount bosses, from level $lowestTier to $highestTier
-  &6One of the best hunting grounds for&6aspiring adventurers!
-regionEnterMessage: '&8[EM] &3Yarr, now boarding the Pirate Ship! &bPillage and plunder
-  to yer'' hearts content!'
-regionLeaveMessage: '&8[EM] &3Player overboard! &bReturn when you''ve earned your
-  sea-legs ye'' landlubber!'
+  Сложность: &6Средний
+  $bossCount боссов, с уровня $lowestTier до $highestTier
+  &6Одно из лучших охотничьих угодий для &6 начинающих искателей приключений!
+regionEnterMessage: '&8[EM] &6Йо-хо-хо, вы поднимаетесь на борт пиратского корабля!&8 Грабьте и мародёрствуйте по душе!'
+regionLeaveMessage: '&8[EM] &3Игрок за бортом!&bВозвращайтесь, когда набьёте руку, сухопутный!'
 startLocation: em_the_pirate_ship,-85.5,63.0,233.5,180,0
 teleportLocation: em_the_pirate_ship,-85.5,65.0,243.5,180,0
 dungeonObjectives:
@@ -35,5 +33,5 @@ difficulties:
   id: 2
   levelSync: '-5'
 setupMenuDescription:
-- '&2A Minidungeon for players who love pirating!'
+- '&6Мини-подземелье для любителей пиратства!'
 dungeonLockoutMinutes: 1440

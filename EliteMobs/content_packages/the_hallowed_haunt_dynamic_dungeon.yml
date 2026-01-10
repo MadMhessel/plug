@@ -1,17 +1,17 @@
 isEnabled: true
-name: '&2[Dynamic] &3The Hallowed Haunt Dungeon'
+name: '&2[Динамический] &3Подземелье «Проклятый приют»'
 customInfo:
-- '&fThe spookiest manor in all of MineCraft!'
-- '&7Choose your challenge level before entering!'
-- '&6Credits: Dali_, MagmaGuy, FrostCone'
+- '&fСамое жуткое поместье во всем MineCraft!'
+- '&7Выберите уровень испытания перед входом!'
+- '&6Кредиты: Dali_, MagmaGuy, FrostCone'
 dungeonSizeCategory: DUNGEON
 worldName: em_id_the_hallowed_haunt
 environment: NORMAL
 protect: true
 dungeonVersion: 1
-playerInfo: 'Difficulty: &4Dynamic 5-man content!'
-regionEnterMessage: '&bBeware the horror the lurks in the manor!'
-regionLeaveMessage: '&bYou have left The Hallowed Haunt!'
+playerInfo: 'Сложность: &4Динамический контент на 5 человек!'
+regionEnterMessage: '&bОстерегайтесь ужаса, что скрывается в поместье!'
+regionLeaveMessage: '&bВы покинули «Проклятый приют»!'
 startLocation: em_id_the_hallowed_haunt,-4.5,72,131.5,162,0
 teleportLocation: em_id_the_hallowed_haunt,-0.5,72,146.5,170,0
 dungeonObjectives:
@@ -32,6 +32,6 @@ difficulties:
   id: 2
   levelSync: '-5'
 setupMenuDescription:
-- '&2A Dynamic Dungeon where you choose the level!'
-- '&2Select from levels based on your guild rank!'
+- '&2Динамическое подземелье, где вы выбираете уровень!'
+- '&2Выбирайте уровни в зависимости от ранга гильдии!'
 dungeonLockoutMinutes: 1440
