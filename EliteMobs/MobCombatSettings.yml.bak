@@ -3,12 +3,12 @@ doNaturalEliteMobSpawning: true
 # Sets if spawns spawned from mob spawners can be converted to elites. Not recommended!
 doSpawnersSpawnEliteMobs: false
 # Sets the percentage of naturally spawned mobs that get converted to elite mobs.
-eliteMobsSpawnPercentage: 0.12
+eliteMobsSpawnPercentage: 0.05
 # Sets the super mob range to scan for super mob stacking
 superMobStackRange: 15
 # Sets the maximum level elites can spawn at.
 # Note: elite mob level is based on what armor and weapons players are wearing, and armor only scales up to level 200.
-naturalEliteMobsLevelCap: 180
+naturalEliteMobsLevelCap: 250
 # Sets if elites will wear armor based on their level. This is for visual purposes only and does not affect combat.
 doElitesWearArmor: true
 # Sets if elites will wear helmets based on their level. This will prevent them from easily burning away during the daytime.
@@ -37,10 +37,10 @@ levelIncreaseAtIncrements: 1.0
 hideEliteMobPowersUntilAggro: true
 # Sets the multiplier for the damage dealt to all bosses spawned by EliteMobs, except those using the normalized damage system (regional dungeon bosses). Higher values increase the damage dealt, making bosses easier to kill.
 # 2.0 = 200%, 0.5 = 50%
-damageToEliteMobMultiplierV2: 1.1
+damageToEliteMobMultiplierV2: 1.0
 # Sets the multiplier for the damage dealt to players by elites. Higher values increase the amount of damage dealt by bosses, except those using the normalized damage system (regional dungeon bosses), making bosses hit harder.
 # 2.0 = 200%, 0.5 = 50%
-damageToPlayerMultiplierV2: 0.9
+damageToPlayerMultiplierV2: 1.0
 # Sets if special bosses can be tracked.
 showCustomBossLocation: true
 # Sets the message sent to players to track a boss location.

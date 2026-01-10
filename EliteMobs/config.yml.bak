@@ -91,4 +91,4 @@ enchantmentChallengeStartMessage: '&8[EliteMobs] &6Испытание! Побе�
 useResourcePackEvenIfResourcePackManagerIsNotInstalled: false
 # Sets whether the scale (size) of the elites will be slightly randomized, for variety.
 # May mess with spawners, which may or may not be a good thing (I think it is >:] )
-useRandomizedScalingForElites: true
+useRandomizedScalingForElites: false
