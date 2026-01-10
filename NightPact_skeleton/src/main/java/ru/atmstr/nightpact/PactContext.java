@@ -16,6 +16,7 @@ public class PactContext {
 
     public final int anxiousSleepers;
     public final Map<UUID, Location> bedLocations;
+    public final Map<UUID, Participant> participants;
 
     public final boolean comboEnabled;
     public final int comboRadius;
@@ -27,6 +28,7 @@ public class PactContext {
                        List<Player> sentinels,
                        int anxiousSleepers,
                        Map<UUID, Location> bedLocations,
+                       Map<UUID, Participant> participants,
                        boolean comboEnabled,
                        int comboRadius,
                        int comboMinCluster) {
@@ -36,9 +38,14 @@ public class PactContext {
         this.sentinels = sentinels;
         this.anxiousSleepers = anxiousSleepers;
         this.bedLocations = bedLocations;
+        this.participants = participants;
         this.comboEnabled = comboEnabled;
         this.comboRadius = comboRadius;
         this.comboMinCluster = comboMinCluster;
+    }
+
+    public Participant getParticipant(UUID uuid) {
+        return participants.get(uuid);
     }
 
     public boolean hasComboCluster() {

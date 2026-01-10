@@ -7,7 +7,7 @@ description: Сон как договор — пропуск ночи через
 commands:
   nightpact:
     description: Управление NightPact
-    usage: /nightpact <status|reload|force>
+    usage: /nightpact <status|reload|force|debug>
     permission: nightpact.admin
 permissions:
   nightpact.admin:
