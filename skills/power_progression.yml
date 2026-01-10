@@ -81,7 +81,7 @@ starting_perks:
   - signs_warped_3
 
 experience:
-  exp_level_curve: (%level%/100) * 1800 + 800
+  exp_level_curve: ((%level%/100) * 1800 + 800) * 1.5
   max_level: 256
   exp_gain: 100
 

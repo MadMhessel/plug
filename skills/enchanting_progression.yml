@@ -4,7 +4,7 @@ starting_perks:
   enchanting_enchantmentamplificationchance_add: 1
 
 experience:
-  exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
+  exp_level_curve: ((%level% + 75 * 2^(%level%/7.6)) + 300) * 1.5
   max_level: 100
   is_chunk_nerfed: true
   daily_limit: -1

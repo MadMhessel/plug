@@ -3,7 +3,7 @@ starting_perks:
 
 experience:
   max_level: 100
-  exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
+  exp_level_curve: ((%level% + 75 * 2^(%level%/7.6)) + 300) * 1.5
   exp_multiplier_mine: 1
   exp_multiplier_blast: 1.5
   exp_per_break: false

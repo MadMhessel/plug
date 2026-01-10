@@ -2,7 +2,7 @@ starting_perks: []
 
 experience: # Everything about leveling and experience progression for Landscaping
   max_level: 100 # Max level for landscaping, players can still gain exp after reaching 200
-  exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
+  exp_level_curve: ((%level% + 75 * 2^(%level%/7.6)) + 300) * 1.5
   daily_limit: -1
   daily_limit_warning: <lang.skill-woodcutting-daily-limit-reached>
   woodcutting_strip:
