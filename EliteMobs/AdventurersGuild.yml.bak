@@ -408,11 +408,11 @@ prestigeUnlockMessageTitle: $player
 # $tier is a placeholder that gets replaced with the player's prestige level.
 prestigeUnlockMessageSubtitle: '&2открыл $tier&2!'
 # Sets the multiplier that will be applied to the spawn chance when players are using the peaceful (commoner) rank.
-peacefulModeEliteChanceDecrease: 0.4
+peacefulModeEliteChanceDecrease: 0.2
 # Sets the list of worlds to which guild rank bonuses will not be applied
 worldsWithoutAGBonuses: []
 # Disables users' ability to switch to peaceful mode for EliteMobs. Peaceful mode lowers level and spawn rates of mobs around that player specifically
-disableCommonerRank: true
+disableCommonerRank: false
 # Sets whether the default rank for new players will be peaceful mode or commoner.
 # Not recommended as the expectation is most players will want to play with EliteMobs, which commoner rank virtually disables.
 defaultToCommonerRank: false
