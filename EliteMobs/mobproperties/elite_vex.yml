@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: VEX
-name: '&fLvl &2$level &fElite &bVex'
+name: '&fУр. &2$level &fЭлитный &bВекс'
 deathMessages:
-- $entity &chas vexed $player&c!
+- $entity &cизводил $player&c!
 baseDamageV2: 13.0

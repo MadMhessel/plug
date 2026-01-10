@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: SPIDER
-name: '&fLvl &2$level &fElite &7Spider'
+name: '&fУр. &2$level &fЭлитный &7Паук'
 deathMessages:
-- $player &cbecame entangled in $entity's &cweb!
-- $entity &chas devoured $player&c!
+- $player &cзапутался в паутине $entity&c!
+- $entity &cсъел $player&c!
 baseDamageV2: 3.0

@@ -2,7 +2,7 @@ isEnabled: true
 shopName: '[EM] Меню отвязки!'
 infoButton:
   material: PLAYER_HEAD
-  name: §4§lEliteMobs §cby §4§lMagmaGuy
+  name: §4§lEliteMobs §cот §4§lMagmaGuy
   lore:
   - §8Поддержите плагины, которые вам нравятся!
   - §aИспользуйте §5Свиток отвязки§a, чтобы снять привязку!

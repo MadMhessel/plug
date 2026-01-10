@@ -6,6 +6,7 @@ import org.bukkit.inventory.InventoryHolder;
 public final class GraveInventoryHolder implements InventoryHolder {
     private final String graveId;
     private final int page;
+    private Inventory inventory;
 
     public GraveInventoryHolder(String graveId, int page) {
         this.graveId = graveId;
@@ -20,8 +21,12 @@ public final class GraveInventoryHolder implements InventoryHolder {
         return page;
     }
 
+    void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     @Override
     public Inventory getInventory() {
-        return null;
+        return inventory;
     }
 }

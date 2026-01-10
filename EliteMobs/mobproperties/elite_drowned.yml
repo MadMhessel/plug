@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: DROWNED
-name: '&fLvl &2$level &fElite &3Drowned'
+name: '&fУр. &2$level &fЭлитный &3Утопленник'
 deathMessages:
-- $player &chas been brought down to the depths by $entity!
-- $player &chas been drowned by $entity!
+- $player &cбыл утянут на глубину $entity!
+- $player &cбыл утоплен $entity!
 baseDamageV2: 4.0

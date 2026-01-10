@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: IRON_GOLEM
-name: '&fLvl &2$level &fElite &fIron Golem'
+name: '&fУр. &2$level &fЭлитный &fЖелезный голем'
 deathMessages:
-- $player &cmessed with the wrong $entity&c!
-- $player &chas been taught the way of fist by $entity&c!
+- $player &cсвязался не с тем $entity&c!
+- $player &cузнал силу кулаков $entity&c!
 baseDamageV2: 15.0

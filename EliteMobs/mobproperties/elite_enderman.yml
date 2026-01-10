@@ -1,8 +1,8 @@
 isEnabled: true
 entityType: ENDERMAN
-name: '&fLvl &2$level &fElite &5Enderman'
+name: '&fУр. &2$level &fЭлитный &5Эндермен'
 deathMessages:
-- $entity &csent $player &cinto the void!
-- $player &clooked at $entity &cwrong!
-- $player &cand $entity &cbecame best friends!
+- $entity &cотправил $player &cв пустоту!
+- $player &cне так посмотрел на $entity&c!
+- $player &cи $entity &cстали лучшими друзьями!
 baseDamageV2: 10.0

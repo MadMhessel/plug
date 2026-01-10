@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: ZOGLIN
-name: '&fLvl &2$level &fElite &dZoglin'
+name: '&fУр. &2$level &fЭлитный &dЗоглин'
 deathMessages:
-- $player &cmessed with the $entity &cand got the horns!
-- $entity &cgot $player's &cbacon!
+- $player &cнарвался на $entity &cи получил рогами!
+- $entity &cполучил бекон из $player&c!
 baseDamageV2: 12.0

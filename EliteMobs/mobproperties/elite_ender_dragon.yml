@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: ENDER_DRAGON
-name: '&fLvl &2$level &fElite &5Ender Dragon'
+name: '&fУр. &2$level &fЭлитный &5Дракон Края'
 deathMessages:
-- $entity &chas ended $player!
+- $entity &cположил конец $player&c!
 baseDamageV2: 7.0

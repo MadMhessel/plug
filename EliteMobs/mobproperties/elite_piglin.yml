@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: PIGLIN
-name: '&fLvl &2$level &fElite &ePiglin'
+name: '&fУр. &2$level &fЭлитный &eПиглин'
 deathMessages:
-- $entity &cwill fetch a good price for $player's remains!
-- $entity &ctaught $player &cthe value of gold!
+- $entity &cвыручит хорошую цену за останки $player&c!
+- $entity &cнаучил $player &cценить золото!
 baseDamageV2: 13.0

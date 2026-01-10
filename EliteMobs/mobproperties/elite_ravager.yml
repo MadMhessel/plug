@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: RAVAGER
-name: '&fLvl &2$level &fElite &6Ravager'
+name: '&fУр. &2$level &fЭлитный &6Разоритель'
 deathMessages:
-- $entity &cshowed $player &cwho's in charge!
+- $entity &cпоказал $player, &cкто здесь главный!
 baseDamageV2: 18.0

@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: RABBIT
-name: '&fLvl &2$level &fElite &cKiller Rabbit'
+name: '&fУр. &2$level &fЭлитный &cКролик-убийца'
 deathMessages:
-- $entity &cmade $player &cgo live in a farm upstate!
-- $entity &ceducated $player using a stick and not a carrot!
+- $entity &cотправил $player &cжить на ферму!
+- $entity &cпоучил $player &cпалкой, а не морковью!
 baseDamageV2: 12.0

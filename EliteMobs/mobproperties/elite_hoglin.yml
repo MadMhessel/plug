@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: HOGLIN
-name: '&fLvl &2$level &fElite &dHoglin'
+name: '&fУр. &2$level &fЭлитный &dХоглин'
 deathMessages:
-- $player &cmessed with the $entity &cand got the horns!
-- $entity &cgot $player's &cbacon!
+- $player &cнарвался на $entity &cи получил рогами!
+- $entity &cполучил бекон из $player&c!
 baseDamageV2: 8.0

@@ -1,7 +1,7 @@
 isEnabled: true
 entityType: ZOMBIE
-name: '&fLvl &2$level &fElite &2Zombie'
+name: '&fУр. &2$level &fЭлитный &2Зомби'
 deathMessages:
-- $player &cwas devoured by $entity&c!
-- $entity &cgot to $player's &cbrains!
+- $player &cбыл съеден $entity&c!
+- $entity &cдобрался до мозгов $player&c!
 baseDamageV2: 5.0
