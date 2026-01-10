@@ -1,16 +1,15 @@
 isEnabled: true
-name: '&2[lvl 010] &3The Climb Dungeon'
+name: '&2[lvl 010] &3Подъем'
 customInfo:
-- '&fThe perfect starter instanced dungeon!'
-- '&6Credits: MagmaGuy, Frostcone, 69OzCanOfBepis, Realm of Lotheridon'
+- '&fИдеальное стартовое инстанс-подземелье!'
+- '&6Кредиты: MagmaGuy, Frostcone, 69OzCanOfBepis, Realm of Lotheridon'
 dungeonSizeCategory: DUNGEON
 worldName: em_id_the_climb
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man hard content!'
-regionEnterMessage: '&bYou''ve been asked to investigate the path to the caves. Climb
-  your way to the top!'
-regionLeaveMessage: '&bYou have left The Climb!'
+playerInfo: 'Сложность: &45-человек, сложный контент!'
+regionEnterMessage: '&bВас попросили исследовать путь к пещерам. Поднимайтесь наверх!'
+regionLeaveMessage: '&bВы покинули Подъем!'
 startLocation: em_id_the_climb,379.5,36,352.5,-70,-10
 teleportLocation: em_id_the_climb,371.5,34,350.5,-70.0,-10.0
 dungeonObjectives:

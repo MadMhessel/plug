@@ -1,14 +1,14 @@
 isEnabled: true
-name: '&2[lvl 000-200] &6Enchantment Challenge 13'
+name: '&2[lvl 000-200] &6Испытание чар 13'
 customInfo:
-- '&fAn enchantment challenge dungeon!'
+- '&fПодземелье испытания чар!'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_enchantment_challenge_13
 environment: THE_END
 protect: true
-playerInfo: 'Difficulty: &4solo hard content!'
-regionEnterMessage: '&bChallenge time!'
-regionLeaveMessage: '&bYou have left the enchantment challenge!'
+playerInfo: 'Сложность: &4одиночный сложный контент!'
+regionEnterMessage: '&bВремя испытаний!'
+regionLeaveMessage: '&bВы покинули испытание чар!'
 startLocation: em_id_enchantment_challenge_13,14.5,65,-12.5,45,0
 teleportLocation: em_id_enchantment_challenge_13,-15.5,94,15.5,-135,0.0
 maxPlayerCount: 1

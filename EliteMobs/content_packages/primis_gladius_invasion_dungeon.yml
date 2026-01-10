@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 000-020] &aPrimis - Gladius Invasion'
+name: '&2[lvl 000-020] &aPrimis - Вторжение Гладиусов'
 customInfo:
-- '&fIt is time to take Gladius back!'
-- '&6Credits: 69OzCanOfBepis, Frostcone, MagmaGuy'
+- '&fПришло время вернуть Гладиуса!'
+- '&6Кредиты: 69OzCanOfBepis, Frostcone, MagmaGuy'
 dungeonSizeCategory: DUNGEON
 worldName: em_id_primis_gladius
 environment: NETHER
 protect: true
-playerInfo: 'Difficulty: &4solo hard content!'
-regionEnterMessage: '&bWelcome to the Gladius Invasion!'
-regionLeaveMessage: 2&bYou have left the Gladius Invasion!
+playerInfo: 'Сложность: &4одиночный сложный контент!'
+regionEnterMessage: '&bДобро пожаловать в Вторжение Гладиусов!'
+regionLeaveMessage: '&bВы покинули Вторжение Гладиусов!'
 startLocation: em_id_primis_gladius,-100.5,69.0,40.5,-69.499999,0
 teleportLocation: em_id_primis_gladius,-108.5,69.0,40.5,-90.499999,0
 dungeonObjectives:

@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2100 Events'
+name: '&2100 События'
 customInfo:
-- Expand your server with 100 new events!
+- '&fРасширьте свой сервер 100 новыми событиями!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true

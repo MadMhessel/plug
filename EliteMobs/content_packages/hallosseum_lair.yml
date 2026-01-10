@@ -1,21 +1,21 @@
 isEnabled: true
-name: '&2[lvl 030] &cThe Hallosseum'
+name: '&2[lvl 030] &cХаллоосеум'
 customInfo:
-- '&fThe 2020 spooky halloween encounter!'
-- '&6Credits: MagmaGuy & 69OzCanOfBepis'
+- '&fСтрашная встреча Хэллоуина 2020 года!'
+- '&6Кредиты: MagmaGuy & 69OzCanOfBepis'
 dungeonSizeCategory: LAIR
 worldName: em_hallosseum
 environment: NETHER
 protect: true
 playerInfo: |-
-  Difficulty: &chard
-  $bossCount level $lowestTier Big Boss!
-  &6A fun Halloween challenge!
-regionEnterMessage: '&8[EM] &4Trick or treat! &8Your soul is mine!'
-regionLeaveMessage: '&8[EM] &4You''ve escaped with your soul intact.'
+  Сложность: &cСложно
+  $bossCount большой босс уровня $lowestTier!
+  &6Веселый хэллоуинский вызов!
+regionEnterMessage: '&8[EM] &4Сладость или гадость! &8Твоя душа — моя!'
+regionLeaveMessage: '&8[EM] &4Вы сбежали, сохранив свою душу.'
 teleportLocation: em_hallosseum,66.5,22.2,77.5,20,0
 contentType: OPEN_DUNGEON
 dungeonConfigFolderName: the_hallosseum
 setupMenuDescription:
-- '&2An arena for players between levels 100-150!'
+- '&2Логово для игроков примерно 30 уровня!'
 dungeonVersion: 8 # added props

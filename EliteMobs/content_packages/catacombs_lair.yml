@@ -1,21 +1,20 @@
 isEnabled: true
-name: '&2[lvl 010] &8The Catacombs'
+name: '&2[lvl 010] &8Катакомбы'
 customInfo:
-- '&fA great starter lair for players!'
-- '&6Credits: Realm of Lotheridon, MagmaGuy, Dali, Frost'
+- '&fОтличное стартовое логово для игроков!'
+- '&6Кредиты: Царство Лотеридона, MagmaGuy, Дали, Фрост'
 dungeonSizeCategory: LAIR
 worldName: em_the_catacombs
 environment: NORMAL
 protect: true
 playerInfo: |-
-  Difficulty: &cHard
-  $bossCount bosses, from tier $lowestTier to $highestTier
-  &2A great Lair challenge for groups of beginners!
-regionEnterMessage: '&8[EM] &8Now entering the Catacombs. Be careful with what dwells
-  below...'
-regionLeaveMessage: '&8[EM] &8You have left the Catacombs. Was it worth it?'
+  Сложность: &cСложно
+  Боссы $bossCount, с уровня $lowestTier по $highestTier
+  &2Отличное испытание логова для групп новичков!
+regionEnterMessage: '&8[EM] &8Теперь мы входим в катакомбы. Будьте осторожны с тем, что обитает внизу...'
+regionLeaveMessage: '&8[EM] &8Вы покинули Катакомбы. Стоило ли оно того?'
 teleportLocation: em_the_catacombs,41.5,65.0,82.5,176,0
 contentType: OPEN_DUNGEON
 dungeonConfigFolderName: the_catacombs
 setupMenuDescription:
-- '&2A level 10 lair for new players!'
+- '&2Логово 10 уровня для новых игроков!'

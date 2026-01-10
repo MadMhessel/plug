@@ -1,16 +1,15 @@
 isEnabled: true
-name: '&2[lvl 030] &3The Palace Sanctum'
+name: '&2[lvl 030] &3Дворцовое святилище'
 customInfo:
-- '&fThe perfect intermediate instanced sanctum!'
-- '&6Credits: Dali_, MagmaGuy, Frostcone'
+- '&fИдеальное инстанс-святилище среднего уровня!'
+- '&6Кредиты: Dali_, MagmaGuy, Frostcone'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_the_palace
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &45-man hard content!'
-regionEnterMessage: '&bBefore being able to enter the city you must deal with the
-  guardian on the bridge!'
-regionLeaveMessage: '&bYou have left The Palace!'
+playerInfo: 'Сложность: &45-человек, сложный контент!'
+regionEnterMessage: '&bПрежде чем войти в город, разберитесь с хранителем на мосту!'
+regionLeaveMessage: '&bВы покинули Дворец!'
 startLocation: em_id_the_palace,238.5,144,-100.5,0.0,0.0
 teleportLocation: em_id_the_palace,208.5,144,-101.5,-90.0,0.0
 dungeonObjectives:

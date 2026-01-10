@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Premium Enchantment Challenges'
+name: '&2Премиальные испытания чар'
 customInfo:
-- All premium enchantment challenges!
+- Все премиальные испытания чар!
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true
@@ -18,6 +18,6 @@ containedPackages:
 - enchantment_challenge_19_sanctum.yml
 - enchantment_challenge_20_sanctum.yml
 setupMenuDescription:
-- '&2Free challenges that players can randomly'
-- '&2get teleported to when enchanting elite items!'
-- '&2Has custom models!'
+- '&2Премиальные испытания, куда игроков случайно'
+- '&2телепортирует при зачаровании элитных предметов!'
+- '&2Содержит пользовательские модели!'

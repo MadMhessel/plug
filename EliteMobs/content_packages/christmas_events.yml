@@ -1,7 +1,7 @@
 isEnabled: true
-name: '&2Christmas Events'
+name: '&2Рождественские события'
 customInfo:
-- Christmas-themed events!
+- '&fСобытия в рождественской тематике!'
 dungeonSizeCategory: LAIR
 environment: NORMAL
 protect: true

@@ -1,15 +1,15 @@
 isEnabled: true
-name: '&2[lvl 020] &aPrimis - Blood Temple'''
+name: '&2[lvl 020] &aPrimis - Храм Крови'
 customInfo:
-- '&fThe Fire Elemental awaits!'
-- '&6Credits: Dali_, Frostcone, MagmaGuy'
+- '&fОгненный элементаль ждет!'
+- '&6Кредиты: Dali_, Frostcone, MagmaGuy'
 dungeonSizeCategory: SANCTUM
 worldName: em_id_bloodtemple
 environment: NORMAL
 protect: true
-playerInfo: 'Difficulty: &4solo hard content!'
-regionEnterMessage: '&bWelcome to the Blood Temple!'
-regionLeaveMessage: '&bYou have left the Blood Temple!'
+playerInfo: 'Сложность: &4одиночный сложный контент!'
+regionEnterMessage: '&bДобро пожаловать в Храм Крови!'
+regionLeaveMessage: '&bВы покинули Храм Крови!'
 startLocation: em_id_bloodtemple,324.5,73.0,-711.5,-90,5
 teleportLocation: em_id_bloodtemple,326.5,87.0,-738.5,-44,35
 dungeonObjectives:
