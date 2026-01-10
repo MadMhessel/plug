@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: BREEZE
-name: '&2Lvl &2$level &2Elite &eBreeze'
+name: '&2Ур. &2$level &2Элитный &eБриз'
 deathMessages:
-- $player &cwas blown away by $entity!
+- $player &cбыл сдут $entity!
 baseDamageV2: 1.5

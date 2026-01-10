@@ -2,7 +2,7 @@ isEnabled: true
 shopName: '[EM] Разборщик'
 infoButton:
   material: PLAYER_HEAD
-  name: §4§lEliteMobs §cby §4§lMagmaGuy
+  name: §4§lEliteMobs §cот §4§lMagmaGuy
   lore:
   - §8Поддержите плагины, которые вам нравятся!
   - §4Внимание!

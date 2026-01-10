@@ -85,7 +85,7 @@ prestigeNextUnlockButtons:
   - §4предметы и валюту EliteMobs!
   - §f§m-------------------------------
   customModelID: 31173
-notEnoughCurrencyMessages: '&7[EliteMobs] &4У вас недостаточно Elite Coins ($neededAmount
+notEnoughCurrencyMessages: '&7[EliteMobs] &4У вас недостаточно элитных монет ($neededAmount
   $currencyName)! Продайте лут EliteMobs через [/em shop]! У вас $currentAmount
   $currencyName.'
 unlockMessages: "&7[EliteMobs] &aВы открыли ранг $rankName &aза $price\

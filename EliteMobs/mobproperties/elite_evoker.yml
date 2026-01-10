@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: EVOKER
-name: '&fLvl &2$level &fElite &5Evoker'
+name: '&fУр. &2$level &fЭлитный &5Заклинатель'
 deathMessages:
-- $player &cwas enchanted by $entity&c!
+- $player &cбыл заколдован $entity&c!
 baseDamageV2: 9.0

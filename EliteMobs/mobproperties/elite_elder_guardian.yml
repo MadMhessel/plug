@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: ELDER_GUARDIAN
-name: '&fLvl &2$level &fElite &3Elder Guardian'
+name: '&fУр. &2$level &fЭлитный &3Древний страж'
 deathMessages:
-- $entity &cprevented $player &cfrom exploring the depths!
+- $entity &cне дал $player &cисследовать глубины!
 baseDamageV2: 12.0

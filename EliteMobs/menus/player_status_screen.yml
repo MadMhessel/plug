@@ -240,74 +240,74 @@ indexHeaderItem:
 indexHeaderSlot: 4
 indexStatsItem:
   material: MAP
-  name: §6Stats
+  name: §6Статистика
 indexStatsSlot: 10
 indexGearItem:
   material: DIAMOND_SWORD
-  name: §6Gear
+  name: §6Снаряжение
 indexGearSlot: 12
 indexTeleportsItem:
   material: END_PORTAL_FRAME
-  name: §6Teleports
+  name: §6Телепорты
 indexTeleportsSlot: 14
 indexCommandsItem:
   material: JUKEBOX
-  name: §6Commands
+  name: §6Команды
 indexCommandsSlot: 16
 indexQuestTrackingItem:
   material: WRITABLE_BOOK
-  name: §6Quest Tracking
+  name: §6Отслеживание заданий
 indexQuestTrackingSlot: 20
 indexBossTrackingItem:
   material: TARGET
-  name: §6Boss Tracking
+  name: §6Отслеживание боссов
 indexBossTrackingSlot: 24
 backItem:
   material: BARRIER
-  name: §cBack
-gearChestMenuName: '&2EliteMobs Gear'
+  name: §cНазад
+gearChestMenuName: '&2Снаряжение EliteMobs'
 gearDamageItem:
   material: DIAMOND_SWORD
-  name: '§4Damage: $damage'
+  name: '§4Урон: $damage'
 gearDamageSlot: 23
 gearArmorItem:
   material: SHIELD
-  name: '§2Defense: $defense'
+  name: '§2Защита: $defense'
 gearArmorSlot: 24
 gearThreatItem:
   material: TARGET
-  name: '§cThreat Level: $threat'
+  name: '§cУровень угрозы: $threat'
 gearThreatSlot: 25
-statsChestMenuName: '&2EliteMobs Stats'
+statsChestMenuName: '&2Статистика EliteMobs'
 statsMoneyItem:
   material: GOLD_INGOT
-  name: '§2Elite Coins: $money'
+  name: '§2Элитные монеты: $money'
 statsMoneySlot: 10
 statsGuildTierItem:
   material: TARGET
-  name: '§6Guild Tier: $tier'
+  name: '§6Ранг гильдии: $tier'
 statsGuildTierSlot: 11
 statsEliteKillsItem:
   material: DIAMOND_SWORD
-  name: '§4Elite Kills: §c$kills'
+  name: '§4Убийств элит: §c$kills'
 statsEliteKillsSlot: 12
 statsMaxEliteLevelKilledItem:
   material: GOLDEN_SWORD
-  name: '§4Max Lvl Killed: §c$maxKill'
+  name: '§4Макс. уровень убитого: §c$maxKill'
 statsMaxEliteLevelKilledSlot: 13
 statsEliteDeathsItem:
   material: TOTEM_OF_UNDYING
-  name: '§4Elite Deaths: $deaths'
+  name: '§4Смертей от элит: $deaths'
 statsEliteDeathsSlot: 14
 statsQuestsCompletedItem:
   material: LECTERN
-  name: '§5Quests Completed: §d$questsCompleted'
+  name: '§5Заданий выполнено: §d$questsCompleted'
 statsQuestsCompletedSlot: 15
 statsScoreItem:
   material: ITEM_FRAME
-  name: '§3Score: §b$score'
+  name: '§3Счёт: §b$score'
 statsScoreSlot: 16
-commandsChestMenuName: '&2EliteMobs Commands'
+commandsChestMenuName: '&2Команды EliteMobs'
 commandsAGItem:
   material: END_PORTAL_FRAME
   name: §5/ag

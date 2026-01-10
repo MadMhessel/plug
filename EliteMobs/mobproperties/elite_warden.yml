@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: WARDEN
-name: '&fLvl &2$level &fElite &3Warden'
+name: '&fУр. &2$level &fЭлитный &3Варден'
 deathMessages:
-- $entity &csensed $player &cwas nearby!
+- $entity &cпочувствовал, что $player &cрядом!
 baseDamageV2: 45.0

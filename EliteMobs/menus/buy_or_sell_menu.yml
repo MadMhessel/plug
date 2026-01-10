@@ -2,7 +2,7 @@ isEnabled: true
 Shop name: '[EM] Купить или продать'
 Information button:
   material: PLAYER_HEAD
-  name: §4§lEliteMobs §cby §4§lMagmaGuy
+  name: §4§lEliteMobs §cот §4§lMagmaGuy
   lore:
   - §8Поддержите плагины, которые вам нравятся!
   - §aНажмите на изумруд, чтобы купить предметы!

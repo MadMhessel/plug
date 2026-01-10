@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: ILLUSIONER
-name: '&fLvl &2$level &fElite &8Illusioner'
+name: '&fУр. &2$level &fЭлитный &8Иллюзионист'
 deathMessages:
-- $player&c fell for $entity's &cillusions!
+- $player&c повёлся на иллюзии $entity&c!
 baseDamageV2: 5.0

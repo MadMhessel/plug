@@ -2,7 +2,7 @@ isEnabled: true
 Shop name: '[EM] Магазин случайных предметов'
 Reroll button:
   material: PLAYER_HEAD
-  name: §4§lEliteMobs §cby §4§lMagmaGuy
+  name: §4§lEliteMobs §cот §4§lMagmaGuy
   lore:
   - §8Поддержите плагины, которые вам нравятся!
 Reroll button slot: 4
