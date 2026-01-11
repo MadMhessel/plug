@@ -1,6 +1,6 @@
 isEnabled: true
-name: Royal Guard Sven
-role: <[35] The Palace Teleporter>
+name: Королевский гвардеец Свен
+role: <[35] Дворцовый телепорт>
 spawnLocation: em_adventurers_guild,300.5,78.18,201.5,0,0
 spawnLocations: []
 greetings:

@@ -1,67 +1,67 @@
-# Sets the text that appears over resurrection banners in dungeons
+# Устанавливает текст, который появляется над баннерами воскрешения в подземельях
 dungeonRezInstructions: '&aУдарьте, чтобы воскресить!'
-# Sets the text that shows how many lives players have left in a dungeon! Placeholders:
-# $amount - the amount of lives left
+# Устанавливает текст, показывающий, сколько жизней осталось у игроков в подземелье! Заполнители:
+# $amount — количество оставшихся жизней
 dungeonLivesLeftText: '&cОсталось жизней: $amount!'
-# Sets the text for joining a dungeon as a player! Placeholders:
-# $dungeonName - the name of the dungeon
+# Устанавливает текст для входа в подземелье в качестве игрока! Заполнители:
+# $dungeonName — название подземелья
 joinDungeonAsPlayerText: '&fВойти в $dungeonName как игрок!'
-# Sets the text for joining a dungeon as a spectator! Placeholders:
-# $dungeonName - the name of the dungeon
+# Устанавливает текст для входа в подземелье в качестве зрителя! Заполнители:
+# $dungeonName — название подземелья
 joinDungeonAsSpectatorText: '&fВойти в $dungeonName как зритель!'
-# Sets the title that will show up in the item description of instanced dungeon menus
-# $difficulty is the placeholder for the difficulty name in the configuration file of the dungeon
+# Устанавливает заголовок, который будет отображаться в описании элемента в меню подземелий.
+# $difficulty — это место для названия сложности в файле конфигурации подземелья.
 instancedDungeonTitle: Начать подземелье сложности $difficulty!
-# Sets the description that will show up in the item description of instanced dungeon menus
-# $dungeonName is the placeholder for the dungeon name in the configuration file of the dungeon
+# Устанавливает описание, которое будет отображаться в описании элемента в меню подземелий.
+# $dungeonName — это заполнитель имени подземелья в файле конфигурации подземелья.
 instancedDungeonDescription:
 - '&fСоздать новый инстанс подземелья'
 - $dungeonName &fдля себя и, возможно,
 - '&fдля друзей!'
-# Sets is spectating instanced content will be available.
+# Определяет, будет ли доступен режим наблюдения для инстансного контента.
 allowSpectatorsInInstancedContent: true
-# Sets the message that appears when an instanced dungeon is completed
+# Устанавливает сообщение, которое появляется после завершения временного подземелья
 instancedDungeonCompleteMessage: '[EliteMobs] Подземелье пройдено! Самоуничтожение
   через 2 минуты!'
-# Sets the message that appears when an instanced dungeon closing
+# Устанавливает сообщение, которое появляется при закрытии инстансного подземелья
 instancedDungeonClosingInstanceMessage: '[EliteMobs] Закрытие инстанса!'
-# Sets if PvP will be allowed in dungeons
+# Устанавливает, будет ли разрешено PvP в подземельях
 friendlyFireInDungeons: false
-# Sets the damage multiplier for fire damage in dungeons
-# This is important for balance as by default the damage is a bit too high for the dungeons as we design them
+# Устанавливает множитель урона от огня в подземельях
+# Это важно для баланса, так как по умолчанию урон слишком высок для подземелий, которые мы проектировали.
 fireDamageMultiplier: 0.5
-# Sets the damage multiplier for wither damage in dungeons
-# This is important for balance as by default the damage is a bit too high for the dungeons as we design them
+# Устанавливает множитель урона для урона от иссушения в подземельях
+# Это важно для баланса, так как по умолчанию урон слишком высок для подземелий, которые мы проектировали.
 witherDamageMultiplier: 0.5
-# Sets the damage multiplier for fire damage in dungeons
-# This is important for balance as by default the damage is a bit too high for the dungeons as we design them
+# Устанавливает множитель урона от огня в подземельях
+# Это важно для баланса, так как по умолчанию урон слишком высок для подземелий, которые мы проектировали.
 poisonDamageMultiplier: 0.5
-# Sets the title for the dynamic dungeon level selection menu
+# Устанавливает заголовок для динамического меню выбора уровня подземелья.
 dynamicDungeonLevelSelectionMenuTitle: '&8Выбор уровня подземелья'
-# Sets the title for level selection items in the dynamic dungeon menu
-# $level is the placeholder for the level number
+# Устанавливает заголовок для элементов выбора уровня в динамическом меню подземелий.
+# $level — заполнитель номера уровня.
 dynamicDungeonLevelSelectionItemTitle: '&fУровень $level'
-# Sets the 'click to select' text in the dynamic dungeon level selection menu
-# $level is the placeholder for the level number
+# Устанавливает текст «нажмите, чтобы выбрать» в динамическом меню выбора уровня подземелья.
+# $level — заполнитель номера уровня.
 dynamicDungeonLevelSelectionClickToSelect: '&7Нажмите, чтобы выбрать уровень &e$level'
-# Sets the 'mobs will be level' text in the dynamic dungeon level selection menu
-# $level is the placeholder for the level number
+# Устанавливает текст «мобы будут уровня» в динамическом меню выбора уровня подземелья.
+# $level — заполнитель номера уровня.
 dynamicDungeonLevelSelectionMobsWillBeLevel: '&7Все мобы будут уровня &e$level'
-# Sets the 'recommended level' text in the dynamic dungeon level selection menu
+# Устанавливает текст «рекомендуемого уровня» в динамическом меню выбора уровня подземелья.
 dynamicDungeonLevelSelectionRecommended: '&a&lРекомендуемый уровень!'
-# Sets the 'easier than recommended' text in the dynamic dungeon level selection menu
+# Устанавливает текст «проще, чем рекомендуется» в динамическом меню выбора уровня подземелья.
 dynamicDungeonLevelSelectionEasier: '&eПроще рекомендованного'
-# Sets the 'harder than recommended' text in the dynamic dungeon level selection menu
+# Устанавливает текст «сложнее, чем рекомендуется» в динамическом меню выбора уровня подземелья.
 dynamicDungeonLevelSelectionHarder: '&6Сложнее рекомендованного'
-# Sets the title for the dynamic dungeon difficulty selection menu
+# Устанавливает заголовок меню выбора сложности динамического подземелья.
 dynamicDungeonDifficultySelectionMenuTitle: '&8Выбор сложности'
-# Sets the 'selected level' text in the dynamic dungeon difficulty selection menu
-# $level is the placeholder for the selected level number
+# Устанавливает текст «выбранного уровня» в меню выбора сложности динамического подземелья.
+# $level — заполнитель номера уровня.
 dynamicDungeonDifficultySelectionSelectedLevel: '&7Выбранный уровень: &e$level'
-# Sets the subtitle shown when a player kills a boss they are locked out from
+# Устанавливает подзаголовок, отображаемый, когда игрок убивает босса, доступ к которому у него заблокирован.
 dungeonLockoutSubtitle: '&cБлокировка!'
-# Sets the chat message shown when a player kills a boss they are locked out from
-# $bossName is the placeholder for the boss name
-# $remainingTime is the placeholder for the remaining lockout time
+# Устанавливает сообщение чата, отображаемое, когда игрок убивает босса, доступ к которому у него заблокирован.
+# $bossName — заполнитель имени босса.
+# $remainingTime — заполнитель оставшегося времени блокировки.
 dungeonLockoutChatMessage: '&c[EliteMobs] &7Вы убили &c$bossName &7в период блокировки
   и должны подождать ещё &e$remainingTime &7прежде чем он снова будет давать лут.'

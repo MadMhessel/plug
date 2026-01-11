@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 5
 isEnabled: true
 entityType: GUARDIAN
-name: '$normalLevel &3Sewer Piranha'
+name: '$normalLevel &3Аналическая пиранья'
 level: dynamic
 instanced: true
 powers:

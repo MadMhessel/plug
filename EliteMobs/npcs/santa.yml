@@ -1,6 +1,6 @@
 isEnabled: false
-name: '&4Saint Nick'
-role: '&c<Santa!>'
+name: '&4Святой Ник'
+role: '&c<Санта!>'
 spawnLocation: em_adventurers_guild,212.5,88,236.5,104,0
 spawnLocations: []
 greetings:

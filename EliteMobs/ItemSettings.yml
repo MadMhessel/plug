@@ -1,30 +1,30 @@
-# Sets if any EliteMobs loot will drop.
-# Includes Elite Coins, Custom Items, Procedurally Generate Items - everything!
-# Not recommended, makes mmorpg progression impossible.
+# Устанавливает, выпадет ли какая-либо добыча EliteMobs.
+# Включает в себя элитные монеты, пользовательские предметы, процедурно генерируемые предметы — все!
+# Не рекомендуется, делает невозможным развитие мморпг.
 doEliteMobsLoot: true
-# Sets if procedurally generated loot will have different colors based on the quality of the item.
+# Устанавливает, будет ли процедурно сгенерированная добыча иметь разные цвета в зависимости от качества предмета.
 doMMORPGColorsForItems: true
-# Sets if the placement of custom items, like banners or blocks, is prevented.
-# This is recommended - custom items break when they are placed and can not be recovered!
+# Устанавливает, запрещено ли размещение пользовательских элементов, таких как баннеры или блоки.
+# Это рекомендуется — пользовательские предметы ломаются при размещении и не подлежат восстановлению!
 preventCustomItemPlacement: true
-# Sets the format for the lore of custom all EliteMobs items!
-# The following are valid placeholders:
-# $itemLevel - shows the item level
-# $prestigeLevel - shows the prestige level
-# $weaponOrArmorStats - shows the elite DPS or elite armor stats, depending on the item
-# $soulbindInfo - shows who, if anyone, the item is soulbound to
-# $itemSource - shows where the item came from, like a mob or a shop
-# $ifLore - makes a line only appear if the item has custom lore. Only applies for custom items
-# $customLore - shows the entirety of the custom lore. Only applies for custom items
-# $ifEnchantments - makes a line only appear if the item has any enchantments
-# $enchantments - shows the enchantments on the item
-# $eliteEnchantments - shows the elite enchantments on the item
-# $ifCustomEnchantments - shows the custom enchantments on the item
-# $customEnchantments - shows the custom enchantments on the item
-# $ifPotionEffects - only shows the line if the item has potion effects
-# $potionEffects - shows the potion effects on the item
-# $loreResaleValue - shows the value of the item. Might show the purchase or sell price depending on where it is viewed
-# Important: Several of the placeholders can be further customized by the configuration settings further below
+# Устанавливает формат лора для всех предметов EliteMobs!
+# Ниже приведены допустимые заполнители:
+# $itemLevel — показывает уровень предмета
+# $prestigeLevel — показывает уровень престижа
+# $weaponOrArmorStats — показывает характеристики элитного урона или элитной брони, в зависимости от предмета.
+# $soulbindInfo — показывает, к кому привязан предмет, если таковой имеется.
+# $itemSource — показывает, откуда взялся предмет, например, из моба или из магазина.
+# $ifLore — строка появляется только в том случае, если у предмета есть собственный лор. Применяется только для пользовательских предметов.
+# $customLore — показывает весь пользовательский лор. Применяется только для пользовательских предметов.
+# $ifEnchantments — строка появляется только в том случае, если предмет имеет какие-либо зачарования.
+# $enchantments — показывает зачарования предмета.
+# $eliteEnchantments — показывает элитные чары предмета.
+# $ifCustomEnchantments — показывает пользовательские чары предмета.
+# $customEnchantments — показывает пользовательские чары предмета.
+# $ifPotionEffects — показывает строку, только если предмет имеет эффекты зелья
+# $potionEffects — показывает эффекты зелья на предмете
+# $loreResaleValue — показывает стоимость предмета. Может показывать цену покупки или продажи в зависимости от того, где ее просматривают.
+# Важно: некоторые заполнители можно дополнительно настроить с помощью настроек конфигурации, приведенных ниже.
 itemLoreStructureV2:
 - §7§m§l---------§7<§lЭкипировка§7>§m§l---------
 - '§7Уровень предмета: §f$itemLevel §7Престиж §6$prestigeLevel'
@@ -42,134 +42,134 @@ itemLoreStructureV2:
 - $potionEffect
 - §7§l§m-----------------------------
 - $loreResaleValue
-# Sets the shop source lore for store purchased
+# Устанавливает информацию об источнике магазина для купленного в магазине
 shopSourceItemLores: '&7Куплено в магазине'
-# Sets the shop source lore for items looted from bosses
+# Устанавливает информацию об источнике магазина для предметов, добытых с боссов.
 mobSourceItemLores: '&7Добыто с $mob'
-# Sets the item worth lore
+# Устанавливает ценность предмета
 loreWorths: '&7Стоимость: $worth $currencyName'
-# Sets the item resale value lore
+# Устанавливает информацию о стоимости предмета при перепродаже
 loreResaleValues: '&7Цена продажи: $resale $currencyName'
-# Sets the base chance for any elite item to drop from elite mobs
+# Устанавливает базовый шанс выпадения любого элитного предмета с элитных мобов
 flatDropRateV3: 0.2
-# Sets the base chance for any elite item to drop from regional bosses
+# Устанавливает базовый шанс выпадения любого элитного предмета с региональных боссов.
 regionalBossNonUniqueDropRate: 0.05
-# Sets if the regional bosses can drop vanilla loot
+# Устанавливает, могут ли региональные боссы выбрасывать ванильную добычу
 regionalBossesDropVanillaLoot: false
-# Sets how much the chance of an elite item dropping increases based on the level of the boss.
-# The level of the boss is multiplied by this value and added to the base chance.
-# It is no longer recommended to have this above 0.0!
+# Устанавливает, насколько увеличивается вероятность выпадения элитного предмета в зависимости от уровня босса.
+# Уровень босса умножается на это значение и прибавляется к базовому шансу.
+# Больше не рекомендуется иметь значение выше 0.0!
 levelIncreaseDropRateV2: 0.0
-# Sets the weighed chance of a procedurally generated item dropping.
-# This system uses weighted probabilities! Look that up on google if you don't know what that is.
+# Устанавливает взвешенный шанс выпадения процедурно сгенерированного предмета.
+# Эта система использует взвешенные вероятности! Посмотрите это в Google, если не знаете, что это такое.
 proceduralItemDropWeight: 90.0
-# Sets the relative chance of a weighed item dropping.
-# Weighed items are custom items that don't have a dynamic weight, like charms.
+# Устанавливает относительную вероятность падения взвешенного предмета.
+# Взвешенные предметы — это специальные предметы, которые не имеют динамического веса, например брелоки.
 weighedItemDropWeight: 1.0
-# Sets the relative chance of a fixed item dropping. These are custom items that do not scale.
+# Устанавливает относительную вероятность выпадения фиксированного предмета. Это пользовательские элементы, которые не масштабируются.
 fixedItemDropWeight: 10.0
-# Sets the relative chance of a limited item dropping. These are custom items that scale up to a specific level
+# Устанавливает относительную вероятность выпадения ограниченного предмета. Это пользовательские предметы, которые масштабируются до определенного уровня.
 limitedItemDropWeight: 3.0
-# Sets the relative chance of a scalable item dropping. These are custom items that can scale to any level, and are the most common in the plugin.
+# Устанавливает относительную вероятность выпадения масштабируемого предмета. Это пользовательские элементы, которые можно масштабировать до любого уровня, и они являются наиболее распространенными в плагине.
 scalableItemDropWeight: 6.0
-# Sets the multiplier for the vanilla loot of the mob, based on the level of the mob.
+# Устанавливает множитель ванильного лута моба в зависимости от уровня моба.
 defaultLootMultiplier: 0.0
-# Sets the maximum level for the default loot multiplier.
+# Устанавливает максимальный уровень множителя добычи по умолчанию.
 levelCapForDefaultLootMultiplier: 200
-# Sets the vanilla Minecraft experience dropped multiplier for the boss, based on the level of the boss.
+# Устанавливает множитель выпадающего опыта ванильного Minecraft для босса в зависимости от уровня босса.
 defaultExperienceMultiplier: 1.0
-# Sets the level of the maximum loot that will be dropped by EliteMobs. Strongly recommended to leave it at 200.
+# Устанавливает уровень максимального лута, который будет выпадать из EliteMobs. Настоятельно рекомендуется оставить значение 200.
 maximumItemLevel: 200
-# Sets if elite enchantments will be used. 
-# Elite enchantments replace vanilla enchantments when elite items get enchantment levels that go beyond vanilla limits.
-# Example: if an elite sword is supposed to have sharpness 10, since the Minecraft limit is level 5, it will have sharpness 5 and elite sharpness 5.
-# Elite sharpness only affects mobs spawned by EliteMobs. This is done so PVP and vanilla combat don't become unbalanced.
+# Устанавливает, будут ли использоваться элитные чары.
+# Элитные чары заменяют ванильные чары, когда элитные предметы получают уровни чар, выходящие за пределы ванильных чар.
+# Пример: если элитный меч должен иметь остроту 10, поскольку предел Minecraft — уровень 5, он будет иметь остроту 5 и элитную остроту 5.
+# Элитная резкость влияет только на мобов, порожденных EliteMobs. Это сделано для того, чтобы PVP и ванильный бой не нарушали баланс.
 useEliteEnchantments: true
-# Sets the display name that will be used for the elite enchantments on item lore.
+# Устанавливает отображаемое имя, которое будет использоваться для элитных чар в знаниях предметов.
 eliteEnchantmentLoreStrings: Элитное
-# Sets if EliteMobs will see hoes as valid weapons for the damage calculations.
+# Устанавливает, будут ли EliteMobs рассматривать мотыги как допустимое оружие для расчета урона.
 useHoesAsWeapons: false
-# Sets if EliteMobs will spawn special particles over dropped items of high quality.
+# Устанавливает, будут ли EliteMobs создавать специальные частицы поверх выпавших предметов высокого качества.
 enableRareItemParticleEffects: true
-# Sets the symbols that will be used in item lore to show that a potion effect applies on hit to the entity that gets hit.
+# Устанавливает символы, которые будут использоваться в истории предметов, чтобы показать, что эффект зелья применяется при попадании к объекту, по которому нанесен удар.
 potionEffectOnHitTargetLore: '&4⚔☠'
-# Sets the symbols that will be used in item lore to show that a potion effect applies on hit to the player doing the hitting.
+# Устанавливает символы, которые будут использоваться в истории предметов, чтобы показать, что эффект зелья применяется при ударе к игроку, производящему удар.
 potionEffectOnHitSelfLore: '&9⚔🛡'
-# Sets the symbols that will be used in item lore to show that a potion effect will keep reapplying for as long as the player wields it.
+# Устанавливает символы, которые будут использоваться в истории предметов, чтобы показать, что эффект зелья будет применяться повторно до тех пор, пока игрок им владеет.
 potionEffectContinuousLore: '&6⟲'
-# Sets the characters prefixed to elite enchantments in item lore.
+# Устанавливает символы с префиксом элитных чар в знаниях о предметах.
 eliteEnchantmentLoreColor: '&9◇'
-# Sets the characters prefixed to vanilla enchantments in item lore.
+# Устанавливает символы с префиксом ванильных чар в истории предметов.
 vanillaEnchantmentLoreColor: '&7◇'
-# Sets the characters prefixed to custom enchantments in item lore.
+# Устанавливает символы с префиксом пользовательских чар в истории предметов.
 customEnchantmentColor: '&3◇'
-# Sets the characters prefixed to potion effects in item lore.
+# Устанавливает символы, предшествующие эффектам зелий в знаниях предметов.
 potionEffectLoreColor: '&5◇'
-# Sets the text that will appear on the item if the item is not soulbound.
+# Устанавливает текст, который будет отображаться на предмете, если предмет не является персональным.
 noSoulbindLore: '&7Не привязано!'
-# Sets if elite item can be enchanted by vanilla means. This is not recommended as EliteMobs has its own custom enchantments system  with its own balance!
+# Устанавливает, можно ли зачаровать элитный предмет ванильными способами. Это не рекомендуется, так как EliteMobs имеет собственную систему зачарований со своим балансом!
 preventEliteItemEnchantment: true
-# Sets if elite items can be disenchanted by vanilla means.
+# Устанавливает, можно ли распылить элитные предметы ванильными способами.
 preventEliteItemDisenchantment: true
-# Sets the message that appears for players when they attempt to disenchant an item and that is not allowed.
+# Устанавливает сообщение, которое появляется у игроков, когда они пытаются распылить предмет, и это запрещено.
 preventEliteItemDisenchantmentMessage: '&c[EliteMobs] Нельзя снимать чары с элитных предметов!'
-# Sets whether elite items can be upgraded from diamond to netherite by vanilla means. Not recommended!
+# Устанавливает, можно ли улучшить элитные предметы с алмаза до незерита ванильными средствами. Не рекомендуется!
 preventEliteItemDiamondToNetheriteUpgrade: true
-# Sets whether elite items will only lose durability on death.
-# This is an important system for EliteMobs, and it is strongly recommended as high level fights are nearly impossible without it!
+# Устанавливает, будут ли элитные предметы терять прочность только после смерти.
+# Это важная система для EliteMobs, и мы настоятельно рекомендуем ее использовать, поскольку без нее бои высокого уровня практически невозможны!
 eliteItemsDurabilityLossOnlyOnDeath: true
-# Sets the durability loss multiplier for elite items if it is set to lose durability on death.
-# Values between 0.0 and 1.0 lower the durability loss and values above 1.0 increase it.
-# Example: 0.5 deals 50% of the durability loss, 2.0 deals 200% of the durability loss.
+# Устанавливает множитель потери прочности для элитных предметов, если установлено, что они теряют прочность при смерти.
+# Значения от 0,0 до 1,0 уменьшают потерю прочности, а значения выше 1,0 увеличивают ее.
+# Пример: 0.5 наносит 50% потери прочности, 2.0 наносит 200% потери прочности.
 eliteItemsDurabilityLossMultiplier: 1.0
-# Sets the message that appears when item scrapping is successful.
+# Устанавливает сообщение, которое появляется при успешной утилизации элемента.
 scrapSucceededMessageV2: '&8[EliteMobs] &2Разбор успешен $amount раз!'
-# Sets message that appears when item scrapping fails.
+# Устанавливает сообщение, которое появляется в случае неудачной утилизации предмета.
 scrapFailedMessageV2: '&8[EliteMobs] &cРазбор не удался $amount раз!'
-# Sets if elite loot should be placed directly into players' inventories.
+# Устанавливает, следует ли помещать элитную добычу непосредственно в инвентарь игроков.
 putLootDirectlyIntoPlayerInventory: false
-# Sets maximum level difference players can have before they can no longer loot items that are too low level.
-# This is calculated based on the average level of the loot the player is wearing.
-# As an example, if it is set to 10 and a player has level 50 gear, they will not be able to farm level 39 bosses.
+# Устанавливает максимальную разницу в уровнях, которую могут иметь игроки, прежде чем они больше не смогут добывать предметы слишком низкого уровня.
+# Рассчитывается на основе среднего уровня добычи, которую носит игрок.
+# Например, если установлено значение 10 и у игрока есть снаряжение 50-го уровня, он не сможет фармить боссов 39-го уровня.
 lootLevelDifferenceLockout: 10
-# Sets if EliteMobs will prevent Elite Items from breaking when using the durability loss on death system.
-# Players will not be able to use items with no durability left anyway, this is simply to prevent the accidental loss of high level but low durability items.
+# Устанавливает, будут ли EliteMobs предотвращать поломку элитных предметов при использовании системы потери прочности при смерти.
+# Игроки в любом случае не смогут использовать предметы, у которых не осталось прочности, это просто для предотвращения случайной потери предметов высокого уровня, но с низкой прочностью.
 preventEliteItemsFromBreaking: true
-# Sets the characters prefixed to vanilla enchantments in item lore.
+# Устанавливает символы с префиксом ванильных чар в истории предметов.
 noItemDurabilityMessage: '&8[EliteMobs] $item &4сломано! Не будет работать, пока не почините!'
-# Sets the minimum level, +7, of bosses that can procedurally generated drop diamond gear in EliteMobs.
-# There is no procedurally generated netherite gear in EliteMobs, only custom loot.
+# Устанавливает минимальный уровень +7 для боссов, с которых можно процедурно генерировать алмазное снаряжение в EliteMobs.
+# В EliteMobs нет процедурно генерируемого незеритового снаряжения, только специальная добыча.
 minimumProcedurallyGeneratedDiamondLootLevelPlusSeven: 10
-# Sets the message show in chat when successfully rolling for loot through the /em simloot <level> <times> command.
+# Устанавливает отображение сообщения в чате при успешном поиске добычи с помощью команды /em simloot <level> <times>.
 simlootMessageSuccess: '&8[EliteMobs] &2Вы получили добычу: $itemName &2!'
-# Sets the message show in chat when failing to roll for loot through the /em simloot <level> <times> command.
+# Устанавливает отображение сообщения в чате при невозможности получить добычу с помощью команды /em simloot <level> <times>.
 simlootMessageFailure: '&8[EliteMobs] &cДобыча не выпала!'
-# Sets the message that players get when elite loot is deposited directly into their inventories.
+# Устанавливает сообщение, которое игроки получают, когда элитная добыча попадает прямо в их инвентарь.
 directDropCustomLootMessage: '&8[EliteMobs] &2Получено: $itemName &2!'
-# Sets the message that players get when vanilla loot is deposited directly into their inventories.
+# Устанавливает сообщение, которое получают игроки, когда ванильная добыча попадает прямо в их инвентарь.
 directDropMinecraftLootMessage: '&8[EliteMobs] &aПолучено: $itemName &a!'
-# Sets the message that players get when elite coins are deposited directly into their inventories.
+# Устанавливает сообщение, которое игроки получают, когда элитные монеты помещаются непосредственно в их инвентарь.
 directDropCoinMessage: '&8[EliteMobs] &aПолучено &2$amount $currencyName &a!'
-# Sets if EliteMobs will hide vanilla Minecraft attributes.
+# Устанавливает, будут ли EliteMobs скрывать атрибуты ванильного Minecraft.
 hideItemAttributes: true
-# Sets the weapon-specific lore entry on an elite item. The $EDPS placeholder gets replaced with the elite DPS (damage per second) of the weapon.
+# Устанавливает запись об оружии для элитного предмета. Заполнитель $EDPS заменяется элитным ДПС (урон в секунду) оружия.
 weaponEntry: '&7Элитный DPS: &2$EDPS'
-# Sets the armor-specific lore entry on an elite item. The $EDEF placeholder gets replaced with the elite DEF (defense) of the weapon.
+# Устанавливает запись, специфичную для доспехов, для элитного предмета. Заполнитель $EDEF заменяется элитным DEF (защитой) оружия.
 armorEntry: '&7Элитная защита: &2$EDEF'
-# Sets the message sent when a played kills a boss but the gear level is too different from the boss level to get coins
+# Устанавливает сообщение, отправляемое, когда игрок убивает босса, но уровень снаряжения слишком отличается от уровня босса, чтобы получить монеты
 levelRangeTooDifferent: '&8[EM] &4Ваше снаряжение уровня $playerLevel, а босс уровня
   $bossLevel; разница слишком велика для получения монет!'
-# Sets whether the plugin will use Elite Item Scrolls
-# Elite Item Scroll are recommended for servers that want to use other item plugins like ItemAdder
-# Elite item scrolls can be used at anvils to give non-elite items elite levels
-# Elite item scrolls drop from elites of the same level to guarantee that the loot is balanced
-# Note for item balance that elite damage does not affect damage outside of EliteMobs, so in most scenarios this should not result in broken (overpowered) items
+# Устанавливает, будет ли плагин использовать прокрутки элитных предметов
+# Elite Item Scroll рекомендуется для серверов, которые хотят использовать другие плагины элементов, такие как ItemAdder.
+# Свитки элитных предметов можно использовать на наковальнях, чтобы придать неэлитным предметам элитный уровень.
+# Свитки элитных предметов выпадают из элит одного уровня, чтобы гарантировать сбалансированность добычи.
+# Обратите внимание на баланс предметов, что элитный урон не влияет на урон за пределами элитных мобов, поэтому в большинстве сценариев это не должно приводить к поломке (сверхмощных) предметов.
 useEliteItemScrolls: false
-# Sets the chance of an Elite Item Scroll dropping from a boss, where 0 is 0% and 1 is 100%, and 0.5 is 50%.
+# Устанавливает вероятность выпадения свитка элитного предмета с босса, где 0 — 0 %, 1 — 100 %, а 0,5 — 50 %.
 eliteItemScrollChance: 0.1
-# Sets the name of the elite item scroll item
+# Устанавливает имя элемента прокрутки элитного предмета
 eliteItemScrollName: '&6Свиток элитного предмета'
-# Sets the name of the elite item scroll item
+# Устанавливает имя элемента прокрутки элитного предмета
 eliteItemScrollLore:
 - '&fИспользуйте у NPC Применение свитков, чтобы зачаровать'
 - '&fнеэлитный предмет до уровня $level'

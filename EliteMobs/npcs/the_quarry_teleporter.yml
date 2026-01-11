@@ -1,6 +1,6 @@
 isEnabled: true
-name: Dwarf Berge
-role: <[40] The Quarry Teleporter>
+name: Карлик Берге
+role: <[40] Карьерный телепорт>
 spawnLocation: em_adventurers_guild,298.5,78.18,201.5,0,0
 spawnLocations: []
 greetings:

@@ -18,10 +18,10 @@ powers:
   customSpawn: normal_surface_spawn.yml
 trails:
 - FLAME
-locationMessage: '&cZombie King: $distance blocks away!'
-spawnMessage: '&cThe Zombie King has been sighted!'
-deathMessage: '&aThe Zombie King has been slain by $players!'
-escapeMessage: '&4The Zombie King has escaped!'
+locationMessage: '&cКороль Зомби: $distance блокирует!'
+spawnMessage: '&cОбнаруженный Король Зомби!'
+deathMessage: '&aКороль зомби убит $players!'
+escapeMessage: '&4Король зомби сбежал!'
 announcementPriority: 2
 helmet: DIAMOND_HELMET
 chestplate: DIAMOND_CHESTPLATE

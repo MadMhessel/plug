@@ -17,9 +17,9 @@ trails:
 - SMOKE_LARGE
 movementSpeedAttribute: 0.34
 followDistance: 50
-locationMessage: "&cUnknown: $distance blocks away!"
-deathMessage: "&aDr. Craftemine's creation was slain by $players!"
-escapeMessage: "&4Dr. Craftemine's creation has disappeared!"
+locationMessage: "&cUnknown: $distance блокирует!"
+deathMessage: "&aДр. Создание Craftemine было убито $players!"
+escapeMessage: "&4Др. Творение Craftemine исчезло!"
 onDamagedMessages:
 - "Rhaaaaaaaaar!"
 - "WRAAAA!!!"

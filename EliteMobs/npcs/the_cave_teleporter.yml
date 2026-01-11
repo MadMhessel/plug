@@ -1,6 +1,6 @@
 isEnabled: true
-name: Village Mother Martha
-role: <[15] The Cave Teleporter>
+name: Деревенская Мать Марфа
+role: <[15] Пещерный телепорт>
 spawnLocation: em_adventurers_guild,303.5,78.18,206.5,90,0
 spawnLocations: []
 greetings:

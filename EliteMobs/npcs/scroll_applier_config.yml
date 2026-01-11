@@ -1,6 +1,6 @@
 isEnabled: true
-name: Scotty
-role: <Scroll Applier>
+name: Скотти
+role: <Применение прокрутки>
 spawnLocation: em_adventurers_guild,274.5,77,245.5,-20,0
 spawnLocations: []
 greetings:

@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 4
 isEnabled: true
 entityType: VINDICATOR
-name: '$normalLevel &7Sewer worker'
+name: '$normalLevel &7Аналитический рабочий'
 level: dynamic
 instanced: true
 mainHand: IRON_AXE

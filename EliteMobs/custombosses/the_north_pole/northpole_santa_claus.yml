@@ -13,13 +13,13 @@ deathMessages:
 disguise: custom:elitemobs_santa_claus_skin
 dropsEliteMobsLoot: true
 entityType: ZOMBIE
-escapeMessage: '&cSanta set off on his sleigh!'
+escapeMessage: '&cСанта отправился на своих санях!'
 healthMultiplier: 6.0
 isEnabled: true
 isRegionalBoss: true
 leashRadius: 16
 level: 60
-locationMessage: '&4Santa Claus: $distance blocks away'
+locationMessage: '&4Санта-Клаус: $distance блокирует расстояние'
 name: $bossLevel &4Santa Claus
 offHand: BELL
 powers:
@@ -40,7 +40,7 @@ powers:
 spawnCooldown: 120
 spawnLocations:
 - em_north_pole,-323.5058103737918,59.2,-447.4123512529523,89.85,7.293091:1639538320127
-spawnMessage: '&4Santa Claus is getting ready for Christmas!!'
+spawnMessage: '&4Санта Клаус готовится к Рождеству!!'
 uniqueLootList:
 - northpole_treat.yml:0.1
 - northpole_treat_v2.yml:0.5

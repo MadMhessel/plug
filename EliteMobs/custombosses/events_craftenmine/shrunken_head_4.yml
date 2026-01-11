@@ -9,7 +9,7 @@ powers:
 - attack_arrow.yml
 movementSpeedAttribute: 0.29
 followDistance: 80
-locationMessage: "&cShrunken Head: $distance blocks away!"
-deathMessage: "&aThe Shrunken Heads have been exterminated by $players!"
-escapeMessage: "&4The Shrunken Heads have escaped!"
+locationMessage: "&cСморщенная голова: $distance блокирует удар!"
+deathMessage: "&aСморщенные Головы были уничтожены $players!"
+escapeMessage: "&4Сморщенные головы сбежали!"
 announcementPriority: 2

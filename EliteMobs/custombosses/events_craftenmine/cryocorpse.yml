@@ -16,8 +16,8 @@ uniqueLootList:
 - filename=cryocorpse_drop_helmet.yml:amount=1:chance=0.5
 movementSpeedAttribute: 0.36
 followDistance: 70
-locationMessage: "&cCryocorpse: $distance blocks away!"
-spawnMessage: "&cA Dr. Craftenmine experiment has escaped from the cryo-chamber!"
-deathMessage: "&aThe Cryocorpse have been slain by $players!"
-escapeMessage: "&4The Crycorpse has wandered away!"
+locationMessage: "&cКриокруп: $distance блокируется!"
+spawnMessage: "&cA Эксперимент доктора Крафтенмина сбежал из криокамеры!"
+deathMessage: "&aКриокруп был убит $players!"
+escapeMessage: "&4Крикорпс ушёл!"
 announcementPriority: 2

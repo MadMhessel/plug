@@ -3,7 +3,7 @@ boots: DIAMOND_BOOTS
 bossType: BOSS
 chestplate: DIAMOND_CHESTPLATE
 damageMultiplier: 1.75
-deathMessage: '&2The Drowned King has been slain!'
+deathMessage: '&2Утонувший король убит!'
 deathMessages:
 - '&e&l---------------------------------------------'
 - '&4The Drowned King has been slain!'
@@ -14,7 +14,7 @@ deathMessages:
 - '&e&l---------------------------------------------'
 dropsEliteMobsLoot: true
 entityType: DROWNED
-escapeMessage: '&2The sewers grow quiet, for now...'
+escapeMessage: '&2В канализации пока тихо...'
 followDistance: 70
 healthMultiplier: 7
 helmet: GOLDEN_HELMET
@@ -49,7 +49,7 @@ powers:
 spawnCooldown: 120
 spawnLocations:
 - em_sewer_maze,-384.5,100.5,-171.5,0.0,0.0:0
-spawnMessage: '&cThe sewers echo with the clamor of a returned king...'
+spawnMessage: '&cВ канализации раз относится к эхо вернувшегося отца...'
 uniqueLootList:
 - filename: sewer_drowned_kings_trident_normal.yml
   chance: 0.1

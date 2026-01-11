@@ -1,56 +1,56 @@
-# Sets if quests have to be returned to quest givers to complete the quest.
+# Устанавливает, должны ли квесты быть возвращены квестодателям для завершения квеста.
 requireQuestTurnIn: true
-# Sets the message sent when a quest is accepted.
+# Устанавливает сообщение, отправляемое при принятии квеста.
 questJoinMessage: '&aВы приняли задание $questName &a!'
-# Sets the message sent when a quest is abandoned.
+# Устанавливает сообщение, отправляемое при отказе от квеста.
 questLeaveMessage: '&cВы отказались от задания $questName &c!'
-# Sets message sent when a quest is completed.
+# Устанавливает сообщение, отправляемое после завершения квеста.
 questCompleteMessage: '&2Вы завершили задание $questName &2!'
-# Sets the message sent when a player tried to abandon a quest when none are active.
+# Устанавливает сообщение, отправляемое, когда игрок пытался отказаться от квеста, когда ни один из них не активен.
 leaveWhenNoActiveQuestsExist: '&cУ вас нет активных заданий!'
-# Sets the confirmation message sent when players try to leave a quest.
+# Устанавливает сообщение с подтверждением, отправляемое, когда игроки пытаются покинуть квест.
 questLeaveConfirmationMessage: '&cВы уверены, что хотите отказаться от текущего задания?
   Введите &a/em confirm &cдля подтверждения!'
-# Sets if some of the messages related to quests will use titles instead of chat messages.
+# Устанавливает, будут ли некоторые сообщения, связанные с квестами, использовать заголовки вместо сообщений чата.
 useQuestAcceptTitles: true
-# Sets the title sent when a players starts a quest.
+# Устанавливает заголовок, отправляемый, когда игрок начинает квест.
 questStartTitle: '&aЗадание принято!'
-# Sets the subtitle sent when a players starts a quest.
+# Устанавливает субтитры, отправляемые, когда игрок начинает квест.
 questStartSubtitle: $questName
-# Sets if titles will be sent when players complete a quest.
+# Устанавливает, будут ли отправляться титулы, когда игроки завершат квест.
 useQuestCompleteTitles: true
-# Sets the title sent when a player completes a quest.
+# Устанавливает заголовок, отправляемый игроку, когда он завершает квест.
 questCompleteTitle: '&2Задание выполнено!'
-# Sets the subtitle sent when a player completes a quest.
+# Устанавливает субтитры, отправляемые, когда игрок завершает квест.
 questCompleteSubtitle: $questName
-# Sets if titles are sent when players leave quests..
+# Устанавливает, отправляются ли титулы, когда игроки покидают квесты.
 useQuestLeaveTitles: true
-# Sets the title sent when a player leaves a quest.
+# Устанавливает заголовок, отправляемый, когда игрок покидает квест.
 questLeaveTitle: '&cЗадание отменено!'
-# Sets the subtitle sent when a player leaves a quest.
+# Устанавливает субтитры, отправляемые, когда игрок покидает квест.
 questLeaveSubtitle: $questName
-# Sets if messages are sent on chat reporting quest objective progression.
+# Устанавливает, отправляются ли сообщения о ходе выполнения квеста с отчетами в чате.
 doQuestChatProgression: true
-# Sets the color codes for completed objectives.
+# Устанавливает цветовые коды для выполненных задач.
 ongoingQuestColorCode: '&2'
-# Sets the formatting for progression messages of kill quests.
+# Устанавливает форматирование сообщений о ходе выполнения квестов на убийство.
 killQuestChatProgressionMessage: '&8[EliteMobs]&c➤Убейте $name:$color$current&0/$color$target'
-# Sets the formatting for progression messages of fetch quests.
+# Устанавливает форматирование сообщений о ходе выполнения квестов.
 fetchQuestChatProgressionMessage: '&8[EliteMobs]&c➤Соберите $name:$color$current&0/$color$target'
-# Sets the formatting for progression messages of dialog quests.
+# Устанавливает форматирование сообщений о ходе диалоговых квестов.
 dialogQuestChatProgressionMessage: '&8[EliteMobs]&c➤Поговорите с $name:$color$current&0/$color$target'
-# Sets the maximum amount of accepted quests a player can have.
+# Устанавливает максимальное количество принятых квестов, которые может иметь игрок.
 maximumActiveQuests: 10
-# Sets the message sent to players when trying to accept an amount of quests that exceed the active quest cap.
+# Устанавливает сообщение, отправляемое игрокам при попытке принять количество квестов, превышающее активный лимит квестов.
 questCapMessage: '&8[EliteMobs] &cВы достигли максимума активных заданий (10)! &4Откажитесь
   или завершите хотя бы одно, чтобы брать новые!'
-# Sets if scoreboards messages will be used for quests.
+# Устанавливает, будут ли сообщения табло использоваться для квестов.
 useQuestScoreboards: true
-# Sets the formatting for scoreboard progression messages of kill quests.
+# Устанавливает форматирование сообщений о ходе выполнения квестов на табло.
 killQuestScoreboardProgressionMessage: '&c➤Убейте $name:$color$current&0/$color$target'
-# Sets the formatting for scoreboard progression message of fetch quests.
+# Устанавливает форматирование сообщения о ходе выполнения квестов на табло.
 fetchQuestScoreboardProgressionMessage: '&c➤Соберите $name:$color$current&0/$color$target'
-# Sets the formatting for scoreboard progression messages of dialog quests.
+# Устанавливает форматирование сообщений о прогрессе на табло в диалоговых квестах.
 dialogQuestScoreboardProgressionMessage: '&c➤Поговорите с $name:$color$current&0/$color$target'
 questEntityTypes:
 - BLAZE
@@ -81,35 +81,35 @@ questEntityTypes:
 - PIGLIN_BRUTE
 - PIGLIN
 - ZOMBIFIED_PIGLIN
-# Sets the message sent to players to activate quest tracking.
+# Устанавливает сообщение, отправляемое игрокам для активации отслеживания квестов.
 chatTrackMessage: '&8[EliteMobs]&2 Нажмите здесь, чтобы отслеживать задание!'
-# Sets the hover message of the quest tracking message.
+# Устанавливает сообщение при наведении сообщения об отслеживании квеста.
 chatTrackHover: '&2Нажмите, чтобы отслеживать!'
-# Sets the command sent when clicking on the tracking message. You really should not modify this.
+# Устанавливает команду, отправляемую при нажатии на сообщение отслеживания. Вам действительно не следует это изменять.
 chatTrackCommand: /elitemobs quest track $questID
-# Sets the message sent to players when activating quest tracking.
+# Устанавливает сообщение, отправляемое игрокам при активации отслеживания квестов.
 chatTrackingMessage: '&8[EliteMobs]&9 Вы начали отслеживать задание!'
-# Sets the hover message of the quest tracking enabled message.
+# Устанавливает наведение сообщения о включенном отслеживании квестов.
 chatTrackingHover: '&2Нажмите, чтобы снять/включить отслеживание! /em -> Quests для выбора другого задания!'
-# Sets the command sent when click on the quest tracking activation message. You really should not modify this.
+# Устанавливает команду, отправляемую при нажатии на сообщение об активации отслеживания квестов. Вам действительно не следует это изменять.
 chatTrackingCommand: /elitemobs quest track $questID
-# Sets if quests are automatically tracked when accepted.
+# Устанавливает, автоматически отслеживаются ли квесты при их принятии.
 autoTrackQuestsOnAccept: true
-# Sets the message that appears when the destination of the quest could not be found.
+# Устанавливает сообщение, которое появляется, когда пункт назначения квеста не найден.
 noQuestDestinationFound: '[EM] Цель задания не найдена!'
-# Sets the message that appears when the quest target is in a different world.
+# Устанавливает сообщение, которое появляется, когда цель квеста находится в другом мире.
 questDestinationInOtherWorld: '[EM] Перейдите в мир $world!'
-# Sets the message sent to players when trying to accept a quest they have already completed.
+# Устанавливает сообщение, отправляемое игрокам при попытке принять уже выполненный квест.
 questAlreadyCompletedMessage: '&8[EliteMobs] &cВы уже завершили это задание!'
-# Sets the message sent to players when trying to accept a quest they do not have the permission for.
+# Устанавливает сообщение, отправляемое игрокам при попытке принять квест, на который у них нет разрешения.
 questPrerequisitesMissingMessage: '&8[EliteMobs] &cУ этого NPC есть задания, которые
   вы пока не можете принять!'
-# Sets the message sent to players trying to get a quest for which they do not have the correct guild rank activated.
+# Устанавливает сообщение, отправляемое игрокам, пытающимся получить квест, для которого у них не активирован правильный ранг гильдии.
 lowRankDynamicQuestWarning: '&8[EliteMobs] &cС текущим рангом гильдии эти задания недоступны!
   Повышайте ранг, чтобы принять их.'
-# Sets the formatting for the quest turn-in message.
+# Устанавливает форматирование сообщения о сдаче квеста.
 questTurnInObjective: '&a2Поговорите с $npcName'
-# Sets the maximum amount of characters inventory-based menus for quests will have before breaking the line.
+# Устанавливает максимальное количество персонажей в меню квестов на основе инвентаря, прежде чем нарушить линию.
 horizontalCharacterLimitBedrockMenu: 30
-# Sets the maximum amount of characters per item entry in inventory-based menus for quests before creating another item to continue the entry.
+# Устанавливает максимальное количество символов для каждой записи предмета в меню инвентаря для квестов перед созданием другого предмета для продолжения записи.
 itemEntryCharacterLimitBedrockMenu: 300

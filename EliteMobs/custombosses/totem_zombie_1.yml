@@ -17,11 +17,11 @@ powers:
 - skeleton_tracking_arrow.yml
 - attack_fireball.yml
 - hyper_loot.yml
-locationMessage: '&cZombie Totem: $distance blocks away!'
+locationMessage: '&cТотем зомби: $distance блокирует!'
 mountedEntity: totem_zombie_2.yml
-spawnMessage: '&cA Dr. Craftenmine abomination has been sighted!'
-deathMessage: '&aDr. Craftenmine''s abomination been terminated by $players!'
-escapeMessage: '&4Dr. Craftenmine''s creation has escaped!'
+spawnMessage: '&cA Обнаружена мерзость Доктора Крафтемайна!'
+deathMessage: '&aДр. Крафтенмайн''Эта мерзость прекращена $players!'
+escapeMessage: '&4Др. Крафтенмайн''творение сбежало!'
 announcementPriority: 2
 followDistance: 100
 helmet: NETHERITE_HELMET

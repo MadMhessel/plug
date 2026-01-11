@@ -22,10 +22,10 @@ powers:
 - spirit_walk.yml
 trails:
 - FIRE_CHARGE
-locationMessage: '&6????: $distance blocks away'
-spawnMessage: '&cSomething came out of the meteorite''s crater...'
-deathMessage: '&6$players completed first contact.'
-escapeMessage: '&6The ayyliens have been taken to area 51!'
+locationMessage: '&6????: $distance блокирует удар'
+spawnMessage: '&cЧто-то вышло из метеорита''кратер...'
+deathMessage: '&6$players завершился первый контакт.'
+escapeMessage: '&6Айлинцев забрали в зону 51!'
 announcementPriority: 2
 timeout: 30
 onSpawnBlockStates: []

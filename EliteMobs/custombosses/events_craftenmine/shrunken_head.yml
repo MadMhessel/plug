@@ -9,8 +9,8 @@ powers:
 - attack_arrow.yml
 movementSpeedAttribute: 0.27
 followDistance: 80
-locationMessage: "&cShrunken Head: $distance blocks away!"
-spawnMessage: "&cBio materials have escaped Dr. Craftenmine's laboratory!"
-deathMessage: "&aThe Shrunken Heads have been exterminated by $players!"
-escapeMessage: "&4The Shrunken Heads have escaped!"
+locationMessage: "&cСморщенная голова: $distance блокирует удар!"
+spawnMessage: "&cБиоматериалы сбежали из лаборатории доктора Крафтенмайна!"
+deathMessage: "&aСморщенные Головы были уничтожены $players!"
+escapeMessage: "&4Сморщенные головы сбежали!"
 announcementPriority: 2

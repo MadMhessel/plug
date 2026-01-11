@@ -1,6 +1,6 @@
 isEnabled: true
-name: Sonio the Speedy
-role: <[30] Craftenmine's Laboratory Teleport>
+name: Сонио Быстрый
+role: <[30] Телепорт лаборатории Крафтенмайна>
 spawnLocation: em_adventurers_guild,296.5,91,217.5,90,0
 spawnLocations: []
 greetings:

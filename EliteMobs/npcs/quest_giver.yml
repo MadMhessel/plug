@@ -1,6 +1,6 @@
 isEnabled: true
-name: Qel'Thuzad
-role: <Quest Giver>
+name: Кел'Тузад
+role: <Дающий квест>
 spawnLocation: em_adventurers_guild,278.5,91,215.5,0,0
 spawnLocations: []
 greetings:

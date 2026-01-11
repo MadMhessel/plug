@@ -19,10 +19,10 @@ uniqueLootList:
 - filename=mutated_cod_drop_rod.yml:amount=1:chance=0.1
 movementSpeedAttribute: 0.30
 followDistance: 70
-locationMessage: "&cMutated Cod: $distance blocks away!"
-spawnMessage: "&cA fishy Dr. Craftenmine creation has escaped!"
-deathMessage: "&aThe Mutated Cod was slain by $players!"
-escapeMessage: "&4The Mutated Cod has swam away!"
+locationMessage: "&cМутировавшая треска: $distance блокирует!"
+spawnMessage: "&cA подозрительное создание доктора Крафтенмайна сбежало!"
+deathMessage: "&aМутировавшая Треска была убита $players!"
+escapeMessage: "&4Мутировавшая треска уплыла!"
 announcementPriority: 2
 eliteScript:
   FlopLikeFish:

@@ -1,6 +1,6 @@
 isEnabled: true
-name: Gillian
-role: <Guild Attendant>
+name: Джиллиан
+role: <Служитель гильдии>
 spawnLocation: em_adventurers_guild,283.5,91,229.5,179,0
 spawnLocations: []
 greetings:

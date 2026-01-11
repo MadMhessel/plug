@@ -1,6 +1,6 @@
 isEnabled: true
-name: Grog
-role: <Special Blacksmith>
+name: Грог
+role: <Особый кузнец>
 spawnLocation: em_adventurers_guild,282.5,93,258.5,-90,0
 spawnLocations: []
 greetings:

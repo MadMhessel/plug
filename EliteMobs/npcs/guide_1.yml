@@ -1,6 +1,6 @@
 isEnabled: true
-name: Casus
-role: <Guide>
+name: Казус
+role: <Руководство>
 spawnLocation: em_adventurers_guild,215.5,87,239.5,131,0
 spawnLocations: []
 greetings:

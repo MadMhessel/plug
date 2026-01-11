@@ -24,7 +24,7 @@ onDamagedMessages:
 - I've been hit!
 trails:
 - BLOCK_MARKER
-locationMessage: 'Test entity: $distance'
+locationMessage: 'Тестовый объект: $distance'
 spawnMessage: A test boss has been spawned!
 deathMessage: A test boss has been slain by $players!
 escapeMessage: A test boss entity has escaped!

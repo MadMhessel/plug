@@ -1,6 +1,6 @@
 isEnabled: true
-name: Reggie
-role: <Repairman>
+name: Реджи
+role: <Ремонтник>
 spawnLocation: em_adventurers_guild,278.5,81,263.5,-90,0
 spawnLocations: []
 greetings:

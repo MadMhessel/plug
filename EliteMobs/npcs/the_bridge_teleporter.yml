@@ -1,6 +1,6 @@
 isEnabled: true
-name: Old Dwarf Jotun
-role: <[25] The Bridge Teleporter>
+name: Старый гном Йотун
+role: <[25] Телепорт на мосту>
 spawnLocation: em_adventurers_guild,303.5,78.18,202.5,90,0
 spawnLocations: []
 greetings:

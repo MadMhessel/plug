@@ -25,10 +25,10 @@ powers:
   chance: 0.2
   inheritLevel: true
   spawnNearby: true
-locationMessage: '&cBeast Master: $distance blocks away!'
-spawnMessage: '&cThe Beast Master has been sighted!'
-deathMessage: '&aThe Best Master has been slain by $players!'
-escapeMessage: '&4The Beast Master has returned to the wilds!'
+locationMessage: '&cBeast Master: $distance блокирует!'
+spawnMessage: '&cПовелитель Зверей взгляд!'
+deathMessage: '&aЛучший мастер убийства $players!'
+escapeMessage: '&4Повелитель Зверей вернулся в дикую природу!'
 announcementPriority: 2
 followDistance: 100
 onSpawnBlockStates: []

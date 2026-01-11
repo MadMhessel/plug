@@ -1,6 +1,6 @@
 isEnabled: true
-name: Test NPC
-role: Testing!
+name: Тестовый NPC
+role: Тестирование!
 spawnLocations: []
 greetings:
 - Test Greeting!

@@ -1,6 +1,6 @@
 isEnabled: true
-name: Alaric Greystone
-role: <Hallowed Haunt Teleporter>
+name: Аларик Грейстоун
+role: <Телепорт священного призрака>
 spawnLocation: em_adventurers_guild,292.5,91.0,219.5,-90,0
 spawnLocations: []
 greetings:

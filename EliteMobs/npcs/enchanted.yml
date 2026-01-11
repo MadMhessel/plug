@@ -1,6 +1,6 @@
 isEnabled: true
-name: Eden
-role: <Enchanter>
+name: Эдем
+role: <Чародей>
 spawnLocation: em_adventurers_guild,278.5,77,243.5,0,0
 spawnLocations: []
 greetings:

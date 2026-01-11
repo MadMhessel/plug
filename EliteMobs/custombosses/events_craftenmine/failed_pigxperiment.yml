@@ -11,8 +11,8 @@ powers:
 - attack_gravity.yml
 movementSpeedAttribute: 0.30
 followDistance: 80
-locationMessage: "&cFailed Pigxperiment: $distance blocks away!"
-spawnMessage: "&cA failed Dr. Craftenmine experiment has escaped!"
-deathMessage: "&aThe Failed Pigxperiment was slain by $players!"
-escapeMessage: "&4The Failed Pigxperiment has escaped!"
+locationMessage: "&cНеудачный эксперимент со свиньями: $distance блокирует!"
+spawnMessage: "&cA Неудачный эксперимент доктора Крафтенмайна сбежал!"
+deathMessage: "&aНеудачный эксперимент со свиньями был убит $players!"
+escapeMessage: "&4Неудачный эксперимент со свиньями сбежал!"
 announcementPriority: 2

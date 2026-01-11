@@ -1,6 +1,6 @@
 isEnabled: true
-name: Dwarf Olav
-role: <[30] The City Teleporter>
+name: Гном Олав
+role: <[30] Городской телепорт>
 spawnLocation: em_adventurers_guild,302.5,78.18,201.5,0,0
 spawnLocations: []
 greetings:

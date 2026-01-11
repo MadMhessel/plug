@@ -39,7 +39,7 @@ powers:
   inheritLevel: true
   location: -35,0,-35
   summonType: ON_COMBAT_ENTER
-spawnMessage: '&6Sparky returns to celebrate!'
+spawnMessage: '&6Sparky возвращается, чтобы отпраздновать!'
 uniqueLootList:
 - sparky_drop_axe.yml:0.15
 - sparky_drop_sword.yml:0.05

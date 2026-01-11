@@ -1,6 +1,6 @@
 isEnabled: true
-name: Buði the Doomsayer
-role: <[200] Binder of Worlds Teleport>
+name: Буди Предсказатель Судьбы
+role: <[200] Телепорт Связующего Миров>
 spawnLocation: em_adventurers_guild,294.5,91,223.5,180,0
 spawnLocations: []
 greetings:

@@ -13,8 +13,8 @@ trails:
 - FLAME
 movementSpeedAttribute: 0.28
 followDistance: 65
-locationMessage: "&cAltered Enderman: $distance blocks away!"
-spawnMessage: "&cDr. Craftenmine's ender creation has been set loose!"
-deathMessage: "&aAltered Enderman was put out of it's misery by $players!"
-escapeMessage: "&4Altered Enderman has phased out of existence!"
+locationMessage: "&cИзмененный Эндермен: $distance блокирует!"
+spawnMessage: "&cДр. Крафтское творение Craftenmine выпущено на свободу!"
+deathMessage: "&aИзмененный Эндермен был избавлен от страданий $players!"
+escapeMessage: "&4Altered Enderman прекратил свое существование!"
 announcementPriority: 2
