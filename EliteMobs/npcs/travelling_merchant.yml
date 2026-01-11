@@ -1,6 +1,6 @@
 isEnabled: true
-name: Jeeves
-role: <Travelling Merchant>
+name: Дживс
+role: <Странствующий торговец>
 spawnLocations: []
 greetings:
 - Got something to sell?

@@ -1,6 +1,6 @@
 isEnabled: true
-name: Mad Gnasuran
-role: <The Steamworks Teleporter>
+name: Безумный Гнасуран
+role: <Телепортатор Steamworks>
 spawnLocation: em_adventurers_guild,288.5,91.0,216.5,-180,0
 spawnLocations: []
 greetings:

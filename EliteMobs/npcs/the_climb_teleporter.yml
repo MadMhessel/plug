@@ -1,6 +1,6 @@
 isEnabled: true
-name: Miner Regulus
-role: <[10] The Climb Teleporter>
+name: Шахтер Регулус
+role: <[10] Телепортатор восхождения>
 spawnLocation: em_adventurers_guild,303.5,78.18,208.5,90,0
 spawnLocations: []
 greetings:

@@ -1,6 +1,6 @@
 isEnabled: true
-name: Prospector Voultar
-role: <[20] The Mines Teleporter>
+name: Старатель Вултар
+role: <[20] Шахтный телепорт>
 spawnLocation: em_adventurers_guild,303.5,78.18,204.5,90,0
 spawnLocations: []
 greetings:

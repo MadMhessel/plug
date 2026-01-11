@@ -1,6 +1,6 @@
 isEnabled: true
-name: Ancient Corpse
-role: <[50] The Nether Bell Teleporter>
+name: Древний труп
+role: <[50] Телепорт Колокола Пустоты>
 spawnLocation: em_adventurers_guild,293.5,78.18,196.5,-90,0
 spawnLocations: []
 greetings:

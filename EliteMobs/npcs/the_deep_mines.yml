@@ -1,6 +1,6 @@
 isEnabled: true
-name: Nether Lurk
-role: <[45] The Deep Mines Teleporter>
+name: Пустота скрывается
+role: <[45] Телепорт Глубинных Шахт>
 spawnLocation: em_adventurers_guild,296.5,78.18,201.5,0,0
 spawnLocations: []
 greetings:

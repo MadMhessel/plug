@@ -21,10 +21,10 @@ powers:
 - spirit_walk.yml
 trails:
 - GOLD_NUGGET
-locationMessage: '&cTreasure Goblin: $distance blocks away!'
-spawnMessage: '&cA Treasure Goblin has been sighted!'
-deathMessage: '&aA Treasure Goblin has been slain by $players!'
-escapeMessage: '&4A Treasure Goblin has escaped!'
+locationMessage: '&cTГоблин сокровища: $distance блокирует!'
+spawnMessage: '&cA Обнаруженное гоблин-сокровище!'
+deathMessage: '&aA Гоблин с сокровищами был убит $players!'
+escapeMessage: '&4A Гоблин с сокровищами сбежал!'
 customModel: em_goblin_treasure
 announcementPriority: 2
 followDistance: 100

@@ -1,14 +1,14 @@
-# Sets the sound that will play when a treasure chest opens
+# Задаёт звук, который проигрывается при открытии сундука с сокровищами.
 treasureChestOpenSound: elitemobs:treasure_chest.open
-# Sets the sound that will play when a player ranks up at the guild
+# Задаёт звук, который проигрывается при повышении ранга в гильдии.
 guildRankUpSound: elitemobs:guild.rankup
-# Sets the sound that will play when a player prestiges at the guild
+# Задаёт звук, который проигрывается при повышении престижа в гильдии.
 guildPrestigeSound: elitemobs:guild.prestige
-# Sets the sound that will play when a player progresses a quest
+# Задаёт звук, который проигрывается при прогрессе квеста.
 questProgressionSound: elitemobs:quest.progression
-# Sets the sound that will play when a player completes a quest
+# Задаёт звук, который проигрывается при завершении квеста.
 questCompleteSound: elitemobs:quest.completion
-# Sets the sound that will play when a player abandons a quest
+# Задаёт звук, который проигрывается при отказе от квеста.
 questAbandonSound: elitemobs:quest.abandon
-# Sets the sound that will play when a player accepts a quest
+# Задаёт звук, который проигрывается при принятии квеста.
 questAcceptSound: elitemobs:quest.accept

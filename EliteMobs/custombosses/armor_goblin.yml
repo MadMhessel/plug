@@ -25,10 +25,10 @@ powers:
 - spirit_walk.yml
 trails:
 - GOLD_NUGGET
-locationMessage: '&cArmor Goblin: $distance blocks away!'
-spawnMessage: '&cAn Armor Goblin has been sighted!'
-deathMessage: '&aAn Armor Goblin has been slain by $players!'
-escapeMessage: '&4An Armor Goblin has escaped!'
+locationMessage: '&cБронированный гоблин: $distance блокирует!'
+spawnMessage: '&cОбнаруженный Бронированный Гоблин!'
+deathMessage: '&aБронированный гоблин убитый $players!'
+escapeMessage: '&4Бронированный гоблин сбежал!'
 customModel: em_goblin_armor
 announcementPriority: 2
 followDistance: 100

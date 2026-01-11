@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 5
 isEnabled: true
 entityType: EVOKER
-name: '$normalLevel &5Spirit Whisperer'
+name: '$normalLevel &5Говорящая с духами'
 level: dynamic
 instanced: true
 powers:

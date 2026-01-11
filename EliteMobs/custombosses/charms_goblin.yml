@@ -35,10 +35,10 @@ powers:
 - spirit_walk.yml
 trails:
 - GOLD_NUGGET
-locationMessage: '&cCharms Goblin: $distance blocks away!'
-spawnMessage: '&cA Charms Goblin has been sighted!'
-deathMessage: '&aA Charms Goblin has been slain by $players!'
-escapeMessage: '&4A Charms Goblin has escaped!'
+locationMessage: '&cCharms Гоблин: $distance блокирует!'
+spawnMessage: '&cA Внешний очаровательный гоблин!'
+deathMessage: '&aA Очаровательный гоблин убитый $players!'
+escapeMessage: '&4A Очаровательный гоблин сбежал!'
 customModel: em_goblin_charms
 announcementPriority: 2
 followDistance: 100

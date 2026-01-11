@@ -1,49 +1,49 @@
-# Message that appears when not enough players are present to start an arena.
+# Сообщение, появляющееся при нехватке игроков для старта арены.
 notEnoughPlayersMessage: '&8[EliteMobs] &cНужно минимум $amount игроков, чтобы начать матч!'
-# Title that appears when an arena is starting.
+# Заголовок, отображаемый при начале арены.
 startingMessage: '&2Начинаем!'
-# Subtitle that appears when an arena is starting.
+# Подзаголовок, отображаемый при начале арены.
 startingSubtitle: '&2через $count...'
-# Message that appears when an arena is full.
+# Сообщение, появляющееся, когда арена заполнена.
 arenaFullMessage: '&4[EliteMobs] &cАрена заполнена! Пока ждёте завершения, можно
   наблюдать!'
-# Message that appears when a player attempts to join an active arena.
+# Сообщение при попытке игрока присоединиться к активной арене.
 arenasOngoingMessage: '&4[EliteMobs] &cСейчас нельзя зайти на арену — матч уже идёт!
   Можно наблюдать, пока ждёте завершения!'
-# Message that appears to remind players how to start an arena after joining as a player.
+# Сообщение с напоминанием, как начать арену после входа как игрок.
 instanceStartHintMessage: '&2[EliteMobs] &aЗапустить инстанс можно командой &2/em
   start'
-# Message that appears to remind players how to leave an arena.
+# Сообщение с напоминанием, как покинуть арену.
 instanceQuitHintMessage: '&4[EliteMobs] &cВыйти из инстанса можно командой &4/em
   quit'
-# Message that appears when players join an arena.
+# Сообщение, появляющееся, когда игроки присоединяются к арене.
 arenaJoinPlayerMessage: "&2[EliteMobs] &aЗапустить арену можно командой &2/em start\
   \ &aесли в ней как минимум &2$count &aигроков! \nВыйти из арены можно командой\
   \ &c/em quit"
-# Message that appears to remind players how to leave an arena after joining as a spectator.
+# Сообщение с напоминанием, как покинуть арену после входа как зритель.
 arenaJoinSpectatorMessage: '&2[EliteMobs] &aВыйти с арены можно в любой момент через
   &2/em quit'
-# Title message that appears when a wave is starting.
+# Заголовок, отображаемый при начале волны.
 waveTitle: '&aВолна &2$wave'
-# Subtitle message that appears when a wave is starting.
+# Подзаголовок, отображаемый при начале волны.
 waveSubtitle: ''
-# Title that appears when an arena is completed.
+# Заголовок, отображаемый при завершении арены.
 victoryTitle: '&2Победа!'
-# Subtitle that appears when an arena is completed.
+# Подзаголовок, отображаемый при завершении арены.
 victorySubtitle: '&aПройдено волн: &2$wave&a!'
-# Title that appears when players fail an arena.
+# Заголовок, отображаемый при провале арены.
 defeatTitle: '&4Поражение!'
-# Subitle that appears when players fail an arena.
+# Подзаголовок, отображаемый при провале арены.
 defeatSubtitle: '&cДостигнута волна &4$wave&c!'
-# Message broadcasted when players beat an arena.
+# Сообщение, рассылаемое при прохождении арены.
 victoryBroadcast: Арена $arenaName покорена игроками $players!
-# Title that appears when a player joins an arena.
+# Заголовок, отображаемый при входе игрока на арену.
 joinPlayerTitle: '&aЗапуск — &2/em start &a!'
-# Subtitle that appears when a player joins an arena.
+# Подзаголовок, отображаемый при входе игрока на арену.
 joinPlayerSubtitle: '&cВыход — &4/em quit &c!'
-# Title that appears when a spectator joins an arena.
+# Заголовок, отображаемый при входе зрителя на арену.
 joinSpectatorTitle: '&aРежим наблюдения!'
-# Subtitle that appears when a spectator joins an arena.
+# Подзаголовок, отображаемый при входе зрителя на арену.
 joinSpectatorSubtitle: '&cВыход — &4/em quit &c!'
-# Sets the message sent to players if they do not have permission to enter an arena.
+# Задаёт сообщение для игроков без прав на вход на арену.
 noArenaPermissionMessage: '[EliteMobs] У вас нет прав для входа на эту арену!'

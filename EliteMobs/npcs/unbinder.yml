@@ -1,6 +1,6 @@
 isEnabled: true
-name: Ulfric
-role: <Unbinder>
+name: Ульфрик
+role: <Развязыватель>
 spawnLocation: em_adventurers_guild,296.5,81,253.5,90,0
 spawnLocations: []
 greetings:

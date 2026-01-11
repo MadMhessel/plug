@@ -13,7 +13,7 @@ trails:
 - SMOKE_NORMAL
 movementSpeedAttribute: 0.36
 followDistance: 80
-locationMessage: "&cRapid Mutator: $distance blocks away!"
-deathMessage: "&aThe Rapid Mutator was put to rest by $players!"
-escapeMessage: "&4The Rapid Mutator has vanished!"
+locationMessage: "&cБыстрый мутатор: $distance блокирует!"
+deathMessage: "&aБыстрый мутатор был остановлен $players!"
+escapeMessage: "&4Быстрый мутатор исчез!"
 announcementPriority: 2

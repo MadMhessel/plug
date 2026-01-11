@@ -28,10 +28,10 @@ trails:
 - BONE
 phases:
 - alpha_werewolf_p2.yml:0.99
-locationMessage: '&7Enraged Vindicator: $distance blocks away!'
-spawnMessage: '&cThe howls of an Alpha Werewolf are heard!'
-deathMessage: '&aThe Alpha Werewolf has been stopped by $players!'
-escapeMessage: '&4Dawn breaks, the Alpha Wolf vanishes without a trace!'
+locationMessage: '&7Разъяренный воздаятель: $distance блокирует удар!'
+spawnMessage: '&cСлышен вой Альфа-оборотня!'
+deathMessage: '&aАльфа-оборотень был остановлен $players!'
+escapeMessage: '&4Наступает рассвет, Альфа-Волк бесследно исчезает!'
 announcementPriority: 2
 followDistance: 100
 onSpawnBlockStates: []

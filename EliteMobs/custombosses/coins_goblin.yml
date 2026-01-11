@@ -21,10 +21,10 @@ powers:
 - bonus_coins.yml:20
 trails:
 - GOLD_NUGGET
-locationMessage: '&cCoins Goblin: $distance blocks away!'
-spawnMessage: '&cA Coins Goblin has been sighted!'
-deathMessage: '&aA Coins Goblin has been slain by $players!'
-escapeMessage: '&4A Coins Goblin has escaped!'
+locationMessage: '&cCoins Goblin: $distance блокирует!'
+spawnMessage: '&cA Монетный гоблин посмотрел!'
+deathMessage: '&aA Монетный гоблин был убит $players!'
+escapeMessage: '&4A Монетный гоблин сбежал!'
 customModel: em_goblin_coins
 announcementPriority: 2
 followDistance: 100

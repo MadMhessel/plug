@@ -1,6 +1,6 @@
 isEnabled: true
-name: '&eManager Wallitz'
-role: '&e<Story Mode Quests>'
+name: '&eМенеджер Валлиц'
+role: '&e<Квесты сюжетного режима>'
 spawnLocation: em_adventurers_guild,303.5,78.0,212.5,-17.84,3.6
 spawnLocations: []
 greetings:

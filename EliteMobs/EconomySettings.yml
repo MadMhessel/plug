@@ -1,19 +1,19 @@
-# Sets if the EliteMobs economy is enabled. This means elite coins, the ability to buy and sell gear and the ability to upgrade guild ranks
-# If disabled, players will not be able to progress in the plugin!
+# Определяет, включена ли экономика EliteMobs. Это включает в себя элитные монеты, возможность покупать и продавать снаряжение, а также повышать ранги гильдии.
+# Если отключено, игроки не смогут прогрессировать в плагине!
 enableEconomy: true
-# Sets the resale item of items, as a % of the original price. 5 is 5%
+# Задаёт стоимость перепродажи предметов в % от исходной цены. 5 = 5%.
 itemResaleValue: 5.0
-# Sets the in-game name of the currency used.
+# Задаёт внутриигровое название используемой валюты.
 currencyName: Элитные монеты
-# Sets the plugin to use Vault. THIS IS NOT RECOMMENDED! Read why here: https://github.com/MagmaGuy/EliteMobs/wiki/%5BThird-party-support%5D-Vault
+# Задаёт использование Vault. НЕ РЕКОМЕНДУЕТСЯ! Подробнее: https://github.com/MagmaGuy/EliteMobs/wiki/%5BThird-party-support%5D-Vault
 useVault - not recommended: false
-# Sets if elites will drop coins based on their level.
+# Определяет, будут ли элиты ронять монеты в зависимости от их уровня.
 enableCurrencyShower: true
-# Sets the multiplier for the currency dropped by elites.
+# Задаёт множитель валюты, выпадающей с элит.
 currencyShowerTierMultiplier: 1.0
-# Sets the message sent when players pick up elite currency.
+# Задаёт сообщение, отправляемое при поднятии элитной валюты.
 chatCurrencyShowerMessage: '&7[EM] Вы подняли &a$amount $currency_name!'
-# Sets the action bar message sent when players pick up elite currency.
+# Задаёт экшен-бар сообщение при поднятии элитной валюты.
 actionbarCurrencyShowerMessage: '&7[EM] Вы подняли &a$amount $currency_name!'
 lootShowerDataV2:
   '1': elitemobs:coins/coin1
@@ -24,46 +24,46 @@ lootShowerDataV2:
   '100': elitemobs:coins/coin4
   '500': elitemobs:coins/coin4
   '1000': elitemobs:coins/coin4
-# Send the message players get after looting currency. Useful for tutorial purposes.
+# Отправляет сообщение игрокам после поднятия валюты. Полезно для обучения.
 adventurersGuildNotificationMessages: '&7[EM] Хотите подзаработать? Попробуйте &a/ag !'
-# Sets the tax rate for transactions between players.
-# Strongly recommended for balance reasons, as high level players can gain up to 6x more currency and try to use other players to bypass prestige currency resets.
+# Задаёт налоговую ставку для транзакций между игроками.
+# Настоятельно рекомендуется для баланса: игроки высокого уровня могут получать до 6x больше валюты и пытаться обходить сбросы престижа через других игроков.
 playerToPlayerPaymentTaxes: 0.2
-# Message sent when sending elite currency to other players.
+# Сообщение, отправляемое при переводе элитной валюты другим игрокам.
 Economy pay message v2: '&2Вы отправили &2$amount_sent $currency_name &2игроку $receiver&2,
   он получил $amount_received после налогов!'
-# Message sent after players send currency.
+# Сообщение, отправляемое после отправки валюты.
 Economy currency left message: Теперь у вас &2$amount_left $currency_name
-# Message received when receiving currency.
+# Сообщение, получаемое при получении валюты.
 Economy money from payment message: Вы получили &2$amount_received $currency_name
   &fот $sender
-# Message sent when players try to send an amount of coins they do not have.
+# Сообщение при попытке отправить больше монет, чем есть.
 Economy payment insufficient currency: '&cУ вас недостаточно $currency_name для этого!'
-# /em balance message
+# Сообщение команды /em balance.
 Wallet command message: У вас &2$balance $currency_name
-# Confirmation message sent when players try to send currency to another player.
+# Подтверждение, отправляемое при попытке перевода валюты другому игроку.
 Tax confirmation message: '&cОтправка платежа стоит $percentage% налога. &aВведите
   &9$command &aдля подтверждения!'
-# Message sent when a player buys from a shop.
+# Сообщение при покупке в магазине.
 Shop buy message: '&aВы купили $item_name &aза $item_value $currency_name!'
-# Message sent when a player interacts with a shop.
+# Сообщение при взаимодействии с магазином.
 Shop current balance message: '&aУ вас $currency_amount $currency_name.'
-# Message sent when players don't have enough currency to purchase an item
+# Сообщение, когда игроку не хватает валюты для покупки предмета.
 Shop insufficient funds message: '&cУ вас недостаточно $currency_name!'
-# Second part of message sent when players try to purchase an item they can not afford.
+# Вторая часть сообщения при попытке купить предмет, который игрок не может себе позволить.
 Shop item cost message: Этот предмет стоит &c$item_value $currency_name.
-# Message sent upon selling an item to a shop.
+# Сообщение при продаже предмета магазину.
 Shop sell message: '&aВы продали $item_name &aза $currency_amount $currency_name!'
-# Message sent upon trying to sell an item that does not belong to that player.
+# Сообщение при попытке продать предмет, который не принадлежит игроку.
 Shop sale player items warning: '&cНельзя продавать предметы, которые не привязаны
   к вам! Это включает предметы других уровней престижа!'
-# Message sent upon trying to sell a non-EliteMobs item
+# Сообщение при попытке продать предмет не из EliteMobs.
 Shop sale instructions: '&cЗдесь можно продавать только лут EliteMobs! (Броня / оружие
   от элитных мобов с ценой в описании)'
-# Message sent upon selling a batch of elite items.
+# Сообщение при продаже партии элитных предметов.
 shopBatchSellItem: '&aВы продали свои предметы &aза $currency_amount $currency_name!'
 lootShowerMaterial:
-  # Sets the material type of 1 dropped elite coin.
+  # Задаёт тип материала для 1 выпавшей элитной монеты.
   '1': GOLD_NUGGET
   '5': GOLD_INGOT
   '10': GOLD_BLOCK
@@ -73,128 +73,128 @@ lootShowerMaterial:
   '500': DIAMOND_BLOCK
   '1000': NETHER_STAR
 lootShowerData:
-  # Sets the custom model ID for 1 dropped elite coin. Used by the resource pack.
+  # Задаёт ID пользовательской модели для 1 выпавшей элитной монеты (используется ресурс-паком).
   '1': 1
 materialWorth:
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_AXE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_BOOTS: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_CHESTPLATE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_LEGGINGS: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_HELMET: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_PICKAXE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_SHOVEL: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_SWORD: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   DIAMOND_HOE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_AXE: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_BOOTS: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_LEGGINGS: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_CHESTPLATE: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_HELMET: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_PICKAXE: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_SHOVEL: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_HOE: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   IRON_SWORD: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   SHIELD: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   BOW: 16.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   CHAINMAIL_BOOTS: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   CHAINMAIL_LEGGINGS: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   CHAINMAIL_CHESTPLATE: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   CHAINMAIL_HELMET: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   STONE_SWORD: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   STONE_AXE: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   STONE_PICKAXE: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   STONE_SHOVEL: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   STONE_HOE: 15.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_AXE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_BOOTS: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_LEGGINGS: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_CHESTPLATE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_HELMET: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_SWORD: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_SHOVEL: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_PICKAXE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_HOE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   GOLDEN_APPLE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   ENCHANTED_GOLDEN_APPLE: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   LEATHER_BOOTS: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   LEATHER_LEGGINGS: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   LEATHER_CHESTPLATE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   LEATHER_HELMET: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   WOODEN_SWORD: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   WOODEN_AXE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   WOODEN_HOE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   WOODEN_PICKAXE: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   TRIDENT: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   ELYTRA: 17.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   TURTLE_HELMET: 13.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_AXE: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_PICKAXE: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_SHOVEL: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_HOE: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_SWORD: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_HELMET: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_CHESTPLATE: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_LEGGINGS: 18.0
-  # Sets the worth of this material for the elitemobs currency system.
+  # Задаёт ценность этого материала для валютной системы EliteMobs.
   NETHERITE_BOOTS: 18.0
-  # Sets the default material worth for items not specifically defined.
+  # Задаёт базовую ценность материала для предметов без явного определения.
   defaultMaterialWorth: 1.0

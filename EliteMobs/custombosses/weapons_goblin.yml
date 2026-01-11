@@ -26,10 +26,10 @@ powers:
 - spirit_walk.yml
 trails:
 - GOLD_NUGGET
-locationMessage: '&cWeapons Goblin: $distance blocks away!'
-spawnMessage: '&cA Weapons Goblin has been sighted!'
-deathMessage: '&aA Weapons Goblin has been slain by $players!'
-escapeMessage: '&4A Weapons Goblin has escaped!'
+locationMessage: '&cWeapons Goblin: $distance блокирует!'
+spawnMessage: '&cA Внешний оружейный гоблин!'
+deathMessage: '&aA Оружейный гоблин убит $players!'
+escapeMessage: '&4A Оружейный гоблин сбежал!'
 customModel: em_goblin_weapon
 announcementPriority: 2
 followDistance: 100

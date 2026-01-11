@@ -10,7 +10,7 @@ powers:
 - ground_pound.yml
 movementSpeedAttribute: 0.36
 followDistance: 80
-locationMessage: "&cFailed Pigxperiment: $distance blocks away!"
-deathMessage: "&aThe Failed Pigxperiment was slain by $players!"
-escapeMessage: "&4The Failed Pigxperiment has escaped!"
+locationMessage: "&cНеудачный эксперимент со свиньями: $distance блокирует!"
+deathMessage: "&aНеудачный эксперимент со свиньями был убит $players!"
+escapeMessage: "&4Неудачный эксперимент со свиньями сбежал!"
 announcementPriority: 2

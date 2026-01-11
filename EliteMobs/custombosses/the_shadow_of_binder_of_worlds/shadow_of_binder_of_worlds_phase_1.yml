@@ -192,4 +192,4 @@ powers:
 spawnCooldown: 10080
 spawnLocations:
 - em_shadow_of_the_binder_of_worlds,0.5,68.5,0.5,0.0,0.0
-spawnMessage: '&5The shadow of binder of worlds approaches!'
+spawnMessage: '&5Приближается тень связующего миры!'

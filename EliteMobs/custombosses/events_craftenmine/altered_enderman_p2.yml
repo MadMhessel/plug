@@ -14,7 +14,7 @@ uniqueLootList:
 - filename=altered_enderman_drop_charm.yml:amount=1:chance=0.5
 movementSpeedAttribute: 0.28
 followDistance: 65
-locationMessage: "&cAltered Enderman: $distance blocks away!"
-deathMessage: "&aAltered Enderman was put out of it's misery by $players!"
-escapeMessage: "&4Altered Enderman has phased out of existence!"
+locationMessage: "&cИзмененный Эндермен: $distance блокирует!"
+deathMessage: "&aИзмененный Эндермен был избавлен от страданий $players!"
+escapeMessage: "&4Altered Enderman прекратил свое существование!"
 announcementPriority: 2

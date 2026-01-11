@@ -1,6 +1,6 @@
 isEnabled: true
 entityType: WOLF
-name: '&6{&4☠&6} &fSnoopy'
+name: '&6{&4☠&6} &fСнупи'
 level: dynamic
 healthMultiplier: 10.0
 damageMultiplier: 2.0
@@ -14,7 +14,7 @@ onDamagedMessages:
 - Woof!
 trails:
 - BONE
-spawnMessage: '&aAn extremely rare Snoopy has been sighted!'
+spawnMessage: '&aНайден чрезвычайно редкий Снупи!'
 announcementPriority: 3
 timeout: 3
 onSpawnBlockStates: []

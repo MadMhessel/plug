@@ -1,7 +1,7 @@
 announcementPriority: 3
 bossType: BOSS
 damageMultiplier: 1.75
-deathMessage: '&4The headless horseman was vanquished by $players!'
+deathMessage: '&4Всадник без головы был побеждён $players!'
 deathMessages:
 - '&e&l---------------------------------------------'
 - '&4The Headless Horseman was vanquished!'
@@ -14,13 +14,13 @@ disguise: custom:hallosseum_event_boss
 dropsEliteMobsLoot: true
 dropsVanillaLoot: true
 entityType: SKELETON
-escapeMessage: '&4The headless horseman has left to haunt someone''s dreams!'
+escapeMessage: '&4Всадник без головы ушел, чтобы кого-то преследовать''мечты!'
 followDistance: 60
 healthMultiplier: 40
 isEnabled: true
 leashradius: 40
 level: 30
-locationMessage: '&4Dullahan: $distance blocks away!'
+locationMessage: '&4Дуллахан: $distance блокирует мяч!'
 mainHand: NETHERITE_HOE
 name: $bossLevel Dullahan
 offHand: CARVED_PUMPKIN

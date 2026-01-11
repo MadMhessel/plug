@@ -1,7 +1,7 @@
 isEnabled: true
-# Sets the display name of the menu
+# Задаёт отображаемое имя меню.
 menuName: '&6Меню элитных свитков'
-# Sets the item slot number of the information button in the chest menu.
+# Задаёт номер слота кнопки информации в сундуковом меню.
 infoSlot: 4
 infoButton:
   material: PLAYER_HEAD
@@ -12,7 +12,7 @@ infoButton:
   - §2которые действуют на элитных мобов.
   - §2Чтобы превратить предмет в элитный, поместите
   - §2неэлитный предмет ниже, а также элитный свиток!
-# Sets the item slot number of the cancel button in the chest menu.
+# Задаёт номер слота кнопки отмены в сундуковом меню.
 cancelSlot: 27
 cancelButton:
   material: BARRIER
@@ -20,14 +20,14 @@ cancelButton:
   lore:
   - §cОтменить!
   customModelID: 31173
-# Sets the item slot number of the confirm button in the chest menu.
+# Задаёт номер слота кнопки подтверждения в сундуковом меню.
 confirmSlot: 35
 confirmButton:
   material: EMERALD
   name: §2Применить!
-# Sets the item slot number of the non-elite item in the chest menu.
+# Задаёт номер слота неэлитного предмета в сундуковом меню.
 itemSlot: 29
-# Sets the item slot number of the non-elite item info button in the chest menu.
+# Задаёт номер слота кнопки информации о неэлитном предмете в сундуковом меню.
 itemInfoSlot: 20
 itemInfoButton:
   material: GREEN_BANNER
@@ -35,7 +35,7 @@ itemInfoButton:
   lore:
   - §aПоложите сюда неэлитный предмет!
   customModelID: 31173
-# Sets the item slot number of the elite scroll item info button in the chest menu.
+# Задаёт номер слота кнопки информации об элитном свитке в сундуковом меню.
 eliteScrollItemInfoSlot: 22
 eliteScrollItemInfoButton:
   material: GREEN_BANNER
@@ -43,7 +43,7 @@ eliteScrollItemInfoButton:
   lore:
   - §aПоложите сюда элитный свиток!
   customModelID: 31173
-# Sets the item slot number of elite scroll in the chest menu.
+# Задаёт номер слота элитного свитка в сундуковом меню.
 eliteScrollItemSlot: 31
 outputInfoButton:
   material: RED_BANNER

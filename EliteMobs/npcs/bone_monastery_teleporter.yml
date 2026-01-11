@@ -1,6 +1,6 @@
 isEnabled: true
-name: Sister Frieda
-role: <[85] Bone Monastery Teleport>
+name: Сестра Фрида
+role: <[85] Телепорт Костяного монастыря>
 spawnLocation: em_adventurers_guild,292.5,91,217.5,-90,0
 spawnLocations: []
 greetings:

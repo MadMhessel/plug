@@ -1,10 +1,10 @@
-# Sets whether the models in this configuration file will be used.
-# Will not apply to custom models of things that aren't here, such as bosses.
+# Определяет, будут ли использоваться модели из этого конфигурационного файла.
+# Не применяется к пользовательским моделям того, чего здесь нет (например, боссов).
 useModels: true
-# Sets whether elite items receive attribute bonuses based on their level.
-# When enabled, higher level items will have increased damage, armor, toughness, etc.
-# At level 200, items will be roughly 200% better than vanilla netherite.
-# This applies to procedurally generated items that receive custom skins.
+# Определяет, получают ли элитные предметы бонусы характеристик в зависимости от уровня.
+# При включении предметы более высокого уровня получают больше урона, брони, стойкости и т. д.
+# На уровне 200 предметы будут примерно на 200% лучше ванильного незерита.
+# Это применяется к процедурно генерируемым предметам с пользовательскими скинами.
 useAttributeScaling: true
 anvilHammer: elitemobs:ui/anvilhammer
 cancel: elitemobs:ui/redcross

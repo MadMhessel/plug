@@ -1,6 +1,6 @@
 isEnabled: true
-name: Gladius
-role: <Arena Master>
+name: Гладиус
+role: <Мастер арены>
 spawnLocation: em_adventurers_guild,240.5,92,270,-108,0
 spawnLocations: []
 greetings:

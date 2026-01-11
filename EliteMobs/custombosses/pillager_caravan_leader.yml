@@ -23,9 +23,9 @@ powers:
   filename: pillager_caravan_guard.yml
   inheritLevel: true
   spawnNearby: true
-locationMessage: '&cPillager Caravan: $distance blocks away!'
+locationMessage: '&cКараван грабителей: $distance находится в блоке!'
 mountedEntity: pillager_caravan_beast.yml
-spawnMessage: '&cA pillager caravan has been sighted!'
+spawnMessage: '&cA Внешний караван грабителей!'
 announcementPriority: 2
 followDistance: 100
 onSpawnBlockStates: []

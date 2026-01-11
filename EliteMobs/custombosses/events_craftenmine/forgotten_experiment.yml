@@ -12,8 +12,8 @@ powers:
 - plasma_blaster.yml
 movementSpeedAttribute: 0.32
 followDistance: 80
-locationMessage: "&cForgotten Experiment: $distance blocks away!"
-spawnMessage: "&cA Forgotten Dr. Craftenmine Experiment has escaped the laboratory!"
-deathMessage: "&aThe Forgotten Experiment has been shutdown by $players!"
-escapeMessage: "&4The Forgotten Experiment has vanished!"
+locationMessage: "&cЗабытый эксперимент: $distance блокирует!"
+spawnMessage: "&cA Забытый эксперимент доктора Крафтенмайн сбежал из лаборатории!"
+deathMessage: "&aЗабытый эксперимент был закрыт $players!"
+escapeMessage: "&4Забытый эксперимент исчез!"
 announcementPriority: 2

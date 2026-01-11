@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 5
 isEnabled: true
 entityType: ILLUSIONER
-name: '$normalLevel &6Mirage'
+name: '$normalLevel &6Мираж'
 level: dynamic
 instanced: true
 mainHand: BOW

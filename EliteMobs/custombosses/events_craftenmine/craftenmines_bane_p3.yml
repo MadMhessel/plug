@@ -23,9 +23,9 @@ uniqueLootList:
 - filename=craftenmines_bane_drop_leggings.yml:amount=1:chance=0.2
 movementSpeedAttribute: 0.42
 followDistance: 50
-locationMessage: "&cUnknown: $distance blocks away!"
-deathMessage: "&aDr. Craftemine's creation was slain by $players!"
-escapeMessage: "&4Dr. Craftemine's creation has disappeared!"
+locationMessage: "&cUnknown: $distance блокирует!"
+deathMessage: "&aДр. Создание Craftemine было убито $players!"
+escapeMessage: "&4Др. Творение Craftemine исчезло!"
 onDamageMessages:
 - "KILLLLLL!"
 - "DESTROYYYYY!"

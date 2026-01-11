@@ -1,6 +1,6 @@
 isEnabled: true
-name: Charles
-role: <Combat Instructor>
+name: Чарльз
+role: <Боевой инструктор>
 spawnLocation: em_adventurers_guild,277.41,90.0,286.23,-214.85,-1.95
 spawnLocations: []
 greetings:

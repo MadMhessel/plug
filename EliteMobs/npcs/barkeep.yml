@@ -1,6 +1,6 @@
 isEnabled: true
-name: Bartley
-role: <Barkeep>
+name: Бартли
+role: <Бармен>
 spawnLocation: em_adventurers_guild,285.5,91,209.5,0,0
 spawnLocations: []
 greetings:

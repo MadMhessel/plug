@@ -18,7 +18,7 @@ uniqueLootList:
 - filename=telepathic_nightwalker_drop_axe.yml:amount=1:chance=0.005
 movementSpeedAttribute: 0.29
 followDistance: 50
-locationMessage: "&cTelepathic Nightwalker: $distance blocks away!"
-deathMessage: "&aThe Telepathic Nightwalker was slain by $players!"
-escapeMessage: "&4The Telepathic Nightwalker has left this place!"
+locationMessage: "&cTТелепатический ночной странник: $distance блокирует расстояние!"
+deathMessage: "&aТелепатический ночной странник был убит $players!"
+escapeMessage: "&4Телепатический ночной странник покинул это место!"
 announcementPriority: 2

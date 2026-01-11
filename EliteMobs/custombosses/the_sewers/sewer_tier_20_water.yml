@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 4
 isEnabled: true
 entityType: VINDICATOR
-name: '$normalLevel &1Smuggler'
+name: '$normalLevel &1Контрабандист'
 level: dynamic
 instanced: true
 powers:

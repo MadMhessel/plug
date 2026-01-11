@@ -1,6 +1,6 @@
 isEnabled: true
-name: Plumber Marla
-role: <The Sewers Teleporter>
+name: Сантехник Марла
+role: <Канализационный телепорт>
 spawnLocation: em_adventurers_guild,296.5,91.0,219.5,90,0
 spawnLocations: []
 greetings:

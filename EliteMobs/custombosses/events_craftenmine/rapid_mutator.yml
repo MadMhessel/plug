@@ -11,8 +11,8 @@ powers:
 - arrow_rain.yml
 movementSpeedAttribute: 0.30
 followDistance: 80
-locationMessage: "&cRapid Mutator: $distance blocks away!"
-spawnMessage: "&cA Dr. Craftenmine experiment is out in the wild!"
-deathMessage: "&aThe Rapid Mutator was vanquished by $players!"
-escapeMessage: "&4The Rapid Mutator has vanished!"
+locationMessage: "&cБыстрый мутатор: $distance блокирует!"
+spawnMessage: "&cA Эксперимент доктора Крафтенмина уже в дикой природе!"
+deathMessage: "&aБыстрый мутатор был побежден $players!"
+escapeMessage: "&4Быстрый мутатор исчез!"
 announcementPriority: 2

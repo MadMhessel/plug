@@ -4,7 +4,7 @@ isRegionalBoss: true
 spawnCooldown: 4
 isEnabled: true
 entityType: SKELETON
-name: '$normalLevel &1Lost Wanderer'
+name: '$normalLevel &1LПотерянный странник'
 level: dynamic
 instanced: true
 powers:

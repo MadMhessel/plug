@@ -1,6 +1,6 @@
 isEnabled: true
-name: Nether Shroom
-role: <[50] The Nether Wastes Teleporter>
+name: Гриб Пустоты
+role: <[50] Телепорт Пустошей Пустоши>
 spawnLocation: em_adventurers_guild,295.5,78.18,198.5,180,0
 spawnLocations: []
 greetings:

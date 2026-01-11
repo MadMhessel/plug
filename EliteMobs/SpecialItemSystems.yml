@@ -1,14 +1,14 @@
-# Sets if special loot will drop.
+# Определяет, будет ли выпадать особая добыча.
 dropSpecialLoot: true
-# Sets the chance of special loot dropping from any custom boss that can drop elite loot with a health multiplier over 1.0.
-# This means all bosses, minibosses and marginally hard bosses.
+# Задаёт шанс выпадения особой добычи с любого пользовательского босса, который может ронять элитный лут с множителем здоровья выше 1.0.
+# Это означает всех боссов, мини-боссов и относительно сложных боссов.
 bossChanceToDrop: 0.1
-# Sets the chance of special loot dropping custom boss that can drop elite loot.
-# Normal elites are excluded to avoid encouraging mob farms.
+# Задаёт шанс выпадения особой добычи с пользовательского босса, который может ронять элитный лут.
+# Обычные элиты исключены, чтобы не поощрять фарм мобов.
 normalChanceToDrop: 0.01
-# Sets the chance of a special item dropping over another special item.
-# The higher the value, the higher the chance of that item getting picked over other items.
-# Keep in mind that if values get too high, things with low values will become almost impossible to obtain.
+# Задаёт шанс выпадения одного особого предмета вместо другого.
+# Чем выше значение, тем выше шанс выбрать этот предмет вместо других.
+# Учтите, если значения слишком высоки, предметы с низкими значениями почти невозможно получить.
 enchantedBookWeightedDropChance:
   enchanted_book_arrow_damage: 200.0
   enchanted_book_arrow_fire: 10.0
@@ -57,25 +57,25 @@ enchantedBookWeightedDropChance:
   enchanted_book_water_worker: 10.0
   elite_lucky_ticket: 100.0
   elite_scrap_huge: 100.0
-# Multiplier for the lucky ticket success chance in enchantments. 2.0 = 2x
+# Множитель шанса успеха счастливого билета в зачарованиях. 2.0 = 2x
 luckyTicketMultiplier: 2.0
-# Chance of an item being lost if an item enchantment fails. This is a percentage of the base failure chance.
+# Шанс потери предмета при неудаче зачарования. Это процент от базового шанса неудачи.
 criticalFailureChanceV2: 0.01
-# Chance of a player being teleported to a challenge arena if an item enchantment fails. This is a percentage of the base failure chance.
-# If the player defeats the arena, their item is upgraded correctly. If the lose, either it is not enchanted or, if they're unlucky, they may lose the item.
+# Шанс телепорта игрока на арену испытания при неудаче зачарования предмета. Это процент от базового шанса неудачи.
+# Если игрок побеждает арену, предмет корректно улучшается. Если проигрывает, предмет либо не зачаруется, либо (если не повезёт) будет потерян.
 challengeChance: 0.3
-# Chance of an item being lost if a player loses the enchantment challenge. This is a percentage of the base failure chance.
+# Шанс потери предмета, если игрок проигрывает испытание зачарования. Это процент от базового шанса неудачи.
 criticalFailureChanceDuringChallengeChance: 0.1
-# Sets the message sent when players do not have enough elite coins to enchant an item
+# Задаёт сообщение, когда у игроков недостаточно элитных монет для зачарования предмета.
 insufficientFundsMessage: '&8[EliteMobs] &cДля зачарования $itemName нужно $price
   $currencyName, но у вас только $currentAmount!'
-# Sets the message sent when players after deducting the funds
+# Задаёт сообщение после списания средств у игроков.
 newFundsMessage: '&8[EliteMobs] &fВы потратили $price $currencyName! Теперь у вас
   $currentAmount $currencyName.'
-# Sets the message announced to all players when successfully enchanting an item with more than 10 enchantments
+# Задаёт сообщение, объявляемое всем игрокам при успешном зачаровании предмета с более чем 10 чарами.
 successAnnouncement: '&8[EliteMobs] $player &2успешно зачаровал $itemName&2!'
-# Sets the message announced to all players when they get a boss fight while trying to enchant an item with more than 10 enchantments
+# Задаёт сообщение, объявляемое всем игрокам, когда при попытке зачарования предмета с более чем 10 чарами вызывается босс.
 challengeAnnouncement: '&8[EliteMobs] $player &6вызывает босса ради зачарования $itemName&6!'
-# Sets the message announced to all players when losing an item while trying to enchant it if the item has more than 10 enchantments
+# Задаёт сообщение, объявляемое всем игрокам при потере предмета при попытке зачарования, если на нём более 10 чар.
 criticalFailureAnnouncement: '&8[EliteMobs] $player &cпотерял $itemName &cпри попытке
   зачарования!'

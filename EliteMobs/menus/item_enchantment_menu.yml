@@ -1,7 +1,7 @@
 isEnabled: true
-# Sets the display name of the menu
+# Задаёт отображаемое имя меню.
 menuName: '&6Меню зачарования'
-# Sets the item slot number of the information button in the chest menu.
+# Задаёт номер слота кнопки информации в сундуковом меню.
 infoSlot: 4
 infoButton:
   material: PLAYER_HEAD
@@ -15,7 +15,7 @@ infoButton:
   - §8Обычная неудача — чары не накладываются.
   - §8Испытание — вы сражаетесь с боссом за чары.
   - §8Критическая неудача — предмет теряется!
-# Sets the item slot number of the cancel button in the chest menu.
+# Задаёт номер слота кнопки отмены в сундуковом меню.
 cancelSlot: 27
 cancelButton:
   material: BARRIER
@@ -23,7 +23,7 @@ cancelButton:
   lore:
   - §cОтменить зачарование!
   customModelID: 31173
-# Sets the item slot number of the confirm button in the chest menu.
+# Задаёт номер слота кнопки подтверждения в сундуковом меню.
 confirmSlot: 35
 confirmButton:
   material: EMERALD
@@ -34,9 +34,9 @@ confirmButton:
   - '§cШанс неудачи: $failureChance%'
   - '§6Шанс испытания: $challengeChance%'
   - '§4Шанс критической неудачи: $criticalFailureChance%'
-# Sets the item slot number of the elite item in the chest menu.
+# Задаёт номер слота элитного предмета в сундуковом меню.
 itemSlot: 29
-# Sets the item slot number of the elite item info button in the chest menu.
+# Задаёт номер слота кнопки информации об элитном предмете в сундуковом меню.
 itemInfoSlot: 20
 itemInfoButton:
   material: GREEN_BANNER
@@ -44,7 +44,7 @@ itemInfoButton:
   lore:
   - §aПоложите сюда элитный предмет!
   customModelID: 31173
-# Sets the item slot number of the enchanted book info button in the chest menu.
+# Задаёт номер слота кнопки информации о зачарованной книге в сундуковом меню.
 enchantedBookInfoSlot: 22
 enchantedBookInfoButton:
   material: GREEN_BANNER
@@ -52,10 +52,10 @@ enchantedBookInfoButton:
   lore:
   - §aПоложите сюда элитные зачарованные книги!
   customModelID: 31173
-# Sets the item slot number of the enchanted book in the chest menu.
+# Задаёт номер слота зачарованной книги в сундуковом меню.
 enchantedBookSlot: 31
 luckyTicketSlot: 33
-# Sets the item slot number of the lucky ticket info button in the chest menu.
+# Задаёт номер слота кнопки информации о счастливом билете в сундуковом меню.
 luckyTicketInfoSlot: 24
 luckyTicketInfoButton:
   material: GREEN_BANNER
@@ -65,5 +65,5 @@ luckyTicketInfoButton:
   - §2Увеличьте шанс успеха зачарования,
   - §2добавив элитный счастливый билет!
   customModelID: 31173
-# Sets the message that appears when a player attempts to enchant an item beyond the configured maximum enchantment level of any enchantment.
+# Задаёт сообщение при попытке зачаровать предмет выше настроенного максимального уровня чар.
 enchantmentLimitMessage: '&c[EliteMobs] Нельзя зачаровать предмет выше лимита чар!'

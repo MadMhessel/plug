@@ -1,94 +1,94 @@
-# Sets the language file used by EliteMobs
-# Do NOT change this manually! It is meant to be installed with the command '/em language <languagefile>'
+# Задаёт языковой файл, используемый EliteMobs.
+# Не меняйте это вручную! Язык должен устанавливаться командой '/em language <languagefile>'.
 language: english
-# Sets whether elites and bosses spawned by elitemobs will always show their nametags.
-# Not recommended!
+# Определяет, будут ли элиты и боссы EliteMobs всегда показывать свои именные теги.
+# Не рекомендуется!
 alwaysShowEliteMobNameTags: false
-# Sets the amount of passive mobs that have to be in close proximity before they can be merged.
-# Don't set this to 0!
+# Задаёт количество пассивных мобов, которые должны быть рядом для объединения.
+# Не устанавливайте 0!
 superMobStackAmount: 50
-# Makes elites not damage passive mobs with explosions.
+# Запрещает элитам наносить урон пассивным мобам взрывами.
 preventEliteCreeperDamageToPassiveMobs: true
-# Sets whether EliteMobs will use titles to warn players about missing permissions
+# Определяет, будут ли EliteMobs использовать титры для предупреждений о нехватке прав.
 useTitlesForMissingPermissionMessages: true
-# Sets whether EliteMobs will prevent converting named mobs to elites.
-# Especially important for compatibility with other plugins.
+# Определяет, будут ли EliteMobs запрещать превращение именованных мобов в элит.
+# Особенно важно для совместимости с другими плагинами.
 preventEliteMobConversionOfNamedMobs: true
-# Sets if EliteMobs will convert mobs with custom spawn reasons.
-# Running certain boss plugins will automatically set this to true, no matter what the value in the config is.
+# Определяет, будут ли EliteMobs превращать мобов с кастомной причиной спавна.
+# Запуск некоторых плагинов боссов автоматически установит это в true, независимо от значения в конфиге.
 enableHighCompatibilityMode: false
-# Sets the elite spawn bonus for the nightmare gamemode
+# Задаёт бонус к спавну элит для режима Nightmare.
 nightmareWorldSpawnBonus: 0.5
-# Sets if the centralized /em command opens the main status page of the plugin.
-# Highly recommended!
+# Определяет, открывает ли команда /em основную страницу статуса плагина.
+# Настоятельно рекомендуется!
 emLeadsToStatusMenu: true
-# Sets if running specific commands like /em wallet will lead to the /em menu where that information is centralized.
+# Определяет, ведут ли команды вроде /em wallet в меню /em, где эта информация централизована.
 otherCommandsLeadToEMStatusMenu: true
-# Sets if the setup is complete.
-# Do not set this value manually, it is meant to be modified through in-game commands.
+# Определяет, завершена ли настройка.
+# Не устанавливайте это значение вручную, оно должно меняться через игровые команды.
 setupDoneV4: false
-# Sets if elites will prevent spawning vanilla reinforcements, such as for the Zombie reinforcement feature.
+# Определяет, будут ли элиты предотвращать спавн ванильных подкреплений (например, у зомби).
 preventVanillaReinforcementsForEliteEntities: true
-# Sets the default spawn location of the server for EliteMobs. /em spawntp will lead to this location.
+# Задаёт точку спавна сервера для EliteMobs. /em spawntp перенесёт в эту точку.
 defaultSpawnLocation: world,0.0,109.0,0.0,0.0,0.0
-# Sets if EliteMobs will regenerate blocks blown up by elites.
+# Определяет, будут ли EliteMobs восстанавливать блоки, взорванные элитами.
 doExplosionRegen: true
-# Sets if the explosion regen will also regenerate the contents of containers such as chests.
-# Turning it to false will make elite explosions not blow up containers.
+# Определяет, будет ли восстановление взрывов также восстанавливать содержимое контейнеров (например, сундуков).
+# Если отключить, взрывы элит не будут разрушать контейнеры.
 doRegenerateContainers: true
 defaultTransitiveBlockLimiter: 500
-# Sets whether the /em menu will only use the inventory-based menu style which is compatible with bedrock.
-# As a reminder, players can otherwise do the command /em alt to switch between /em menu styles
+# Определяет, будет ли меню /em использовать только инвентарный стиль, совместимый с Bedrock.
+# Напоминание: игроки могут использовать /em alt для переключения стилей меню /em.
 onlyUseBedrockMenus: false
-# Sets the character limit per line for book menu pages.
-# Lower this amount if text is getting cut off in book menus such as for quests
+# Задаёт лимит символов на строку для меню-книг.
+# Уменьшите, если текст обрезается в меню-книгах (например, квестов).
 characterLimitForBookMenuPagesV2: 170
-# Sets if empty menu space will be filled with glass panes.
-# Not recommended if you are using the EliteMobs resource pack.
+# Определяет, заполняются ли пустые ячейки меню стеклянными панелями.
+# Не рекомендуется при использовании ресурс-пака EliteMobs.
 useGlassToFillMenuEmptySpace: false
-# Sets the message sent to players if they run '/em confirm' with no pending commands.
+# Задаёт сообщение при использовании /em confirm без ожидающих команд.
 noPendingCommands: '&cСейчас нет ожидающих команд!'
-# Sets the tracking message for bosses that send tracking messages.
+# Задаёт сообщение отслеживания для боссов, отправляющих сообщения отслеживания.
 trackMessage: Отслеживание: $name
-# Sets the message sent to players that open treasure chests with level requirements above their guild rank.
+# Задаёт сообщение для игроков, открывающих сундуки с требованием уровня выше их ранга гильдии.
 chestLowRankMessage: '&7[EM] &cВаш ранг гильдии должен быть не ниже $rank, чтобы открыть
   этот сундук!'
-# Sets the message sent to players that try to reopen a treasure chest they have already opened.
+# Задаёт сообщение для игроков, пытающихся повторно открыть уже открытый сундук.
 chestCooldownMessage: '&7[EM] &cВы уже недавно открывали этот сундук! Подождите $time!'
-# Sets the message that appears recommending the /em alt command for players having issues with the /em command
+# Задаёт сообщение с рекомендацией /em alt для игроков с проблемами команды /em.
 dismissEMMessage: '&8[EliteMobs] &2/elitemobs &fменю не работает? Попробуйте &2/elitemobs
   alt &fдля альтернативной версии меню! &cНе хотите видеть это сообщение снова?
   &4/em dismiss'
-# Sets the message that appears when players run the /em alt command.
+# Задаёт сообщение при использовании команды /em alt.
 switchEMStyleMessage: '&8[EliteMobs] &2/elitemobs &fстиль меню изменён! Посмотрите!'
-# Sets the message that appears when a player opens a treasure chest but gets nothing
+# Задаёт сообщение, когда игрок открывает сундук и ничего не получает.
 treasureChestNoDropMessage: '&8[EliteMobs] &cВы ничего не получили! Повезёт в следующий
   раз!'
-# Sets the message that appears when a player tries to track a boss that is no longer valid
+# Задаёт сообщение при попытке отследить босса, который больше недоступен.
 bossAlreadyGoneMessage: '&c[EliteMobs] Извините, этого босса уже нет!'
-# Sets whether to reset player scale (literally, the player size on login).
-# This is important because some elite powers can modify it and if the server crashes players will be stuck to whatever scale was set when the server crashed, unless this option is set to true.
+# Определяет, сбрасывать ли масштаб игрока (размер персонажа при входе).
+# Это важно, потому что некоторые силы элит меняют масштаб, и при краше сервера игроки застрянут с тем масштабом, который был выставлен, если не включить этот параметр.
 resetPlayerScale: true
-# Sets the message sent to players when they fail an enchantment challenge
+# Задаёт сообщение при провале испытания зачарования.
 enchantmentChallengeFailureMessage: '&8[EliteMobs] &cЗачарование не удалось! Чары
   не привязались к предмету.'
-# Sets the message sent to players when they succeed an enchantment challenge
+# Задаёт сообщение при успешном испытании зачарования.
 enchantmentChallengeSuccessMessage: '&8[EliteMobs] &2Успешное зачарование!'
-# Sets the message sent to players when their inventory is full during an enchantment challenge
+# Задаёт сообщение, если во время испытания зачарования инвентарь заполнен.
 enchantmentChallengeInventoryFullMessage: '&8[EliteMobs] &cВаш инвентарь был заполнен,
   поэтому предмет для улучшения удалён! Он восстановится, если к моменту выхода из
   инстанс‑подземелья инвентарь будет не заполнен.'
-# Sets the message sent to players about the consequences of an enchantment challenge
+# Задаёт сообщение о последствиях испытания зачарования.
 enchantmentChallengeConsequencesMessage: '&cЕсть 10% шанс потерять предмет при поражении!
   Выход из арены считается поражением.'
-# Sets the message sent to players when they critically fail an enchantment challenge
+# Задаёт сообщение при критическом провале испытания зачарования.
 enchantmentChallengeCriticalFailureMessage: '&8[EliteMobs] &4Критическая неудача!
   Вы потеряли предмет!'
-# Sets the message sent to players at the start of an enchantment challenge
+# Задаёт сообщение в начале испытания зачарования.
 enchantmentChallengeStartMessage: '&8[EliteMobs] &6Испытание! Победите босса, чтобы
   получить улучшенный предмет!'
-# Enables the use of resource packs even if the resource pack manager is not installed
+# Разрешает использование ресурс-паков, даже если менеджер ресурс-паков не установлен.
 useResourcePackEvenIfResourcePackManagerIsNotInstalled: false
-# Sets whether the scale (size) of the elites will be slightly randomized, for variety.
-# May mess with spawners, which may or may not be a good thing (I think it is >:] )
-useRandomizedScalingForElites: false
+# Определяет, будет ли масштаб (размер) элит слегка рандомизирован для разнообразия.
+# Может влиять на спавнеры, что может быть как плюсом, так и минусом (я считаю, что плюс >:]).
+useRandomizedScalingForElites: true

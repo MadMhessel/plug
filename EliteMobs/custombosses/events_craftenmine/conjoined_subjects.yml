@@ -12,8 +12,8 @@ uniqueLootList:
 - filename=conjoined_subjects_drop_shield.yml:amount=1:chance=0.1
 movementSpeedAttribute: 0.30
 followDistance: 80
-locationMessage: "&cConjoined Subjects: $distance blocks away!"
-spawnMessage: "&cDr. Craftenmine's twisted creation is out in the wild!"
-deathMessage: "&aThe Conjoined Subjects were put to rest by $players!"
-escapeMessage: "&4The Conjoined Subjects have left this place!"
+locationMessage: "&cСоединенные субъекты: $distance блокируется!"
+spawnMessage: "&cДр. Извращенное творение Craftenmine вышло на свободу!"
+deathMessage: "&aСоединившиеся субъекты были похоронены $players!"
+escapeMessage: "&4Соединенные субъекты покинули это место!"
 announcementPriority: 2
