@@ -3,7 +3,7 @@ starting_perks: []
 experience:
   max_level: 100
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
-  exp_multiplier_quality: 0.00334 # Added experience multiplier for each point of quality of the potion
+  exp_multiplier_quality: 0.00334 # Дополнительный множитель опыта за каждую единицу качества зелья
   multiplier_automated: 0.25
   multiplier_manual: 2
   daily_limit: -1

@@ -1,27 +1,27 @@
 starting_perks:
-  smithing_stoneexpmultiplier_add: -0.5 # stone and chain grant 50% reduced exp at first
+  smithing_stoneexpmultiplier_add: -0.5 # камень и кольчуга сначала дают на 50% меньше опыта
   smithing_chainexpmultiplier_add: -0.5
   smithing_copperexpmultiplier_add: -0.5
-  smithing_goldexpmultiplier_add: -0.75 # gold and iron 75% less
+  smithing_goldexpmultiplier_add: -0.75 # золото и железо на 75% меньше
   smithing_ironexpmultiplier_add: -0.75
-  smithing_diamondexpmultiplier_add: -0.9 # diamond 90% less
-  smithing_netheriteexpmultiplier_add: -1 # netherite grants nothing
+  smithing_diamondexpmultiplier_add: -0.9 # алмаз на 90% меньше
+  smithing_netheriteexpmultiplier_add: -1 # незерит не даёт опыта
 
 experience:
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
   max_level: 100
-  # Damaging an item (regardless of amount) will increase a tally counter for the item's material type.
-  # The next time Smithing exp is gained with said material type, it is multiplied by the number below TIMES the tally counter.
-  # The tally counter is then reduced by the max amount of times this effect may be stacked (100 stacks reduced to 0,
-  # By default, each stack grants +1% EXP per durability taken, up to 1000 stacks (+1000%) for normal items
-  # For armors, +0.5% EXP is granted per stack up to 200 stacks (+100%) because armor is easier to damage than tools
+  # Любое повреждение предмета увеличивает счётчик для типа материала.
+  # Следующий опыт кузнеца для этого материала умножается на число ниже, умноженное на счётчик.
+  # Затем счётчик уменьшается на максимум стаков этого эффекта (100 стаков до 0,
+  # По умолчанию каждый стак даёт +1% опыта за потерянную прочность, до 1000 стаков (+1000%) для обычных предметов
+  # Для брони +0.5% опыта за стак до 200 стаков (+100%), так как броню проще повредить
   durability_tools_exp_multiplier_stack: 0.01
   durability_tools_exp_multiplier_maximum: 1000
   durability_armors_exp_multiplier_stack: 0.005
   durability_armors_exp_multiplier_maximum: 200
-  durability_chunk_limit: 50 # Similar to the combat skills, damaging an item too much in the same chunk will reduce exp gotten from it.
-  # In this case, it prevents you from getting more stacks if the counter exceeds this limit.
-  # This basically just means you may not get more than 50 stacks per chunk per item type
+  durability_chunk_limit: 50 # Как и в боевых навыках, чрезмерное повреждение предмета в одном чанке снижает опыт.
+  # Это не даёт получать больше стаков, если счётчик превышает лимит.
+  # Это означает, что нельзя получить больше 50 стаков на чанк для одного типа предмета
   daily_limit: -1
   daily_limit_warning: <lang.skill-smithing-daily-limit-reached>
 
@@ -30,45 +30,45 @@ starting_coordinates: 3,5
 special_perks:
   '20':
     perk_rewards:
-      smithing_woodexpmultiplier_add: -0.75 # wood and leather have their exp reduced by 75%
+      smithing_woodexpmultiplier_add: -0.75 # дерево и кожа дают на 75% меньше опыта
       smithing_leatherexpmultiplier_add: -0.75
-      smithing_stoneexpmultiplier_add: 0.5 # stone and chain have their exp restored back to 100%
+      smithing_stoneexpmultiplier_add: 0.5 # камень и кольчуга возвращаются к 100% опыта
       smithing_chainexpmultiplier_add: 0.5
       smithing_copperexpmultiplier_add: 0.5
-      smithing_goldexpmultiplier_add: 0.25 # gold and iron have their exp buffed to 50%
+      smithing_goldexpmultiplier_add: 0.25 # золото и железо повышаются до 50% опыта
       smithing_ironexpmultiplier_add: 0.25
-      smithing_diamondexpmultiplier_add: 0.15 # diamond has its exp buffed to 25%
-      smithing_netheriteexpmultiplier_add: 0.1 # netherite starts giving 10% exp
+      smithing_diamondexpmultiplier_add: 0.15 # алмаз повышается до 25% опыта
+      smithing_netheriteexpmultiplier_add: 0.1 # незерит начинает давать 10% опыта
   '40':
     perk_rewards:
-      smithing_woodexpmultiplier_add: -0.2 # wood and leather have their exp reduced to 5%
+      smithing_woodexpmultiplier_add: -0.2 # дерево и кожа снижаются до 5% опыта
       smithing_leatherexpmultiplier_add: -0.2
-      smithing_stoneexpmultiplier_add: -0.75 # stone and chain have their exp reduced to 25%
+      smithing_stoneexpmultiplier_add: -0.75 # камень и кольчуга снижаются до 25% опыта
       smithing_chainexpmultiplier_add: -0.75
       smithing_copperexpmultiplier_add: -0.75
-      smithing_goldexpmultiplier_add: 0.5 # gold and iron have their exp restored back to 100%
+      smithing_goldexpmultiplier_add: 0.5 # золото и железо возвращаются к 100% опыта
       smithing_ironexpmultiplier_add: 0.5
-      smithing_diamondexpmultiplier_add: 0.25 # diamond has its exp buffed to 50%
-      smithing_netheriteexpmultiplier_add: 0.15 # netherite has its exp buffed to 25%
+      smithing_diamondexpmultiplier_add: 0.25 # алмаз повышается до 50% опыта
+      smithing_netheriteexpmultiplier_add: 0.15 # незерит повышается до 25% опыта
   '60':
     perk_rewards:
-      smithing_woodexpmultiplier_add: -0.05 # wood and leather have their exp reduced to 0%
+      smithing_woodexpmultiplier_add: -0.05 # дерево и кожа снижаются до 0% опыта
       smithing_leatherexpmultiplier_add: -0.05
-      smithing_stoneexpmultiplier_add: -0.2 # stone and chain have their exp reduced to 5%
+      smithing_stoneexpmultiplier_add: -0.2 # камень и кольчуга снижаются до 5% опыта
       smithing_chainexpmultiplier_add: -0.2
       smithing_copperexpmultiplier_add: -0.2
-      smithing_goldexpmultiplier_add: -0.75 # gold and iron have their exp reduced to 25%
+      smithing_goldexpmultiplier_add: -0.75 # золото и железо снижаются до 25% опыта
       smithing_ironexpmultiplier_add: -0.75
-      smithing_diamondexpmultiplier_add: 0.5 # diamond has its exp restored back to 100%
-      smithing_netheriteexpmultiplier_add: 0.25 # netherite has its exp buffed to 50%
+      smithing_diamondexpmultiplier_add: 0.5 # алмаз возвращается к 100% опыта
+      smithing_netheriteexpmultiplier_add: 0.25 # незерит повышается до 50% опыта
   '80':
     perk_rewards:
-      smithing_stoneexpmultiplier_add: -0.05 # stone and chain have their exp reduced to 0%
+      smithing_stoneexpmultiplier_add: -0.05 # камень и кольчуга снижаются до 0% опыта
       smithing_chainexpmultiplier_add: -0.05
       smithing_copperexpmultiplier_add: -0.05
-      smithing_goldexpmultiplier_add: -0.2 # gold and iron have their exp reduced to 20%
+      smithing_goldexpmultiplier_add: -0.2 # золото и железо снижаются до 20% опыта
       smithing_ironexpmultiplier_add: -0.2
-      smithing_netheriteexpmultiplier_add: 0.5 # netherite has its exp restored back to 100%, diamond stays at 100% as well
+      smithing_netheriteexpmultiplier_add: 0.5 # незерит возвращается к 100% опыта, алмаз остаётся на 100% тоже
 
 
 commands: []

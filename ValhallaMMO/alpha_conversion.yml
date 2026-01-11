@@ -1,14 +1,14 @@
-# This config will only be relevant to you if you've used the alpha versions of ValhallaMMO prior to using beta or higher.
+# Этот конфиг нужен только если вы использовали alpha-версии ValhallaMMO до beta и выше.
 
-# If false, no conversion from alpha will occur
-# If true, and if alpha data is found, it will attempt the following conversion strategies
+# Если false, конвертация из alpha не выполняется
+# Если true и найдены данные alpha, будут применены следующие стратегии конвертации
 enabled: false
 
-# Refunds the player's exp in every skill when they join, multiplied by the given amount.
-# A pretty simple, safe conversion method
+# Возвращает опыт игрока по всем навыкам при входе, умноженный на заданное значение.
+# Довольно простой и безопасный метод конвертации
 exp_conversion: 1.0
-exp_conversion_fishing: 0.3 # Some skills have been split up, like farming got split up into farming and fishing. The following fraction of this exp will go to fishing
-exp_conversion_farming: 0.9 # The following fraction of farming exp will go to the new farming skill
-exp_conversion_woodcutting: 0.7 # The following fraction of landscaping exp will go to the new woodcutting skill
-exp_conversion_digging: 0.7 # The following fraction of landscaping exp will go to the new digging skill
+exp_conversion_fishing: 0.3 # Некоторые навыки были разделены, например farming на farming и fishing. Эта доля опыта пойдёт в fishing
+exp_conversion_farming: 0.9 # Эта доля опыта farming перейдёт в новый навык farming
+exp_conversion_woodcutting: 0.7 # Эта доля опыта landscaping перейдёт в новый навык woodcutting
+exp_conversion_digging: 0.7 # Эта доля опыта landscaping перейдёт в новый навык digging
 

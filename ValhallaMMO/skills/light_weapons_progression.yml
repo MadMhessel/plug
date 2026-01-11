@@ -7,7 +7,7 @@ experience:
   max_level: 100
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
   exp_per_damage: 7
-  mace_exp_multiplier: 0.1 # When using "The Mace" to attack, exp rewarded is multiplied by this amount
+  mace_exp_multiplier: 0.1 # При использовании «Булавы» получаемый опыт умножается на это значение
   spawner_spawned_multiplier: 0.7
   exp_enemies_nerfed: []
   max_health_limitation: false
@@ -27,7 +27,7 @@ leveling_perks:
   lightweapons_attackspeedmultiplier_add: 0.005
   lightweapons_damagemultiplier_add: 0.005
 
-starting_coordinates: 2,10 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 2,10 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 perks:
   lightweapons_perk_1:

@@ -8,14 +8,14 @@ starting_perks:
 experience:
   max_level: 100
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
-  bow_exp_base: 30 # base exp for hitting an arrow with a bow
-  crossbow_exp_base: 40 # base exp for hitting an arrow with a crossbow
-  damage_exp_bonus: 0.1 # bonus multiplier per 1 point of damage (5 damage = +50% exp)
-  distance_exp_multiplier_base: 1 # base exp multiplier for hitting an arrow at point-blank range
-  distance_exp_multiplier: 0.75 # additional exp multiplier per 10 blocks distance between shooter and target (50 blocks would be 1 + 3.75 = 4.75x exp)
-  distance_limit: 100 # max distance for for exp calculation (distance beyond 100 blocks does not add to exp gain)
-  infinity_multiplier: 0.7 # exp multiplier if infinity is used in shooting
-  spawner_spawned_multiplier: 0.7 # exp multiplier if entity hit is spawned from a monster spawner
+  bow_exp_base: 30 # базовый опыт за попадание стрелой из лука
+  crossbow_exp_base: 40 # базовый опыт за попадание стрелой из арбалета
+  damage_exp_bonus: 0.1 # бонусный множитель за 1 урон (5 урона = +50% опыта)
+  distance_exp_multiplier_base: 1 # базовый множитель опыта за выстрел в упор
+  distance_exp_multiplier: 0.75 # дополнительный множитель опыта за каждые 10 блоков дистанции (50 блоков = 1 + 3.75 = 4.75x опыта)
+  distance_limit: 100 # максимальная дистанция для расчёта опыта (дальше 100 блоков опыт не растёт)
+  infinity_multiplier: 0.7 # множитель опыта при использовании Бесконечности
+  spawner_spawned_multiplier: 0.7 # множитель опыта, если цель была создана спавнером
   max_health_limitation: false
   pvp_multiplier: 0.1
   is_chunk_nerfed: true
@@ -32,7 +32,7 @@ messages:
 leveling_perks:
   archery_bowdamagemultiplier_add: 0.004
 
-starting_coordinates: 0,5 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 0,5 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 perks:
   archery_perk_1:

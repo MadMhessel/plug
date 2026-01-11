@@ -1,7 +1,7 @@
 starting_perks: []
 
-experience: # Everything about leveling and experience progression for Landscaping
-  max_level: 100 # Max level for landscaping, players can still gain exp after reaching 200
+experience: # Всё о прокачке и прогрессии опыта для ландшафтного навыка
+  max_level: 100 # Максимальный уровень ландшафтного навыка; опыт продолжает накапливаться после 200
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
   daily_limit: -1
   daily_limit_warning: <lang.skill-woodcutting-daily-limit-reached>
@@ -64,7 +64,7 @@ leveling_perks:
   woodcutting_woodcuttingspeedbonus_add: 0.005
   woodcutting_woodcuttingdrops_add: 0.01
 
-starting_coordinates: 3,11 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 3,11 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 perks:
   woodcutting_perk_1:

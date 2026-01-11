@@ -119,7 +119,7 @@ messages:
 leveling_perks:
   power_spendableskillpoints_add: 1
 
-starting_coordinates: 3,1 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 3,1 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 navigable: false
 perks:
