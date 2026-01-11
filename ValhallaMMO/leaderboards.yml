@@ -1,0 +1,166 @@
+page_limit: 10 # Сколько записей отображается на одной странице топа
+placement_prefixes: # Префиксы (обычно цвета или эмодзи) для лучших игроков в топе
+  # Ранги, которых нет в списке, не будут иметь префикса
+  '1': '&6'
+  '2': '&e'
+  '3': '&#753713'
+
+personal_entry_prefix: <lang.leaderboard_personal_prefix>
+
+excluded:
+- Athlaeos
+
+leaderboards:
+  power:
+    display_name: '&cСила' # Название топа при выводе команды /valtop
+    entry_display: '&7#&c%rank% &8: &7%prefix%%player% &7|&cУР %level%&7| &8(%main_stat%
+      ОПЫТ)' # Формат записи
+    placeholder_display: '&cУР%level% &7%player%'
+    profile: PowerProfile # Профиль, из которого берутся статы
+    lower_limit: 0 # Минимальное значение главного стата для попадания в топ
+    main_stat: exp_total:100 # Главный стат для ранжирования. Минимум 500 опыта.
+    extra_stats: # (опционально) Дополнительные статы для display_entry
+      level: level # Мы хотим получить уровень и называем его 'level', чтобы использовать как %level%
+  smithing:
+    display_name: '&eКузнечное дело'
+    entry_display: '&7#&e%rank% &8: &7%prefix%%player% &7|&eNG %main_stat% &7- &eУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&eNG%main_stat% УР%level% &7%player%'
+    profile: SmithingProfile
+    lower_limit: 0
+    main_stat: newGamePlus # Если требование к стату не указано, оно не проверяется
+    extra_stats:
+      exp_total: exp_total:500 # exp_total требует минимум 500 для учета
+      level: level:1 # level требует минимум 1 для учета
+  alchemy:
+    display_name: '&dАлхимия'
+    entry_display: '&7#&d%rank% &8: &7%prefix%%player% &7|&dNG %main_stat% &7- &dУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&dNG%main_stat% УР%level% &7%player%'
+    profile: AlchemyProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  enchanting:
+    display_name: '&bЗачарование'
+    entry_display: '&7#&b%rank% &8: &7%prefix%%player% &7|&bNG %main_stat% &7- &bУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&bNG%main_stat% УР%level% &7%player%'
+    profile: EnchantingProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  mining:
+    display_name: '&cГорное дело'
+    entry_display: '&7#&c%rank% &8: &7%prefix%%player% &7|&cNG %main_stat% &7- &cУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&cNG%main_stat% УР%level% &7%player%'
+    profile: MiningProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  farming:
+    display_name: '&aФермерство'
+    entry_display: '&7#&a%rank% &8: &7%prefix%%player% &7|&aNG %main_stat% &7- &aУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&aNG%main_stat% УР%level% &7%player%'
+    profile: FarmingProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  fishing:
+    display_name: '&9Рыбалка'
+    entry_display: '&7#&9%rank% &8: &7%prefix%%player% &7|&9NG %main_stat% &7- &9УР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&9NG%main_stat% УР%level% &7%player%'
+    profile: FishingProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  woodcutting:
+    display_name: '&aЛесорубство'
+    entry_display: '&7#&a%rank% &8: &7%prefix%%player% &7|&aNG %main_stat% &7- &aУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&aNG%main_stat% УР%level% &7%player%'
+    profile: WoodcuttingProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  digging:
+    display_name: '&eРаскопки'
+    entry_display: '&7#&e%rank% &8: &7%prefix%%player% &7|&eNG %main_stat% &7- &eУР
+      %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&eNG%main_stat% УР%level% &7%player%'
+    profile: DiggingProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  archery:
+    display_name: '&fСтрельба'
+    entry_display: '&7#&#00ffaa%rank% &8: &7%prefix%%player% &7|&#00ffaaNG %main_stat%
+      &7- &#00ffaaУР %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&#00ffaaNG%main_stat% УР%level% &7%player%'
+    profile: ArcheryProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  lightweapons:
+    display_name: '&6Легкое оружие'
+    entry_display: '&7#&#ffac40%rank% &8: &7%prefix%%player% &7|&#ffac40NG %main_stat%
+      &7- &#ffac40УР %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&#ffac40NG%main_stat% УР%level% &7%player%'
+    profile: LightWeaponsProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  heavyweapons:
+    display_name: '&cТяжелое оружие'
+    entry_display: '&7#&#ff7640%rank% &8: &7%prefix%%player% &7|&#ff7640NG %main_stat%
+      &7- &#ff7640УР %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&#ff7640NG%main_stat% УР%level% &7%player%'
+    profile: HeavyWeaponsProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  lightarmor:
+    display_name: '&6Легкая броня'
+    entry_display: '&7#&#ffac40%rank% &8: &7%prefix%%player% &7|&#ffac40NG %main_stat%
+      &7- &#ffac40УР %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&#ffac40NG%main_stat% УР%level% &7%player%'
+    profile: LightArmorProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1
+  heavyarmor:
+    display_name: '&cТяжелая броня'
+    entry_display: '&7#&#ff7640%rank% &8: &7%prefix%%player% &7|&#ff7640NG %main_stat%
+      &7- &#ff7640УР %level%&7| &8(%exp_total% ОПЫТ)'
+    placeholder_display: '&#ff7640NG%main_stat% УР%level% &7%player%'
+    profile: HeavyArmorProfile
+    lower_limit: 0
+    main_stat: newGamePlus
+    extra_stats:
+      exp_total: exp_total:500
+      level: level:1

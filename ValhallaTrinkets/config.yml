@@ -1,0 +1,84 @@
+drop_trinkets_on_death: true # Аксессуары выпадут при смерти (независимо от этой опции, если включено правило keepInventory, они сохранятся)
+
+outside_inventory_click: true # Если false, клик вне инвентаря игрока не откроет меню аксессуаров
+trinket_menu_size: 9 # Размер меню должен быть кратен 9 (максимум 54), Minecraft не поддерживает меньшие инвентари
+trinket_title: "&8Аксессуары" # Заголовок меню
+
+filler_item: # Предметы, заполняющие пустые или неиспользуемые слоты
+  type: NONE_GRAY_STAINED_GLASS_PANE # Оставлено "NONE...", чтобы по умолчанию меню было чистым, если не настроено иное
+  data: -1
+  display_name: "&8"
+  lore: []
+
+trinket_slots:
+  1: # ID слота и его позиция в меню
+    valid_trinkets: [ 7 ] # Список ID типов аксессуаров, которые можно сюда положить
+    placeholder: # Иконка пустого слота
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+  2:
+    valid_trinkets: [ 7 ]
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+  3:
+    valid_trinkets: [ 7 ]
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+  4:
+    valid_trinkets: [ 7 ]
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+  5:
+    valid_trinkets: [ 7 ]
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+  6:
+    valid_trinkets: [ 7 ]
+    permission: "trinkets.1" # Право (permission), необходимое для использования этого слота
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+    locked: # Иконка, если у игрока нет прав на этот слот
+      type: ROTTEN_FLESH
+      data: 5829320
+      display_name: "&c[Закрыто]"
+      lore: []
+  7:
+    valid_trinkets: [ 7 ]
+    permission: "trinkets.2"
+    placeholder:
+      type: ROTTEN_FLESH
+      data: 5829317
+      display_name: "&8[Аксессуар]"
+      lore: []
+    locked:
+      type: ROTTEN_FLESH
+      data: 5829320
+      display_name: "&c[Закрыто]"
+      lore: []
+
+trinket_types:
+  0: "&7Кольцо" # Названия типов, добавляемые в описание предмета
+  1: "&7Ожерелье"
+  2: "&7Браслет"
+  3: "&7Пояс"
+  4: "&7Маска"
+  5: "&7Брошь"
+  6: "&7Диадема"
+  7: "&7Аксессуар"
