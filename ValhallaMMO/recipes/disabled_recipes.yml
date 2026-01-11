@@ -1,7 +1,7 @@
-# Disabled crafting recipes
-# An entry in this list is valid if the name equates to a recipe's namespaced key, which in most cases is just
-# the item ID in lowercase
-# Recipes can also be enabled/disabled through /val recipes
+# Отключённые рецепты крафта
+# Запись в списке валидна, если имя совпадает с namespaced key рецепта, обычно это
+# ID предмета в нижнем регистре
+# Рецепты можно включать/выключать через /val recipes
 disabled:
 - golden_spear
 - wooden_pickaxe

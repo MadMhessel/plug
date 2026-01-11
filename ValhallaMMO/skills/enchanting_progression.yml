@@ -10,7 +10,7 @@ experience:
   daily_limit: -1
   daily_limit_warning: <lang.skill-enchanting-daily-limit-reached>
   exp_gain:
-    experience_spent_conversion: 0.5 # The fraction of spent experience during enchanting that's converted into additional enchanting skill experience
+    experience_spent_conversion: 0.5 # Доля потраченного опыта при зачаровании, которая конвертируется в опыт навыка зачарования
     enchantment_base:
       power: 180
       efficiency: 180
@@ -48,11 +48,11 @@ experience:
       silk_touch: 1000
       infinity: 1000
       channeling: 1000
-    enchantment_level_multiplier: # The original amount of EXP earned from the potion is further changed depending on what the player does after
-      '1': 1.0 # Multiplier of the base exp if the enchantment level is just I
-      '2': 2.2 # Multiplier of the base exp if the enchantment level is II
-      '3': 3.4 # Multiplier of the base exp if the enchantment level is III
-      '4': 4.6 # etc.
+    enchantment_level_multiplier: # Базовое количество опыта от зелья дополнительно меняется в зависимости от дальнейших действий игрока
+      '1': 1.0 # Множитель базового опыта при уровне зачарования I
+      '2': 2.2 # Множитель базового опыта при уровне зачарования II
+      '3': 3.4 # Множитель базового опыта при уровне зачарования III
+      '4': 4.6 # и т.д.
       '5': 5.8
       '6': 7.0
       '7': 8.2
@@ -88,18 +88,18 @@ experience:
       BOW: 1.0
       FISHING_ROD: 1.0
   diminishing_returns:
-    # Diminishing returns reduce the amount of enchanting experience you get depending on the amount of a specific
-    # mob you have killed. Each kill of a mob in the category "on" increases the player's tally counter by 1,
-    # if the tally counter value is more or equal than the amount specified in "amount" the amount of experience is
-    # multiplied by the value specified in "multiplier". After enchanting, the tally counter is reduced by the "amount"
-    # until the tally counter is below the "amount".
-    # Example: a player kills 55 endermen. The next 5 times the player enchants something, their skill experience rewarded
-    # is reduced to only 20% (multiplier of 0.2). Now their tally counter is 5 instead of 55, so their experience isn't reduced.
+    # Убывающая отдача снижает опыт зачарования в зависимости от количества определённого
+    # моба, которого вы убили. Каждое убийство моба из категории "on" увеличивает счётчик на 1,
+    # если счётчик >= значения "amount", получаемый опыт умножается
+    # на значение "multiplier". После зачарования счётчик уменьшается на "amount"
+    # пока не станет ниже "amount".
+    # Пример: игрок убил 55 эндерменов. Следующие 5 зачарований дадут
+    # только 20% опыта (множитель 0.2). Счётчик станет 5 вместо 55, и опыт снова не снижается.
     multiplier: 0.1
     amount: 20
-    mob_experience: # Alternatively, you may also choose to directly reduce (or buff!) the enchanting experience rewarded from these
-      # entities. In case you want to nerf popular experience farms such as Endermen or Zombie Piglin grinders.
-      # By default these multipliers are 1.0 so they don't do anything, they are just there as examples.
+    mob_experience: # Либо можно напрямую снизить (или усилить) опыт зачарования от этих
+      # сущностей, если нужно ослабить популярные фермы (эндермены, зомби-пиглины).
+      # По умолчанию множители 1.0, то есть ничего не меняют; это просто примеры.
       ENDERMAN: 1.0
       ZOMBIFIED_PIGLIN: 1.0
 
@@ -114,7 +114,7 @@ leveling_perks:
   enchanting_enchantingskill_add: 1
   enchanting_anvilskill_add: 1
 
-starting_coordinates: 4,8 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 4,8 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 perks:
   enchanting_perk_1:

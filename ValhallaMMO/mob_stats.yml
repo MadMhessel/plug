@@ -1,44 +1,44 @@
-enabled: true # If false, mobs will not level or get stats according to the surrounding player power levels
-monsters_only: true # If true, only monsters can receive levels and stats. If false, animals can get them also (kinda weird though, not recommended)
+enabled: true # Если false, мобы не получают уровни/характеристики по силе окружающих игроков
+monsters_only: true # Если true, уровни и характеристики получают только монстры. Если false, животные тоже (странно, не рекомендуется)
 
-# Calculates how much the player difficulty level of the area is. By default, a singular player will have a regional difficult the same as
-# their power level, but with multiple players it will be a bit higher than the average.
-# Example, a level 10 and 50 player: their true average would be 30, but with the formula 60*1.2-0.2 = 72, 72/2 = 36 their area level will be about 36
-# If undefined, the true average will be used.
+# Рассчитывает уровень сложности области для игрока. По умолчанию один игрок имеет региональную сложность равную
+# его силе, но с несколькими игроками она будет немного выше среднего.
+# Пример: игроки 10 и 50 уровня. Среднее 30, но по формуле 60*1.2-0.2 = 72, 72/2 = 36, уровень области будет около 36
+# Если не задано, используется истинное среднее.
 regional_player_level: (%combined_player_level% * 1.2) / %nearby_player_count%
-# Other valid placeholders are %min_player_level% for the lowest surrounding player level, and %max_player_level% for the higher surrounding player level
-# rand() cannot be used here
+# Другие плейсхолдеры: %min_player_level% (минимальный уровень рядом) и %max_player_level% (максимальный)
+# rand() здесь использовать нельзя
 
-wolf_leveling: true # If true, wolves level along with players which buffs their stats
-default_wolf_leveling: '%level%' # Wolf scalings cannot use the rand() function
+wolf_leveling: true # Если true, волки повышают уровень вместе с игроками, усиливая свои статы
+default_wolf_leveling: '%level%' # В масштабировании волков нельзя использовать rand()
 
 
-global: # Stats for all entities. Entities specified in the `entity` section can also be given stats, which overwrite the global and default stats when present.
-  # For example, zombies receive -100% radiant resistance. This overwrites the global 100% radiant resistance.
-  # %level% may be used as placeholder, but for creatures with no level (passive mobs or players for example) they will have a level of 0
-  RADIANT_RESISTANCE: 1 # Almost all entities aren't undead, so they shouldn't take radiant damage
+global: # Статы для всех сущностей. Сущности в разделе `entity` могут переопределять глобальные и стандартные статы.
+  # Например, зомби получают -100% устойчивости к свету. Это переопределяет глобальные 100%.
+  # Можно использовать %level%, но для существ без уровня (пассивные мобы/игроки) это 0
+  RADIANT_RESISTANCE: 1 # Почти все существа не являются нежитью, поэтому не должны получать урон светом
 
-default: # Stats for all monsters
-  # If wolf_leveling is also true, then wolves are included among these stats
-  # By default mobs get 50% crit damage, this is added to the zombie's stats unless the zombie has crit damage specified also.
-  level: '%level% + rand(-5,5)' # %level% here refers to the average player power level at the location. Elsewhere it refers to the entity's level
-  exp_orb_bonus: 0.02 * %level% # Exp orb buffs
+default: # Статы для всех монстров
+  # Если wolf_leveling = true, волки включаются в эти статы
+  # По умолчанию мобы получают +50% крит-урона; это добавляется зомби, если у них не задано иначе.
+  level: '%level% + rand(-5,5)' # Здесь %level% — средняя сила игроков в локации, в других местах это уровень сущности
+  exp_orb_bonus: 0.02 * %level% # Бонусы сфер опыта
   loot_bonus: 0.02 * %level%
-  HEALTH_MULTIPLIER_BONUS: -0.3 + (0.033 * %level%) # Lowers mob hp by 30% initially, increases up to quadruple hp at level 100
-  WEIGHTLESS_ARMOR: 0.2 * %level% # Gives mobs up to 20 base armor at level 100
-  DAMAGE_DEALT: -0.3 + (0.023 * %level%) # Lowers mob damage by 30% initially, increases up to triple damage at level 100
-  ARMOR_FRACTION_IGNORED: 0.005 * %level% # Gives mobs up to 50% armor penetration at level 100
-  CRIT_CHANCE: 0.005 * %level% # Gives mobs up to 50% crit chance at level 100
-  CRIT_DAMAGE: '0.5' # Gives mobs +50% crit damage
-  BLEED_RESISTANCE: -4 # Mobs are 5x more vulnerable to bleeding by default
+  HEALTH_MULTIPLIER_BONUS: -0.3 + (0.033 * %level%) # Снижает HP мобов на 30% вначале, увеличивает до 4x HP на уровне 100
+  WEIGHTLESS_ARMOR: 0.2 * %level% # Даёт мобам до 20 базовой брони на уровне 100
+  DAMAGE_DEALT: -0.3 + (0.023 * %level%) # Снижает урон мобов на 30% вначале, увеличивает до 3x урона на уровне 100
+  ARMOR_FRACTION_IGNORED: 0.005 * %level% # Даёт мобам до 50% пробития брони на уровне 100
+  CRIT_CHANCE: 0.005 * %level% # Даёт мобам до 50% шанса крита на уровне 100
+  CRIT_DAMAGE: '0.5' # Даёт мобам +50% крит-урона
+  BLEED_RESISTANCE: -4 # Мобы по умолчанию в 5 раз уязвимее к кровотечению
 
 entity:
-  ZOMBIE: # All undead monsters are configured to take double radiant damage
-    RADIANT_RESISTANCE: -1 # Zombies take double radiant damage
-    FIRE_RESISTANCE: -0.5 # Zombies take +50% fire damage
-    NECROTIC_RESISTANCE: 1 # Zombies are immune to necrotic damage
-    POISON_RESISTANCE: 0.5 # Zombies take -50% poison damage
-    BLEED_RESISTANCE: 0.5 # Zombies take -50% bleeding damage
+  ZOMBIE: # Все нежить получают двойной урон светом
+    RADIANT_RESISTANCE: -1 # Зомби получают двойной урон светом
+    FIRE_RESISTANCE: -0.5 # Зомби получают +50% урона огнём
+    NECROTIC_RESISTANCE: 1 # Зомби иммунны к некротическому урону
+    POISON_RESISTANCE: 0.5 # Зомби получают -50% урона ядом
+    BLEED_RESISTANCE: 0.5 # Зомби получают -50% урона кровотечением
   DROWNED:
     RADIANT_RESISTANCE: -1
     NECROTIC_RESISTANCE: 1
@@ -113,7 +113,7 @@ entity:
     FIRE_RESISTANCE: -1
     NECROTIC_RESISTANCE: 1
   BLAZE:
-    RADIANT_RESISTANCE: 0 # Nether mobs do not receive radiant resistance
+    RADIANT_RESISTANCE: 0 # Мобы Нижнего мира не получают устойчивость к свету
     FIRE_RESISTANCE: 1
     NECROTIC_RESISTANCE: 0.5
   GHAST:
@@ -136,10 +136,10 @@ entity:
     MELEE_RESISTANCE: -0.5
   SPIDER:
     POISON_RESISTANCE: 1
-  # (mini)Bosses do not suffer from reduced hp at level 0 and get increased player level scaling
+  # (мини)боссы не получают сниженное HP на уровне 0 и сильнее масштабируются от уровня игроков
   ENDER_DRAGON:
     level: 2 * %level%
-    HEALTH_MULTIPLIER_BONUS: (0.015 * %level%) # Ender dragons gain quadruple hp at lv200
+    HEALTH_MULTIPLIER_BONUS: (0.015 * %level%) # Эндер-драконы получают 4x HP на lv200
     PROJECTILE_RESISTANCE: 0.5
     FIRE_RESISTANCE: 1
     MAGIC_RESISTANCE: 0.7
@@ -147,13 +147,13 @@ entity:
     ARMOR_FRACTION_IGNORED: 0.5
   WARDEN:
     level: 1.25 * %level%
-    HEALTH_MULTIPLIER_BONUS: (0.008 * %level%) # Wardens gain +50% hp at lv125
+    HEALTH_MULTIPLIER_BONUS: (0.008 * %level%) # Хранители получают +50% HP на lv125
     PROJECTILE_RESISTANCE: 0.5
     NECROTIC_RESISTANCE: 0.5
     ARMOR_FRACTION_IGNORED: 0.75
   WITHER:
     level: 1.25 * %level%
-    HEALTH_MULTIPLIER_BONUS: (0.016 * %level%) # Withers gain triple hp at lv125
+    HEALTH_MULTIPLIER_BONUS: (0.016 * %level%) # Иссушители получают 3x HP на lv125
     PROJECTILE_RESISTANCE: 0.5
     RADIANT_RESISTANCE: -1
     FIRE_RESISTANCE: 1
@@ -164,5 +164,5 @@ entity:
     ARMOR_FRACTION_IGNORED: 0.5
   ELDER_GUARDIAN:
     level: 1.25 * %level%
-    HEALTH_MULTIPLIER_BONUS: (0.008 * %level%) # Elder Guardians gain double hp at lv125
+    HEALTH_MULTIPLIER_BONUS: (0.008 * %level%) # Древние стражи получают 2x HP на lv125
     ARMOR_FRACTION_IGNORED: 0.5

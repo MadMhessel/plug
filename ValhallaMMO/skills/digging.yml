@@ -4,30 +4,30 @@ icon_data: 3510002
 description: <lang.skill-digging-description>
 
 levelbar_title: <lang.skill-digging-level-bar>
-levelbar_color: GREEN # You can choose between BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
-levelbar_style: SEGMENTED_6 # You can choose between SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, and SOLID
+levelbar_color: GREEN # Можно выбрать BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
+levelbar_style: SEGMENTED_6 # Можно выбрать SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20 и SOLID
 
-forgiving_multipliers: true # drop multipliers below 0 will, if false, sometimes cause blocks mined to not drop anything.
-# if true, the drop amount can not go below 1 so only blocks that drop multiple items (such as redstone ore, lapis lazuli ore,
-# gold/iron ore with fortune) will be affected, but everything else will drop at least 1.
-# This may be set to false if you desire a more grindy experience for your players, though it might be frustrating for them
+forgiving_multipliers: true # множители дропа ниже 0, если false, иногда заставят блоки не выпадать вовсе.
+# если true, количество дропа не опустится ниже 1, поэтому влияет только на блоки с множественным дропом (например, редстоун, лазурит,
+# золотая/железная руда с удачей), а остальные будут дропать минимум 1.
+# Можно поставить false для более «гриндового» опыта, но это может раздражать игроков
 
-# Digging features some archaeology buffs, one of them being that with a % chance, when a block is mined or dug out, adjacent blocks
-# that aren't touching air may be converted to suspicious sand/gravel containing some loot.
-# Materials are formatted like MATERIAL:MULTIPLIER, where the multiplier indicates how much the conversion chance should be multiplied
-# per material. This allows more fine control over which blocks should more or less commonly be converted. (default multiplier 1)
-archaeology_convertable_gravel: # The following blocks may be converted to suspicious gravel
+# Копание имеет археологические бонусы: с некоторым шансом при добыче блока соседние блоки,
+# не соприкасающиеся с воздухом, могут быть превращены в подозрительный песок/гравий с лутом.
+# Материалы задаются как MATERIAL:MULTIPLIER, где множитель увеличивает шанс конверсии
+# для каждого материала. Это даёт более тонкую настройку частоты конверсии. (по умолчанию 1)
+archaeology_convertable_gravel: # Следующие блоки могут быть превращены в подозрительный гравий
   - GRAVEL:1
 
-archaeology_convertable_sand: # The following blocks may be converted to suspicious sand
+archaeology_convertable_sand: # Следующие блоки могут быть превращены в подозрительный песок
   - SAND:1
   - SANDSTONE:1
 
-archaeology_rare_loot_tables: # Rare loot tables. If no loot table is specified by nearby structures, a random table will be picked from this list
+archaeology_rare_loot_tables: # Редкие таблицы лута. Если рядом нет структур с таблицей, выбирается случайная из списка
   - TRAIL_RUINS_ARCHAEOLOGY_RARE
   - DESERT_PYRAMID_ARCHAEOLOGY
 
-archaeology_common_loot_tables: # Common loot tables. Same as above, will spawn random entry if rare loot generation chance has failed
+archaeology_common_loot_tables: # Обычные таблицы лута. Если редкая таблица не сработала, выбирается случайная отсюда
   - DESERT_WELL_ARCHAEOLOGY
   - OCEAN_RUIN_COLD_ARCHAEOLOGY
   - OCEAN_RUIN_WARM_ARCHAEOLOGY

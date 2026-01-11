@@ -4,23 +4,23 @@ icon_data: 3510002
 description: <lang.skill-woodcutting-description>
 
 levelbar_title: <lang.skill-woodcutting-level-bar>
-levelbar_color: GREEN # You can choose between BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
-levelbar_style: SEGMENTED_6 # You can choose between SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, and SOLID
+levelbar_color: GREEN # Можно выбрать BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
+levelbar_style: SEGMENTED_6 # Можно выбрать SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20 и SOLID
 
-tree_capitator_instant: true # If true, tree capitator breaks trees instantly
-break_limit_tree_capitator: 128 # Maximum amount of blocks the Ultra Harvesting special ability is allowed to break
-leaf_decay_limit_tree_capitator: 384 # The max amount of leaves tree capitator will attempt to decay after treecapitator. If 0, this is disabled
+tree_capitator_instant: true # Если true, рубка деревьев ломает дерево мгновенно
+break_limit_tree_capitator: 128 # Максимальное количество блоков, которое может сломать способность Ультра-сбора
+leaf_decay_limit_tree_capitator: 384 # Максимум листьев, которые будут пытаться опасть после tree capitator. Если 0, отключено
 
-# As part of the tree capitator ability the plugin must be able to identify a block as a tree. It does this by checking the blocks above
-# the mined log and checking if any leaves exist connected somewhere on top of the tree. This limit defines how many logs it's allowed
-# to scan before giving up.
-# In short, if a tree has more logs than this, it's no longer considered a tree that can be mined with tree capitator.
+# Для tree capitator плагин должен определить дерево: проверяет блоки над
+# срубленным бревном и наличие листьев наверху. Этот лимит задаёт, сколько брёвен можно
+# просканировать перед остановкой.
+# Иначе говоря, если у дерева больше брёвен, оно не считается деревом для tree capitator.
 tree_scan_limit: 128
 
-forgiving_multipliers: true # drop multipliers below 0 will, if false, sometimes cause blocks mined to not drop anything.
-# if true, the drop amount can not go below 1 so only blocks that drop multiple items (such as redstone ore, lapis lazuli ore,
-# gold/iron ore with fortune) will be affected, but everything else will drop at least 1.
-# This may be set to false if you desire a more grindy experience for your players, though it might be frustrating for them
+forgiving_multipliers: true # множители дропа ниже 0, если false, иногда заставят блоки не выпадать вовсе.
+# если true, количество дропа не опустится ниже 1, поэтому влияет только на блоки с множественным дропом (например, редстоун, лазурит,
+# золотая/железная руда с удачей), а остальные будут дропать минимум 1.
+# Можно поставить false для более «гриндового» опыта, но это может раздражать игроков
 
 tree_capitator_prevention_blocks:
 - REDSTONE_BLOCK
@@ -32,10 +32,10 @@ tree_capitator_prevention_blocks:
 - NETHERITE_BLOCK
 - OBSIDIAN
 
-# Block types added here will be considered part of the "logs" definition, allowing them to be detected as part of a tree
+# Эти блоки будут считаться «брёвнами» и распознаваться как часть дерева
 additional_log_definition:
 - palm_log
 
-# Block types added here will be considered part of the "leaves" definition, allowing them to be detected as part of a tree
+# Эти блоки будут считаться «листьями» и распознаваться как часть дерева
 additional_leaves_definition:
 - palm_leaves

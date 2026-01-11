@@ -3,10 +3,10 @@ conversions:
     from: COBBLESTONE
     to: MOSSY_COBBLESTONE
     sound: ITEM_CROP_PLANT
-    with: # list of items block can be interacted with, where the value is the CustomModelData to be checked.
-      # if -1 CustomModelData is not used.
-      # If there's a 'c:' before the material, it's marked to be consumed on usage
-      # If the consumed item is a damageable tool, it's instead damaged by 1 or broken
+    with: # список предметов, которыми можно взаимодействовать с блоком; значение — проверяемый CustomModelData.
+      # если -1, CustomModelData не используется.
+      # если перед материалом стоит 'c:', предмет будет расходоваться при использовании
+      # если расходуемый предмет — это ломаемый инструмент, он получает 1 урон или ломается
       c:WHEAT_SEEDS: -1
       c:KELP: -1
   mossify_stone:

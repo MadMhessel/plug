@@ -1,6 +1,6 @@
-# This config purely defines the various buttons used in ValhallaMMO menus
-# Buttons are defined with MATERIAL:CUSTOMMODELDATA
-# Realistically, you will probably never need to change these values unless you're looking to modify some GUI content more indepth
+# Этот конфиг задаёт кнопки, используемые в меню ValhallaMMO
+# Кнопки задаются в формате MATERIAL:CUSTOMMODELDATA
+# Обычно менять эти значения не нужно, если только вы не хотите глубже изменить содержимое GUI
 skilltree_direction_n: ARROW:3511002
 skilltree_direction_ne: ARROW:3511003
 skilltree_direction_e: ARROW:3511004

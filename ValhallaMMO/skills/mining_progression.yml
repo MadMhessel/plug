@@ -9,10 +9,10 @@ experience:
   exp_per_break: false
   daily_limit: -1
   daily_limit_warning: <lang.skill-mining-daily-limit-reached>
-  mining_break: # Blocks mined or exploded will grant the player the amount of experience noted based on the amount of items it dropped,
-    # if the block was placed beforehand it will not reward any EXP or skill benefits.
-    # Only the items in this list will benefit from drop multiplication
-    # Items will only reward experience if both the mined block and the associated drop exist in this list (I.E. IRON_ORE and RAW_IRON)
+  mining_break: # Добытые или взорванные блоки дают опыт в зависимости от количества выпавших предметов,
+    # если блок был поставлен игроком, опыт и бонусы навыка не начисляются.
+    # Только предметы из этого списка участвуют в умножении дропа
+    # Опыт даётся только если и блок, и его дроп есть в списке (например, IRON_ORE и RAW_IRON)
     NETHERRACK: 2
     NETHER_QUARTZ_ORE: 40
     QUARTZ: 20
@@ -72,7 +72,7 @@ leveling_perks:
   mining_miningdrops_add: 0.01
   mining_blastingdrops_add: 0.01
 
-starting_coordinates: 4,9 # The coordinates in the skill tree the player sees first when switching to the skill tree
+starting_coordinates: 4,9 # Координаты в дереве навыков, которые игрок видит первыми при открытии
 
 perks:
   mining_perk_1:

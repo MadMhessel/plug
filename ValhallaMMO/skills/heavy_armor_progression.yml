@@ -8,9 +8,9 @@ starting_perks:
 experience:
   max_level: 100
   exp_level_curve: (%level% + 75 * 2^(%level%/7.6)) + 300
-  exp_damage_piece: 10 # Exp per damage dealt
-  exp_second_piece: 5 # Exp per second spent in combat, per piece of heavy armor. Players enter combat when hit, or when hitting entities, for a specified duration in config.yml
-  exp_multiplier_point: 0.05 # Exp multiplier bonus for each point of armor the player has. With 0.05 and 40 armor points the player gains +200% exp
+  exp_damage_piece: 10 # Опыт за нанесённый урон
+  exp_second_piece: 5 # Опыт за секунду боя за каждую часть тяжёлой брони. Игрок считается в бою при получении/нанесении урона (длительность в config.yml)
+  exp_multiplier_point: 0.05 # Бонус множителя опыта за каждое очко брони. При 0.05 и 40 очках брони это +200% опыта
   pvp_multiplier: 0.1
   is_chunk_nerfed: true
   daily_limit: -1

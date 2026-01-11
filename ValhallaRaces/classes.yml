@@ -21,11 +21,11 @@ classes:
     stat_buffs:
       MELEE_DAMAGE_DEALT: 0.05 # 5% дополнительного урона в ближнем бою
       ARMOR_MULTIPLIER_BONUS: 0.1 # Броня на 10% эффективнее
-    # race_filter: 
+    # race_filter:
     #   - human
     #   - dwarf
     #   - elf
-    # commands: 
+    # commands:
     #   - minecraft:experience add %player% 1 points
   barbarian:
     group: 1

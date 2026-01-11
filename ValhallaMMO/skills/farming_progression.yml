@@ -14,7 +14,7 @@ experience:
     CAVE_VINES: 80
     GLOW_BERRIES: 20
     HONEY_BOTTLE: 400
-  block_drops: # for functionality sake, the blocks dropping the items themselves *must* also be included in the list.
+  block_drops: # Для работы блоки, которые дропают эти предметы, тоже *должны* быть в списке.
     TORCHFLOWER_CROP: 100
     TORCHFLOWER: 100
     PITCHER_CROP: 100

@@ -24,7 +24,7 @@ experience:
     ROTTEN_FLESH: 100
     STICK: 100
     STRING: 100
-    POTION: 150 # water bottle
+    POTION: 150 # пузырёк воды
     BONE: 100
     INK_SAC: 100
     TRIPWIRE_HOOK: 100

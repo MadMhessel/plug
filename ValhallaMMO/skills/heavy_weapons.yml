@@ -4,11 +4,11 @@ icon_data: 3510001
 description: <lang.skill-heavy-weapons-description>
 
 levelbar_title: <lang.skill-heavy-weapons-level-bar>
-levelbar_color: RED # You can choose between BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
-levelbar_style: SEGMENTED_6 # You can choose between SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, and SOLID
+levelbar_color: RED # Можно выбрать BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
+levelbar_style: SEGMENTED_6 # Можно выбрать SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20 и SOLID
 
-# The item types which can be placed onto weapons to transfer potion effects to them. Should generally only be potions, but heck, if you wanna make
-# food items applicable you can do that too.
+# Типы предметов, которые можно применять к оружию для переноса эффектов. Обычно это зелья, но при желании можно
+# разрешить и еду.
 valid_coating_items:
 - POTION
 - SPLASH_POTION

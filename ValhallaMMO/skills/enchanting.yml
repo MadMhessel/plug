@@ -4,17 +4,16 @@ icon_data: 3510001
 description: <lang.skill-enchanting-description>
 
 levelbar_title: <lang.skill-enchanting-level-bar>
-levelbar_color: BLUE # You can choose between BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
-levelbar_style: SEGMENTED_6 # You can choose between SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, and SOLID
+levelbar_color: BLUE # Можно выбрать BLUE, YELLOW, GREEN, PINK, PURPLE, RED, WHITE
+levelbar_style: SEGMENTED_6 # Можно выбрать SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20 и SOLID
 
-anvil_downgrading: false # If true, when combining an item with another its enchantments can be downgraded if the player doesn't have sufficient skill
+anvil_downgrading: false # Если true, при объединении предметов зачарования могут быть понижены, если навыка недостаточно
 
 elemental_blade_activation_sound: BLOCK_ENCHANTMENT_TABLE_USE
 elemental_blade_expiration_sound: BLOCK_BELL_RESONATE
 
-# For vanilla enchantments the "default" amplifier is considered the amplifiers of the enchantments the item has
-# directly after enchanting with the vanilla system. If a bow got power IV for example, it could be amplified to
-# power VI if the player has 120 "skill" with enchanting
+# Для ванильных зачарований «стандартный» уровень — это уровень, полученный сразу после ванильного зачарования.
+# Например, если лук получил Силу IV, то при 120 «уровня» зачарования он может быть усилен до Силы VI
 scalings:
   power: (2/120) * %rating% - 2,ADD_ON_DEFAULT,none,none
   punch: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
@@ -40,7 +39,7 @@ scalings:
   blast_protection: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
   fire_protection: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
   feather_falling: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
-  quick_charge: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,2 # Quick charge can be gotten up to lv3, amplified up to 5 by this scaling, because quick charge 6 causes crossbows to not load at all
+  quick_charge: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,2 # Быстрая зарядка до lv3, усиливается до 5 этой формулой, т.к. уровень 6 ломает зарядку арбалета
   riptide: (2/120) * %rating% - 2,ADD_ON_DEFAULT,none,none
   soul_speed: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
   sweeping: (1/120) * %rating% - 1,ADD_ON_DEFAULT,none,none
